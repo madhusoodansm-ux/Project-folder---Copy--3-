@@ -41,4 +41,5 @@ portalButtons.forEach((button) => {
         window.location.href = destination;
 
     });
+
 });
