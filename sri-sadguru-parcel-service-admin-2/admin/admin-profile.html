@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Profile - Sri Sadguru Siddarooda Parcel Service</title>
+
+    <link rel="stylesheet" href="../css/admin-profile.css">
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+<body>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <img src="../images/logo.png" alt="Sri Sadguru Siddarooda Parcel Service">
+            </div>
+
+            <div class="sidebar-brand">
+                <h2>Sri Sadguru</h2>
+                <span>Siddarooda Parcel Service</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="bookings.html" class="nav-item">
+                <i class="fas fa-box"></i>
+                <span>Bookings</span>
+            </a>
+
+            <a href="payments.html" class="nav-item">
+                <i class="fas fa-credit-card"></i>
+                <span>Payments</span>
+            </a>
+
+            <a href="tracking.html" class="nav-item">
+                <i class="fas fa-location-dot"></i>
+                <span>Tracking</span>
+            </a>
+
+            <a href="pickup-management.html" class="nav-item">
+                <i class="fas fa-hand-holding-box"></i>
+                <span>Pickup Management</span>
+            </a>
+
+            <a href="delivery-management.html" class="nav-item">
+                <i class="fas fa-truck"></i>
+                <span>Delivery Management</span>
+            </a>
+
+            <a href="drivers.html" class="nav-item">
+                <i class="fas fa-id-card"></i>
+                <span>Drivers</span>
+            </a>
+
+            <a href="vehicles.html" class="nav-item">
+                <i class="fas fa-car"></i>
+                <span>Vehicles</span>
+            </a>
+
+            <a href="customers.html" class="nav-item">
+                <i class="fas fa-users"></i>
+                <span>Customers</span>
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <i class="fas fa-file-lines"></i>
+                <span>Reports</span>
+            </a>
+
+            <a href="admin-profile.html" class="nav-item active">
+                <i class="fas fa-user"></i>
+                <span>Admin Profile</span>
+            </a>
+
+            <a href="settings.html" class="nav-item">
+                <i class="fas fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+
+        <!-- Topbar -->
+        <header class="topbar">
+
+            <button class="menu-toggle" id="menuToggle" type="button">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="topbar-title">
+                <h1>Admin Profile</h1>
+                <p>Manage administrator profile and account security</p>
+            </div>
+
+        </header>
+
+
+        <!-- Main -->
+        <main class="main-content">
+
+            <!-- Profile Overview -->
+            <section class="profile-overview card">
+
+                <div class="profile-photo-section">
+
+                    <div class="profile-photo-wrapper">
+
+                        <img
+                            src="../images/logo.png"
+                            alt="Admin Profile"
+                            id="profilePhotoPreview"
+                        >
+
+                    </div>
+
+                    <div class="photo-actions">
+
+                        <label
+                            for="profilePhoto"
+                            class="photo-upload-button"
+                        >
+                            <i class="fas fa-camera"></i>
+                            Change Photo
+                        </label>
+
+                        <input
+                            type="file"
+                            id="profilePhoto"
+                            accept="image/*"
+                            hidden
+                        >
+
+                        <button
+                            type="button"
+                            class="remove-photo-button"
+                            id="removePhotoButton"
+                        >
+                            <i class="fas fa-trash"></i>
+                            Remove
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-summary">
+
+                    <h2 id="profileDisplayName">
+                        Admin User
+                    </h2>
+
+                    <span class="status-badge active">
+                        <span class="status-dot"></span>
+                        <span id="profileDisplayStatus">Active</span>
+                    </span>
+
+                    <p class="profile-role" id="profileDisplayRole">
+                        System Administrator
+                    </p>
+
+                    <p class="admin-id">
+                        Admin ID:
+                        <strong id="profileDisplayAdminId">
+                            ADM-0001
+                        </strong>
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- Profile Form -->
+            <section class="card">
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>Profile Information</h2>
+                        <p>Update your administrator information.</p>
+                    </div>
+
+                </div>
+
+
+                <form id="adminProfileForm" novalidate>
+
+                    <div class="form-grid">
+
+                        <!-- Admin ID -->
+                        <div class="form-group">
+
+                            <label for="adminId">
+                                Admin ID
+                            </label>
+
+                            <input
+                                type="text"
+                                id="adminId"
+                                value="ADM-0001"
+                                readonly
+                            >
+
+                        </div>
+
+
+                        <!-- Status -->
+                        <div class="form-group">
+
+                            <label for="adminStatus">
+                                Status
+                            </label>
+
+                            <select id="adminStatus">
+
+                                <option value="Active">
+                                    Active
+                                </option>
+
+                                <option value="Inactive">
+                                    Inactive
+                                </option>
+
+                            </select>
+
+                            <small
+                                class="field-error"
+                                id="adminStatusError"
+                            ></small>
+
+                        </div>
+
+
+                        <!-- Name -->
+                        <div class="form-group">
+
+                            <label for="adminName">
+                                Full Name
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="adminName"
+                                placeholder="Enter full name"
+                                required
+                            >
+
+                            <small
+                                class="field-error"
+                                id="adminNameError"
+                            ></small>
+
+                        </div>
+
+
+                        <!-- Email -->
+                        <div class="form-group">
+
+                            <label for="adminEmail">
+                                Email
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="email"
+                                id="adminEmail"
+                                placeholder="Enter email address"
+                                required
+                            >
+
+                            <small
+                                class="field-error"
+                                id="adminEmailError"
+                            ></small>
+
+                        </div>
+
+
+                        <!-- Mobile -->
+                        <div class="form-group">
+
+                            <label for="adminMobile">
+                                Mobile Number
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="adminMobile"
+                                placeholder="Enter 10-digit mobile number"
+                                maxlength="10"
+                                inputmode="numeric"
+                                required
+                            >
+
+                            <small
+                                class="field-error"
+                                id="adminMobileError"
+                            ></small>
+
+                        </div>
+
+
+                        <!-- Role -->
+                        <div class="form-group">
+
+                            <label for="adminRole">
+                                Role
+                            </label>
+
+                            <select id="adminRole">
+
+                                <option value="System Administrator">
+                                    System Administrator
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Designation -->
+                        <div class="form-group">
+
+                            <label for="adminDesignation">
+                                Designation
+                            </label>
+
+                            <input
+                                type="text"
+                                id="adminDesignation"
+                                placeholder="Enter designation"
+                            >
+
+                        </div>
+
+
+                        <!-- Alternate Mobile -->
+                        <div class="form-group">
+
+                            <label for="adminAlternateMobile">
+                                Alternate Mobile
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="adminAlternateMobile"
+                                placeholder="Enter alternate mobile number"
+                                maxlength="10"
+                                inputmode="numeric"
+                            >
+
+                            <small
+                                class="field-error"
+                                id="adminAlternateMobileError"
+                            ></small>
+
+                        </div>
+
+
+                        <!-- Department -->
+                        <div class="form-group">
+
+                            <label for="adminDepartment">
+                                Department
+                            </label>
+
+                            <input
+                                type="text"
+                                id="adminDepartment"
+                                placeholder="Enter department"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Security -->
+                    <div class="security-section">
+
+                        <div class="section-header">
+
+                            <div>
+                                <h2>Change Password</h2>
+
+                                <p>
+                                    Update your Supabase account password.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="security-notice">
+
+                            <i class="fas fa-shield-halved"></i>
+
+                            <div>
+
+                                <strong>
+                                    Secure Supabase authentication
+                                </strong>
+
+                                <p>
+                                    Password changes are handled by
+                                    Supabase Authentication. Your password
+                                    is never stored in the SSP profiles table.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <!-- Current Password -->
+                            <div class="form-group">
+
+                                <label for="currentPassword">
+                                    Current Password
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="currentPassword"
+                                    placeholder="Enter current password"
+                                    autocomplete="current-password"
+                                >
+
+                                <small
+                                    class="field-error"
+                                    id="currentPasswordError"
+                                ></small>
+
+                            </div>
+
+
+                            <!-- New Password -->
+                            <div class="form-group">
+
+                                <label for="newPassword">
+                                    New Password
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="newPassword"
+                                    placeholder="Enter new password"
+                                    autocomplete="new-password"
+                                >
+
+                                <small
+                                    class="field-error"
+                                    id="newPasswordError"
+                                ></small>
+
+                            </div>
+
+
+                            <!-- Confirm Password -->
+                            <div class="form-group">
+
+                                <label for="confirmPassword">
+                                    Confirm New Password
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    placeholder="Confirm new password"
+                                    autocomplete="new-password"
+                                >
+
+                                <small
+                                    class="field-error"
+                                    id="confirmPasswordError"
+                                ></small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+
+                        <button
+                            type="button"
+                            class="secondary-button"
+                            id="resetProfileButton"
+                        >
+                            <i class="fas fa-rotate-left"></i>
+                            Reset
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="primary-button"
+                            id="saveProfileButton"
+                        >
+                            <i class="fas fa-save"></i>
+                            Save Changes
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- Toast -->
+    <div
+        class="toast"
+        id="toast"
+        role="alert"
+        aria-live="polite"
+    >
+
+        <div class="toast-icon" id="toastIcon">
+            <i class="fas fa-check"></i>
+        </div>
+
+        <div class="toast-content">
+
+            <strong id="toastTitle">
+                Success
+            </strong>
+
+            <p id="toastMessage">
+                Changes saved successfully.
+            </p>
+
+        </div>
+
+        <button
+            type="button"
+            class="toast-close"
+            id="closeToast"
+            aria-label="Close notification"
+        >
+            <i class="fas fa-times"></i>
+        </button>
+
+    </div>
+
+
+    <!-- Font Awesome -->
+        <script src="../js/admin-shell.js"></script>
+
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"
+        crossorigin="anonymous"
+    ></script>
+
+    <!-- Supabase -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+    <!-- SSP Supabase Client -->
+    <script src="../js/supabase-client.js"></script>
+
+    <!-- Admin Profile -->
+    <script src="../js/admin-profile.js"></script>
+
+</body>
+</html>

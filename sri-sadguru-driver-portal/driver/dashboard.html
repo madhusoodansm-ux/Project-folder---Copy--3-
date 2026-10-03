@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="description"
+        content="Sri Sadguru Siddarooda Parcel Service Driver Dashboard"
+    >
+
+    <title>Driver Dashboard | Sri Sadguru Parcel Service</title>
+
+    <!-- Dashboard CSS -->
+    <link
+        rel="stylesheet"
+        href="../css/dashboard.css"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    >
+</head>
+
+<body>
+
+    <!-- =====================================================
+         MOBILE SIDEBAR OVERLAY
+    ====================================================== -->
+
+    <div
+        id="menuOverlay"
+        class="menu-overlay"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside
+        id="sideMenu"
+        class="side-menu"
+        aria-label="Driver navigation"
+    >
+
+        <button
+            type="button"
+            id="closeMenu"
+            class="close-menu"
+            aria-label="Close menu"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+
+        <!-- BRAND -->
+
+        <a
+            href="dashboard.html"
+            class="side-brand"
+        >
+
+            <img
+                src="../images/logo.png"
+                alt="Sri Sadguru Siddarooda Parcel Service"
+            >
+
+            <div>
+                <strong>Sri Sadguru</strong>
+                <span>Siddarooda Parcel Service</span>
+            </div>
+
+        </a>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="side-navigation">
+
+            <a
+                href="dashboard.html"
+                class="side-nav-item active"
+                data-page="dashboard"
+            >
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="shipments.html"
+                class="side-nav-item"
+                data-page="shipments"
+            >
+                <i class="fa-solid fa-box"></i>
+                <span>Shipments</span>
+            </a>
+
+
+            <a
+                href="pickup.html"
+                class="side-nav-item"
+                data-page="pickup"
+            >
+                <i class="fa-solid fa-truck-ramp-box"></i>
+                <span>Pickup</span>
+            </a>
+
+
+            <a
+                href="deliveries.html"
+                class="side-nav-item"
+                data-page="deliveries"
+            >
+                <i class="fa-solid fa-truck"></i>
+                <span>Deliveries</span>
+            </a>
+
+
+            <a
+                href="profile.html"
+                class="side-nav-item"
+                data-page="profile"
+            >
+                <i class="fa-solid fa-user"></i>
+                <span>Profile</span>
+            </a>
+
+        </nav>
+
+
+        <!-- LOGOUT -->
+
+        <button
+            type="button"
+            id="menuLogout"
+            class="side-logout"
+        >
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+        </button>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN APPLICATION
+    ====================================================== -->
+
+    <main class="driver-app">
+
+
+        <!-- =================================================
+             TOP HEADER
+        ================================================== -->
+
+        <header class="mobile-header">
+
+
+            <!-- MENU -->
+
+            <button
+                type="button"
+                id="menuButton"
+                class="header-icon-button"
+                aria-label="Open menu"
+                aria-expanded="false"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+
+            <!-- BRAND -->
+
+            <a
+                href="dashboard.html"
+                class="header-brand"
+            >
+
+                <img
+                    src="../images/logo.png"
+                    alt="Sri Sadguru logo"
+                >
+
+                <div class="header-brand-text">
+
+                    <strong>
+                        Sri Sadguru
+                    </strong>
+
+                    <span>
+                        <b>Siddarooda</b>
+                        Parcel Service
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- HEADER ACTIONS -->
+
+            <div class="header-actions">
+
+
+                <!-- NOTIFICATIONS -->
+
+                <button
+                    type="button"
+                    id="notificationButton"
+                    class="header-icon-button notification-button"
+                    aria-label="Notifications"
+                >
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span id="notificationCount">
+                        0
+                    </span>
+
+                </button>
+
+
+                <!-- PROFILE -->
+
+                <button
+                    type="button"
+                    id="profileButton"
+                    class="profile-button"
+                    aria-label="Open driver profile"
+                >
+
+                    <span class="profile-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             DASHBOARD CONTENT
+        ================================================== -->
+
+        <section class="dashboard-content">
+
+
+            <!-- =================================================
+                 WELCOME
+            ================================================== -->
+
+            <section class="welcome-card">
+
+                <div>
+
+                    <span class="welcome-small">
+                        Welcome Back,
+                    </span>
+
+                    <h1 id="driverName">
+                        Driver
+                        <span>👋</span>
+                    </h1>
+
+                </div>
+
+
+                <div class="driver-id-box">
+
+                    <span>
+                        Driver ID
+                    </span>
+
+                    <strong id="driverId">
+                        DRIVER001
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 TODAY'S SUMMARY
+            ================================================== -->
+
+            <section class="section-block">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Today's Summary
+                    </h2>
+
+                    <button
+                        type="button"
+                        class="view-all-button"
+                        id="summaryViewAll"
+                    >
+                        View All
+                    </button>
+
+                </div>
+
+
+                <div class="summary-scroll">
+
+
+                    <!-- ASSIGNED -->
+
+                    <button
+                        type="button"
+                        class="summary-card assigned-card"
+                        data-summary-page="shipments"
+                    >
+
+                        <div class="summary-icon">
+
+                            <i class="fa-solid fa-box"></i>
+
+                        </div>
+
+                        <strong id="assignedCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Assigned
+                            <br>
+                            Shipments
+                        </span>
+
+                    </button>
+
+
+                    <!-- PICKUP -->
+
+                    <button
+                        type="button"
+                        class="summary-card pickup-card"
+                        data-summary-page="pickup"
+                    >
+
+                        <div class="summary-icon">
+
+                            <i class="fa-solid fa-truck-ramp-box"></i>
+
+                        </div>
+
+                        <strong id="pickupCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Pickups
+                            <br>
+                            Pending
+                        </span>
+
+                    </button>
+
+
+                    <!-- DELIVERY -->
+
+                    <button
+                        type="button"
+                        class="summary-card delivery-card"
+                        data-summary-page="deliveries"
+                    >
+
+                        <div class="summary-icon">
+
+                            <i class="fa-solid fa-truck"></i>
+
+                        </div>
+
+                        <strong id="deliveryCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Deliveries
+                            <br>
+                            In Progress
+                        </span>
+
+                    </button>
+
+
+                    <!-- COMPLETED -->
+
+                    <button
+                        type="button"
+                        class="summary-card completed-card"
+                        data-summary-page="deliveries"
+                    >
+
+                        <div class="summary-icon">
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                        </div>
+
+                        <strong id="completedCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Completed
+                            <br>
+                            Today
+                        </span>
+
+                    </button>
+
+
+                    <!-- PENDING -->
+
+                    <button
+                        type="button"
+                        class="summary-card pending-card"
+                        data-summary-page="shipments"
+                    >
+
+                        <div class="summary-icon">
+
+                            <i class="fa-regular fa-clock"></i>
+
+                        </div>
+
+                        <strong id="pendingCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Pending
+                            <br>
+                            Overall
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ASSIGNED SHIPMENTS
+            ================================================== -->
+
+            <section
+                class="section-block shipments-section"
+                id="shipmentsSection"
+            >
+
+                <div class="section-heading">
+
+                    <h2>
+                        Assigned Shipments
+                    </h2>
+
+                    <button
+                        type="button"
+                        class="view-all-button"
+                        id="shipmentsViewAll"
+                    >
+                        View All
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="shipmentList"
+                    class="shipment-list"
+                ></div>
+
+
+                <div
+                    id="emptyShipments"
+                    class="empty-state hidden"
+                >
+
+                    <div class="empty-icon">
+
+                        <i class="fa-solid fa-box-open"></i>
+
+                    </div>
+
+                    <h3>
+                        No assigned shipments
+                    </h3>
+
+                    <p>
+                        There are currently no shipments assigned to you.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 RECENT ACTIVITY
+            ================================================== -->
+
+            <section
+                class="section-block activity-section"
+                id="activitySection"
+            >
+
+                <div class="section-heading">
+
+                    <h2>
+                        Recent Activity
+                    </h2>
+
+                    <button
+                        type="button"
+                        class="view-all-button"
+                        id="activityViewAll"
+                    >
+                        View All
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="activityList"
+                    class="activity-list"
+                ></div>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MOBILE BOTTOM NAVIGATION
+        ================================================== -->
+
+        <nav
+            class="bottom-navigation"
+            aria-label="Mobile navigation"
+        >
+
+            <a
+                href="dashboard.html"
+                class="bottom-nav-item active"
+                data-page="dashboard"
+            >
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="shipments.html"
+                class="bottom-nav-item"
+                data-page="shipments"
+            >
+                <i class="fa-solid fa-box"></i>
+                <span>Shipments</span>
+            </a>
+
+
+            <a
+                href="pickup.html"
+                class="bottom-nav-item"
+                data-page="pickup"
+            >
+                <i class="fa-solid fa-truck-ramp-box"></i>
+                <span>Pickup</span>
+            </a>
+
+
+            <a
+                href="deliveries.html"
+                class="bottom-nav-item"
+                data-page="deliveries"
+            >
+                <i class="fa-solid fa-truck"></i>
+                <span>Deliveries</span>
+            </a>
+
+
+            <a
+                href="profile.html"
+                class="bottom-nav-item"
+                data-page="profile"
+            >
+                <i class="fa-solid fa-user"></i>
+                <span>Profile</span>
+            </a>
+
+        </nav>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+
+    <!-- DASHBOARD JS -->
+     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+     <script src="../js/supabase-client.js"></script>
+     <script src="../js/auth.js"></script>
+     <script src="../js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Create a new parcel booking - Sri Sadguru Parcel Service">
+
+    <title>
+        New Booking | Sri Sadguru Parcel Service
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/new-booking.css">
+
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+
+<body> 
+
+<div class="page">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="page-header">
+
+        <div class="header-left">
+
+            <button
+                type="button"
+                class="back-button"
+                id="backButton"
+                aria-label="Go back">
+
+                ←
+
+            </button>
+
+            <div>
+
+                <h1>
+                    New Booking
+                </h1>
+
+                <p>
+                    Create a new parcel booking
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-brand">
+
+            <img
+                src="../images/logo.png"
+                alt="Sri Sadguru Parcel Service">
+
+            <span>
+                Sri Sadguru Parcel Service
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN FORM
+         ===================================================== -->
+
+    <main class="booking-container">
+
+        <form
+            id="bookingForm"
+            novalidate>
+
+
+            <!-- =================================================
+                 BOOKING INFORMATION
+                 ================================================= -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <div class="section-number">
+                        1
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Booking Information
+                        </h2>
+
+                        <p>
+                            Basic information for this booking
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="field">
+
+                        <label for="bookingDate">
+                            Booking Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="bookingDate"
+                            name="bookingDate"
+                            required>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="bookingTime">
+                            Booking Time
+                        </label>
+
+                        <input
+                            type="time"
+                            id="bookingTime"
+                            name="bookingTime"
+                            required>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="serviceType">
+                            Delivery Service
+                        </label>
+
+                        <select
+                            id="serviceType"
+                            name="serviceType">
+
+                            <option value="Standard Delivery">
+                                Standard Delivery
+                            </option>
+
+                            <option value="Express Delivery">
+                                Express Delivery
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SENDER
+                 ================================================= -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <div class="section-number">
+                        2
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Sender Details
+                        </h2>
+
+                        <p>
+                            Customer / sender information
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="field">
+
+                        <label for="senderName">
+                            Sender Name
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="senderName"
+                            name="senderName"
+                            placeholder="Enter sender name"
+                            autocomplete="name"
+                            required>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="senderPhone">
+                            Sender Mobile
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="senderPhone"
+                            name="senderPhone"
+                            placeholder="10 digit mobile number"
+                            maxlength="10"
+                            inputmode="numeric"
+                            required>
+
+                    </div>
+
+
+                    <div class="field full">
+
+                        <label for="senderAddress">
+                            Sender Address
+                            <span>*</span>
+                        </label>
+
+                        <textarea
+                            id="senderAddress"
+                            name="senderAddress"
+                            rows="3"
+                            placeholder="Enter complete sender address"
+                            required></textarea>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RECEIVER
+                 ================================================= -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <div class="section-number">
+                        3
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Receiver Details
+                        </h2>
+
+                        <p>
+                            Delivery recipient information
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="field">
+
+                        <label for="receiverName">
+                            Receiver Name
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="receiverName"
+                            name="receiverName"
+                            placeholder="Enter receiver name"
+                            required>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="receiverPhone">
+                            Receiver Mobile
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="receiverPhone"
+                            name="receiverPhone"
+                            placeholder="10 digit mobile number"
+                            maxlength="10"
+                            inputmode="numeric"
+                            required>
+
+                    </div>
+
+
+                    <div class="field full">
+
+                        <label for="receiverAddress">
+                            Receiver Address
+                            <span>*</span>
+                        </label>
+
+                        <textarea
+                            id="receiverAddress"
+                            name="receiverAddress"
+                            rows="3"
+                            placeholder="Enter complete receiver address"
+                            required></textarea>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 ROUTE
+                 ================================================= -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <div class="section-number">
+                        4
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Parcel Route
+                        </h2>
+
+                        <p>
+                            Pickup and delivery route
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="route-grid">
+
+                    <div class="route-card">
+
+                        <div class="route-icon">
+                            A
+                        </div>
+
+                        <div class="field">
+
+                            <label for="routeFrom">
+                                From
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="routeFrom"
+                                name="routeFrom"
+                                placeholder="Pickup city / location"
+                                required>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="pickupAddress">
+                                Pickup Address
+                                <span>*</span>
+                            </label>
+
+                            <textarea
+                                id="pickupAddress"
+                                name="pickupAddress"
+                                rows="3"
+                                placeholder="Complete pickup address"
+                                required></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="route-arrow">
+                        →
+                    </div>
+
+
+                    <div class="route-card">
+
+                        <div class="route-icon">
+                            B
+                        </div>
+
+                        <div class="field">
+
+                            <label for="routeTo">
+                                To
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="routeTo"
+                                name="routeTo"
+                                placeholder="Delivery city / location"
+                                required>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="deliveryAddress">
+                                Delivery Address
+                                <span>*</span>
+                            </label>
+
+                            <textarea
+                                id="deliveryAddress"
+                                name="deliveryAddress"
+                                rows="3"
+                                placeholder="Complete delivery address"
+                                required></textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PARCEL
+                 ================================================= -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <div class="section-number">
+                        5
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Parcel Details
+                        </h2>
+
+                        <p>
+                            Enter parcel information
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="field">
+
+                        <label for="parcelType">
+                            Parcel Type
+                            <span>*</span>
+                        </label>
+
+                        <select
+                            id="parcelType"
+                            name="parcelType"
+                            required>
+
+                            <option value="">
+                                Select parcel type
+                            </option>
+
+                            <option value="Document">
+                                Document
+                            </option>
+
+                            <option value="Parcel">
+                                Parcel
+                            </option>
+
+                            <option value="General Goods">
+                                General Goods
+                            </option>
+
+                            <option value="Fragile">
+                                Fragile
+                            </option>
+
+                            <option value="Express">
+                                Express
+                            </option>
+
+                            <option value="Box">
+                                Box
+                            </option>
+
+                            <option value="Envelope">
+                                Envelope
+                            </option>
+
+                             <option value="other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="pieces">
+                            Number of Pieces
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="number"
+                            id="pieces"
+                            name="pieces"
+                            min="1"
+                            step="1"
+                            value="1"
+                            required>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="weight">
+                            Weight
+                            <span>*</span>
+                        </label>
+
+                        <div class="input-with-unit">
+
+                            <input
+                                type="number"
+                                id="weight"
+                                name="weight"
+                                min="0"
+                                step="0.01"
+                                placeholder="0.00"
+                                required>
+
+                            <span>
+                                kg
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="dimensions">
+                            Dimensions
+                        </label>
+
+                        <input
+                            type="text"
+                            id="dimensions"
+                            name="dimensions"
+                            placeholder="40 × 30 × 20 cm">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="declaredValue">
+                            Declared Value
+                        </label>
+
+                        <div class="input-with-prefix">
+
+                            <span>
+                                ₹
+                            </span>
+
+                            <input
+                                type="number"
+                                id="declaredValue"
+                                name="declaredValue"
+                                min="0"
+                                step="0.01"
+                                placeholder="0">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field full">
+
+                        <label for="instructions">
+                            Special Instructions
+                        </label>
+
+                        <textarea
+                            id="instructions"
+                            name="instructions"
+                            rows="3"
+                            placeholder="Example: Handle with care"></textarea>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PAYMENT
+                 ================================================= -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <div class="section-number">
+                        6
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Payment Information
+                        </h2>
+
+                        <p>
+                            Select how payment will be handled
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="payment-methods">
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="paymentMethod"
+                            value="Cash on Delivery"
+                            checked>
+
+                        <span class="payment-option-content">
+
+                            <strong>
+                                Cash on Delivery
+                            </strong>
+
+                            <small>
+                                Payment collected on delivery
+                            </small>
+
+                        </span>
+
+                    </label>
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="paymentMethod"
+                            value="Cash">
+
+                        <span class="payment-option-content">
+
+                            <strong>
+                                Cash
+                            </strong>
+
+                            <small>
+                                Payment received at booking
+                            </small>
+
+                        </span>
+
+                    </label>
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="paymentMethod"
+                            value="UPI">
+
+                        <span class="payment-option-content">
+
+                            <strong>
+                                UPI
+                            </strong>
+
+                            <small>
+                                UPI payment
+                            </small>
+
+                        </span>
+
+                    </label>
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="paymentMethod"
+                            value="Bank Transfer">
+
+                        <span class="payment-option-content">
+
+                            <strong>
+                                Bank Transfer
+                            </strong>
+
+                            <small>
+                                Bank / online transfer
+                            </small>
+
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="form-grid payment-extra">
+
+                    <div class="field">
+
+                        <label for="paymentStatus">
+                            Payment Status
+                        </label>
+
+                        <select
+                            id="paymentStatus"
+                            name="paymentStatus">
+
+                            <option value="Pending">
+                                Pending
+                            </option>
+
+                            <option value="Received">
+                                Received
+                            </option>
+
+                            <option value="Partially Received">
+                                Partially Received
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="receivedAmount">
+                            Received Amount
+                        </label>
+
+                        <div class="input-with-prefix">
+
+                            <span>
+                                ₹
+                            </span>
+
+                            <input
+                                type="number"
+                                id="receivedAmount"
+                                name="receivedAmount"
+                                min="0"
+                                step="0.01"
+                                placeholder="0">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PRICE
+                 ================================================= -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <div class="section-number">
+                        7
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Price Information
+                        </h2>
+
+                        <p>
+                            Price can be assigned now or later
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="price-note">
+
+                    <span>
+                        ₹
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Price assignment is optional
+                        </strong>
+
+                        <p>
+                            If the price is not entered now,
+                            the booking will remain
+                            <b>Price Not Assigned</b>.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="field">
+
+                        <label for="basePrice">
+                            Base Price
+                        </label>
+
+                        <div class="input-with-prefix">
+
+                            <span>
+                                ₹
+                            </span>
+
+                            <input
+                                type="number"
+                                id="basePrice"
+                                name="basePrice"
+                                min="0"
+                                step="0.01"
+                                placeholder="0">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="distanceCharge">
+                            Distance Charge
+                        </label>
+
+                        <div class="input-with-prefix">
+
+                            <span>
+                                ₹
+                            </span>
+
+                            <input
+                                type="number"
+                                id="distanceCharge"
+                                name="distanceCharge"
+                                min="0"
+                                step="0.01"
+                                placeholder="0">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="handlingCharge">
+                            Handling Charge
+                        </label>
+
+                        <div class="input-with-prefix">
+
+                            <span>
+                                ₹
+                            </span>
+
+                            <input
+                                type="number"
+                                id="handlingCharge"
+                                name="handlingCharge"
+                                min="0"
+                                step="0.01"
+                                placeholder="0">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="gst">
+                            GST
+                        </label>
+
+                        <div class="input-with-prefix">
+
+                            <span>
+                                ₹
+                            </span>
+
+                            <input
+                                type="number"
+                                id="gst"
+                                name="gst"
+                                min="0"
+                                step="0.01"
+                                placeholder="Auto">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="total-preview">
+
+                    <span>
+                        Total Price
+                    </span>
+
+                    <strong id="totalPricePreview">
+                        Price Not Assigned
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 ACTION BUTTONS
+                 ================================================= -->
+
+            <section class="form-actions">
+
+                <button
+                    type="button"
+                    class="button secondary"
+                    id="cancelButton">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="button preview"
+                    id="previewButton">
+
+                    👁 Preview Booking
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="button primary"
+                    id="saveButton">
+
+                    ✓ Save Booking
+
+                </button>
+
+            </section>
+
+        </form>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     PREVIEW MODAL
+     ========================================================= -->
+
+<div
+    class="modal-overlay"
+    id="previewModal"
+    aria-hidden="true">
+
+    <div
+        class="modal preview-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="previewTitle">
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2 id="previewTitle">
+                    Booking Preview
+                </h2>
+
+                <p>
+                    Check all details before saving
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closePreviewButton"
+                aria-label="Close preview">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="preview-content"
+            id="previewContent">
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="button secondary"
+                id="editPreviewButton">
+
+                ← Edit Details
+
+            </button>
+
+
+            <button
+                type="button"
+                class="button primary"
+                id="confirmSaveButton">
+
+                ✓ Confirm & Save
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     CONFIRMATION MODAL
+     ========================================================= -->
+
+<div
+    class="modal-overlay"
+    id="confirmModal"
+    aria-hidden="true">
+
+    <div
+        class="modal confirm-modal"
+        role="dialog"
+        aria-modal="true">
+
+        <div class="confirm-icon">
+            ✓
+        </div>
+
+        <h2>
+            Confirm New Booking
+        </h2>
+
+        <p>
+            Are you sure you want to save this booking?
+        </p>
+
+        <p class="confirm-note">
+            The booking will be added to the booking system
+            and can then be opened from Booking Details.
+        </p>
+
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="button secondary"
+                id="cancelConfirmButton">
+
+                Cancel
+
+            </button>
+
+
+            <button
+                type="button"
+                class="button primary"
+                id="finalSaveButton">
+
+                Yes, Save Booking
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     SUCCESS MODAL
+     ========================================================= -->
+
+<div
+    class="modal-overlay"
+    id="successModal"
+    aria-hidden="true">
+
+    <div
+        class="modal success-modal"
+        role="dialog"
+        aria-modal="true">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h2>
+            Booking Saved Successfully
+        </h2>
+
+        <p>
+            Your new booking has been created.
+        </p>
+
+        <div class="created-booking-id">
+
+            <span>
+                Tracking ID
+            </span>
+
+            <strong id="createdBookingId">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="button secondary"
+                id="successBackButton">
+
+                Back to Bookings
+
+            </button>
+
+
+            <button
+                type="button"
+                class="button primary"
+                id="openBookingButton">
+
+                Open Booking Details
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     TOAST
+     ========================================================= -->
+
+<div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite">
+
+</div>
+
+
+<!-- =========================================================
+     SUPABASE
+     ========================================================= -->
+
+    <script src="../js/admin-shell.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/supabase-client.js"></script>
+<script src="../js/admin-settings.js"></script>
+
+
+<!-- =========================================================
+     NEW BOOKING JAVASCRIPT
+     ========================================================= -->
+
+<script src="../js/new-booking.js"></script>
+
+</body>
+
+</html>

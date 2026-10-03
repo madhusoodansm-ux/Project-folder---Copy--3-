@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Track Parcel Details - Sri Sadguru Siddarooda Parcel Service"
+    >
+
+    <title>
+        Track Parcel Details | Sri Sadguru Parcel Service
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/track-parcel-details.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="track-details-page">
+
+
+        <!-- =========================================
+             PAGE HEADER
+        ========================================== -->
+
+        <header class="track-details-header">
+
+            <button
+                type="button"
+                class="back-button"
+                id="backButton"
+                aria-label="Back to Track Parcel"
+            >
+                ←
+            </button>
+
+
+            <h1>
+                Track Parcel Details
+            </h1>
+
+
+            <div
+                class="header-spacer"
+                aria-hidden="true"
+            ></div>
+
+        </header>
+
+
+
+        <!-- =========================================
+             MAIN CONTENT
+        ========================================== -->
+
+        <section class="track-details-content">
+
+
+            <!-- =====================================
+                 LOADING
+            ====================================== -->
+
+            <section
+                id="loadingState"
+                class="state-card"
+            >
+
+                <div class="loading-mark">
+                    ...
+                </div>
+
+                <h2>
+                    Loading parcel details
+                </h2>
+
+                <p>
+                    Please wait while we load your parcel information.
+                </p>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 ERROR
+            ====================================== -->
+
+            <section
+                id="errorState"
+                class="state-card error-state"
+                hidden
+            >
+
+                <div class="state-icon">
+                    !
+                </div>
+
+                <h2>
+                    Unable to load parcel
+                </h2>
+
+                <p id="errorMessage">
+                    We could not load the parcel details.
+                </p>
+
+                <button
+                    type="button"
+                    class="primary-button"
+                    id="retryButton"
+                >
+                    Try Again
+                </button>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 NOT FOUND
+            ====================================== -->
+
+            <section
+                id="notFoundState"
+                class="state-card"
+                hidden
+            >
+
+                <div class="state-icon">
+                    —
+                </div>
+
+                <h2>
+                    Parcel not found
+                </h2>
+
+                <p>
+                    The requested parcel could not be found
+                    in your bookings.
+                </p>
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="backToListButton"
+                >
+                    Back to Track Parcel
+                </button>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 COMPLETE DETAILS
+            ====================================== -->
+
+            <div
+                id="detailsContent"
+                hidden
+            >
+
+
+                <!-- =================================
+                     BOOKING SUMMARY
+                ================================== -->
+
+                <section class="booking-summary-card">
+
+                    <div class="booking-summary-top">
+
+                        <div>
+
+                            <span class="summary-label">
+                                BOOKING ID
+                            </span>
+
+                            <strong
+                                id="bookingId"
+                                class="booking-id"
+                            >
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <span
+                            id="bookingStatus"
+                            class="status-badge"
+                        >
+                            —
+                        </span>
+
+                    </div>
+
+
+                    <div class="booking-meta">
+
+                        <div class="meta-item">
+
+                            <span>
+                                Booking Date
+                            </span>
+
+                            <strong id="bookingDate">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="meta-item">
+
+                            <span>
+                                Last Updated
+                            </span>
+
+                            <strong id="lastUpdated">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================
+                     CURRENT STATUS
+                ================================== -->
+
+                <section class="status-card">
+
+                    <div class="status-icon">
+                        ✓
+                    </div>
+
+                    <div class="status-content">
+
+                        <span>
+                            Current Status
+                        </span>
+
+                        <h2 id="currentStatusTitle">
+                            —
+                        </h2>
+
+                        <p id="currentStatusMessage">
+                            —
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================
+                     PARCEL INFORMATION
+                ================================== -->
+
+                <section class="information-card">
+
+                    <div class="card-heading">
+
+                        <div class="heading-icon">
+                            □
+                        </div>
+
+                        <h2>
+                            Parcel Information
+                        </h2>
+
+                    </div>
+
+
+                    <div class="information-grid">
+
+                        <div class="information-item">
+
+                            <span>
+                                Parcel Name
+                            </span>
+
+                            <strong id="parcelName">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="information-item">
+
+                            <span>
+                                Parcel Type
+                            </span>
+
+                            <strong id="parcelType">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="information-item">
+
+                            <span>
+                                Weight
+                            </span>
+
+                            <strong id="parcelWeight">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="information-item">
+
+                            <span>
+                                Pieces
+                            </span>
+
+                            <strong id="parcelPieces">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="information-item full-width">
+
+                            <span>
+                                Description
+                            </span>
+
+                            <strong id="parcelDescription">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================
+                     PICKUP & DELIVERY
+                ================================== -->
+
+                <section class="information-card">
+
+                    <div class="card-heading">
+
+                        <div class="heading-icon">
+                            ↕
+                        </div>
+
+                        <h2>
+                            Pickup & Delivery
+                        </h2>
+
+                    </div>
+
+
+                    <div class="route-grid">
+
+
+                        <!-- PICKUP -->
+
+                        <div class="route-card">
+
+                            <div class="route-icon pickup-icon">
+                                P
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    PICKUP
+                                </span>
+
+                                <strong id="pickupCity">
+                                    —
+                                </strong>
+
+                                <p id="pickupAddress">
+                                    —
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- DELIVERY -->
+
+                        <div class="route-card">
+
+                            <div class="route-icon delivery-icon">
+                                D
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    DELIVERY
+                                </span>
+
+                                <strong id="deliveryCity">
+                                    —
+                                </strong>
+
+                                <p id="deliveryAddress">
+                                    —
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================
+                     COMPLETE TRACKING TIMELINE
+                ================================== -->
+
+                <section class="information-card timeline-card">
+
+                    <div class="card-heading">
+
+                        <div class="heading-icon">
+                            ◷
+                        </div>
+
+                        <div>
+
+                            <h2>
+                                Parcel Tracking
+                            </h2>
+
+                            <p>
+                                Status history of your parcel
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="timeline"
+                        class="timeline"
+                    ></div>
+
+
+                    <div
+                        id="timelineEmpty"
+                        class="timeline-empty"
+                        hidden
+                    >
+
+                        <p>
+                            No previous tracking updates are available.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================
+                     BACK TO TRACK LIST
+                ================================== -->
+
+                <button
+                    type="button"
+                    class="secondary-button full-button"
+                    id="bottomBackButton"
+                >
+                    ← Back to Track Parcel
+                </button>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         SUPABASE
+    ========================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <script
+        src="../js/supabase-client.js"
+    ></script>
+
+
+    <script
+        src="../js/auth.js"
+    ></script>
+
+
+    <script
+        src="../js/track-parcel-details.js"
+    ></script>
+
+</body>
+
+</html>

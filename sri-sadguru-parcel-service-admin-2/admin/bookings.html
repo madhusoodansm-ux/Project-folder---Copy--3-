@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bookings | Sri Sadguru Siddaroooda Parcel Service</title>
+
+    <link rel="stylesheet" href="../css/bookings.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <img src="../images/logo.png" alt="Sri Sadguru Logo">
+
+            <div class="brand-text">
+                <strong>SRI SADGURU</strong>
+                <span>SIDDAROODA</span>
+                <small>PARCEL SERVICE</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 11.5 12 4l9 7.5"></path>
+                        <path d="M5 10v10h14V10"></path>
+                        <path d="M9 20v-6h6v6"></path>
+                    </svg>
+                </span>
+                <span class="nav-label">Dashboard</span>
+            </a>
+
+            <a href="bookings.html" class="nav-item active">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="4" y="5" width="16" height="15" rx="2"></rect>
+                        <path d="M8 3v4M16 3v4M4 9h16"></path>
+                    </svg>
+                </span>
+                <span class="nav-label">Bookings</span>
+            </a>
+
+            <a href="payments.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="6" width="18" height="12" rx="2"></rect>
+                        <path d="M3 10h18"></path>
+                    </svg>
+                </span>
+                <span class="nav-label">Payments</span>
+            </a>
+
+            <a href="tracking.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"></path>
+                        <circle cx="12" cy="9" r="2.3"></circle>
+                    </svg>
+                </span>
+                <span class="nav-label">Tracking</span>
+            </a>
+
+            <!-- Proper Orders icon -->
+            <a href="bookings.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="5" y="3" width="14" height="18" rx="2"></rect>
+                        <path d="M9 7h6M9 11h6M9 15h4"></path>
+                    </svg>
+                </span>
+                <span class="nav-label">Recent Orders</span>
+            </a>
+
+            <a href="pickup-management.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="7" width="18" height="10" rx="2"></rect>
+                        <path d="M7 7V5h10v2"></path>
+                    </svg>
+                </span>
+                <span class="nav-label">Pickup Management</span>
+            </a>
+
+            <a href="delivery-management.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 7h11v10H3z"></path>
+                        <path d="M14 10h4l3 3v4h-7z"></path>
+                        <circle cx="7" cy="19" r="1.8"></circle>
+                        <circle cx="17" cy="19" r="1.8"></circle>
+                    </svg>
+                </span>
+                <span class="nav-label">Delivery Management</span>
+            </a>
+
+            <a href="drivers.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="8" r="3"></circle>
+                        <path d="M5 20c.7-4 2.9-6 7-6s6.3 2 7 6"></path>
+                    </svg>
+                </span>
+                <span class="nav-label">Drivers</span>
+            </a>
+
+            <a href="vehicles.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="4" y="6" width="16" height="12" rx="2"></rect>
+                        <path d="M8 18v2M16 18v2M8 10h8"></path>
+                    </svg>
+                </span>
+                <span class="nav-label">Vehicles</span>
+            </a>
+
+            <a href="customers.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="9" cy="8" r="3"></circle>
+                        <path d="M3 20c.5-3.5 2.5-5 6-5s5.5 1.5 6 5"></path>
+                        <circle cx="17" cy="9" r="2"></circle>
+                        <path d="M15 15c2.8 0 4.5 1.5 5 4"></path>
+                    </svg>
+                </span>
+                <span class="nav-label">Customers</span>
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 19V5"></path>
+                        <path d="M4 17h5v-5h5V8h6"></path>
+                    </svg>
+                </span>
+                <span class="nav-label">Reports</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="8" r="3"></circle>
+                        <path d="M5 20c.7-4 2.9-6 7-6s6.3 2 7 6"></path>
+                    </svg>
+                </span>
+                <span class="nav-label">Admin Profile</span>
+            </a>
+
+            <a href="../index.html" class="nav-item logout">
+                <span class="nav-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10 17l5-5-5-5"></path>
+                        <path d="M15 12H3"></path>
+                        <path d="M19 4h2v16h-2"></path>
+                    </svg>
+                </span>
+                <span class="nav-label">Logout</span>
+            </a>
+
+        </nav>
+
+        <div class="admin-card">
+            <div class="admin-avatar">AD</div>
+
+            <div class="admin-info">
+                <strong>Admin</strong>
+                <span>Admin</span>
+
+                <small>
+                    <i></i>
+                    Online
+                </small>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <button
+                class="menu-button"
+                id="sidebarToggle"
+                aria-label="Toggle sidebar"
+                type="button">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+
+            <div class="top-search">
+
+                <svg viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="6.5"></circle>
+                    <path d="m16 16 5 5"></path>
+                </svg>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search by customer name, tracking ID..."
+                    autocomplete="off">
+
+            </div>
+
+
+            <div class="top-right">
+
+                <button
+                    class="notification-button"
+                    id="notificationButton"
+                    type="button"
+                    aria-label="Notifications">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+                        <path d="M10 21h4"></path>
+                    </svg>
+
+                    <b>0</b>
+
+                </button>
+
+
+                <div class="top-profile">
+
+                    <div class="profile-avatar">AD</div>
+
+                    <div class="profile-details">
+                        <strong>Admin</strong>
+                        <span>Admin</span>
+                    </div>
+
+                    <span class="profile-arrow">⌄</span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <section class="content">
+
+            <!-- PAGE HEADING -->
+            <div class="page-heading">
+
+                <div>
+
+                    <h1>
+                        All Bookings
+                        <span id="bookingCountText">
+                            0 bookings
+                        </span>
+                    </h1>
+
+                    <p>
+                        Showing all parcel bookings
+                    </p>
+
+                </div>
+
+
+                <div class="heading-actions">
+
+                    <button
+                        class="secondary-button"
+                        id="exportButton"
+                        type="button">
+
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 3v11"></path>
+                            <path d="m8 10 4 4 4-4"></path>
+                            <path d="M5 20h14"></path>
+                        </svg>
+
+                        Export
+
+                    </button>
+
+
+                    <button
+                        class="primary-button"
+                        id="newBookingButton"
+                        type="button">
+
+                        <span>+</span>
+
+                        New Booking
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK FILTERS -->
+            <div
+                class="quick-filters"
+                id="quickFilters">
+
+                <button
+                    class="filter-chip active"
+                    data-filter="All">
+
+                    <span class="chip-icon all">
+                        ▦
+                    </span>
+
+                    <span>
+                        All
+                    </span>
+
+                    <b>
+                        0
+                    </b>
+
+                </button>
+
+
+                <button
+                    class="filter-chip"
+                    data-filter="Pickup">
+
+                    <span class="chip-icon pickup">
+                        ▣
+                    </span>
+
+                    <span>
+                        Pickup
+                    </span>
+
+                    <b>
+                        0
+                    </b>
+
+                </button>
+
+
+                <button
+                    class="filter-chip"
+                    data-filter="In Transit">
+
+                    <span class="chip-icon transit">
+                        ▣
+                    </span>
+
+                    <span>
+                        In Transit
+                    </span>
+
+                    <b>
+                        0
+                    </b>
+
+                </button>
+
+
+                <button
+                    class="filter-chip"
+                    data-filter="Assigned">
+
+                    <span class="chip-icon assigned">
+                        ●
+                    </span>
+
+                    <span>
+                        Assigned
+                    </span>
+
+                    <b>
+                        0
+                    </b>
+
+                </button>
+
+
+                <button
+                    class="filter-chip"
+                    data-filter="Pending Pickup">
+
+                    <span class="chip-icon pending">
+                        ▣
+                    </span>
+
+                    <span>
+                        Pending Pickup
+                    </span>
+
+                    <b>
+                        0
+                    </b>
+
+                </button>
+
+
+                <button
+                    class="filter-chip"
+                    data-filter="Delivered">
+
+                    <span class="chip-icon delivered">
+                        ✓
+                    </span>
+
+                    <span>
+                        Delivered
+                    </span>
+
+                    <b>
+                        0
+                    </b>
+
+                </button>
+
+
+                <button
+                    class="filter-chip"
+                    data-filter="Call Confirmation Required">
+
+                    <span class="chip-icon call-required">
+                        ☎
+                    </span>
+
+                    <span>
+                        Call Conf. Req.
+                    </span>
+
+                    <b>
+                        0
+                    </b>
+
+                </button>
+
+
+                <button
+                    class="filter-chip"
+                    data-filter="Call Confirmed">
+
+                    <span class="chip-icon call-confirmed">
+                        ☎
+                    </span>
+
+                    <span>
+                        Call Confirmed
+                    </span>
+
+                    <b>
+                        0
+                    </b>
+
+                </button>
+
+
+                <button
+                    class="filter-chip"
+                    data-filter="Driver Assigned">
+
+                    <span class="chip-icon driver">
+                        ●
+                    </span>
+
+                    <span>
+                        Driver Assigned
+                    </span>
+
+                    <b>
+                        0
+                    </b>
+
+                </button>
+
+            </div>
+
+
+            <!-- ADVANCED FILTERS -->
+            <div class="advanced-filters">
+
+                <div class="date-filter">
+
+                    <svg viewBox="0 0 24 24">
+                        <rect
+                            x="4"
+                            y="5"
+                            width="16"
+                            height="15"
+                            rx="2">
+                        </rect>
+
+                        <path d="M8 3v4M16 3v4M4 9h16"></path>
+                    </svg>
+
+
+                    <input
+                        type="date"
+                        id="fromDate"
+                        value="">
+
+
+                    <span>
+                        →
+                    </span>
+
+
+                    <input
+                        type="date"
+                        id="toDate"
+                        value="">
+
+                </div>
+
+
+                <select id="paymentFilter">
+
+                    <option value="">
+                        Payment Status
+                    </option>
+
+                    <option value="paid">
+                        Payment Received
+                    </option>
+
+                    <option value="pending">
+                        Payment Pending
+                    </option>
+
+                    <option value="failed">
+                        Payment Failed
+                    </option>
+
+                    <option value="cancelled">
+                        Payment Cancelled
+                    </option>
+
+                    <option value="refunded">
+                        Payment Refunded
+                    </option>
+
+                </select>
+
+
+                <select id="parcelFilter">
+
+                    <option value="">
+                        Parcel Type
+                    </option>
+
+                </select>
+
+
+                <button
+                    class="reset-button"
+                    id="resetButton"
+                    type="button">
+
+                    ↻
+                    Reset
+
+                </button>
+
+            </div>
+
+
+            <!-- BOOKINGS CARD -->
+            <div class="booking-card">
+
+                <!-- DESKTOP TABLE -->
+                <div class="table-wrapper">
+
+                    <table class="bookings-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    #
+                                </th>
+
+                                <th>
+                                    Tracking ID
+                                </th>
+
+                                <th>
+                                    Customer / Phone
+                                </th>
+
+                                <th>
+                                    From → To
+                                </th>
+
+                                <th>
+                                    Call Verification
+                                </th>
+
+                                <th>
+                                    Payment Status
+                                </th>
+
+                                <th>
+                                    Date & Time
+                                </th>
+
+                                <th>
+                                    Actions
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="bookingBody">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- MOBILE CARDS -->
+                <div
+                    class="mobile-bookings"
+                    id="mobileBookings">
+                </div>
+
+
+                <!-- PAGINATION -->
+                <div class="pagination">
+
+                    <span id="showingText">
+                        Showing 0 of 0 bookings
+                    </span>
+
+
+                    <div class="page-buttons">
+                    </div>
+
+
+                    <label class="rows-control">
+
+                        Rows per page
+
+                        <select id="rowsPerPage">
+
+                            <option value="10">
+                                10
+                            </option>
+
+                            <option value="20">
+                                20
+                            </option>
+
+                            <option value="50">
+                                50
+                            </option>
+
+                        </select>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- TOAST -->
+<div
+    class="toast"
+    id="toast">
+</div>
+
+
+<!-- SUPABASE -->
+    <script src="../js/admin-shell.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/supabase-client.js"></script>
+<script src="../js/admin-settings.js"></script>
+<script src="../js/bookings.js"></script>
+
+
+<!-- MOBILE BOTTOM NAVIGATION -->
+<nav class="mobile-bottom-nav">
+
+    <a
+        href="dashboard.html"
+        class="bottom-nav-item">
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>
+            Home
+        </span>
+
+    </a>
+
+
+    <a
+        href="bookings.html"
+        class="bottom-nav-item active">
+
+        <i class="fa-solid fa-calendar-check"></i>
+
+        <span>
+            Bookings
+        </span>
+
+    </a>
+
+
+    <a
+        href="payments.html"
+        class="bottom-nav-item">
+
+        <i class="fa-solid fa-credit-card"></i>
+
+        <span>
+            Payment
+        </span>
+
+    </a>
+
+
+    <a
+        href="tracking.html"
+        class="bottom-nav-item">
+
+        <i class="fa-solid fa-location-dot"></i>
+
+        <span>
+            Tracking
+        </span>
+
+    </a>
+
+
+    <button
+        type="button"
+        class="bottom-nav-item more-nav-btn"
+        id="mobileMoreBtn">
+
+        <i class="fa-solid fa-ellipsis"></i>
+
+        <span>
+            More
+        </span>
+
+    </button>
+
+</nav>
+
+
+</body>
+</html>

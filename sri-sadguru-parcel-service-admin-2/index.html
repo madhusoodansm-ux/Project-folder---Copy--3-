@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="description"
+        content="Sri Sadguru Siddarooda Parcel Service Admin Portal"
+    >
+
+    <title>
+        Admin Login | Sri Sadguru Siddarooda Parcel Service
+    </title>
+
+    <!-- Login Page Styles -->
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/admin-design-system.css">
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         ADMIN LOGIN PAGE
+    ====================================================== -->
+
+    <main class="login-page">
+
+
+        <!-- =================================================
+             BRANDING SECTION
+             Desktop: Left side
+             Tablet/Mobile: Top section
+        ================================================== -->
+
+        <section class="login-brand">
+
+            <div class="brand-content">
+
+
+                <!-- Company Logo -->
+                <div class="brand-logo">
+
+                    <img
+                        src="images/logo.png"
+                        alt="Sri Sadguru Siddarooda Parcel Service"
+                    >
+
+                </div>
+
+
+                <!-- Company Name -->
+                <h1>
+                    Sri Sadguru Siddarooda
+                    <span>Parcel Service</span>
+                </h1>
+
+
+                <!-- Main Caption --> 
+                <p class="brand-caption">
+                    Smart, reliable and efficient parcel
+                    management for your business.
+                </p>
+
+
+                <!-- Decorative Divider -->
+                <div class="brand-divider"></div>
+
+
+                <!-- Description -->
+                <p class="brand-description">
+                    Manage bookings, customers, drivers,
+                    vehicles, deliveries, payments and
+                    daily parcel operations from one
+                    secure administration portal.
+                </p>
+
+            </div>
+
+
+            <!-- Copyright -->
+            <div class="brand-footer">
+
+                <p>
+                    © 2026 Sri Sadguru Siddarooda Parcel Service
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LOGIN SECTION
+        ================================================== -->
+
+        <section class="login-section">
+
+            <div class="login-container">
+
+
+                <!-- =================================================
+                     LOGIN HEADER
+                ================================================== -->
+
+                <header class="login-header">
+
+                    <span class="portal-label">
+                        ADMIN PORTAL
+                    </span>
+
+
+                    <h2>
+                        Welcome Back
+                    </h2>
+
+
+                    <p>
+                        Sign in to access your administration portal.
+                    </p>
+
+                </header>
+
+
+
+                <!-- =================================================
+                     LOGIN FORM
+                ================================================== -->
+
+                <form
+                    id="adminLoginForm"
+                    class="login-form"
+                    novalidate
+                >
+
+
+                    <!-- =================================================
+                         EMAIL ADDRESS
+                  ================================================== -->
+
+                    <div class="form-group">
+
+                        <label for="adminEmail">
+
+                            Email Address
+
+                            <span class="required">
+                                *
+                            </span>
+
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+
+                            <!-- Email Icon -->
+
+                            <span
+                                class="input-icon"
+                                aria-hidden="true"
+                            >
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+
+                                    <rect
+                                        x="3"
+                                        y="5"
+                                        width="18"
+                                        height="14"
+                                        rx="2"
+                                    ></rect>
+
+                                    <path
+                                        d="m3 7 9 6 9-6"
+                                    ></path>
+
+                                </svg>
+
+                            </span>
+
+
+                            <!-- Email Input -->
+
+                            <input
+                                type="email"
+                                id="adminEmail"
+                                name="email"
+                                placeholder="Enter your email address"
+                                autocomplete="email"
+                                inputmode="email"
+                                required
+                                aria-required="true"
+                                aria-describedby="emailError"
+                            >
+
+                        </div>
+
+
+                        <!-- Email Validation Message -->
+
+                        <p
+                            id="emailError"
+                            class="field-error"
+                            role="alert"
+                        ></p>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         PHONE NUMBER
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label for="adminPhone">
+
+                            Phone Number
+
+                            <span class="required">
+                                *
+                            </span>
+
+                        </label>
+
+
+                        <div class="input-wrapper phone-wrapper">
+
+
+                            <!-- Phone Icon -->
+
+                            <span
+                                class="input-icon"
+                                aria-hidden="true"
+                            >
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2
+                                        19.79 19.79 0 0 1-8.63-3.07
+                                        19.5 19.5 0 0 1-6-6
+                                        19.79 19.79 0 0 1-3.07-8.67
+                                        A2 2 0 0 1 4.11 2h3
+                                        a2 2 0 0 1 2 1.72
+                                        12.84 12.84 0 0 0 .7 2.81
+                                        2 2 0 0 1-.45 2.11L8.09 9.91
+                                        a16 16 0 0 0 6 6l1.27-1.27
+                                        a2 2 0 0 1 2.11-.45
+                                        12.84 12.84 0 0 0 2.81.7
+                                        A2 2 0 0 1 22 16.92z"
+                                    ></path>
+
+                                </svg>
+
+                            </span>
+
+
+                            <!-- Country Code -->
+
+                            <span class="country-code">
+                                +91
+                            </span>
+
+
+                            <!-- Phone Input -->
+
+                            <input
+                                type="tel"
+                                id="adminPhone"
+                                name="phone"
+                                placeholder="Enter your phone number"
+                                autocomplete="tel"
+                                inputmode="numeric"
+                                maxlength="10"
+                                required
+                                aria-required="true"
+                                aria-describedby="phoneError"
+                            >
+
+                        </div>
+
+
+                        <!-- Phone Validation Message -->
+
+                        <p
+                            id="phoneError"
+                            class="field-error"
+                            role="alert"
+                        ></p>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         PASSWORD
+                    ================================================== -->
+
+                    <div class="form-group">
+
+                        <label for="adminPassword">
+
+                            Password
+
+                            <span class="required">
+                                *
+                            </span>
+
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+
+                            <!-- Lock Icon -->
+
+                            <span
+                                class="input-icon"
+                                aria-hidden="true"
+                            >
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+
+                                    <rect
+                                        x="3"
+                                        y="11"
+                                        width="18"
+                                        height="10"
+                                        rx="2"
+                                    ></rect>
+
+                                    <path
+                                        d="M7 11V7a5 5 0 0 1 10 0v4"
+                                    ></path>
+
+                                </svg>
+
+                            </span>
+
+
+                            <!-- Password Input -->
+
+                            <input
+                                type="password"
+                                id="adminPassword"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                                aria-required="true"
+                                aria-describedby="passwordError"
+                            >
+
+
+                            <!-- =================================================
+                                 SHOW / HIDE PASSWORD BUTTON
+                            ================================================== -->
+
+                            <button
+                                type="button"
+                                id="passwordToggle"
+                                class="password-toggle"
+                                aria-label="Show password"
+                                aria-pressed="false"
+                            >
+
+
+                                <!-- Open Eye -->
+
+                                <svg
+                                    class="eye-icon eye-open"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                >
+
+                                    <path
+                                        d="M2 12s3.5-6 10-6
+                                        10 6 10 6-3.5 6-10 6
+                                        S2 12 2 12z"
+                                    ></path>
+
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="3"
+                                    ></circle>
+
+                                </svg>
+
+
+                                <!-- Closed Eye -->
+
+                                <svg
+                                    class="eye-icon eye-closed"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                >
+
+                                    <path
+                                        d="M3 3l18 18"
+                                    ></path>
+
+                                    <path
+                                        d="M10.58 10.58a2 2 0 0 0
+                                        2.83 2.83"
+                                    ></path>
+
+                                    <path
+                                        d="M9.88 5.09A10.94 10.94 0 0 1
+                                        12 5c6.5 0 10 7 10 7
+                                        a18.16 18.16 0 0 1-3.16 3.94"
+                                    ></path>
+
+                                    <path
+                                        d="M6.61 6.61C3.72 8.6 2 12 2 12
+                                        s3.5 7 10 7
+                                        c1.61 0 3.06-.4 4.35-1.05"
+                                    ></path>
+
+                                </svg>
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- Password Validation Message -->
+
+                        <p
+                            id="passwordError"
+                            class="field-error"
+                            role="alert"
+                        ></p>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         FORGOT PASSWORD
+                    ================================================== -->
+
+                    <div class="form-options">
+
+                        <a
+                            href="admin/forgot-password.html"
+
+                            id="forgotPassword"
+                            
+                            class="forgot-password"
+                        >
+                            Forgot Password?
+                        </a>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         GENERAL LOGIN ERROR
+                    ================================================== -->
+
+                    <div
+                        id="loginError"
+                        class="login-error"
+                        role="alert"
+                        aria-live="polite"
+                    ></div>
+
+
+
+                    <!-- =================================================
+                         LOGIN BUTTON
+                    ================================================== -->
+
+                    <button
+                        type="submit"
+                        id="loginButton"
+                        class="login-button"
+                    >
+
+                        <span id="loginButtonText">
+                            Login
+                        </span>
+
+
+                        <!-- Loading Spinner -->
+
+                        <span
+                            id="loginLoader"
+                            class="login-loader"
+                            aria-hidden="true"
+                        ></span>
+
+                    </button>
+
+
+
+                    <!-- =================================================
+                         SECURITY MESSAGE
+                    ================================================== -->
+
+                    <p class="security-note">
+                        Secure access for authorized administrators only.
+                    </p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         LOGIN JAVASCRIPT
+         Backend / Database Authentication
+    ====================================================== -->
+
+    <!-- =====================================================
+         SUPABASE
+    ====================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase-client.js"></script>
+
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>
+</body>
+
+</html>

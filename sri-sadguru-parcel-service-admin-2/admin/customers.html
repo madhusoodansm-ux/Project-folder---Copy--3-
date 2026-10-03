@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Customers | SSP Admin</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link
+        rel="stylesheet"
+        href="../css/customers.css">
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar">
+
+        <div class="sidebar-header">
+
+            <div class="logo-wrapper">
+                <img
+                    src="../images/logo.png"
+                    alt="SSP Logo"
+                    class="sidebar-logo">
+            </div>
+
+            <button
+                class="sidebar-close"
+                id="sidebarClose"
+                type="button"
+                aria-label="Close sidebar">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="bookings.html" class="nav-item">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Bookings</span>
+            </a>
+
+            <a href="payments.html" class="nav-item">
+                <i class="fa-solid fa-credit-card"></i>
+                <span>Payments</span>
+            </a>
+
+            <a href="tracking.html" class="nav-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Tracking</span>
+            </a>
+
+            <a href="pickup-management.html" class="nav-item">
+                <i class="fa-solid fa-box"></i>
+                <span>Pickup Management</span>
+            </a>
+
+            <a href="delivery-management.html" class="nav-item">
+                <i class="fa-solid fa-truck-fast"></i>
+                <span>Delivery Management</span>
+            </a>
+
+            <a href="drivers.html" class="nav-item">
+                <i class="fa-solid fa-id-card"></i>
+                <span>Drivers</span>
+            </a>
+
+            <a href="vehicles.html" class="nav-item">
+                <i class="fa-solid fa-truck"></i>
+                <span>Vehicles</span>
+            </a>
+
+            <a
+                href="customers.html"
+                class="nav-item active">
+
+                <i class="fa-solid fa-users"></i>
+                <span>Customers</span>
+
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <i class="fa-solid fa-file-lines"></i>
+                <span>Reports</span>
+            </a>
+
+            <a href="admin-profile.html" class="nav-item">
+                <i class="fa-solid fa-user"></i>
+                <span>Admin Profile</span>
+            </a>
+
+            <a href="settings.html" class="nav-item">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <button
+                class="logout-btn"
+                id="logoutBtn"
+                type="button">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                <span>Logout</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         SIDEBAR OVERLAY
+         ===================================================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay">
+    </div>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOP BAR
+             ================================================= -->
+
+        <header class="topbar">
+
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                type="button"
+                aria-label="Open menu">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+
+            <div class="topbar-title">
+                Customers
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <button
+                    class="topbar-icon-btn"
+                    type="button"
+                    aria-label="Search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </button>
+
+
+                <button
+                    class="topbar-icon-btn notification-btn"
+                    type="button"
+                    aria-label="Notifications">
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span class="notification-count">
+                        5
+                    </span>
+
+                </button>
+
+
+                <div class="admin-profile-mini">
+
+                    <img
+                        src="../images/logo.png"
+                        alt="Admin"
+                        class="admin-avatar">
+
+                    <span>Admin</span>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             PAGE CONTENT
+             ================================================= -->
+
+        <section class="page-content">
+
+
+            <!-- =================================================
+                 PAGE HEADER
+                 ================================================= -->
+
+            <div class="page-header">
+
+                <div>
+
+                    <h1>
+                        Customers
+                    </h1>
+
+                    <p>
+                        Manage all your customers
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="add-customer-btn"
+                    id="addCustomerBtn"
+                    type="button">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    <span>
+                        Add Customer
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 SUMMARY CARDS
+                 ================================================= -->
+
+            <div class="summary-grid">
+
+
+                <!-- TOTAL CUSTOMERS -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon blue">
+
+                        <i class="fa-solid fa-users"></i>
+
+                    </div>
+
+                    <div class="summary-content">
+
+                        <span class="summary-label">
+                            Total Customers
+                        </span>
+
+                        <strong id="totalCustomers">
+                            0
+                        </strong>
+
+                        <small>
+                            All time
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACTIVE CUSTOMERS -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon green">
+
+                        <i class="fa-solid fa-user-check"></i>
+
+                    </div>
+
+                    <div class="summary-content">
+
+                        <span class="summary-label">
+                            Active Customers
+                        </span>
+
+                        <strong id="activeCustomers">
+                            0
+                        </strong>
+
+                        <small id="activePercentage">
+                            0% of total
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TOTAL BOOKINGS -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon purple">
+
+                        <i class="fa-solid fa-calendar-check"></i>
+
+                    </div>
+
+                    <div class="summary-content">
+
+                        <span class="summary-label">
+                            Total Bookings
+                        </span>
+
+                        <strong id="totalBookings">
+                            0
+                        </strong>
+
+                        <small>
+                            All time
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TOTAL REVENUE -->
+
+                <div class="summary-card">
+
+                    <div class="summary-icon orange">
+
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                    </div>
+
+                    <div class="summary-content">
+
+                        <span class="summary-label">
+                            Total Revenue
+                        </span>
+
+                        <strong id="totalRevenue">
+                            ₹0
+                        </strong>
+
+                        <small>
+                            All time
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 TOOLBAR
+                 ================================================= -->
+
+            <div class="customer-toolbar">
+
+
+                <!-- SEARCH -->
+
+                <div class="search-wrapper">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="search"
+                        id="customerSearch"
+                        placeholder="Search customer by name or phone..."
+                        autocomplete="off">
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div class="status-filter-wrapper">
+
+                    <select id="statusFilter">
+
+                        <option value="all">
+                            All Status
+                        </option>
+
+                        <option value="active">
+                            Active
+                        </option>
+
+                        <option value="inactive">
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- FILTER -->
+
+                <button
+                    class="filter-btn"
+                    id="filterBtn"
+                    type="button">
+
+                    <i class="fa-solid fa-filter"></i>
+
+                    <span>
+                        Filter
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 CUSTOMERS CARD
+                 ================================================= -->
+
+            <div class="customers-card">
+
+
+                <!-- TABLE -->
+
+                <div class="table-wrapper">
+
+                    <table class="customers-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Customer
+                                </th>
+
+                                <th>
+                                    Phone Number
+                                </th>
+
+                                <th>
+                                    City
+                                </th>
+
+                                <th>
+                                    Total Orders
+                                </th>
+
+                                <th>
+                                    Total Spent
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Joined On
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="customersTableBody">
+                        </tbody>
+
+                    </table>
+
+
+                    <!-- =================================================
+                         EMPTY STATE
+                         ================================================= -->
+
+                    <div
+                        class="empty-state"
+                        id="emptyState">
+
+                        <div class="empty-icon">
+
+                            <i class="fa-solid fa-users"></i>
+
+                        </div>
+
+                        <h3>
+                            No customers found
+                        </h3>
+
+                        <p>
+                            No customers match your current search or filter.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     TABLE FOOTER
+                     ================================================= -->
+
+                <div class="table-footer">
+
+                    <div
+                        class="results-info"
+                        id="resultsInfo">
+
+                        Showing 0 customers
+
+                    </div>
+
+
+                    <div
+                        class="pagination"
+                        id="pagination">
+
+                        <button
+                            class="pagination-btn"
+                            id="previousPage"
+                            type="button"
+                            aria-label="Previous page">
+
+                            <i class="fa-solid fa-chevron-left"></i>
+
+                        </button>
+
+
+                        <div id="pageNumbers"></div>
+
+
+                        <button
+                            class="pagination-btn"
+                            id="nextPage"
+                            type="button"
+                            aria-label="Next page">
+
+                            <i class="fa-solid fa-chevron-right"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     SCRIPTS
+     ========================================================= -->
+
+<!-- Supabase library -->
+    <script src="../js/admin-shell.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- Existing SSP Supabase client -->
+<script src="../js/supabase-client.js"></script>
+
+<!-- Customers page -->
+<script src="../js/customers.js"></script>
+
+</body>
+
+</html>

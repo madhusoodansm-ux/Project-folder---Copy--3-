@@ -1,0 +1,1175 @@
+/* =========================================================
+   SSP ADMIN PORTAL
+   DOWNLOAD BILL
+   A4 FIXED DOCUMENT
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    min-height: 100%;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background: #eef1f5;
+
+    color: #1f2937;
+
+    overflow: hidden;
+}
+
+
+button {
+    font: inherit;
+}
+
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.bill-toolbar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 64px;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 10px 18px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #dfe4ea;
+
+    box-shadow:
+        0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+
+.toolbar-button {
+
+    min-height: 42px;
+
+    padding: 0 16px;
+
+    border: 1px solid #d5dbe3;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #263445;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+}
+
+
+.toolbar-button:hover {
+
+    background: #f6f8fa;
+}
+
+
+.toolbar-button.primary {
+
+    background: #173a63;
+
+    border-color: #173a63;
+
+    color: #ffffff;
+}
+
+
+.toolbar-button.primary:hover {
+
+    background: #245a8d;
+}
+
+
+/* =========================================================
+   ZOOM
+========================================================= */
+
+.zoom-controls {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+}
+
+
+.zoom-button {
+
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid #d5dbe3;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #263445;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.zoom-button:hover {
+
+    background: #f4f6f8;
+}
+
+
+#zoomValue {
+
+    min-width: 52px;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #374151;
+}
+
+
+.zoom-reset {
+
+    min-height: 38px;
+
+    padding: 0 10px;
+
+    border: 1px solid #d5dbe3;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #374151;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   BILL VIEWER
+========================================================= */
+
+.bill-viewer {
+
+    position: fixed;
+
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    overflow: auto;
+
+    padding: 30px;
+
+    background: #eef1f5;
+
+    display: block;
+}
+
+
+.bill-canvas {
+
+    width: max-content;
+
+    min-width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding: 10px;
+}
+
+
+/* =========================================================
+   IMPORTANT
+   THE BILL ITSELF NEVER BECOMES RESPONSIVE.
+
+   A4:
+   210mm × 297mm
+========================================================= */
+
+.invoice {
+
+    width: 210mm;
+
+    height: 297mm;
+
+    min-width: 210mm;
+    min-height: 297mm;
+
+    max-width: 210mm;
+    max-height: 297mm;
+
+    flex: 0 0 210mm;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    padding: 10mm;
+
+    box-shadow:
+        0 6px 25px rgba(15, 23, 42, 0.16);
+
+    transform-origin: top center;
+}
+
+
+/* =========================================================
+   BILL HEADER
+========================================================= */
+
+.bill-header {
+
+    height: 31mm;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 5mm;
+
+    background: #173a63;
+
+    border-radius: 3mm;
+
+    color: #ffffff;
+}
+
+
+.company-area {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 4mm;
+
+    min-width: 0;
+}
+
+
+.company-logo {
+
+    width: 19mm;
+    height: 19mm;
+
+    object-fit: contain;
+
+    flex: 0 0 19mm;
+
+    background: #ffffff;
+
+    border-radius: 50%;
+
+    padding: 1mm;
+}
+
+
+.company-details {
+
+    min-width: 0;
+}
+
+
+.company-name {
+
+    margin: 0;
+
+    font-size: 13.5pt;
+
+    line-height: 1.15;
+
+    font-weight: 800;
+
+    letter-spacing: 0.1px;
+}
+
+
+.company-line {
+
+    margin-top: 1.2mm;
+
+    font-size: 6.8pt;
+
+    line-height: 1.35;
+
+    opacity: 0.95;
+}
+
+
+.bill-title-area {
+
+    text-align: right;
+
+    flex: 0 0 auto;
+}
+
+
+.bill-title {
+
+    font-size: 17pt;
+
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+}
+
+
+.bill-title-sub {
+
+    margin-top: 1.5mm;
+
+    font-size: 6.5pt;
+
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   META INFORMATION
+========================================================= */
+
+.bill-meta {
+
+    margin-top: 4mm;
+
+    display: grid;
+
+    grid-template-columns:
+        1.15fr
+        1.15fr
+        1fr
+        0.9fr
+        0.8fr;
+
+    gap: 2mm;
+
+    padding: 3mm 4mm;
+
+    background: #eaf2f9;
+
+    border-radius: 2mm;
+}
+
+
+.meta-item {
+
+    min-width: 0;
+}
+
+
+.meta-label {
+
+    display: block;
+
+    font-size: 5.8pt;
+
+    font-weight: 700;
+
+    color: #64748b;
+
+    text-transform: uppercase;
+}
+
+
+.meta-value {
+
+    display: block;
+
+    margin-top: 1mm;
+
+    font-size: 7.2pt;
+
+    font-weight: 700;
+
+    color: #1f2937;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   TRACKING
+========================================================= */
+
+.tracking-box {
+
+    margin-top: 4mm;
+
+    padding: 3mm 4mm;
+
+    min-height: 17mm;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: #245a8d;
+
+    border-radius: 2mm;
+
+    color: #ffffff;
+}
+
+
+.tracking-label {
+
+    font-size: 6pt;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    opacity: 0.9;
+}
+
+
+.tracking-id {
+
+    margin-top: 1mm;
+
+    font-size: 13pt;
+
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+}
+
+
+.tracking-note {
+
+    font-size: 6pt;
+
+    text-align: right;
+
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.bill-section {
+
+    margin-top: 4mm;
+
+    border: 1px solid #d8e0e8;
+
+    border-radius: 2mm;
+
+    overflow: hidden;
+
+    background: #ffffff;
+}
+
+
+.section-title {
+
+    height: 7mm;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 3mm;
+
+    background: #173a63;
+
+    color: #ffffff;
+
+    font-size: 6.8pt;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.2px;
+}
+
+
+.section-body {
+
+    padding: 3mm 4mm;
+}
+
+
+/* =========================================================
+   TWO COLUMN DETAILS
+========================================================= */
+
+.two-column {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 4mm;
+}
+
+
+.detail-label {
+
+    font-size: 5.8pt;
+
+    font-weight: 700;
+
+    color: #64748b;
+
+    text-transform: uppercase;
+}
+
+
+.detail-value {
+
+    margin-top: 0.8mm;
+
+    font-size: 7pt;
+
+    line-height: 1.35;
+
+    color: #263445;
+
+    font-weight: 600;
+}
+
+
+.detail-line {
+
+    margin-top: 1mm;
+
+    font-size: 6.5pt;
+
+    line-height: 1.35;
+
+    color: #4b5563;
+}
+
+
+/* =========================================================
+   ROUTE
+========================================================= */
+
+.route-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 28mm 1fr;
+
+    align-items: center;
+
+    gap: 3mm;
+}
+
+
+.route-place {
+
+    min-width: 0;
+}
+
+
+.route-city {
+
+    margin-top: 1mm;
+
+    font-size: 8pt;
+
+    font-weight: 800;
+
+    color: #173a63;
+}
+
+
+.route-address {
+
+    margin-top: 1mm;
+
+    font-size: 6.2pt;
+
+    line-height: 1.35;
+
+    color: #4b5563;
+}
+
+
+.route-arrow {
+
+    text-align: center;
+
+    color: #245a8d;
+
+    font-size: 17pt;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.bill-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    table-layout: fixed;
+}
+
+
+.bill-table th {
+
+    padding: 2mm;
+
+    background: #f0f4f8;
+
+    color: #526170;
+
+    border-bottom: 1px solid #d8e0e8;
+
+    font-size: 5.8pt;
+
+    text-align: left;
+
+    text-transform: uppercase;
+}
+
+
+.bill-table td {
+
+    padding: 2.2mm;
+
+    border-bottom: 1px solid #e4e9ee;
+
+    color: #263445;
+
+    font-size: 6.5pt;
+
+    vertical-align: top;
+}
+
+
+.bill-table tr:last-child td {
+
+    border-bottom: 0;
+}
+
+
+/* =========================================================
+   PAYMENT + PRICE
+========================================================= */
+
+.payment-price-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 4mm;
+}
+
+
+.info-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 4mm;
+
+    padding: 1.2mm 0;
+
+    border-bottom: 1px solid #edf0f3;
+
+    font-size: 6.5pt;
+}
+
+
+.info-row:last-child {
+
+    border-bottom: 0;
+}
+
+
+.info-label {
+
+    color: #64748b;
+
+    font-weight: 600;
+}
+
+
+.info-value {
+
+    color: #263445;
+
+    font-weight: 700;
+
+    text-align: right;
+}
+
+
+.total-row {
+
+    margin-top: 1.5mm;
+
+    padding-top: 2mm;
+
+    border-top: 1px solid #b9c5d1;
+
+    font-size: 8pt;
+}
+
+
+.total-row .info-label,
+.total-row .info-value {
+
+    color: #173a63;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   DRIVER
+========================================================= */
+
+.driver-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.3fr
+        1fr
+        1fr
+        1fr;
+
+    gap: 3mm;
+}
+
+
+/* =========================================================
+   AUTHORIZATION
+========================================================= */
+
+.authorization {
+
+    display: grid;
+
+    grid-template-columns: 58mm 1fr 43mm;
+
+    gap: 5mm;
+
+    align-items: end;
+
+    min-height: 27mm;
+}
+
+
+.signature-box,
+.seal-box {
+
+    height: 18mm;
+
+    border: 1px solid #cbd5df;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+}
+
+
+.signature-line {
+
+    position: absolute;
+
+    left: 6mm;
+    right: 6mm;
+
+    bottom: 7mm;
+
+    border-bottom: 1px solid #667788;
+}
+
+
+.signature-label,
+.seal-label {
+
+    position: absolute;
+
+    bottom: 2mm;
+
+    font-size: 5.5pt;
+
+    font-weight: 700;
+
+    color: #64748b;
+
+    text-transform: uppercase;
+}
+
+
+.authorization-text {
+
+    align-self: center;
+
+    font-size: 6pt;
+
+    line-height: 1.5;
+
+    color: #64748b;
+}
+
+
+.seal-box {
+
+    border-style: dashed;
+}
+
+
+.seal-placeholder {
+
+    position: absolute;
+
+    top: 3mm;
+    left: 0;
+    right: 0;
+
+    text-align: center;
+
+    font-size: 6pt;
+
+    font-weight: 800;
+
+    color: #9aa6b2;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.bill-footer {
+
+    position: absolute;
+
+    left: 10mm;
+    right: 10mm;
+    bottom: 8mm;
+
+    min-height: 10mm;
+
+    padding: 2.5mm 4mm;
+
+    background: #173a63;
+
+    color: #ffffff;
+
+    border-radius: 1.5mm;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 4mm;
+
+    font-size: 5.5pt;
+}
+
+
+/* =========================================================
+   LOADING / ERROR
+========================================================= */
+
+.loading-state,
+.error-state {
+
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 260mm;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 4mm;
+
+    color: #64748b;
+
+    font-size: 10pt;
+}
+
+
+.error-state strong {
+
+    color: #b42318;
+}
+
+
+/* =========================================================
+   PRINT / PDF
+========================================================= */
+
+@page {
+
+    size: A4 portrait;
+
+    margin: 0;
+}
+
+
+@media print {
+
+    html,
+    body {
+
+        width: 210mm;
+
+        height: 297mm;
+
+        min-width: 210mm;
+
+        min-height: 297mm;
+
+        background: #ffffff;
+
+        overflow: hidden;
+    }
+
+
+    .no-print {
+
+        display: none !important;
+    }
+
+
+    .bill-viewer {
+
+        position: static;
+
+        width: 210mm;
+
+        height: 297mm;
+
+        padding: 0;
+
+        overflow: hidden;
+
+        background: #ffffff;
+    }
+
+
+    .bill-canvas {
+
+        width: 210mm;
+
+        min-width: 210mm;
+
+        padding: 0;
+
+        display: block;
+    }
+
+
+    .invoice {
+
+        width: 210mm !important;
+
+        height: 297mm !important;
+
+        min-width: 210mm !important;
+
+        min-height: 297mm !important;
+
+        max-width: 210mm !important;
+
+        max-height: 297mm !important;
+
+        margin: 0 !important;
+
+        padding: 10mm !important;
+
+        box-shadow: none !important;
+
+        transform: none !important;
+    }
+}
+
+
+/* =========================================================
+   MOBILE / TABLET VIEWER
+
+   IMPORTANT:
+   ONLY THE VIEWER CHANGES.
+
+   THE BILL REMAINS A4.
+========================================================= */
+
+@media (max-width: 800px) {
+
+    body {
+
+        overflow: hidden;
+    }
+
+
+    .bill-toolbar {
+
+        height: 58px;
+
+        padding: 8px 10px;
+
+        gap: 6px;
+    }
+
+
+    .toolbar-button {
+
+        min-height: 38px;
+
+        padding: 0 10px;
+
+        font-size: 12px;
+    }
+
+
+    .zoom-controls {
+
+        gap: 4px;
+    }
+
+
+    .zoom-button {
+
+        width: 34px;
+
+        height: 34px;
+    }
+
+
+    #zoomValue {
+
+        min-width: 44px;
+
+        font-size: 11px;
+    }
+
+
+    .zoom-reset {
+
+        display: none;
+    }
+
+
+    .bill-viewer {
+
+        top: 58px;
+
+        padding: 15px 8px;
+    }
+
+
+    .bill-canvas {
+
+        justify-content: flex-start;
+
+        padding: 8px;
+    }
+
+}

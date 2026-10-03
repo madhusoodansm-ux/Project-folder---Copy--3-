@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Vehicles | Sri Sadguru Siddarooda Parcel Service</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/add-vehicles.css">
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+            <img src="../images/logo.png"
+                 alt="Sri Sadguru Siddarooda Parcel Service"
+                 class="sidebar-logo">
+
+            <div class="brand-text">
+                <h2>Sri Sadguru</h2>
+                <span>Siddarooda Parcel Service</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="bookings.html">
+                <i class="fa-solid fa-box"></i>
+                <span>Bookings</span>
+            </a>
+
+            <a href="payments.html">
+                <i class="fa-solid fa-credit-card"></i>
+                <span>Payments</span>
+            </a>
+
+            <a href="tracking.html">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Tracking</span>
+            </a>
+
+            <a href="pickup-management.html">
+                <i class="fa-solid fa-arrow-up"></i>
+                <span>Pickup Management</span>
+            </a>
+
+            <a href="delivery-management.html">
+                <i class="fa-solid fa-truck-fast"></i>
+                <span>Delivery Management</span>
+            </a>
+
+            <a href="drivers.html">
+                <i class="fa-solid fa-id-card"></i>
+                <span>Drivers</span>
+            </a>
+
+            <a href="vehicles.html" class="active">
+                <i class="fa-solid fa-truck"></i>
+                <span>Vehicles</span>
+            </a>
+
+            <a href="customers.html">
+                <i class="fa-solid fa-users"></i>
+                <span>Customers</span>
+            </a>
+
+            <a href="reports.html">
+                <i class="fa-solid fa-file-lines"></i>
+                <span>Reports</span>
+            </a>
+
+            <a href="admin-profile.html">
+                <i class="fa-solid fa-user"></i>
+                <span>Admin Profile</span>
+            </a>
+
+            <a href="settings.html">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <button class="menu-btn" id="menuBtn" type="button">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="page-heading">
+                <h1>Add Vehicles</h1>
+                <p>Register and manage vehicle information</p>
+            </div>
+
+        </header>
+
+
+        <!-- ================= PAGE ================= -->
+        <section class="page-container">
+
+            <form id="vehicleForm" class="vehicle-form" autocomplete="off">
+
+                <!-- ================= VEHICLE INFORMATION ================= -->
+                <div class="form-section">
+
+                    <div class="section-title">
+                        <div class="section-icon">
+                            <i class="fa-solid fa-truck"></i>
+                        </div>
+
+                        <div>
+                            <h2>Vehicle Information</h2>
+                            <p>Basic details about the vehicle</p>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="vehicleId">
+                                Vehicle ID
+                            </label>
+
+                            <input
+                                type="text"
+                                id="vehicleId"
+                                name="vehicleId"
+                                placeholder="Auto generated"
+                                readonly
+                            >
+
+                            <small>
+                                Vehicle ID is generated automatically.
+                            </small>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="vehicleAssigned">
+                                Vehicle Assigned <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="vehicleAssigned"
+                                name="vehicleAssigned"
+                                placeholder="Example: Vehicle 1"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="vehicleNumber">
+                                Vehicle Number <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="vehicleNumber"
+                                name="vehicleNumber"
+                                placeholder="Example: KA-25-AB-1234"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="vehicleType">
+                                Vehicle Type <span>*</span>
+                            </label>
+
+                            <select id="vehicleType"
+                                    name="vehicleType"
+                                    required>
+
+                                <option value="">Select Vehicle Type</option>
+                                <option value="Tempo Ace">Tempo Ace</option>
+                                <option value="Mini Truck">Mini Truck</option>
+                                <option value="Tata Ace">Tata Ace</option>
+                                <option value="Pickup Truck">Pickup Truck</option>
+                                <option value="Bolero Pickup">Bolero Pickup</option>
+                                <option value="Van">Van</option>
+                                <option value="Custom">Custom</option>
+
+                            </select>
+                        </div>
+
+
+                        <div class="form-group hidden" id="customVehicleTypeGroup">
+                            <label for="customVehicleType">
+                                Custom Vehicle Type
+                            </label>
+
+                            <input
+                                type="text"
+                                id="customVehicleType"
+                                name="customVehicleType"
+                                placeholder="Enter vehicle type"
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="vehicleModel">
+                                Vehicle Model
+                            </label>
+
+                            <input
+                                type="text"
+                                id="vehicleModel"
+                                name="vehicleModel"
+                                placeholder="Example: Ace Gold"
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="manufacturer">
+                                Manufacturer
+                            </label>
+
+                            <input
+                                type="text"
+                                id="manufacturer"
+                                name="manufacturer"
+                                placeholder="Example: Tata"
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="manufacturingYear">
+                                Manufacturing Year
+                            </label>
+
+                            <input
+                                type="number"
+                                id="manufacturingYear"
+                                name="manufacturingYear"
+                                min="1950"
+                                max="2100"
+                                placeholder="Example: 2024"
+                            >
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- ================= REGISTRATION & DOCUMENTS ================= -->
+                <div class="form-section">
+
+                    <div class="section-title">
+                        <div class="section-icon">
+                            <i class="fa-solid fa-file-shield"></i>
+                        </div>
+
+                        <div>
+                            <h2>Registration & Documents</h2>
+                            <p>Vehicle registration and document information</p>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="rcNumber">RC Number</label>
+                            <input
+                                type="text"
+                                id="rcNumber"
+                                name="rcNumber"
+                                placeholder="Enter RC number"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rcExpiry">RC Expiry Date</label>
+                            <input
+                                type="date"
+                                id="rcExpiry"
+                                name="rcExpiry"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="insuranceNumber">
+                                Insurance Number
+                            </label>
+
+                            <input
+                                type="text"
+                                id="insuranceNumber"
+                                name="insuranceNumber"
+                                placeholder="Enter insurance number"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="insuranceExpiry">
+                                Insurance Expiry Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="insuranceExpiry"
+                                name="insuranceExpiry"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="permitNumber">
+                                Permit Number
+                            </label>
+
+                            <input
+                                type="text"
+                                id="permitNumber"
+                                name="permitNumber"
+                                placeholder="Enter permit number"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="permitExpiry">
+                                Permit Expiry Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="permitExpiry"
+                                name="permitExpiry"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pollutionNumber">
+                                Pollution Certificate Number
+                            </label>
+
+                            <input
+                                type="text"
+                                id="pollutionNumber"
+                                name="pollutionNumber"
+                                placeholder="Enter pollution certificate number"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pollutionExpiry">
+                                Pollution Certificate Expiry
+                            </label>
+
+                            <input
+                                type="date"
+                                id="pollutionExpiry"
+                                name="pollutionExpiry"
+                            >
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- ================= DRIVER ASSIGNMENT ================= -->
+                <div class="form-section">
+
+                    <div class="section-title">
+                        <div class="section-icon">
+                            <i class="fa-solid fa-user-check"></i>
+                        </div>
+
+                        <div>
+                            <h2>Driver Assignment</h2>
+                            <p>Assign an existing driver to this vehicle</p>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="assignedDriver">
+                                Assigned Driver
+                            </label>
+
+                            <select id="assignedDriver"
+                                    name="assignedDriver">
+
+                                <option value="">No Driver Assigned</option>
+
+                            </select>
+
+                            <small>
+                                Only drivers available in the SSP system
+                                will be shown.
+                            </small>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="vehicleStatus">
+                                Vehicle Status <span>*</span>
+                            </label>
+
+                            <select id="vehicleStatus"
+                                    name="vehicleStatus"
+                                    required>
+
+                                <option value="Available">Available</option>
+                                <option value="Assigned">Assigned</option>
+                                <option value="On Delivery">On Delivery</option>
+                                <option value="Maintenance">Maintenance</option>
+                                <option value="Offline">Offline</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- ================= TRACKING INFORMATION ================= -->
+                <div class="form-section">
+
+                    <div class="section-title">
+                        <div class="section-icon">
+                            <i class="fa-solid fa-location-crosshairs"></i>
+                        </div>
+
+                        <div>
+                            <h2>Tracking Information</h2>
+                            <p>Current vehicle tracking information</p>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="currentLocation">
+                                Current Location
+                            </label>
+
+                            <input
+                                type="text"
+                                id="currentLocation"
+                                name="currentLocation"
+                                placeholder="Example: Hubli Main Office"
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="gpsTracking">
+                                GPS Tracking
+                            </label>
+
+                            <select id="gpsTracking"
+                                    name="gpsTracking">
+
+                                <option value="Not Connected">
+                                    Not Connected
+                                </option>
+
+                                <option value="Ready">
+                                    Ready
+                                </option>
+
+                                <option value="Connected">
+                                    Connected
+                                </option>
+
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="gpsDeviceId">
+                                GPS Device ID
+                            </label>
+
+                            <input
+                                type="text"
+                                id="gpsDeviceId"
+                                name="gpsDeviceId"
+                                placeholder="Enter GPS device ID"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="info-box">
+                        <i class="fa-solid fa-circle-info"></i>
+
+                        <div>
+                            <strong>Future GPS Tracking</strong>
+
+                            <p>
+                                The driver's mobile GPS can later send the
+                                vehicle's live latitude, longitude and
+                                timestamp to the backend. This page only
+                                stores the vehicle tracking configuration
+                                for the current demo.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- ================= OPERATIONAL INFORMATION ================= -->
+                <div class="form-section">
+
+                    <div class="section-title">
+                        <div class="section-icon">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+
+                        <div>
+                            <h2>Operational Information</h2>
+                            <p>Vehicle capacity and operating details</p>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="loadCapacity">
+                                Load Capacity
+                            </label>
+
+                            <input
+                                type="text"
+                                id="loadCapacity"
+                                name="loadCapacity"
+                                placeholder="Example: 1.5 Ton"
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="seatingCapacity">
+                                Seating Capacity
+                            </label>
+
+                            <input
+                                type="number"
+                                id="seatingCapacity"
+                                name="seatingCapacity"
+                                min="1"
+                                placeholder="Example: 3"
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="fuelType">
+                                Fuel Type
+                            </label>
+
+                            <select id="fuelType"
+                                    name="fuelType">
+
+                                <option value="">Select Fuel Type</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="Petrol">Petrol</option>
+                                <option value="CNG">CNG</option>
+                                <option value="Electric">Electric</option>
+
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="currentOdometer">
+                                Current Odometer (km)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="currentOdometer"
+                                name="currentOdometer"
+                                min="0"
+                                placeholder="Example: 45820"
+                            >
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- ================= MAINTENANCE INFORMATION ================= -->
+                <div class="form-section">
+
+                    <div class="section-title">
+                        <div class="section-icon">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+
+                        <div>
+                            <h2>Maintenance Information</h2>
+                            <p>Vehicle servicing and maintenance details</p>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="lastServiceDate">
+                                Last Service Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="lastServiceDate"
+                                name="lastServiceDate"
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="nextServiceDate">
+                                Next Service Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="nextServiceDate"
+                                name="nextServiceDate"
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="nextServiceAt">
+                                Next Service At (km)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="nextServiceAt"
+                                name="nextServiceAt"
+                                min="0"
+                                placeholder="Example: 50000"
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="maintenanceStatus">
+                                Maintenance Status
+                            </label>
+
+                            <select id="maintenanceStatus"
+                                    name="maintenanceStatus">
+
+                                <option value="Good">Good</option>
+                                <option value="Service Due">Service Due</option>
+                                <option value="Under Maintenance">
+                                    Under Maintenance
+                                </option>
+
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- ================= ADDITIONAL INFORMATION ================= -->
+                <div class="form-section">
+
+                    <div class="section-title">
+                        <div class="section-icon">
+                            <i class="fa-solid fa-note-sticky"></i>
+                        </div>
+
+                        <div>
+                            <h2>Additional Information</h2>
+                            <p>Optional notes about this vehicle</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+
+                        <label for="notes">Notes</label>
+
+                        <textarea
+                            id="notes"
+                            name="notes"
+                            rows="5"
+                            placeholder="Enter any additional vehicle information..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= FORM ACTIONS ================= -->
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        id="cancelBtn">
+                        <i class="fa-solid fa-xmark"></i>
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save Vehicle
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <script src="../js/admin-shell.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase-client.js"></script>
+    <script src="../js/admin-auth.js"></script>
+    <script src="../js/add-vehicles.js"></script>
+
+</body>
+</html>

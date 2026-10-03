@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Driver Registration - Sri Sadguru Siddarooda Parcel Service</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/new-driver-registration.css">
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+<body>  
+
+<div class="app-layout">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+
+            <div class="brand">
+                <img src="../images/logo.png" alt="Sri Sadguru Siddarooda Parcel Service">
+                <div class="brand-text">
+                    <h2>SSP Admin</h2>
+                    <span>Parcel Service</span>
+                </div>
+            </div>
+
+            <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="bookings.html">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Bookings</span>
+            </a>
+
+            <a href="payments.html">
+                <i class="fa-regular fa-credit-card"></i>
+                <span>Payments</span>
+            </a>
+
+            <a href="tracking.html">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Tracking</span>
+            </a>
+
+            <a href="bookings.html">
+                <i class="fa-regular fa-clock"></i>
+                <span>Recent Orders</span>
+            </a>
+
+            <a href="pickup-management.html">
+                <i class="fa-solid fa-box-open"></i>
+                <span>Pickup Management</span>
+            </a>
+
+            <a href="delivery-management.html">
+                <i class="fa-solid fa-truck-fast"></i>
+                <span>Delivery Management</span>
+            </a>
+
+            <a href="drivers.html" class="active">
+                <i class="fa-solid fa-users"></i>
+                <span>Drivers</span>
+            </a>
+
+            <a href="vehicles.html">
+                <i class="fa-solid fa-truck"></i>
+                <span>Vehicles</span>
+            </a>
+
+            <a href="customers.html">
+                <i class="fa-regular fa-user"></i>
+                <span>Customers</span>
+            </a>
+
+            <a href="reports.html">
+                <i class="fa-regular fa-chart-bar"></i>
+                <span>Reports</span>
+            </a>
+
+            <div class="nav-divider"></div>
+
+            <a href="admin-profile.html">
+                <i class="fa-regular fa-user"></i>
+                <span>Admin Profile</span>
+            </a>
+
+            <a href="settings.html">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+            <a href="#" id="logoutButton">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- Mobile overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+    <!-- ================= MAIN AREA ================= -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <button class="menu-button" id="menuButton" aria-label="Open menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="topbar-title">
+                <span>Driver Management</span>
+            </div>
+
+            <div class="topbar-right">
+                <div class="admin-avatar">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- ================= PAGE ================= -->
+        <section class="page-content">
+
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+
+                <div>
+                    <h1>Driver Registration</h1>
+                    <p>Create a new driver profile and assign a vehicle.</p>
+                </div>
+
+                <button type="button"
+                        class="back-button"
+                        id="backToDrivers">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back to Drivers</span>
+                </button>
+
+            </div>
+
+
+            <!-- ================= FORM ================= -->
+            <form id="driverRegistrationForm" novalidate>
+
+
+                <!-- ================= PERSONAL INFORMATION ================= -->
+                <section class="form-section">
+
+                    <div class="section-heading">
+                        <div class="section-icon">
+                            <i class="fa-regular fa-user"></i>
+                        </div>
+
+                        <div>
+                            <h2>Personal Information</h2>
+                            <p>Enter the driver's basic personal details.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="personal-grid">
+
+                        <!-- DRIVER PHOTO -->
+                        <div class="photo-area">
+
+                            <div class="photo-preview" id="photoPreview">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+
+                            <label for="driverPhoto" class="photo-upload-button">
+                                <i class="fa-solid fa-camera"></i>
+                                Upload Photo
+                            </label>
+
+                            <input
+                                type="file"
+                                id="driverPhoto"
+                                accept="image/png,image/jpeg,image/jpg">
+
+                            <small>JPG or PNG only</small>
+
+                        </div>
+
+
+                        <div class="fields-grid">
+
+                            <div class="form-group">
+                                <label for="driverName">
+                                    Driver Name <span>*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="driverName"
+                                    name="driverName"
+                                    placeholder="Enter driver name"
+                                    autocomplete="name"
+                                    required>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="dateOfBirth">
+                                    Date of Birth <span>*</span>
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="dateOfBirth"
+                                    name="dateOfBirth"
+                                    required>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="gender">
+                                    Gender <span>*</span>
+                                </label>
+
+                                <select id="gender" name="gender" required>
+                                    <option value="">Select gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="bloodGroup">
+                                    Blood Group
+                                </label>
+
+                                <select id="bloodGroup" name="bloodGroup">
+                                    <option value="">Select blood group</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="mobileNumber">
+                                    Mobile Number <span>*</span>
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="mobileNumber"
+                                    name="mobileNumber"
+                                    inputmode="numeric"
+                                    maxlength="10"
+                                    placeholder="10-digit mobile number"
+                                    required>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="alternateMobile">
+                                    Alternate Mobile Number
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="alternateMobile"
+                                    name="alternateMobile"
+                                    inputmode="numeric"
+                                    maxlength="10"
+                                    placeholder="Alternate mobile number">
+                            </div>
+
+
+                            <div class="form-group full-width">
+                                <label for="emailAddress">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="emailAddress"
+                                    name="emailAddress"
+                                    placeholder="driver@example.com"
+                                    autocomplete="email">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= ADDRESS INFORMATION ================= -->
+                <section class="form-section">
+
+                    <div class="section-heading">
+                        <div class="section-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+
+                        <div>
+                            <h2>Address Information</h2>
+                            <p>Enter the driver's residential address.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="fields-grid">
+
+                        <div class="form-group full-width">
+                            <label for="address">
+                                Address <span>*</span>
+                            </label>
+
+                            <textarea
+                                id="address"
+                                name="address"
+                                rows="3"
+                                placeholder="Enter complete address"
+                                required></textarea>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="city">
+                                City <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="city"
+                                name="city"
+                                placeholder="Enter city"
+                                required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="state">
+                                State <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="state"
+                                name="state"
+                                placeholder="Enter state"
+                                required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="pinCode">
+                                PIN Code <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="pinCode"
+                                name="pinCode"
+                                inputmode="numeric"
+                                maxlength="6"
+                                placeholder="6-digit PIN code"
+                                required>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= IDENTITY INFORMATION ================= -->
+                <section class="form-section">
+
+                    <div class="section-heading">
+                        <div class="section-icon">
+                            <i class="fa-regular fa-id-card"></i>
+                        </div>
+
+                        <div>
+                            <h2>Identity Information</h2>
+                            <p>Enter government identification and licence details.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="fields-grid">
+
+                        <div class="form-group">
+                            <label for="governmentId">
+                                Aadhaar / Government ID Number <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="governmentId"
+                                name="governmentId"
+                                placeholder="Enter government ID number"
+                                required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="licenceNumber">
+                                Driving Licence Number <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="licenceNumber"
+                                name="licenceNumber"
+                                placeholder="Enter driving licence number"
+                                required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="licenceExpiry">
+                                Licence Expiry Date <span>*</span>
+                            </label>
+
+                            <input
+                                type="date"
+                                id="licenceExpiry"
+                                name="licenceExpiry"
+                                required>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= VEHICLE INFORMATION ================= -->
+                <section class="form-section">
+
+                    <div class="section-heading">
+                        <div class="section-icon">
+                            <i class="fa-solid fa-truck"></i>
+                        </div>
+
+                        <div>
+                            <h2>Vehicle Information</h2>
+                            <p>Assign the vehicle currently associated with the driver.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="fields-grid">
+
+                        <div class="form-group">
+                            <label for="vehicleAssigned">
+                                Vehicle Assigned <span>*</span>
+                            </label>
+
+                            <select
+                                id="vehicleAssigned"
+                                name="vehicleAssigned"
+                                required>
+
+                                <option value="">Select vehicle</option>
+                                <option value="Vehicle 1">Vehicle 1</option>
+                                <option value="Vehicle 2">Vehicle 2</option>
+                                <option value="Vehicle 3">Vehicle 3</option>
+                                <option value="Vehicle 4">Vehicle 4</option>
+                                <option value="Vehicle 5">Vehicle 5</option>
+                                <option value="Vehicle 6">Vehicle 6</option>
+
+                            </select>
+
+                            <small class="field-note">
+                                You can add more vehicle identifiers later.
+                            </small>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="vehicleNumber">
+                                Vehicle Number <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="vehicleNumber"
+                                name="vehicleNumber"
+                                placeholder="e.g. KA15AB1234"
+                                required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="vehicleType">
+                                Vehicle Type <span>*</span>
+                            </label>
+
+                            <select
+                                id="vehicleType"
+                                name="vehicleType"
+                                required>
+
+                                <option value="">Select vehicle type</option>
+                                <option value="Mini Truck">Mini Truck</option>
+                                <option value="Pickup Van">Pickup Van</option>
+                                <option value="Parcel Van">Parcel Van</option>
+                                <option value="Truck">Truck</option>
+                                <option value="Tempo">Tempo</option>
+                                <option value="Other">Other</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= EMPLOYMENT INFORMATION ================= -->
+                <section class="form-section">
+
+                    <div class="section-heading">
+                        <div class="section-icon">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+
+                        <div>
+                            <h2>Employment Information</h2>
+                            <p>Set joining date and current driver status.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="fields-grid">
+
+                        <div class="form-group">
+                            <label for="joiningDate">
+                                Joining Date <span>*</span>
+                            </label>
+
+                            <input
+                                type="date"
+                                id="joiningDate"
+                                name="joiningDate"
+                                required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="driverStatus">
+                                Driver Status <span>*</span>
+                            </label>
+
+                            <select
+                                id="driverStatus"
+                                name="driverStatus"
+                                required>
+
+                                <option value="">Select status</option>
+                                <option value="Available">Available</option>
+                                <option value="Assigned">Assigned</option>
+                                <option value="On Delivery">On Delivery</option>
+                                <option value="Offline">Offline</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= EMERGENCY CONTACT ================= -->
+                <section class="form-section">
+
+                    <div class="section-heading">
+                        <div class="section-icon">
+                            <i class="fa-solid fa-phone-volume"></i>
+                        </div>
+
+                        <div>
+                            <h2>Emergency Contact</h2>
+                            <p>Provide a person to contact in an emergency.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="fields-grid">
+
+                        <div class="form-group">
+                            <label for="emergencyName">
+                                Emergency Contact Name <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="emergencyName"
+                                name="emergencyName"
+                                placeholder="Enter contact name"
+                                required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="relationship">
+                                Relationship <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="relationship"
+                                name="relationship"
+                                placeholder="e.g. Father, Mother, Spouse"
+                                required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="emergencyNumber">
+                                Emergency Contact Number <span>*</span>
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="emergencyNumber"
+                                name="emergencyNumber"
+                                inputmode="numeric"
+                                maxlength="10"
+                                placeholder="10-digit mobile number"
+                                required>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= ACTIONS ================= -->
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-button"
+                        id="cancelButton">
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="save-button">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save Driver
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- SUCCESS MESSAGE -->
+<div class="toast" id="successToast">
+    <div class="toast-icon">
+        <i class="fa-solid fa-check"></i>
+    </div>
+
+    <div>
+        <strong>Driver saved successfully</strong>
+        <span>The new driver has been added to the driver list.</span>
+    </div>
+</div>
+
+
+    <script src="../js/admin-shell.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/supabase-client.js"></script>
+
+<script src="../js/new-driver-registration.js"></script>
+
+</body>
+</html>

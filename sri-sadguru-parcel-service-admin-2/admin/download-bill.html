@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Download Bill | Sri Sadguru Siddarooda Parcel Service
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/download-bill.css"
+    >
+
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         BILL VIEWER TOOLBAR
+    ====================================================== -->
+
+    <header class="bill-toolbar no-print">
+
+        <button
+            type="button"
+            id="backBtn"
+            class="toolbar-button"
+        >
+            <span aria-hidden="true">←</span>
+            Back
+        </button>
+
+
+        <div class="zoom-controls">
+
+            <button
+                type="button"
+                id="zoomOutBtn"
+                class="zoom-button"
+                aria-label="Zoom out"
+            >
+                −
+            </button>
+
+            <span id="zoomValue">
+                100%
+            </span>
+
+            <button
+                type="button"
+                id="zoomInBtn"
+                class="zoom-button"
+                aria-label="Zoom in"
+            >
+                +
+            </button>
+
+            <button
+                type="button"
+                id="zoomResetBtn"
+                class="zoom-reset"
+            >
+                Reset
+            </button>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="downloadBtn"
+            class="toolbar-button primary"
+        >
+            <span aria-hidden="true">↓</span>
+            Download Bill
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         A4 VIEWPORT
+    ====================================================== -->
+
+    <main class="bill-viewer">
+
+        <div
+            id="billCanvas"
+            class="bill-canvas"
+        >
+
+            <!-- =================================================
+                 EXACT A4 DOCUMENT
+            ================================================== -->
+
+            <article
+                id="invoice"
+                class="invoice"
+                aria-label="Parcel Bill"
+            >
+
+                <div class="loading-state">
+                    Loading bill...
+                </div>
+
+            </article>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         EXISTING SUPABASE CLIENT
+    ====================================================== -->
+
+        <script src="../js/admin-shell.js"></script>
+
+<script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+    <script src="../js/supabase-client.js"></script>
+
+    <script src="../js/download-bill.js"></script>
+
+</body>
+
+</html>

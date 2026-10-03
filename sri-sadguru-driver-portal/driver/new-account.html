@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Create Driver Account | Sri Sadguru Siddarooda Parcel Service
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/new-account.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<main class="account-page">
+
+
+    <!-- =====================================================
+         BRAND PANEL
+    ====================================================== -->
+
+    <section class="brand-panel">
+
+        <div class="brand-content">
+
+            <div class="logo-wrapper">
+
+                <img
+                    src="../images/logo.png"
+                    alt="Sri Sadguru Siddarooda Parcel Service Logo"
+                    class="company-logo"
+                >
+
+            </div>
+
+
+            <h1>
+
+                Sri Sadguru
+
+                <span>
+                    Siddarooda
+                </span>
+
+                Parcel Service
+
+            </h1>
+
+
+            <p class="brand-tagline">
+
+                Safe. Reliable. On Time.<br>
+
+                Every Time.
+
+            </p>
+
+
+            <div class="brand-line"></div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FORM PANEL
+    ====================================================== -->
+
+    <section class="form-panel">
+
+        <div class="form-container">
+
+
+            <!-- HEADER -->
+
+            <header class="form-header">
+
+                <p class="welcome-text">
+                    Welcome Driver
+                </p>
+
+                <h2>
+                    Create Driver Account
+                </h2>
+
+                <p class="form-description">
+
+                    Create your driver account and complete
+                    your driver profile.
+
+                </p>
+
+            </header>
+
+
+
+            <!-- =================================================
+                 FORM
+            ================================================== -->
+
+            <form
+                id="createAccountForm"
+                novalidate
+            >
+
+
+                <!-- =================================================
+                     ACCOUNT INFORMATION
+                ================================================== -->
+
+                <div class="section-title">
+
+                    <span class="section-icon">
+                        🔐
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Account Information
+                        </strong>
+
+                        <small>
+                            Used to log in to the Driver Portal.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+
+                        Email Address
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            📧
+                        </span>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your Gmail address"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <small
+                        class="field-error"
+                        id="emailError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+
+                        Password
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            data-target="password"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+
+                    <div class="password-rules">
+
+                        <strong>
+                            Password must contain:
+                        </strong>
+
+
+                        <div
+                            class="password-rule"
+                            id="ruleLength"
+                        >
+
+                            <span class="rule-circle"></span>
+
+                            <span>
+                                At least 12 characters
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="password-rule"
+                            id="ruleUpper"
+                        >
+
+                            <span class="rule-circle"></span>
+
+                            <span>
+                                At least 1 uppercase letter
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="password-rule"
+                            id="ruleLower"
+                        >
+
+                            <span class="rule-circle"></span>
+
+                            <span>
+                                At least 1 lowercase letter
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="password-rule"
+                            id="ruleNumber"
+                        >
+
+                            <span class="rule-circle"></span>
+
+                            <span>
+                                At least 1 number
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="password-rule"
+                            id="ruleSpecial"
+                        >
+
+                            <span class="rule-circle"></span>
+
+                            <span>
+                                At least 1 special character
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <small
+                        class="field-error"
+                        id="passwordError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+
+                        Confirm Password
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Confirm your password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            data-target="confirmPassword"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+
+                    <small
+                        class="field-error"
+                        id="confirmPasswordError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PERSONAL INFORMATION
+                ================================================== -->
+
+                <div class="section-title">
+
+                    <span class="section-icon">
+                        👤
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Personal Information
+                        </strong>
+
+                        <small>
+                            Enter your complete driver information.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FULL NAME -->
+
+                <div class="form-group">
+
+                    <label for="fullName">
+
+                        Full Name
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            👤
+                        </span>
+
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <small
+                        class="field-error"
+                        id="fullNameError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- DOB -->
+
+                <div class="form-group">
+
+                    <label for="dateOfBirth">
+
+                        Date of Birth
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <input
+                        type="date"
+                        id="dateOfBirth"
+                        name="dateOfBirth"
+                        required
+                    >
+
+
+                    <small
+                        class="field-error"
+                        id="dateOfBirthError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- GENDER -->
+
+                <div class="form-group">
+
+                    <label for="gender">
+
+                        Gender
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <select
+                        id="gender"
+                        name="gender"
+                        required
+                    >
+
+                        <option value="">
+                            Select gender
+                        </option>
+
+                        <option value="Male">
+                            Male
+                        </option>
+
+                        <option value="Female">
+                            Female
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+
+                    <small
+                        class="field-error"
+                        id="genderError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- BLOOD GROUP -->
+
+                <div class="form-group">
+
+                    <label for="bloodGroup">
+
+                        Blood Group
+
+                    </label>
+
+
+                    <select
+                        id="bloodGroup"
+                        name="bloodGroup"
+                    >
+
+                        <option value="">
+                            Select blood group
+                        </option>
+
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- MOBILE -->
+
+                <div class="form-group">
+
+                    <label for="mobileNumber">
+
+                        Mobile Number
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            📱
+                        </span>
+
+
+                        <input
+                            type="tel"
+                            id="mobileNumber"
+                            name="mobileNumber"
+                            inputmode="numeric"
+                            maxlength="10"
+                            placeholder="10-digit mobile number"
+                            autocomplete="tel"
+                            required
+                        >
+
+                    </div>
+
+
+                    <small
+                        class="field-error"
+                        id="mobileNumberError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- ALTERNATE MOBILE -->
+
+                <div class="form-group">
+
+                    <label for="alternateMobile">
+
+                        Alternate Mobile Number
+
+                    </label>
+
+
+                    <input
+                        type="tel"
+                        id="alternateMobile"
+                        name="alternateMobile"
+                        inputmode="numeric"
+                        maxlength="10"
+                        placeholder="Alternate mobile number"
+                    >
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ADDRESS
+                ================================================== -->
+
+                <div class="section-title">
+
+                    <span class="section-icon">
+                        📍
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Address Information
+                        </strong>
+
+                        <small>
+                            Enter your residential address.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="address">
+
+                        Complete Address
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <textarea
+                        id="address"
+                        name="address"
+                        rows="3"
+                        placeholder="Enter complete address"
+                        required
+                    ></textarea>
+
+
+                    <small
+                        class="field-error"
+                        id="addressError"
+                    ></small>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="city">
+
+                        City
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="city"
+                        name="city"
+                        placeholder="Enter city"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="state">
+
+                        State
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="state"
+                        name="state"
+                        placeholder="Enter state"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="pinCode">
+
+                        PIN Code
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="pinCode"
+                        name="pinCode"
+                        inputmode="numeric"
+                        maxlength="6"
+                        placeholder="6-digit PIN code"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- =================================================
+                     IDENTITY
+                ================================================== -->
+
+                <div class="section-title">
+
+                    <span class="section-icon">
+                        🪪
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Identity Information
+                        </strong>
+
+                        <small>
+                            Government ID and driving licence details.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="governmentId">
+
+                        Aadhaar / Government ID Number
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="governmentId"
+                        name="governmentId"
+                        placeholder="Enter government ID number"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="licenceNumber">
+
+                        Driving Licence Number
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="licenceNumber"
+                        name="licenceNumber"
+                        placeholder="Enter driving licence number"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="licenceExpiry">
+
+                        Licence Expiry Date
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <input
+                        type="date"
+                        id="licenceExpiry"
+                        name="licenceExpiry"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- =================================================
+                     VEHICLE INFORMATION
+                     OPTIONAL
+                ================================================== -->
+
+                <div class="section-title">
+
+                    <span class="section-icon">
+                        🚚
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Vehicle Information
+                        </strong>
+
+                        <small>
+                            Optional — vehicle can be assigned later by Admin.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="optional-notice">
+
+                    Vehicle information is optional.
+                    You can create your driver account without
+                    assigning a vehicle.
+
+                </div>
+
+
+
+                <!-- VEHICLE ASSIGNED -->
+
+                <div class="form-group">
+
+                    <label for="vehicleAssigned">
+
+                        Vehicle Assigned
+
+                        <span class="optional-label">
+                            Optional
+                        </span>
+
+                    </label>
+
+
+                    <select
+                        id="vehicleAssigned"
+                        name="vehicleAssigned"
+                    >
+
+                        <option value="">
+                            No vehicle assigned
+                        </option>
+
+                        <option value="Vehicle 1">
+                            Vehicle 1
+                        </option>
+
+                        <option value="Vehicle 2">
+                            Vehicle 2
+                        </option>
+
+                        <option value="Vehicle 3">
+                            Vehicle 3
+                        </option>
+
+                        <option value="Vehicle 4">
+                            Vehicle 4
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- VEHICLE NUMBER -->
+
+                <div class="form-group">
+
+                    <label for="vehicleNumber">
+
+                        Vehicle Number
+
+                        <span class="optional-label">
+                            Optional
+                        </span>
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="vehicleNumber"
+                        name="vehicleNumber"
+                        placeholder="e.g. KA15AB1234"
+                    >
+
+                </div>
+
+
+
+                <!-- VEHICLE TYPE -->
+
+                <div class="form-group">
+
+                    <label for="vehicleType">
+
+                        Vehicle Type
+
+                        <span class="optional-label">
+                            Optional
+                        </span>
+
+                    </label>
+
+
+                    <select
+                        id="vehicleType"
+                        name="vehicleType"
+                    >
+
+                        <option value="">
+                            Select vehicle type
+                        </option>
+
+                        <option value="Mini Truck">
+                            Mini Truck
+                        </option>
+
+                        <option value="Pickup Van">
+                            Pickup Van
+                        </option>
+
+                        <option value="Parcel Van">
+                            Parcel Van
+                        </option>
+
+                        <option value="Truck">
+                            Truck
+                        </option>
+
+                        <option value="Tempo">
+                            Tempo
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     EMPLOYMENT
+                ================================================== -->
+
+                <div class="section-title">
+
+                    <span class="section-icon">
+                        💼
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Employment Information
+                        </strong>
+
+                        <small>
+                            Joining information.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="joiningDate">
+
+                        Joining Date
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <input
+                        type="date"
+                        id="joiningDate"
+                        name="joiningDate"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- =================================================
+                     EMERGENCY CONTACT
+                ================================================== -->
+
+                <div class="section-title">
+
+                    <span class="section-icon">
+                        ☎
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Emergency Contact
+                        </strong>
+
+                        <small>
+                            Person to contact during an emergency.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="emergencyName">
+
+                        Emergency Contact Name
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="emergencyName"
+                        name="emergencyName"
+                        placeholder="Enter contact name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="relationship">
+
+                        Relationship
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="relationship"
+                        name="relationship"
+                        placeholder="Father, Mother, Spouse, etc."
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label for="emergencyNumber">
+
+                        Emergency Contact Number
+
+                        <span class="required">
+                            *
+                        </span>
+
+                    </label>
+
+
+                    <input
+                        type="tel"
+                        id="emergencyNumber"
+                        name="emergencyNumber"
+                        inputmode="numeric"
+                        maxlength="10"
+                        placeholder="10-digit mobile number"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- =================================================
+                     TERMS
+                ================================================== -->
+
+                <div class="terms-group">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            name="terms"
+                        >
+
+                        <span>
+                            I confirm that the information provided
+                            is correct.
+                        </span>
+
+                    </label>
+
+
+                    <small
+                        class="field-error"
+                        id="termsError"
+                    ></small>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     CREATE BUTTON
+                ================================================== -->
+
+                <button
+                    type="submit"
+                    class="create-account-btn"
+                    id="createAccountBtn"
+                >
+
+                    <span class="button-icon">
+                        👤
+                    </span>
+
+                    <span>
+                        CREATE DRIVER ACCOUNT
+                    </span>
+
+                </button>
+
+
+
+                <!-- LOGIN -->
+
+                <p class="login-text">
+
+                    Already registered?
+
+                    <a href="../index.html">
+                        Login
+                    </a>
+
+                </p>
+
+
+
+                <!-- SECURITY -->
+
+                <div class="security-message">
+
+                    <div class="security-icon">
+                        ✓
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            Your information is secure with us
+                        </strong>
+
+                        <span>
+                            Your password is securely handled by
+                            Supabase Authentication.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p class="copyright">
+
+                    © 2026 Sri Sadguru Siddarooda Parcel Service
+
+                </p>
+
+
+            </form>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- =========================================================
+     SUCCESS OVERLAY
+========================================================= -->
+
+<div
+    class="success-overlay"
+    id="successOverlay"
+>
+
+    <div class="success-box">
+
+        <div class="success-check">
+            ✓
+        </div>
+
+
+        <h3>
+            Account Created Successfully
+        </h3>
+
+
+        <p>
+
+            Your complete driver account and driver
+            profile have been created successfully.
+
+        </p>
+
+
+        <button
+            type="button"
+            id="continueLoginBtn"
+        >
+            Continue to Login
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     SUPABASE
+========================================================= -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+></script>
+
+
+<script
+    src="../js/supabase-client.js"
+></script>
+
+
+<script
+    src="../js/new-account.js"
+></script>
+
+
+</body>
+
+</html>

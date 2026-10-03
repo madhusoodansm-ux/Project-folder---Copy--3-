@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Parcel Details - Sri Sadguru Siddarooda Parcel Service"
+    >
+
+    <title>
+        Parcel Details | Sri Sadguru Siddarooda Parcel Service
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/parcel-details.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="parcel-details-page">
+
+        <!-- =========================================
+             PAGE HEADER
+        ========================================== -->
+
+        <header class="parcel-page-header">
+
+            <button
+                type="button"
+                class="back-button"
+                id="backButton"
+                aria-label="Back to Orders"
+            >
+                <span class="back-arrow" aria-hidden="true">&#8592;</span>
+            </button>
+
+
+            <h1>
+                Parcel Details
+            </h1>
+
+
+            <!-- DOWNLOAD BILL -->
+            <button
+                type="button"
+                class="download-button"
+                id="downloadBillButton"
+                aria-label="Download Bill"
+                title="Download Bill"
+                disabled
+            >
+                <i class="fa-solid fa-download"></i>
+            </button>
+
+        </header>
+
+
+        <!-- =========================================
+             MAIN CONTENT
+        ========================================== -->
+
+        <section class="parcel-content">
+
+            <!-- =====================================
+                 BOOKING SUMMARY
+            ====================================== -->
+
+            <section class="booking-summary-card">
+
+                <div class="booking-summary-top">
+
+                    <div>
+
+                        <span class="summary-label">
+                            BOOKING ID
+                        </span>
+
+                        <strong
+                            id="bookingId"
+                            class="booking-id"
+                        >
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <span
+                        id="bookingStatus"
+                        class="status-badge"
+                    >
+                        —
+                    </span>
+
+                </div>
+
+
+                <div class="booking-date">
+
+                    <span>
+                        Booking Date
+                    </span>
+
+                    <strong id="bookingDate">
+                        —
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 INFORMATION SECTIONS
+            ====================================== -->
+
+            <section class="details-sections">
+
+
+                <!-- PARCEL DETAILS -->
+
+                <article class="detail-section">
+
+                    <button
+                        type="button"
+                        class="detail-section-header"
+                        data-section="parcel"
+                        aria-expanded="false"
+                    >
+
+                        <span class="detail-section-title">
+
+                            <span class="section-icon">
+                                <i class="fa-solid fa-box"></i>
+                            </span>
+
+                            <span>
+                                Parcel Details
+                            </span>
+
+                        </span>
+
+
+                        <span class="section-arrow" aria-hidden="true">&#8964;</span>
+
+                    </button>
+
+
+                    <div
+                        class="detail-section-content"
+                        id="parcelSection"
+                        hidden
+                    >
+
+                        <div class="detail-grid">
+
+                            <div class="detail-item">
+                                <span>Parcel Name</span>
+                                <strong id="parcelName">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>Parcel Type</span>
+                                <strong id="parcelType">—</strong>
+                            </div>
+
+                            <div class="detail-item full-width">
+                                <span>Description</span>
+                                <strong id="parcelDescription">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>Weight</span>
+                                <strong id="parcelWeight">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>Pieces</span>
+                                <strong id="parcelPieces">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>Length</span>
+                                <strong id="parcelLength">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>Width</span>
+                                <strong id="parcelWidth">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>Height</span>
+                                <strong id="parcelHeight">—</strong>
+                            </div>
+
+                            <div class="detail-item full-width">
+                                <span>Special Instructions</span>
+                                <strong id="specialInstructions">—</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- RECEIVER DETAILS -->
+
+                <article class="detail-section">
+
+                    <button
+                        type="button"
+                        class="detail-section-header"
+                        data-section="receiver"
+                        aria-expanded="false"
+                    >
+
+                        <span class="detail-section-title">
+
+                            <span class="section-icon">
+                                <i class="fa-solid fa-user"></i>
+                            </span>
+
+                            <span>
+                                Receiver Details
+                            </span>
+
+                        </span>
+
+
+                        <span class="section-arrow" aria-hidden="true">&#8964;</span>
+
+                    </button>
+
+
+                    <div
+                        class="detail-section-content"
+                        id="receiverSection"
+                        hidden
+                    >
+
+                        <div class="detail-grid">
+
+                            <div class="detail-item">
+                                <span>Name</span>
+                                <strong id="receiverName">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>Phone</span>
+                                <strong id="receiverPhone">—</strong>
+                            </div>
+
+                            <div class="detail-item full-width">
+                                <span>Email</span>
+                                <strong id="receiverEmail">—</strong>
+                            </div>
+
+                            <div class="detail-item full-width">
+                                <span>Address</span>
+                                <strong id="deliveryAddress">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>City</span>
+                                <strong id="deliveryCity">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>District</span>
+                                <strong id="deliveryDistrict">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>State</span>
+                                <strong id="deliveryState">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>Pincode</span>
+                                <strong id="deliveryPincode">—</strong>
+                            </div>
+
+                            <div class="detail-item full-width">
+                                <span>Landmark</span>
+                                <strong id="deliveryLandmark">—</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SENDER DETAILS -->
+
+                <article class="detail-section">
+
+                    <button
+                        type="button"
+                        class="detail-section-header"
+                        data-section="sender"
+                        aria-expanded="false"
+                    >
+
+                        <span class="detail-section-title">
+
+                            <span class="section-icon">
+                                <i class="fa-solid fa-user"></i>
+                            </span>
+
+                            <span>
+                                Sender Details
+                            </span>
+
+                        </span>
+
+
+                        <span class="section-arrow" aria-hidden="true">&#8964;</span>
+
+                    </button>
+
+
+                    <div
+                        class="detail-section-content"
+                        id="senderSection"
+                        hidden
+                    >
+
+                        <div class="detail-grid">
+
+                            <div class="detail-item">
+                                <span>Name</span>
+                                <strong id="pickupName">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>Phone</span>
+                                <strong id="pickupPhone">—</strong>
+                            </div>
+
+                            <div class="detail-item full-width">
+                                <span>Email</span>
+                                <strong id="pickupEmail">—</strong>
+                            </div>
+
+                            <div class="detail-item full-width">
+                                <span>Address</span>
+                                <strong id="pickupAddress">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>City</span>
+                                <strong id="pickupCity">—</strong>
+                            </div>
+
+                            <div class="detail-item">
+                                <span>Pincode</span>
+                                <strong id="pickupPincode">—</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PAYMENT INFORMATION -->
+
+                <article class="detail-section">
+
+                    <button
+                        type="button"
+                        class="detail-section-header"
+                        data-section="payment"
+                        aria-expanded="false"
+                    >
+
+                        <span class="detail-section-title">
+
+                            <span class="section-icon">
+                                <i class="fa-solid fa-credit-card"></i>
+                            </span>
+
+                            <span>
+                                Payment Information
+                            </span>
+
+                        </span>
+
+
+                        <span class="section-arrow" aria-hidden="true">&#8964;</span>
+
+                    </button>
+
+
+                    <div
+                        class="detail-section-content"
+                        id="paymentSection"
+                        hidden
+                    >
+
+                        <div class="payment-summary">
+
+                            <div class="payment-row">
+
+                                <span>
+                                    Payment Status
+                                </span>
+
+                                <strong id="paymentStatus">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="payment-row">
+
+                                <span>
+                                    Amount
+                                </span>
+
+                                <strong id="paymentAmount">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="payment-row">
+
+                                <span>
+                                    Payment Method
+                                </span>
+
+                                <strong id="paymentMethod">
+                                    —
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="primary-button payment-button"
+                            id="payNowButton"
+                        >
+                            <span>
+                                Pay Now
+                            </span>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+
+                        <p
+                            class="payment-message"
+                            id="paymentMessage"
+                        ></p>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- =====================================
+                 ACTIONS
+            ====================================== -->
+
+            <section class="parcel-actions">
+
+                <!-- TRACK -->
+                <button
+                    type="button"
+                    class="primary-button track-button"
+                    id="trackButton"
+                >
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <span>
+                        Track Parcel
+                    </span>
+
+                </button>
+
+
+                <!-- CANCEL -->
+                <button
+                    type="button"
+                    class="cancel-button"
+                    id="cancelOrderButton"
+                >
+
+                    <span>
+                        Cancel Order
+                    </span>
+
+                </button>
+
+
+                <p
+                    class="cancel-message"
+                    id="cancelMessage"
+                ></p>
+
+            </section>
+
+
+            <!-- GENERAL MESSAGE -->
+
+            <div
+                class="page-message"
+                id="pageMessage"
+                role="alert"
+                aria-live="polite"
+            ></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         SUPABASE + SSP
+    ========================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+    <script src="../js/supabase-client.js"></script>
+
+    <script src="../js/auth.js"></script>
+
+    <script src="../js/parcel-details.js"></script>
+
+</body>
+
+</html>

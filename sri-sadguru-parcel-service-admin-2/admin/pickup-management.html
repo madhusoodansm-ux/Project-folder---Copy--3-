@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Sri Sadguru Siddarooda Parcel Service - Pickup Management"
+    >
+
+    <title>
+        Pickup Management | Sri Sadguru Parcel Service
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/pickup-management.css"
+    >
+
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="brand">
+
+            <img
+                src="../images/logo.png"
+                alt="Sri Sadguru Siddarooda Parcel Service"
+            >
+
+            <div class="brand-text">
+
+                <h2>SRI SADGURU</h2>
+
+                <p>
+                    SIDDAROODA<br>
+                    PARCEL SERVICE
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="bookings.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">▣</span>
+                <span>Bookings</span>
+            </a>
+
+
+            <a
+                href="payments.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">₹</span>
+                <span>Payments</span>
+            </a>
+
+
+            <a
+                href="tracking.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">⌖</span>
+                <span>Tracking</span>
+            </a>
+
+
+            <a
+                href="bookings.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">◷</span>
+                <span>Recent Orders</span>
+            </a>
+
+
+            <a
+                href="pickup-management.html"
+                class="nav-item active"
+            >
+                <span class="nav-icon">▣</span>
+                <span>Pickup Management</span>
+            </a>
+
+
+            <a
+                href="delivery-management.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">🚚</span>
+                <span>Delivery Management</span>
+            </a>
+
+
+            <a
+                href="drivers.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Drivers</span>
+            </a>
+
+
+            <a
+                href="reports.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+
+            <a
+                href="settings.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="admin-user">
+
+            <div class="admin-avatar">
+                AD
+            </div>
+
+            <div class="admin-user-info">
+
+                <strong>
+                    Admin
+                </strong>
+
+                <span>
+                    Administrator
+                </span>
+
+                <small>
+                    ● Online
+                </small>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MOBILE OVERLAY -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    id="sidebarToggle"
+                    class="menu-button"
+                    aria-label="Toggle sidebar"
+                >
+                    ☰
+                </button>
+
+                <div>
+
+                    <h1>
+                        Pickup Management
+                    </h1>
+
+                    <p>
+                        Schedule, assign and monitor parcel pickups
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="refreshButton"
+                class="refresh-button"
+            >
+                ↻ Refresh
+            </button>
+
+        </header>
+
+
+        <!-- =====================================================
+             SUMMARY
+        ====================================================== -->
+
+        <section class="summary-grid">
+
+
+            <article class="summary-card">
+
+                <div class="summary-icon total">
+                    ▣
+                </div>
+
+                <div>
+                    <span>Total Pickups</span>
+                    <strong id="totalCount">0</strong>
+                </div>
+
+            </article>
+
+
+            <article class="summary-card">
+
+                <div class="summary-icon pending">
+                    ◷
+                </div>
+
+                <div>
+                    <span>Pickup Pending</span>
+                    <strong id="pendingCount">0</strong>
+                </div>
+
+            </article>
+
+
+            <article class="summary-card">
+
+                <div class="summary-icon scheduled">
+                    ✓
+                </div>
+
+                <div>
+                    <span>Scheduled</span>
+                    <strong id="scheduledCount">0</strong>
+                </div>
+
+            </article>
+
+
+            <article class="summary-card">
+
+                <div class="summary-icon assigned">
+                    ♙
+                </div>
+
+                <div>
+                    <span>Driver Assigned</span>
+                    <strong id="assignedCount">0</strong>
+                </div>
+
+            </article>
+
+
+            <article class="summary-card">
+
+                <div class="summary-icon started">
+                    →
+                </div>
+
+                <div>
+                    <span>Pickup Started</span>
+                    <strong id="startedCount">0</strong>
+                </div>
+
+            </article>
+
+
+            <article class="summary-card">
+
+                <div class="summary-icon finished">
+                    ✓
+                </div>
+
+                <div>
+                    <span>Pickup Finished</span>
+                    <strong id="finishedCount">0</strong>
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- =====================================================
+             SEARCH / FILTER
+        ====================================================== -->
+
+        <section class="search-card">
+
+            <div class="search-box">
+
+                <span class="search-icon">
+                    ⌕
+                </span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search Booking ID, customer, phone or pickup location..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <select
+                id="statusFilter"
+                aria-label="Pickup status"
+            >
+
+                <option value="">
+                    All Pickup Status
+                </option>
+
+                <option value="Pickup Pending">
+                    Pickup Pending
+                </option>
+
+                <option value="Scheduled">
+                    Scheduled
+                </option>
+
+                <option value="Driver Assigned">
+                    Driver Assigned
+                </option>
+
+                <option value="Pickup Started">
+                    Pickup Started
+                </option>
+
+                <option value="Pickup Finished">
+                    Pickup Finished
+                </option>
+
+                <option value="Call Confirmation Required">
+                    Call Confirmation Required
+                </option>
+
+            </select>
+
+        </section>
+
+
+        <!-- =====================================================
+             PICKUP LIST
+        ====================================================== -->
+
+        <section class="pickup-card">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Pickup List
+                    </h2>
+
+                    <p id="listCount">
+                        Loading pickups...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- DESKTOP TABLE -->
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Booking
+                            </th>
+
+                            <th>
+                                Customer
+                            </th>
+
+                            <th>
+                                Pickup
+                            </th>
+
+                            <th>
+                                Route
+                            </th>
+
+                            <th>
+                                Driver
+                            </th>
+
+                            <th>
+                                Pickup Status
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="pickupBody"></tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- MOBILE LIST -->
+
+            <div
+                class="mobile-list"
+                id="mobileList"
+            ></div>
+
+
+            <!-- EMPTY -->
+
+            <div
+                class="empty-state hidden"
+                id="emptyState"
+            >
+
+                <div class="empty-icon">
+                    ▣
+                </div>
+
+                <h3>
+                    No pickup records found
+                </h3>
+
+                <p>
+                    No bookings match the current search or status.
+                </p>
+
+            </div>
+
+
+            <!-- PAGINATION -->
+
+            <div class="pagination">
+
+                <button
+                    type="button"
+                    id="previousPage"
+                    aria-label="Previous page"
+                >
+                    ‹
+                </button>
+
+                <div id="pageButtons"></div>
+
+                <button
+                    type="button"
+                    id="nextPage"
+                    aria-label="Next page"
+                >
+                    ›
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     PICKUP DETAILS MODAL
+====================================================== -->
+
+<div
+    class="modal"
+    id="pickupModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="modal-backdrop"
+        id="modalBackdrop"
+    ></div>
+
+
+    <div class="modal-box">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="modal-label">
+                    Pickup Details
+                </span>
+
+                <h2 id="modalBookingId">
+                    —
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="closeModal"
+                class="close-button"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            class="modal-content"
+            id="modalContent"
+        ></div>
+
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                id="viewBookingButton"
+                class="secondary-button"
+            >
+                View Booking Details
+            </button>
+
+
+            <button
+                type="button"
+                id="savePickupButton"
+                class="primary-button"
+            >
+                Save Pickup Update
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MOBILE BOTTOM NAVIGATION
+====================================================== -->
+
+<nav
+    class="mobile-bottom-nav"
+    id="mobileBottomNav"
+>
+
+    <a
+        href="dashboard.html"
+        class="bottom-nav-item"
+    >
+        <span>⌂</span>
+        <small>Home</small>
+    </a>
+
+
+    <a
+        href="bookings.html"
+        class="bottom-nav-item"
+    >
+        <span>▣</span>
+        <small>Bookings</small>
+    </a>
+
+
+    <a
+        href="payments.html"
+        class="bottom-nav-item"
+    >
+        <span>₹</span>
+        <small>Payments</small>
+    </a>
+
+
+    <a
+        href="tracking.html"
+        class="bottom-nav-item"
+    >
+        <span>⌖</span>
+        <small>Tracking</small>
+    </a>
+
+
+    <button
+        type="button"
+        class="bottom-nav-item bottom-more"
+        id="bottomMoreButton"
+    >
+        <span>☰</span>
+        <small>More</small>
+    </button>
+
+</nav>
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+></div>
+
+
+<!-- SUPABASE -->
+
+    <script src="../js/admin-shell.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/supabase-client.js"></script>
+<script src="../js/admin-settings.js"></script>
+<script src="../js/pickup-management.js"></script>
+
+</body>
+
+</html>

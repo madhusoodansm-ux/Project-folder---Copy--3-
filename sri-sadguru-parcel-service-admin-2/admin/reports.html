@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Reports | Sri Sadguru Siddarooda Parcel Service</title>
+
+    <link rel="stylesheet" href="../css/reports.css">
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+
+            <div class="sidebar-brand">
+
+                <img
+                    src="../images/logo.png"
+                    alt="Sri Sadguru Siddarooda Parcel Service">
+
+                <div class="brand-text">
+                    <span class="brand-title">
+                        Sri Sadguru
+                    </span>
+
+                    <span class="brand-subtitle">
+                        Parcel Service
+                    </span>
+                </div>
+
+            </div>
+
+            <button
+                type="button"
+                class="sidebar-close"
+                id="sidebarToggle"
+                aria-label="Close menu">
+                ×
+            </button>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="bookings.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Bookings</span>
+            </a>
+
+            <a href="payments.html" class="nav-item">
+                <span class="nav-icon">₹</span>
+                <span>Payments</span>
+            </a>
+
+            <a href="tracking.html" class="nav-item">
+                <span class="nav-icon">⌖</span>
+                <span>Tracking</span>
+            </a>
+
+            <a href="pickup-management.html" class="nav-item">
+                <span class="nav-icon">⇥</span>
+                <span>Pickup Management</span>
+            </a>
+
+            <a href="delivery-management.html" class="nav-item">
+                <span class="nav-icon">⇥</span>
+                <span>Delivery Management</span>
+            </a>
+
+            <a href="drivers.html" class="nav-item">
+                <span class="nav-icon">♙</span>
+                <span>Drivers</span>
+            </a>
+
+            <a href="vehicles.html" class="nav-item">
+                <span class="nav-icon">▣</span>
+                <span>Vehicles</span>
+            </a>
+
+            <a href="customers.html" class="nav-item">
+                <span class="nav-icon">♧</span>
+                <span>Customers</span>
+            </a>
+
+            <a href="reports.html" class="nav-item active">
+                <span class="nav-icon">▥</span>
+                <span>Reports</span>
+            </a>
+
+            <a href="admin-profile.html" class="nav-item">
+                <span class="nav-icon">●</span>
+                <span>Admin Profile</span>
+            </a>
+
+            <a href="settings.html" class="nav-item">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MOBILE OVERLAY -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay">
+    </div>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    aria-label="Open menu">
+                    ☰
+                </button>
+
+                <div class="topbar-page-title">
+                    Reports
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="topbar-logo">
+
+                    <img
+                        src="../images/logo.png"
+                        alt="Sri Sadguru Siddarooda Parcel Service">
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             PAGE CONTENT
+             ================================================= -->
+
+        <section class="page-content">
+
+            <!-- BREADCRUMB -->
+
+            <div class="breadcrumb">
+
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
+
+                <span>/</span>
+
+                <span>
+                    Reports
+                </span>
+
+            </div>
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <div>
+                    <h1>Reports</h1>
+
+                    <p>
+                        View booking, payment, delivery, driver and customer
+                        performance reports.
+                    </p>
+                </div>
+
+
+                <div class="header-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="printReportButton">
+                        Print Report
+                    </button>
+
+                    <button
+                        type="button"
+                        class="primary-button"
+                        id="exportReportButton">
+                        Export CSV
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div
+                class="report-load-error"
+                id="reportLoadError"
+                role="alert"
+                hidden>
+                Reports could not be loaded. Please try again.
+            </div>
+
+
+            <!-- =================================================
+                 FILTERS
+                 ================================================= -->
+
+            <section class="report-card filter-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>Report Filters</h2>
+
+                        <p>
+                            Filter the report by booking date and status.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-body">
+
+                    <div class="filter-grid">
+
+                        <div class="form-group">
+
+                            <label
+                                class="form-label"
+                                for="startDate">
+                                Start Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="startDate"
+                                class="form-control">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label
+                                class="form-label"
+                                for="endDate">
+                                End Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="endDate"
+                                class="form-control">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label
+                                class="form-label"
+                                for="statusFilter">
+                                Booking Status
+                            </label>
+
+                            <select
+                                id="statusFilter"
+                                class="form-control">
+
+                                <option value="all">
+                                    All Statuses
+                                </option>
+
+                                <option value="Pending">
+                                    Pending
+                                </option>
+
+                                <option value="Confirmed">
+                                    Confirmed
+                                </option>
+
+                                <option value="Assigned">
+                                    Assigned
+                                </option>
+
+                                <option value="Pickup Started">
+                                    Pickup Started
+                                </option>
+
+                                <option value="Picked Up">
+                                    Picked Up
+                                </option>
+
+                                <option value="In Transit">
+                                    In Transit
+                                </option>
+
+                                <option value="Out for Delivery">
+                                    Out for Delivery
+                                </option>
+
+                                <option value="Delivered">
+                                    Delivered
+                                </option>
+
+                                <option value="Cancelled">
+                                    Cancelled
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="filter-actions">
+
+                            <button
+                                type="button"
+                                class="primary-button"
+                                id="applyFilterButton">
+                                Apply Filter
+                            </button>
+
+                            <button
+                                type="button"
+                                class="secondary-button"
+                                id="resetFilterButton">
+                                Reset
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="filter-error"
+                        id="filterError">
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 REPORT SUMMARY
+                 ================================================= -->
+
+            <div class="section-title">
+
+                <h2>Report Summary</h2>
+
+                <span id="reportPeriodLabel">
+                    All available bookings
+                </span>
+
+            </div>
+
+
+            <section class="summary-grid">
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        ▤
+                    </div>
+
+                    <div class="summary-content">
+
+                        <span class="summary-label">
+                            Total Bookings
+                        </span>
+
+                        <strong
+                            class="summary-value"
+                            id="totalBookings">
+                            Loading…
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        ✓
+                    </div>
+
+                    <div class="summary-content">
+
+                        <span class="summary-label">
+                            Delivered
+                        </span>
+
+                        <strong
+                            class="summary-value"
+                            id="deliveredBookings">
+                            Loading…
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        ◷
+                    </div>
+
+                    <div class="summary-content">
+
+                        <span class="summary-label">
+                            Active Shipments
+                        </span>
+
+                        <strong
+                            class="summary-value"
+                            id="activeBookings">
+                            Loading…
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        ₹
+                    </div>
+
+                    <div class="summary-content">
+
+                        <span class="summary-label">
+                            Total Revenue
+                        </span>
+
+                        <strong
+                            class="summary-value"
+                            id="totalRevenue">
+                            Loading…
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        ◉
+                    </div>
+
+                    <div class="summary-content">
+
+                        <span class="summary-label">
+                            Paid Amount
+                        </span>
+
+                        <strong
+                            class="summary-value"
+                            id="paidAmount">
+                            Loading…
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        ♧
+                    </div>
+
+                    <div class="summary-content">
+
+                        <span class="summary-label">
+                            Customers
+                        </span>
+
+                        <strong
+                            class="summary-value"
+                            id="totalCustomers">
+                            Loading…
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 STATUS + PAYMENT
+                 ================================================= -->
+
+            <section class="two-column-grid">
+
+                <!-- STATUS -->
+
+                <div class="report-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h2>Booking Status</h2>
+
+                            <p>
+                                Current status distribution.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-body">
+
+                        <div
+                            class="status-report-list"
+                            id="statusReportList">
+                            <div class="empty-state show">
+                                Loading report data…
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENT -->
+
+                <div class="report-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <h2>Payment Summary</h2>
+
+                            <p>
+                                Payment collection overview.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-body">
+
+                        <div class="payment-summary">
+
+                            <div class="payment-item">
+
+                                <span>
+                                    Total Amount
+                                </span>
+
+                                <strong id="paymentTotal">
+                                    Loading…
+                                </strong>
+
+                            </div>
+
+
+                            <div class="payment-item">
+
+                                <span>
+                                    Paid
+                                </span>
+
+                                <strong id="paymentPaid">
+                                    Loading…
+                                </strong>
+
+                            </div>
+
+
+                            <div class="payment-item">
+
+                                <span>
+                                    Pending
+                                </span>
+
+                                <strong id="paymentPending">
+                                    Loading…
+                                </strong>
+
+                            </div>
+
+
+                            <div class="payment-item">
+
+                                <span>
+                                    Payment Records
+                                </span>
+
+                                <strong id="paymentRecordCount">
+                                    Loading…
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 DELIVERY PERFORMANCE
+                 ================================================= -->
+
+            <section class="report-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>Delivery Performance</h2>
+
+                        <p>
+                            Delivery progress based on the selected report.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-body">
+
+                    <div class="performance-grid">
+
+                        <div class="performance-item">
+
+                            <span>
+                                Delivered
+                            </span>
+
+                            <strong id="deliveryDelivered">
+                                0
+                            </strong>
+
+                            <div class="progress-bar">
+
+                                <div
+                                    class="progress-fill"
+                                    id="deliveryDeliveredBar">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="performance-item">
+
+                            <span>
+                                In Transit
+                            </span>
+
+                            <strong id="deliveryTransit">
+                                0
+                            </strong>
+
+                            <div class="progress-bar">
+
+                                <div
+                                    class="progress-fill"
+                                    id="deliveryTransitBar">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="performance-item">
+
+                            <span>
+                                Out for Delivery
+                            </span>
+
+                            <strong id="deliveryOutForDelivery">
+                                0
+                            </strong>
+
+                            <div class="progress-bar">
+
+                                <div
+                                    class="progress-fill"
+                                    id="deliveryOutForDeliveryBar">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="performance-item">
+
+                            <span>
+                                Pending
+                            </span>
+
+                            <strong id="deliveryPending">
+                                0
+                            </strong>
+
+                            <div class="progress-bar">
+
+                                <div
+                                    class="progress-fill"
+                                    id="deliveryPendingBar">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 DRIVER PERFORMANCE
+                 ================================================= -->
+
+            <section class="report-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>Driver Performance</h2>
+
+                        <p>
+                            Booking and delivery activity by driver.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-body table-container">
+
+                    <table class="report-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Driver</th>
+                                <th>Driver ID</th>
+                                <th>Total Bookings</th>
+                                <th>Delivered</th>
+                                <th>Active</th>
+                                <th>Delivery Rate</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="driverReportBody">
+                        </tbody>
+
+                    </table>
+
+
+                    <div
+                        class="empty-state show"
+                        id="driverEmptyState">
+                        Loading driver data…
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 CUSTOMER REPORT
+                 ================================================= -->
+
+            <section class="report-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>Customer Activity</h2>
+
+                        <p>
+                            Customer booking activity within the selected report.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card-body table-container">
+
+                    <table class="report-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Customer</th>
+                                <th>Customer ID</th>
+                                <th>Bookings</th>
+                                <th>Delivered</th>
+                                <th>Total Spent</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="customerReportBody">
+                        </tbody>
+
+                    </table>
+
+
+                    <div
+                        class="empty-state show"
+                        id="customerEmptyState">
+                        Loading customer data…
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 BOOKING REPORT
+                 ================================================= -->
+
+            <section class="report-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>Booking Report</h2>
+
+                        <p>
+                            Booking records included in the current report.
+                        </p>
+
+                    </div>
+
+                    <span
+                        class="record-count"
+                        id="bookingRecordCount">
+                        Loading…
+                    </span>
+
+                </div>
+
+
+                <div class="card-body table-container">
+
+                    <table class="report-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Booking ID</th>
+
+                                <th>Date</th>
+
+                                <th>Route</th>
+
+                                <th>Customer</th>
+
+                                <th>Status</th>
+
+                                <th>Amount</th>
+
+                                <th>Payment</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="bookingReportBody">
+                        </tbody>
+
+                    </table>
+
+
+                    <div
+                        class="empty-state show"
+                        id="bookingEmptyState">
+
+                        Loading booking data…
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 REPORT FOOTER
+                 ================================================= -->
+
+            <div class="report-footer">
+
+                <span>
+                    Report generated from current admin portal data.
+                </span>
+
+                <span id="reportGeneratedAt">
+                </span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     TOAST
+     ========================================================= -->
+
+<div class="toast" id="toast">
+
+    <div
+        class="toast-icon"
+        id="toastIcon">
+        ✓
+    </div>
+
+    <div class="toast-content">
+
+        <strong id="toastTitle">
+            Success
+        </strong>
+
+        <span id="toastMessage">
+            Report updated successfully.
+        </span>
+
+    </div>
+
+    <button
+        type="button"
+        class="close-toast"
+        id="closeToast">
+        ×
+    </button>
+
+</div>
+
+
+<!-- Supabase and shared Admin authentication -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/supabase-client.js"></script>
+<script src="../js/admin-auth.js"></script>
+<script src="../js/admin-shell.js"></script>
+<script src="../js/admin-settings.js"></script>
+<script src="../js/reports.js"></script>
+
+</body>
+</html>

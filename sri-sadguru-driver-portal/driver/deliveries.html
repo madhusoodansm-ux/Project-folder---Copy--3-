@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Deliveries - SSP Driver Portal</title>
+
+    <!-- Same font used throughout the driver portal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/deliveries.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-header">
+
+        <img src="../images/logo.png"
+             alt="SSP Logo"
+             class="sidebar-logo"> 
+
+        <div class="sidebar-company">
+            <strong>SRI SADGURU</strong>
+            <strong>SIDDAROODA</strong>
+            <strong>PARCEL SERVICE</strong>
+        </div>
+
+        <button class="sidebar-close" id="sidebarClose">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+    <nav class="sidebar-nav">
+
+        <a href="dashboard.html">
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="shipments.html">
+            <i class="fa-solid fa-box"></i>
+            <span>Shipments</span>
+        </a>
+
+        <a href="pickup.html">
+            <i class="fa-solid fa-truck-pickup"></i>
+            <span>Pickup</span>
+        </a>
+
+        <a href="deliveries.html" class="active">
+            <i class="fa-solid fa-truck"></i>
+            <span>Deliveries</span>
+        </a>
+
+        <a href="profile.html">
+            <i class="fa-solid fa-user"></i>
+            <span>Profile</span>
+        </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+        <a href="index.html" class="logout-button">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+        </a>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN APPLICATION
+===================================================== -->
+
+<div class="app">
+
+    <!-- HEADER -->
+
+    <header class="topbar">
+
+        <button class="menu-button" id="menuButton">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="topbar-brand">
+
+            <img src="../images/logo.png"
+                 alt="SSP Logo"
+                 class="topbar-logo">
+
+            <div>
+                <h1>Deliveries</h1>
+                <p>Manage your delivery tasks</p>
+            </div>
+
+        </div>
+
+        <div class="topbar-actions">
+
+            <button class="notification-button">
+                <i class="fa-regular fa-bell"></i>
+                <span id="notificationCount">0</span>
+            </button>
+
+            <div class="driver-avatar">
+                <i class="fa-solid fa-user"></i>
+                <span class="online-dot"></span>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =================================================
+         PAGE CONTENT
+    ================================================= -->
+
+    <main class="page-content">
+
+        <!-- PAGE TITLE -->
+
+        <section class="page-title">
+
+            <div>
+                <span class="eyebrow">DRIVER PORTAL</span>
+                <h2>Delivery Tasks</h2>
+                <p>View and complete your assigned deliveries.</p>
+            </div>
+
+        </section>
+
+
+        <!-- FILTERS -->
+
+        <section class="filter-section">
+
+            <div class="filter-heading">
+
+                <div>
+                    <strong>Filters</strong>
+                    <span id="resultText">0 deliveries</span>
+                </div>
+
+                <button class="filter-icon-button" id="filterToggle">
+                    <i class="fa-solid fa-filter"></i>
+                </button>
+
+            </div>
+
+
+            <div class="filter-chips" id="filterChips">
+
+                <button class="filter-chip active"
+                        data-filter="all">
+                    <i class="fa-solid fa-layer-group"></i>
+                    All
+                    <span id="allCount">0</span>
+                </button>
+
+                <button class="filter-chip"
+                        data-filter="pending">
+                    <i class="fa-solid fa-clock"></i>
+                    Pending
+                    <span id="pendingCount">0</span>
+                </button>
+
+                <button class="filter-chip"
+                        data-filter="out">
+                    <i class="fa-solid fa-truck"></i>
+                    Out for Delivery
+                    <span id="outCount">0</span>
+                </button>
+
+                <button class="filter-chip"
+                        data-filter="delivered">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Delivered
+                    <span id="deliveredCount">0</span>
+                </button>
+
+            </div>
+
+
+            <div class="search-sort">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="search"
+                           id="searchInput"
+                           placeholder="Search by ID, customer, location...">
+
+                </div>
+
+                <button class="sort-button" id="sortButton">
+
+                    <i class="fa-solid fa-arrow-down-wide-short"></i>
+
+                    <span>Sort: Latest</span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DELIVERY LIST
+        ================================================= -->
+
+        <section class="delivery-list"
+                 id="deliveryList">
+
+            <!-- JavaScript inserts cards here -->
+
+        </section>
+
+
+        <!-- EMPTY STATE -->
+
+        <section class="empty-state hidden"
+                 id="emptyState">
+
+            <div class="empty-icon">
+                <i class="fa-solid fa-box-open"></i>
+            </div>
+
+            <h3>No deliveries found</h3>
+
+            <p>
+                There are no delivery bookings matching your current filter.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- =================================================
+         BOTTOM NAVIGATION
+    ================================================= -->
+
+    <nav class="bottom-navigation">
+
+        <a href="dashboard.html">
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="shipments.html">
+            <i class="fa-solid fa-box"></i>
+            <span>Shipments</span>
+        </a>
+
+        <a href="pickup.html">
+            <i class="fa-solid fa-truck-pickup"></i>
+            <span>Pickup</span>
+        </a>
+
+        <a href="deliveries.html" class="active">
+            <i class="fa-solid fa-truck"></i>
+            <span>Deliveries</span>
+        </a>
+
+        <a href="profile.html">
+            <i class="fa-solid fa-user"></i>
+            <span>Profile</span>
+        </a>
+
+    </nav>
+
+</div>
+
+
+<!-- =====================================================
+     DELIVERY CONFIRMATION MODAL
+===================================================== -->
+
+<div class="modal-overlay hidden"
+     id="deliveryConfirmModal">
+
+    <div class="confirmation-modal">
+
+        <button class="modal-close"
+                data-close="deliveryConfirmModal">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="confirmation-icon">
+            <i class="fa-solid fa-circle-question"></i>
+        </div>
+
+        <h3>Confirm Delivery</h3>
+
+        <p>
+            The product parcel has been delivered.
+            Are you sure you want to mark this shipment as delivered?
+        </p>
+
+        <div class="modal-buttons">
+
+            <button class="secondary-button"
+                    data-close="deliveryConfirmModal">
+                Cancel
+            </button>
+
+            <button class="primary-button"
+                    id="confirmDeliveredButton">
+                <i class="fa-solid fa-check"></i>
+                Confirm
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     PROOF OF DELIVERY MODAL
+===================================================== -->
+
+<div class="modal-overlay hidden"
+     id="proofModal">
+
+    <div class="proof-modal">
+
+        <button class="modal-close"
+                data-close="proofModal">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <div class="proof-icon">
+            <i class="fa-solid fa-camera"></i>
+        </div>
+
+        <h3>Proof of Delivery</h3>
+
+        <p>
+            Add a photo as proof that the parcel was delivered.
+        </p>
+
+
+        <!-- CAMERA -->
+
+        <label class="proof-option"
+               for="cameraInput">
+
+            <div class="proof-option-icon">
+                <i class="fa-solid fa-camera"></i>
+            </div>
+
+            <div class="proof-option-text">
+
+                <strong>Camera</strong>
+
+                <span>Take a new photo</span>
+
+            </div>
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+        </label>
+
+
+        <!-- PHOTOS -->
+
+        <label class="proof-option"
+               for="photoInput">
+
+            <div class="proof-option-icon">
+                <i class="fa-regular fa-image"></i>
+            </div>
+
+            <div class="proof-option-text">
+
+                <strong>Photos</strong>
+
+                <span>Choose from gallery</span>
+
+            </div>
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+        </label>
+
+
+        <!-- Hidden camera input -->
+
+        <input type="file"
+               id="cameraInput"
+               accept="image/*"
+               capture="environment"
+               hidden>
+
+
+        <!-- Hidden gallery input -->
+
+        <input type="file"
+               id="photoInput"
+               accept="image/*"
+               hidden>
+
+
+        <!-- PREVIEW -->
+
+        <div class="proof-preview hidden"
+             id="proofPreview">
+
+            <img id="proofImage"
+                 alt="Proof of delivery">
+
+            <button id="removeProof"
+                    class="remove-proof">
+                <i class="fa-solid fa-trash"></i>
+                Remove
+            </button>
+
+            <button id="saveProof"
+                    class="save-proof">
+                <i class="fa-solid fa-check"></i>
+                Save Proof
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div class="toast hidden"
+     id="toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span id="toastMessage">
+        Updated successfully
+    </span>
+
+</div>
+
+
+<!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- SSP Supabase client -->
+<script src="../js/supabase-client.js"></script>
+
+<!-- Driver authentication -->
+<script src="../js/auth.js"></script>
+
+<!-- Deliveries -->
+<script src="../js/deliveries.js"></script>
+</body>
+</html>

@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+ 
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Driver Details | Sri Sadguru Parcel Service</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/drivers-details.css"
+    >
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="brand">
+
+            <img
+                src="../images/logo.png"
+                alt="Sri Sadguru Parcel Service"
+            >
+
+            <div class="brand-text">
+                <h2>SRI SADGURU</h2>
+
+                <p>
+                    SIDDAROODA<br>
+                    PARCEL SERVICE
+                </p>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">⌂</span>
+                <span class="nav-label">Dashboard</span>
+            </a>
+
+
+            <a
+                href="bookings.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">▣</span>
+                <span class="nav-label">Bookings</span>
+            </a>
+
+
+            <a
+                href="payments.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">₹</span>
+                <span class="nav-label">Payments</span>
+            </a>
+
+
+            <a
+                href="tracking.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">⌖</span>
+                <span class="nav-label">Tracking</span>
+            </a>
+
+
+            <a
+                href="pickup-management.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">▣</span>
+                <span class="nav-label">Pickup Management</span>
+            </a>
+
+
+            <a
+                href="delivery-management.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">🚚</span>
+                <span class="nav-label">Delivery Management</span>
+            </a>
+
+
+            <a
+                href="drivers.html"
+                class="nav-item active"
+            >
+                <span class="nav-icon">♙</span>
+                <span class="nav-label">Drivers</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">▤</span>
+                <span class="nav-label">Reports</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-item"
+            >
+                <span class="nav-icon">⚙</span>
+                <span class="nav-label">Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="admin-user">
+
+            <div class="admin-avatar">
+                AU
+            </div>
+
+            <div class="admin-user-text">
+
+                <strong>Admin User</strong>
+
+                <span>Super Admin</span>
+
+                <small>
+                    <i></i>
+                    Online
+                </small>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MOBILE OVERLAY -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main">
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <header class="topbar">
+
+            <button
+                type="button"
+                id="sidebarToggle"
+                class="menu-button"
+                aria-label="Open or close sidebar"
+            >
+                ☰
+            </button>
+
+
+            <div class="page-heading">
+
+                <h1>Driver Details</h1>
+
+                <p>
+                    Drivers / Driver Details
+                </p>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button
+                    type="button"
+                    id="refreshButton"
+                    class="refresh-button"
+                >
+                    ↻
+                    <span>Refresh</span>
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             PAGE CONTENT
+        ================================================== -->
+
+        <section class="content">
+
+            <!-- BACK -->
+
+            <button
+                type="button"
+                id="backButton"
+                class="back-button"
+            >
+                ←
+                <span>Back to Drivers</span>
+            </button>
+
+
+            <!-- =================================================
+                 DRIVER PROFILE HEADER
+            ================================================== -->
+
+            <section class="driver-profile card">
+
+                <div class="profile-left">
+
+                    <div
+                        class="driver-avatar large"
+                        id="driverAvatar"
+                    >
+                        DR
+                    </div>
+
+
+                    <div class="profile-main">
+
+                        <div class="name-line">
+
+                            <h2 id="driverName">
+                                —
+                            </h2>
+
+                            <span
+                                id="driverStatus"
+                                class="status-badge"
+                            >
+                                —
+                            </span>
+
+                        </div>
+
+
+                        <p
+                            class="driver-id"
+                            id="driverId"
+                        >
+                            —
+                        </p>
+
+
+                        <p
+                            class="profile-location"
+                            id="profileLocation"
+                        >
+                            <span>⌖</span>
+                            —
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-actions">
+
+                    <button
+                        type="button"
+                        id="editDriverButton"
+                        class="primary-button"
+                    >
+                        ✎
+                        Edit Driver
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 INFORMATION GRID
+            ================================================== -->
+
+            <div class="details-grid">
+
+                <!-- PERSONAL INFORMATION -->
+
+                <section class="card detail-card">
+
+                    <div class="card-title">
+
+                        <div class="title-icon">
+                            ♙
+                        </div>
+
+                        <div>
+                            <h3>Personal Information</h3>
+                            <p>Driver contact information</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-list">
+
+                        <div class="info-row">
+
+                            <span>Driver Name</span>
+
+                            <strong id="infoName">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-row">
+
+                            <span>Driver ID</span>
+
+                            <strong id="infoId">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-row">
+
+                            <span>Phone Number</span>
+
+                            <strong id="infoPhone">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-row">
+
+                            <span>Email</span>
+
+                            <strong id="infoEmail">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-row">
+
+                            <span>Address</span>
+
+                            <strong id="infoAddress">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-row">
+
+                            <span>Joining Date</span>
+
+                            <strong id="infoJoiningDate">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- VEHICLE INFORMATION -->
+
+                <section class="card detail-card">
+
+                    <div class="card-title">
+
+                        <div class="title-icon vehicle-icon">
+                            🚚
+                        </div>
+
+                        <div>
+                            <h3>Vehicle Information</h3>
+                            <p>Assigned vehicle details</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="vehicle-highlight">
+
+                        <div class="vehicle-number-box">
+
+                            <span>Vehicle Assigned</span>
+
+                            <strong id="infoVehicleAssigned">
+                                —
+                            </strong>
+
+                        </div>
+
+                        <div class="vehicle-number-box">
+
+                            <span>Vehicle Number</span>
+
+                            <strong id="infoVehicleNumber">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-list">
+
+                        <div class="info-row">
+
+                            <span>Vehicle Type</span>
+
+                            <strong id="infoVehicleType">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="info-row">
+
+                            <span>Vehicle Status</span>
+
+                            <strong id="infoVehicleStatus">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- =================================================
+                 CURRENT LOCATION + CURRENT ASSIGNMENT
+            ================================================== -->
+
+            <div class="details-grid">
+
+                <section class="card detail-card">
+
+                    <div class="card-title">
+
+                        <div class="title-icon location-icon">
+                            ⌖
+                        </div>
+
+                        <div>
+                            <h3>Current Location</h3>
+                            <p>Latest driver location</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="location-box">
+
+                        <div class="location-status">
+
+                            <span
+                                id="locationLiveDot"
+                                class="live-dot"
+                            ></span>
+
+                            <strong id="locationStatus">
+                                Location not updated
+                            </strong>
+
+                        </div>
+
+
+                        <div
+                            class="location-name"
+                            id="locationName"
+                        >
+                            —
+                        </div>
+
+
+                        <div
+                            class="location-updated"
+                            id="locationUpdated"
+                        >
+                            Last updated: —
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <section class="card detail-card">
+
+                    <div class="card-title">
+
+                        <div class="title-icon assignment-icon">
+                            ▣
+                        </div>
+
+                        <div>
+                            <h3>Current Assignment</h3>
+                            <p>Active booking assigned to driver</p>
+                        </div>
+
+                    </div>
+
+
+                    <div id="currentAssignment">
+
+                        <div class="no-assignment">
+
+                            <span>✓</span>
+
+                            <div>
+                                <strong>No active booking</strong>
+                                <p>
+                                    This driver currently has no active assignment.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- =================================================
+                 DRIVER ACTIVITY
+            ================================================== -->
+
+            <section class="card activity-card">
+
+                <div class="card-title">
+
+                    <div class="title-icon">
+                        ◷
+                    </div>
+
+                    <div>
+                        <h3>Driver Activity</h3>
+                        <p>Recent activity and status updates</p>
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="activity-list"
+                    id="activityList"
+                ></div>
+
+            </section>
+
+
+            <!-- =================================================
+                 BOOKING HISTORY
+            ================================================== -->
+
+            <section class="card history-card">
+
+                <div class="card-title">
+
+                    <div class="title-icon">
+                        ▤
+                    </div>
+
+                    <div>
+                        <h3>Booking & Delivery History</h3>
+                        <p>Bookings handled by this driver</p>
+                    </div>
+
+                </div>
+
+
+                <div class="history-table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Booking ID</th>
+
+                                <th>Booking Date & Time</th>
+
+                                <th>Route</th>
+
+                                <th>Status</th>
+
+                                <th>Payment</th>
+
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="historyBody"></tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div
+                    class="mobile-history"
+                    id="mobileHistory"
+                ></div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     EDIT DRIVER MODAL
+========================================================== -->
+
+<div
+    class="modal"
+    id="editModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="modal-backdrop"
+        id="modalBackdrop"
+    ></div>
+
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2>Edit Driver</h2>
+
+                <p>
+                    Update driver information
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="closeModal"
+                class="close-button"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="editDriverForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label for="editName">
+                        Driver Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editName"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editPhone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="editPhone"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editEmail">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="editEmail"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editStatus">
+                        Status
+                    </label>
+
+                    <select id="editStatus">
+
+                        <option value="Available">
+                            Available
+                        </option>
+
+                        <option value="Assigned">
+                            Assigned
+                        </option>
+
+                        <option value="On Delivery">
+                            On Delivery
+                        </option>
+
+                        <option value="Offline">
+                            Offline
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editVehicleAssigned">
+                        Vehicle Assigned
+                    </label>
+
+                    <select id="editVehicleAssigned">
+
+                        <option value="Vehicle 1">
+                            Vehicle 1
+                        </option>
+
+                        <option value="Vehicle 2">
+                            Vehicle 2
+                        </option>
+
+                        <option value="Vehicle 3">
+                            Vehicle 3
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editVehicleNumber">
+                        Vehicle Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editVehicleNumber"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editVehicleType">
+                        Vehicle Type
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editVehicleType"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editJoiningDate">
+                        Joining Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="editJoiningDate"
+                    >
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label for="editAddress">
+                        Address
+                    </label>
+
+                    <textarea
+                        id="editAddress"
+                        rows="3"
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    id="cancelEdit"
+                    class="secondary-button"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Save Changes
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     TOAST
+========================================================== -->
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+    <script src="../js/admin-shell.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/supabase-client.js"></script>
+
+<script src="../js/drivers-details.js"></script>
+
+</body>
+
+</html>

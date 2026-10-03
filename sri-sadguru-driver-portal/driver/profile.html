@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Profile - SSP Driver Portal</title>
+
+    <!-- Poppins -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Profile CSS -->
+    <link
+        rel="stylesheet"
+        href="../css/profile.css"
+    >
+</head>
+
+<body>
+
+<!-- =====================================================
+     SIDEBAR OVERLAY
+===================================================== -->
+
+<div
+    class="sidebar-overlay hidden"
+    id="sidebarOverlay"
+></div>
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside
+    class="sidebar"
+    id="sidebar"
+>
+
+    <div class="sidebar-header">
+
+        <button
+            type="button"
+            class="sidebar-close"
+            id="sidebarClose"
+            aria-label="Close menu"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="sidebar-logo">
+            <i class="fa-solid fa-truck-fast"></i>
+        </div>
+
+        <h2>SRI SADGURU</h2>
+
+        <p>
+            SIDDHAROODA<br>
+            PARCEL SERVICE
+        </p>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <a href="dashboard.html">
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="shipments.html">
+            <i class="fa-solid fa-box"></i>
+            <span>Shipments</span>
+        </a>
+
+        <a href="pickup.html">
+            <i class="fa-solid fa-truck-pickup"></i>
+            <span>Pickup</span>
+        </a>
+
+        <a href="deliveries.html">
+            <i class="fa-solid fa-truck"></i>
+            <span>Deliveries</span>
+        </a>
+
+        <a
+            href="profile.html"
+            class="active"
+        >
+            <i class="fa-solid fa-user"></i>
+            <span>Profile</span>
+        </a>
+
+    </nav>
+
+
+    <button
+        type="button"
+        class="sidebar-logout"
+        id="sidebarLogout"
+    >
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Logout</span>
+    </button>
+
+</aside>
+
+
+<!-- =====================================================
+     APPLICATION
+===================================================== -->
+
+<main class="app">
+
+    <!-- =================================================
+         TOP BAR
+    ================================================== -->
+
+    <header class="topbar">
+
+        <button
+            type="button"
+            class="menu-button"
+            id="menuButton"
+            aria-label="Open menu"
+        >
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+
+        <div class="header-title">
+
+            <div class="header-logo">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div>
+                <h1>Profile</h1>
+                <p>Manage your driver profile</p>
+            </div>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="notification-button"
+            id="notificationButton"
+            aria-label="Notifications"
+        >
+            <i class="fa-regular fa-bell"></i>
+
+            <span id="notificationCount">0</span>
+        </button>
+
+
+        <button
+            type="button"
+            class="header-profile-icon"
+            id="headerProfileButton"
+            aria-label="Profile"
+        >
+            <i class="fa-solid fa-user"></i>
+        </button>
+
+    </header>
+
+
+    <!-- =================================================
+         CONTENT
+    ================================================== -->
+
+    <section class="content">
+
+
+        <!-- =============================================
+             PROFILE SUMMARY
+        ============================================== -->
+
+        <section class="profile-card">
+
+            <div class="profile-avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+
+            <div class="profile-main">
+
+                <h2 id="profileName">
+                    Driver
+                </h2>
+
+                <p id="profileDriverId">
+                    Driver ID: DRIVER001
+                </p>
+
+                <p id="profilePhone">
+                    +91 00000 00000
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="edit-profile-button"
+                id="editProfileButton"
+            >
+                <i class="fa-solid fa-pen"></i>
+                <span>Edit</span>
+            </button>
+
+        </section>
+
+
+        <!-- =============================================
+             PERSONAL INFORMATION
+        ============================================== -->
+
+        <section class="section-card">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Personal Information</h2>
+
+                    <p>
+                        Your basic profile information
+                    </p>
+                </div>
+
+                <i class="fa-solid fa-id-card"></i>
+
+            </div>
+
+
+            <div class="info-grid">
+
+                <div class="info-item">
+                    <span class="info-label">
+                        Full Name
+                    </span>
+
+                    <strong id="infoName">
+                        Driver
+                    </strong>
+                </div>
+
+
+                <div class="info-item">
+                    <span class="info-label">
+                        Mobile Number
+                    </span>
+
+                    <strong id="infoPhone">
+                        -
+                    </strong>
+                </div>
+
+
+                <div class="info-item">
+                    <span class="info-label">
+                        Email Address
+                    </span>
+
+                    <strong id="infoEmail">
+                        -
+                    </strong>
+                </div>
+
+
+                <div class="info-item">
+                    <span class="info-label">
+                        Address
+                    </span>
+
+                    <strong id="infoAddress">
+                        -
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =============================================
+             DRIVER INFORMATION
+        ============================================== -->
+
+        <section class="section-card">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Driver Information</h2>
+
+                    <p>
+                        Driver identification details
+                    </p>
+                </div>
+
+                <i class="fa-solid fa-id-badge"></i>
+
+            </div>
+
+
+            <div class="info-grid">
+
+                <div class="info-item">
+                    <span class="info-label">
+                        Driver ID
+                    </span>
+
+                    <strong id="driverIdInfo">
+                        DRIVER001
+                    </strong>
+                </div>
+
+
+                <div class="info-item">
+                    <span class="info-label">
+                        License Number
+                    </span>
+
+                    <strong id="licenseNumber">
+                        Not added
+                    </strong>
+                </div>
+
+
+                <div class="info-item">
+                    <span class="info-label">
+                        License Expiry
+                    </span>
+
+                    <strong id="licenseExpiry">
+                        Not added
+                    </strong>
+                </div>
+
+
+                <div class="info-item">
+                    <span class="info-label">
+                        Joining Date
+                    </span>
+
+                    <strong id="joiningDate">
+                        Not added
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =============================================
+             VEHICLE INFORMATION
+        ============================================== -->
+
+        <section class="section-card">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Vehicle Information</h2>
+
+                    <p>
+                        Vehicle assigned to you
+                    </p>
+                </div>
+
+                <i class="fa-solid fa-truck"></i>
+
+            </div>
+
+
+            <div class="info-grid">
+
+                <div class="info-item">
+                    <span class="info-label">
+                        Vehicle Number
+                    </span>
+
+                    <strong id="vehicleNumber">
+                        Not added
+                    </strong>
+                </div>
+
+
+                <div class="info-item">
+                    <span class="info-label">
+                        Vehicle Type
+                    </span>
+
+                    <strong id="vehicleType">
+                        Not added
+                    </strong>
+                </div>
+
+
+                <div class="info-item">
+                    <span class="info-label">
+                        Vehicle Model
+                    </span>
+
+                    <strong id="vehicleModel">
+                        Not added
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =============================================
+             DOCUMENTS
+        ============================================== -->
+
+        <section class="section-card">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Documents</h2>
+
+                    <p>
+                        Driver and vehicle documents
+                    </p>
+                </div>
+
+                <i class="fa-solid fa-folder-open"></i>
+
+            </div>
+
+
+            <div class="document-list">
+
+                <div class="document-item">
+
+                    <div class="document-icon">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+
+                    <div class="document-text">
+                        <strong>Driving Licence</strong>
+                        <span id="licenseDocumentStatus">
+                            Not uploaded
+                        </span>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="document-button"
+                        data-document="Driving Licence"
+                    >
+                        View
+                    </button>
+
+                </div>
+
+
+                <div class="document-item">
+
+                    <div class="document-icon">
+                        <i class="fa-solid fa-car"></i>
+                    </div>
+
+                    <div class="document-text">
+                        <strong>Vehicle RC</strong>
+                        <span>Not uploaded</span>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="document-button"
+                        data-document="Vehicle RC"
+                    >
+                        View
+                    </button>
+
+                </div>
+
+
+                <div class="document-item">
+
+                    <div class="document-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+
+                    <div class="document-text">
+                        <strong>Insurance</strong>
+                        <span>Not uploaded</span>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="document-button"
+                        data-document="Insurance"
+                    >
+                        View
+                    </button>
+
+                </div>
+
+
+                <div class="document-item">
+
+                    <div class="document-icon">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+
+                    <div class="document-text">
+                        <strong>ID Proof</strong>
+                        <span>Not uploaded</span>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="document-button"
+                        data-document="ID Proof"
+                    >
+                        View
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =============================================
+             ACTIVITY
+        ============================================== -->
+
+        <section class="section-card">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>My Activity</h2>
+
+                    <p>
+                        Your SSP booking activity
+                    </p>
+                </div>
+
+                <i class="fa-solid fa-chart-simple"></i>
+
+            </div>
+
+
+            <div class="activity-grid">
+
+                <div class="activity-item">
+
+                    <div class="activity-icon">
+                        <i class="fa-solid fa-box"></i>
+                    </div>
+
+                    <strong id="shipmentCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Shipments
+                    </span>
+
+                </div>
+
+
+                <div class="activity-item">
+
+                    <div class="activity-icon">
+                        <i class="fa-solid fa-truck-pickup"></i>
+                    </div>
+
+                    <strong id="pickupCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Pickups
+                    </span>
+
+                </div>
+
+
+                <div class="activity-item">
+
+                    <div class="activity-icon">
+                        <i class="fa-solid fa-truck"></i>
+                    </div>
+
+                    <strong id="deliveryCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Deliveries
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =============================================
+             SECURITY
+        ============================================== -->
+
+        <section class="section-card">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Security</h2>
+
+                    <p>
+                        Manage your account password
+                    </p>
+                </div>
+
+                <i class="fa-solid fa-lock"></i>
+
+            </div>
+
+
+            <!-- CHANGE PASSWORD -->
+
+            <button
+                type="button"
+                class="setting-row"
+                id="changePasswordButton"
+            >
+
+                <div class="setting-left">
+
+                    <div class="setting-icon">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
+
+                    <div>
+                        <strong>
+                            Change Password
+                        </strong>
+
+                        <span>
+                            Update your current password
+                        </span>
+                    </div>
+
+                </div>
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+            </button>
+
+
+            <!-- RESET PASSWORD -->
+
+            <button
+                type="button"
+                class="setting-row"
+                id="resetPasswordButton"
+            >
+
+                <div class="setting-left">
+
+                    <div class="setting-icon">
+                        <i class="fa-solid fa-rotate"></i>
+                    </div>
+
+                    <div>
+                        <strong>
+                            Reset Password
+                        </strong>
+
+                        <span>
+                            Reset password using OTP verification
+                        </span>
+                    </div>
+
+                </div>
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+            </button>
+
+        </section>
+
+
+        <!-- =============================================
+             SETTINGS & SUPPORT
+        ============================================== -->
+
+        <section class="section-card">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Settings & Support</h2>
+
+                    <p>
+                        Other account options
+                    </p>
+                </div>
+
+                <i class="fa-solid fa-gear"></i>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="setting-row"
+                id="helpButton"
+            >
+
+                <div class="setting-left">
+
+                    <div class="setting-icon">
+                        <i class="fa-solid fa-circle-question"></i>
+                    </div>
+
+                    <div>
+                        <strong>
+                            Help & Support
+                        </strong>
+
+                        <span>
+                            Get help with your driver portal
+                        </span>
+                    </div>
+
+                </div>
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="logout-row"
+                id="logoutButton"
+            >
+
+                <div class="setting-left">
+
+                    <div class="logout-icon">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </div>
+
+                    <div>
+                        <strong>
+                            Logout
+                        </strong>
+
+                        <span>
+                            Sign out from driver portal
+                        </span>
+                    </div>
+
+                </div>
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+            </button>
+
+        </section>
+
+    </section>
+
+
+    <!-- =================================================
+         BOTTOM NAVIGATION
+    ================================================== -->
+
+    <nav class="bottom-navigation">
+
+        <a href="dashboard.html">
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="shipments.html">
+            <i class="fa-solid fa-box"></i>
+            <span>Shipments</span>
+        </a>
+
+        <a href="pickup.html">
+            <i class="fa-solid fa-truck-pickup"></i>
+            <span>Pickup</span>
+        </a>
+
+        <a href="deliveries.html">
+            <i class="fa-solid fa-truck"></i>
+            <span>Deliveries</span>
+        </a>
+
+        <a
+            href="profile.html"
+            class="active"
+        >
+            <i class="fa-solid fa-user"></i>
+            <span>Profile</span>
+        </a>
+
+    </nav>
+
+</main>
+
+
+<!-- =====================================================
+     EDIT PROFILE MODAL
+===================================================== -->
+
+<div
+    class="modal-overlay hidden"
+    id="editProfileModal"
+>
+
+    <div class="modal">
+
+        <button
+            type="button"
+            class="modal-close"
+            data-close="editProfileModal"
+            aria-label="Close"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-icon">
+            <i class="fa-solid fa-user-pen"></i>
+        </div>
+
+        <h2>Edit Profile</h2>
+
+        <p>
+            Update your profile information.
+        </p>
+
+
+        <label for="editName">
+            Full Name
+        </label>
+
+        <input
+            type="text"
+            id="editName"
+            placeholder="Enter full name"
+            autocomplete="name"
+        >
+
+
+        <label for="editPhone">
+            Mobile Number
+        </label>
+
+        <input
+            type="tel"
+            id="editPhone"
+            placeholder="+91 XXXXX XXXXX"
+            autocomplete="tel"
+        >
+
+
+        <label for="editEmail">
+            Email Address
+        </label>
+
+        <input
+            type="email"
+            id="editEmail"
+            placeholder="Enter email"
+            autocomplete="email"
+        >
+
+
+        <label for="editAddress">
+            Address
+        </label>
+
+        <textarea
+            id="editAddress"
+            rows="3"
+            placeholder="Enter address"
+        ></textarea>
+
+
+        <button
+            type="button"
+            class="primary-modal-button"
+            id="saveProfileButton"
+        >
+            Save Changes
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     CHANGE PASSWORD MODAL
+===================================================== -->
+
+<div
+    class="modal-overlay hidden"
+    id="changePasswordModal"
+>
+
+    <div class="modal">
+
+        <button
+            type="button"
+            class="modal-close"
+            data-close="changePasswordModal"
+            aria-label="Close"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-icon">
+            <i class="fa-solid fa-key"></i>
+        </div>
+
+        <h2>Change Password</h2>
+
+        <p>
+            Enter your current password and create a new password.
+        </p>
+
+
+        <label for="currentPassword">
+            Current Password
+        </label>
+
+        <div class="password-field">
+
+            <input
+                type="password"
+                id="currentPassword"
+                placeholder="Current password"
+                autocomplete="current-password"
+            >
+
+            <button
+                type="button"
+                class="password-toggle"
+                data-target="currentPassword"
+                aria-label="Show password"
+            >
+                <i class="fa-regular fa-eye"></i>
+            </button>
+
+        </div>
+
+
+        <label for="newPassword">
+            New Password
+        </label>
+
+        <div class="password-field">
+
+            <input
+                type="password"
+                id="newPassword"
+                placeholder="New password"
+                autocomplete="new-password"
+            >
+
+            <button
+                type="button"
+                class="password-toggle"
+                data-target="newPassword"
+                aria-label="Show password"
+            >
+                <i class="fa-regular fa-eye"></i>
+            </button>
+
+        </div>
+
+
+        <label for="confirmPassword">
+            Confirm New Password
+        </label>
+
+        <div class="password-field">
+
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm new password"
+                autocomplete="new-password"
+            >
+
+            <button
+                type="button"
+                class="password-toggle"
+                data-target="confirmPassword"
+                aria-label="Show password"
+            >
+                <i class="fa-regular fa-eye"></i>
+            </button>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="primary-modal-button"
+            id="savePasswordButton"
+        >
+            Change Password
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     RESET PASSWORD - PHONE / OTP REQUEST
+===================================================== -->
+
+<div
+    class="modal-overlay hidden"
+    id="resetPasswordModal"
+>
+
+    <div class="modal">
+
+        <button
+            type="button"
+            class="modal-close"
+            data-close="resetPasswordModal"
+            aria-label="Close"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-icon">
+            <i class="fa-solid fa-rotate"></i>
+        </div>
+
+        <h2>Reset Password</h2>
+
+        <p>
+            Enter your registered mobile number to receive a verification OTP.
+        </p>
+
+
+        <label for="resetPhone">
+            Mobile Number
+        </label>
+
+        <input
+            type="tel"
+            id="resetPhone"
+            placeholder="+91 XXXXX XXXXX"
+        >
+
+
+        <button
+            type="button"
+            class="primary-modal-button"
+            id="sendResetOtpButton"
+        >
+            Send OTP
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     RESET PASSWORD - OTP + NEW PASSWORD
+===================================================== -->
+
+<div
+    class="modal-overlay hidden"
+    id="resetOtpModal"
+>
+
+    <div class="modal">
+
+        <button
+            type="button"
+            class="modal-close"
+            data-close="resetOtpModal"
+            aria-label="Close"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+        </div>
+
+        <h2>Verify & Reset</h2>
+
+        <p>
+            Enter the demo OTP and create your new password.
+        </p>
+
+
+        <div class="demo-otp-box">
+            Demo OTP: <strong>123456</strong>
+        </div>
+
+
+        <label for="resetOtp">
+            Verification OTP
+        </label>
+
+        <input
+            type="text"
+            id="resetOtp"
+            inputmode="numeric"
+            maxlength="6"
+            placeholder="Enter 6-digit OTP"
+        >
+
+
+        <label for="resetNewPassword">
+            New Password
+        </label>
+
+        <div class="password-field">
+
+            <input
+                type="password"
+                id="resetNewPassword"
+                placeholder="New password"
+                autocomplete="new-password"
+            >
+
+            <button
+                type="button"
+                class="password-toggle"
+                data-target="resetNewPassword"
+                aria-label="Show password"
+            >
+                <i class="fa-regular fa-eye"></i>
+            </button>
+
+        </div>
+
+
+        <label for="resetConfirmPassword">
+            Confirm New Password
+        </label>
+
+        <div class="password-field">
+
+            <input
+                type="password"
+                id="resetConfirmPassword"
+                placeholder="Confirm new password"
+                autocomplete="new-password"
+            >
+
+            <button
+                type="button"
+                class="password-toggle"
+                data-target="resetConfirmPassword"
+                aria-label="Show password"
+            >
+                <i class="fa-regular fa-eye"></i>
+            </button>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="primary-modal-button"
+            id="completeResetButton"
+        >
+            Reset Password
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     DOCUMENT VIEW DEMO
+===================================================== -->
+
+<div
+    class="modal-overlay hidden"
+    id="documentModal"
+>
+
+    <div class="modal small-modal">
+
+        <button
+            type="button"
+            class="modal-close"
+            data-close="documentModal"
+            aria-label="Close"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-icon">
+            <i class="fa-solid fa-file-lines"></i>
+        </div>
+
+        <h2 id="documentModalTitle">
+            Document
+        </h2>
+
+        <p id="documentModalMessage">
+            This document has not been uploaded in the demo.
+        </p>
+
+        <button
+            type="button"
+            class="secondary-modal-button single-button"
+            data-close="documentModal"
+        >
+            Close
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     LOGOUT MODAL
+===================================================== -->
+
+<div
+    class="modal-overlay hidden"
+    id="logoutModal"
+>
+
+    <div class="modal small-modal">
+
+        <div class="modal-icon">
+            <i class="fa-solid fa-right-from-bracket"></i>
+        </div>
+
+        <h2>
+            Logout?
+        </h2>
+
+        <p>
+            Are you sure you want to logout?
+        </p>
+
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="secondary-modal-button"
+                data-close="logoutModal"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="danger-modal-button"
+                id="confirmLogoutButton"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    class="toast hidden"
+    id="toast"
+>
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span id="toastMessage">
+        Done
+    </span>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/supabase-client.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/profile.js"></script>
+
+</body>
+</html>

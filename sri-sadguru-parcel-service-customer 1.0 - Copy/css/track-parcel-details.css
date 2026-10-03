@@ -1,0 +1,1321 @@
+/* =========================================================
+   SSP CUSTOMER PORTAL
+   TRACK PARCEL DETAILS
+
+   Dashboard / Track Parcel Design System
+========================================================= */
+
+
+/* =========================================================
+   DESIGN TOKENS
+========================================================= */
+
+:root {
+
+    --page-bg: #f4f6f8;
+
+    --surface: #ffffff;
+
+    --surface-soft: #f8fafc;
+
+    --primary: #0f766e;
+
+    --primary-dark: #115e59;
+
+    --primary-soft: #e6fffb;
+
+    --text: #172033;
+
+    --text-soft: #526074;
+
+    --text-muted: #7b8798;
+
+    --border: #e5e9ef;
+
+    --border-strong: #d7dde6;
+
+    --success: #15803d;
+
+    --success-soft: #ecfdf3;
+
+    --warning: #b45309;
+
+    --warning-soft: #fff7ed;
+
+    --danger: #b91c1c;
+
+    --danger-soft: #fef2f2;
+
+    --info: #2563eb;
+
+    --info-soft: #eff6ff;
+
+    --shadow-sm:
+        0 4px 14px rgba(15, 23, 42, 0.05);
+
+    --shadow-md:
+        0 10px 28px rgba(15, 23, 42, 0.08);
+
+    --radius-md: 14px;
+
+    --radius-lg: 18px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    font-size: 16px;
+}
+
+
+body {
+
+    font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background:
+        var(--page-bg);
+
+    color:
+        var(--text);
+
+    min-height: 100vh;
+
+    -webkit-font-smoothing:
+        antialiased;
+}
+
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+
+button:disabled {
+    cursor: not-allowed;
+}
+
+
+[hidden] {
+    display: none !important;
+}
+
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.track-details-page {
+
+    min-height: 100vh;
+
+    background:
+        var(--page-bg);
+}
+
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.track-details-header {
+
+    min-height: 68px;
+
+    padding:
+        12px 18px;
+
+    background:
+        rgba(255, 255, 255, 0.97);
+
+    border-bottom:
+        1px solid var(--border);
+
+    display: grid;
+
+    grid-template-columns:
+        42px 1fr 42px;
+
+    align-items: center;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    box-shadow:
+        0 2px 10px
+        rgba(15, 23, 42, 0.03);
+}
+
+
+.track-details-header h1 {
+
+    text-align: center;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    color:
+        var(--text);
+}
+
+
+.back-button,
+.header-spacer {
+
+    width: 40px;
+
+    height: 40px;
+}
+
+
+.back-button {
+
+    border: 0;
+
+    border-radius: 10px;
+
+    background:
+        transparent;
+
+    color:
+        var(--primary-dark);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+}
+
+
+.back-button:hover {
+
+    background:
+        var(--primary-soft);
+
+    color:
+        var(--primary);
+}
+
+
+.back-button:active {
+
+    background:
+        #d9f5f1;
+}
+
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.track-details-content {
+
+    width:
+        min(100%, 820px);
+
+    margin:
+        0 auto;
+
+    padding:
+        20px 16px 40px;
+}
+
+
+
+/* =========================================================
+   COMMON CARDS
+========================================================= */
+
+.booking-summary-card,
+.status-card,
+.information-card,
+.state-card {
+
+    background:
+        var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius-md);
+
+    box-shadow:
+        var(--shadow-sm);
+}
+
+
+.booking-summary-card,
+.status-card,
+.information-card {
+
+    margin-bottom:
+        14px;
+}
+
+
+
+/* =========================================================
+   BOOKING SUMMARY
+========================================================= */
+
+.booking-summary-card {
+
+    padding:
+        18px;
+}
+
+
+.booking-summary-top {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+
+.summary-label {
+
+    display: block;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.06em;
+
+    color:
+        var(--text-muted);
+
+    margin-bottom: 5px;
+}
+
+
+.booking-id {
+
+    display: block;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    color:
+        var(--text);
+
+    word-break: break-word;
+}
+
+
+
+/* =========================================================
+   STATUS BADGE
+========================================================= */
+
+.status-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 30px;
+
+    padding:
+        6px 10px;
+
+    border-radius:
+        999px;
+
+    background:
+        var(--info-soft);
+
+    color:
+        var(--info);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+.status-badge.status-success {
+
+    background:
+        var(--success-soft);
+
+    color:
+        var(--success);
+}
+
+
+.status-badge.status-warning {
+
+    background:
+        var(--warning-soft);
+
+    color:
+        var(--warning);
+}
+
+
+.status-badge.status-danger {
+
+    background:
+        var(--danger-soft);
+
+    color:
+        var(--danger);
+}
+
+
+
+/* =========================================================
+   BOOKING META
+========================================================= */
+
+.booking-meta {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 15px;
+
+    padding-top: 13px;
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+.meta-item {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.meta-item span {
+
+    color:
+        var(--text-muted);
+
+    font-size: 12px;
+}
+
+
+.meta-item strong {
+
+    color:
+        var(--text-soft);
+
+    font-size: 12px;
+
+    font-weight: 650;
+}
+
+
+
+/* =========================================================
+   CURRENT STATUS
+========================================================= */
+
+.status-card {
+
+    padding:
+        18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.status-icon {
+
+    width: 46px;
+
+    height: 46px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        var(--primary-soft);
+
+    color:
+        var(--primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 21px;
+
+    font-weight: 700;
+}
+
+
+.status-content {
+
+    min-width: 0;
+}
+
+
+.status-content > span {
+
+    display: block;
+
+    color:
+        var(--text-muted);
+
+    font-size: 12px;
+
+    margin-bottom: 2px;
+}
+
+
+.status-content h2 {
+
+    color:
+        var(--text);
+
+    font-size: 19px;
+
+    font-weight: 800;
+
+    margin-bottom: 2px;
+}
+
+
+.status-content p {
+
+    color:
+        var(--text-soft);
+
+    font-size: 13px;
+
+    line-height: 1.45;
+}
+
+
+
+/* =========================================================
+   INFORMATION CARD
+========================================================= */
+
+.information-card {
+
+    padding:
+        18px;
+}
+
+
+.card-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 16px;
+}
+
+
+.heading-icon {
+
+    width: 34px;
+
+    height: 34px;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background:
+        var(--primary-soft);
+
+    color:
+        var(--primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+
+.card-heading h2 {
+
+    color:
+        var(--text);
+
+    font-size: 17px;
+
+    font-weight: 800;
+}
+
+
+.card-heading p {
+
+    color:
+        var(--text-muted);
+
+    font-size: 12px;
+
+    margin-top: 2px;
+}
+
+
+
+/* =========================================================
+   PARCEL INFORMATION
+========================================================= */
+
+.information-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+}
+
+
+.information-item {
+
+    min-width: 0;
+
+    padding: 13px;
+
+    background:
+        var(--surface-soft);
+
+    border:
+        1px solid #edf0f3;
+
+    border-radius: 10px;
+}
+
+
+.information-item.full-width {
+
+    grid-column:
+        1 / -1;
+}
+
+
+.information-item span {
+
+    display: block;
+
+    color:
+        var(--text-muted);
+
+    font-size: 11px;
+
+    margin-bottom: 4px;
+}
+
+
+.information-item strong {
+
+    display: block;
+
+    color:
+        var(--text);
+
+    font-size: 13px;
+
+    font-weight: 650;
+
+    word-break: break-word;
+}
+
+
+
+/* =========================================================
+   PICKUP / DELIVERY
+========================================================= */
+
+.route-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+}
+
+
+.route-card {
+
+    min-width: 0;
+
+    padding: 14px;
+
+    background:
+        var(--surface-soft);
+
+    border:
+        1px solid #edf0f3;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    gap: 11px;
+}
+
+
+.route-icon {
+
+    width: 34px;
+
+    height: 34px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 12px;
+
+    font-weight: 750;
+}
+
+
+.pickup-icon {
+
+    background:
+        var(--primary-soft);
+
+    color:
+        var(--primary);
+}
+
+
+.delivery-icon {
+
+    background:
+        var(--info-soft);
+
+    color:
+        var(--info);
+}
+
+
+.route-card span {
+
+    display: block;
+
+    color:
+        var(--text-muted);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.05em;
+
+    margin-bottom: 3px;
+}
+
+
+.route-card strong {
+
+    display: block;
+
+    color:
+        var(--text);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    word-break: break-word;
+}
+
+
+.route-card p {
+
+    color:
+        var(--text-soft);
+
+    font-size: 11px;
+
+    margin-top: 3px;
+
+    line-height: 1.4;
+
+    word-break: break-word;
+}
+
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline {
+
+    position: relative;
+}
+
+
+.timeline-item {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        30px 1fr auto;
+
+    column-gap: 10px;
+
+    min-height: 72px;
+}
+
+
+.timeline-line {
+
+    position: absolute;
+
+    left: 14px;
+
+    top: 30px;
+
+    bottom: -2px;
+
+    width: 1px;
+
+    background:
+        #d7e0e5;
+}
+
+
+.timeline-item:last-child
+.timeline-line {
+
+    display: none;
+}
+
+
+.timeline-dot {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 28px;
+
+    height: 28px;
+
+    border-radius: 50%;
+
+    border:
+        2px solid #cbd5df;
+
+    background:
+        var(--surface);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color:
+        transparent;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.timeline-item.completed
+.timeline-dot {
+
+    background:
+        var(--primary-soft);
+
+    border-color:
+        var(--primary);
+
+    color:
+        var(--primary);
+}
+
+
+.timeline-item.current
+.timeline-dot {
+
+    background:
+        var(--primary);
+
+    border-color:
+        var(--primary);
+
+    color:
+        #ffffff;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(15,118,110,0.10);
+}
+
+
+.timeline-content {
+
+    padding-bottom:
+        18px;
+}
+
+
+.timeline-title {
+
+    color:
+        var(--text);
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.timeline-description {
+
+    color:
+        var(--text-soft);
+
+    font-size: 11px;
+
+    margin-top: 2px;
+
+    line-height: 1.45;
+}
+
+
+.timeline-time {
+
+    text-align: right;
+
+    color:
+        var(--text-muted);
+
+    font-size: 10px;
+
+    line-height: 1.4;
+
+    white-space: nowrap;
+}
+
+
+.timeline-empty {
+
+    padding: 15px;
+
+    background:
+        var(--surface-soft);
+
+    border:
+        1px solid #edf0f3;
+
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+
+.timeline-empty p {
+
+    color:
+        var(--text-muted);
+
+    font-size: 12px;
+}
+
+
+
+/* =========================================================
+   STATES
+========================================================= */
+
+.state-card {
+
+    padding:
+        35px 20px;
+
+    text-align: center;
+}
+
+
+.loading-mark,
+.state-icon {
+
+    width: 46px;
+
+    height: 46px;
+
+    margin:
+        0 auto 13px;
+
+    border-radius: 50%;
+
+    background:
+        var(--primary-soft);
+
+    color:
+        var(--primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+
+.state-card h2 {
+
+    color:
+        var(--text);
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    margin-bottom: 5px;
+}
+
+
+.state-card p {
+
+    color:
+        var(--text-soft);
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+.error-state .state-icon {
+
+    background:
+        var(--danger-soft);
+
+    color:
+        var(--danger);
+}
+
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.primary-button,
+.secondary-button {
+
+    min-height: 44px;
+
+    border-radius: 10px;
+
+    padding:
+        0 18px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.primary-button {
+
+    margin-top: 17px;
+
+    border: 0;
+
+    background:
+        var(--primary);
+
+    color:
+        #ffffff;
+
+    box-shadow:
+        0 5px 14px
+        rgba(15,118,110,0.14);
+}
+
+
+.primary-button:hover {
+
+    background:
+        var(--primary-dark);
+}
+
+
+.primary-button:active {
+
+    transform:
+        translateY(1px);
+}
+
+
+.secondary-button {
+
+    border:
+        1px solid var(--primary);
+
+    background:
+        var(--surface);
+
+    color:
+        var(--primary);
+}
+
+
+.secondary-button:hover {
+
+    background:
+        var(--primary-soft);
+}
+
+
+.full-button {
+
+    width: 100%;
+
+    margin-top: 2px;
+}
+
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 600px) {
+
+    .track-details-content {
+
+        padding-left: 24px;
+
+        padding-right: 24px;
+    }
+
+
+    .booking-summary-card,
+    .status-card,
+    .information-card {
+
+        padding: 20px;
+    }
+
+}
+
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 900px) {
+
+    .track-details-content {
+
+        padding-top: 26px;
+
+        padding-bottom: 55px;
+    }
+
+
+    .track-details-header {
+
+        padding-left: 24px;
+
+        padding-right: 24px;
+    }
+
+
+    .booking-summary-card,
+    .status-card,
+    .information-card {
+
+        border-radius: 14px;
+    }
+
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 599px) {
+
+    .track-details-header {
+
+        min-height: 62px;
+
+        padding:
+            10px 12px;
+    }
+
+
+    .track-details-header h1 {
+
+        font-size: 16px;
+    }
+
+
+    .track-details-content {
+
+        padding:
+            14px 12px 30px;
+    }
+
+
+    .booking-summary-card,
+    .status-card,
+    .information-card {
+
+        padding: 15px;
+    }
+
+
+    .booking-summary-top {
+
+        gap: 8px;
+    }
+
+
+    .booking-id {
+
+        font-size: 14px;
+    }
+
+
+    .booking-meta {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 8px;
+    }
+
+
+    .information-grid,
+    .route-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .information-item.full-width {
+
+        grid-column:
+            auto;
+    }
+
+
+    .timeline-item {
+
+        grid-template-columns:
+            30px 1fr;
+    }
+
+
+    .timeline-time {
+
+        grid-column:
+            2;
+
+        text-align:
+            left;
+
+        margin-top: 2px;
+
+        margin-bottom: 18px;
+    }
+
+
+    .timeline-content {
+
+        padding-bottom: 0;
+    }
+
+
+    .timeline-item {
+
+        min-height: 92px;
+    }
+
+}

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notifications | Sri Sadguru Siddarooda Parcel Service</title>
+
+    <link rel="stylesheet" href="../css/notifications.css">
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+
+            <div class="sidebar-brand">
+                <img
+                    src="../images/logo.png"
+                    alt="Sri Sadguru Siddarooda Parcel Service Logo"
+                    class="sidebar-logo"
+                >
+
+                <div class="sidebar-brand-text">
+                    <span class="brand-title">SSP</span>
+                    <span class="brand-subtitle">Admin Portal</span>
+                </div>
+            </div>
+
+            <button
+                type="button"
+                class="sidebar-close"
+                id="sidebarToggle"
+                aria-label="Close navigation menu"
+            >
+                &times;
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             NAVIGATION
+        ========================== -->
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">⌂</span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+
+            <a href="bookings.html" class="nav-item">
+                <span class="nav-icon">▣</span>
+                <span class="nav-text">Bookings</span>
+            </a>
+
+            <a href="payments.html" class="nav-item">
+                <span class="nav-icon">₹</span>
+                <span class="nav-text">Payments</span>
+            </a>
+
+            <a href="tracking.html" class="nav-item">
+                <span class="nav-icon">⌖</span>
+                <span class="nav-text">Tracking</span>
+            </a>
+
+            <a href="pickup-management.html" class="nav-item">
+                <span class="nav-icon">↗</span>
+                <span class="nav-text">Pickup Management</span>
+            </a>
+
+            <a href="delivery-management.html" class="nav-item">
+                <span class="nav-icon">✓</span>
+                <span class="nav-text">Delivery Management</span>
+            </a>
+
+            <a href="drivers.html" class="nav-item">
+                <span class="nav-icon">♙</span>
+                <span class="nav-text">Drivers</span>
+            </a>
+
+            <a href="vehicles.html" class="nav-item">
+                <span class="nav-icon">▰</span>
+                <span class="nav-text">Vehicles</span>
+            </a>
+
+            <a href="customers.html" class="nav-item">
+                <span class="nav-icon">♙</span>
+                <span class="nav-text">Customers</span>
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span class="nav-text">Reports</span>
+            </a>
+
+            <a href="notifications.html" class="nav-item active">
+                <span class="nav-icon">🔔</span>
+                <span class="nav-text">Notifications</span>
+                <span class="nav-badge" id="sidebarUnreadCount">0</span>
+            </a>
+
+            <a href="admin-profile.html" class="nav-item">
+                <span class="nav-icon">◉</span>
+                <span class="nav-text">Admin Profile</span>
+            </a>
+
+            <a href="settings.html" class="nav-item">
+                <span class="nav-icon">⚙</span>
+                <span class="nav-text">Settings</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =========================
+         SIDEBAR OVERLAY
+    ========================== -->
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+    <main class="main-content">
+
+        <!-- =========================
+             TOP BAR
+        ========================== -->
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    aria-label="Open navigation menu"
+                >
+                    ☰
+                </button>
+
+                <div class="topbar-page-title">
+                    Notifications
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button
+                    type="button"
+                    class="topbar-notification-button"
+                    id="topbarNotificationButton"
+                    aria-label="Notifications"
+                >
+                    🔔
+
+                    <span
+                        class="topbar-notification-badge"
+                        id="topbarUnreadCount"
+                    >
+                        0
+                    </span>
+                </button>
+
+                <img
+                    src="../images/logo.png"
+                    alt="Sri Sadguru Siddarooda Parcel Service"
+                    class="topbar-logo"
+                >
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             PAGE CONTENT
+        ========================== -->
+        <section class="page-content">
+
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="dashboard.html">Dashboard</a>
+                <span class="breadcrumb-separator">/</span>
+                <span>Notifications</span>
+            </div>
+
+
+            <!-- =========================
+                 PAGE HEADER
+            ========================== -->
+            <div class="page-header">
+
+                <div class="page-header-left">
+
+                    <div class="page-title-row">
+
+                        <h1 class="page-title">
+                            Notifications
+                        </h1>
+
+                        <span
+                            class="unread-count-pill"
+                            id="unreadCountPill"
+                        >
+                            0 Unread
+                        </span>
+
+                    </div>
+
+                    <p class="page-description">
+                        Stay updated with bookings, payments, pickups, deliveries and system activities.
+                    </p>
+
+                </div>
+
+
+                <div class="page-header-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="markAllReadButton"
+                    >
+                        <span class="button-icon">✓</span>
+                        Mark All as Read
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 NOTIFICATION TOOLBAR
+            ========================== -->
+            <div class="notification-toolbar">
+
+                <!-- Filter Tabs -->
+                <div class="notification-filters" id="notificationFilters">
+
+                    <button
+                        type="button"
+                        class="notification-filter active"
+                        data-filter="all"
+                    >
+                        All
+                        <span
+                            class="filter-count"
+                            id="allCount"
+                        >
+                            0
+                        </span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="notification-filter"
+                        data-filter="unread"
+                    >
+                        Unread
+                        <span
+                            class="filter-count"
+                            id="unreadFilterCount"
+                        >
+                            0
+                        </span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="notification-filter"
+                        data-filter="booking"
+                    >
+                        Bookings
+                        <span
+                            class="filter-count"
+                            id="bookingCount"
+                        >
+                            0
+                        </span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="notification-filter"
+                        data-filter="payment"
+                    >
+                        Payments
+                        <span
+                            class="filter-count"
+                            id="paymentCount"
+                        >
+                            0
+                        </span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="notification-filter"
+                        data-filter="driver"
+                    >
+                        Drivers
+                        <span
+                            class="filter-count"
+                            id="driverCount"
+                        >
+                            0
+                        </span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="notification-filter"
+                        data-filter="pickup"
+                    >
+                        Pickup
+                        <span
+                            class="filter-count"
+                            id="pickupCount"
+                        >
+                            0
+                        </span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="notification-filter"
+                        data-filter="delivery"
+                    >
+                        Delivery
+                        <span
+                            class="filter-count"
+                            id="deliveryCount"
+                        >
+                            0
+                        </span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="notification-filter"
+                        data-filter="system"
+                    >
+                        System
+                        <span
+                            class="filter-count"
+                            id="systemCount"
+                        >
+                            0
+                        </span>
+                    </button>
+
+                </div>
+
+
+                <!-- Right side toolbar -->
+                <div class="notification-toolbar-right">
+
+                    <button
+                        type="button"
+                        class="clear-read-button"
+                        id="clearReadButton"
+                    >
+                        Clear Read
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 NOTIFICATION LIST CARD
+            ========================== -->
+            <div class="notifications-card">
+
+                <div class="notifications-card-header">
+
+                    <div class="notifications-card-title">
+                        Recent Notifications
+                    </div>
+
+                    <div
+                        class="notifications-card-count"
+                        id="visibleNotificationCount"
+                    >
+                        0 notifications
+                    </div>
+
+                </div>
+
+
+                <!-- Notification List -->
+                <div
+                    class="notification-list"
+                    id="notificationList"
+                >
+                    <!-- Notifications are inserted by notifications.js -->
+                </div>
+
+
+                <!-- =========================
+                     EMPTY STATE
+                ========================== -->
+                <div
+                    class="notification-empty-state"
+                    id="notificationEmptyState"
+                    hidden
+                >
+
+                    <div class="empty-state-icon">
+                        🔔
+                    </div>
+
+                    <h2 class="empty-state-title">
+                        No Notifications
+                    </h2>
+
+                    <p class="empty-state-message">
+                        You're all caught up. New notifications will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =========================
+     TOAST
+========================== -->
+<div
+    class="toast"
+    id="toast"
+    role="alert"
+    aria-live="polite"
+    aria-atomic="true"
+>
+
+    <div class="toast-icon" id="toastIcon">
+        ✓
+    </div>
+
+    <div class="toast-content">
+
+        <div
+            class="toast-title"
+            id="toastTitle"
+        >
+            Success
+        </div>
+
+        <div
+            class="toast-message"
+            id="toastMessage"
+        >
+            Action completed successfully.
+        </div>
+
+    </div>
+
+    <button
+        type="button"
+        class="close-toast"
+        id="closeToast"
+        aria-label="Close notification"
+    >
+        &times;
+    </button>
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+    <script src="../js/admin-shell.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/supabase-client.js"></script>
+<script src="../js/admin-auth.js"></script>
+<script src="../js/admin-settings.js"></script>
+<script src="../js/notifications.js"></script>
+
+</body>
+</html>

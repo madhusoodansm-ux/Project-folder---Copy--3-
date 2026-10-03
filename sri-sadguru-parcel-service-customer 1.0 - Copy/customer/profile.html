@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Profile | Sri Sadguru Parcel Service</title>
+
+    <!-- Inter Font -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Profile CSS -->
+    <link
+        rel="stylesheet"
+        href="../css/profile.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="customer-portal">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="dashboard-header">
+
+        <div class="header-brand">
+
+            <a
+                href="dashboard.html"
+                class="brand-link"
+                aria-label="Go to dashboard"
+            >
+
+                <img
+                    src="../images/logo.png"
+                    alt="Sri Sadguru Parcel Service"
+                    class="brand-logo"
+                >
+
+                <span class="brand-name">
+
+                    <span class="brand-main">
+                        Sri Sadguru
+                    </span>
+
+                    <span class="brand-service">
+                        Parcel Service
+                    </span>
+
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <div class="header-actions">
+
+            <a
+                href="dashboard.html"
+                class="header-back-button"
+                aria-label="Back to dashboard"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+
+                </svg>
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="profile-content">
+
+
+        <!-- PAGE HEADING -->
+
+        <section class="payment-page-heading">
+
+            <div>
+
+                <span class="page-eyebrow">
+                    Account
+                </span>
+
+                <h1>
+                    Profile
+                </h1>
+
+                <p>
+                    Manage your customer account and settings.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MAIN PROFILE VIEW
+        ================================================== -->
+
+        <section
+            id="profileMainView"
+            class="profile-main-view"
+        >
+
+
+            <!-- PROFILE SUMMARY -->
+
+            <button
+                type="button"
+                class="profile-summary-card"
+                id="profileSummaryCard"
+            >
+
+                <div class="profile-summary-icon">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.9"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+
+                        <circle
+                            cx="12"
+                            cy="8"
+                            r="3.5"
+                        ></circle>
+
+                        <path
+                            d="M5 20c.8-3.5 3.1-5.5 7-5.5s6.2 2 7 5.5"
+                        ></path>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="profile-summary-content">
+
+                    <span
+                        class="profile-summary-name"
+                        id="customerName"
+                    >
+                        Loading...
+                    </span>
+
+                    <span
+                        class="profile-summary-id"
+                        id="customerId"
+                    >
+                        Customer ID: —
+                    </span>
+
+                    <span class="account-status">
+
+                        <span class="status-dot"></span>
+
+                        Active Account
+
+                    </span>
+
+                </div>
+
+
+                <span class="profile-summary-arrow">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+
+                        <path d="M9 18l6-6-6-6"></path>
+
+                    </svg>
+
+                </span>
+
+            </button>
+
+
+
+            <!-- =================================================
+                 SAVED ADDRESS
+            ================================================== -->
+
+            <button
+                type="button"
+                class="profile-option-card"
+                id="savedAddressCard"
+            >
+
+                <span class="option-icon">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.9"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+
+                        <path
+                            d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"
+                        ></path>
+
+                        <circle
+                            cx="12"
+                            cy="10"
+                            r="2.2"
+                        ></circle>
+
+                    </svg>
+
+                </span>
+
+
+                <span class="option-content">
+
+                    <strong>
+                        Saved Address
+                    </strong>
+
+                    <small>
+                        Manage your saved delivery address
+                    </small>
+
+                </span>
+
+
+                <span class="option-arrow">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+
+                        <path d="M9 18l6-6-6-6"></path>
+
+                    </svg>
+
+                </span>
+
+            </button>
+
+
+
+            <!-- =================================================
+                 ACCOUNT
+            ================================================== -->
+
+            <section class="profile-section">
+
+                <h2>
+                    Account
+                </h2>
+
+
+                <div class="profile-options-card">
+
+
+                    <!-- CHANGE PASSWORD -->
+
+                    <button
+                        type="button"
+                        class="profile-option-row"
+                        id="changePasswordButton"
+                    >
+
+                        <span class="row-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.9"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <rect
+                                    x="4"
+                                    y="10"
+                                    width="16"
+                                    height="10"
+                                    rx="2"
+                                ></rect>
+
+                                <path
+                                    d="M8 10V7a4 4 0 0 1 8 0v3"
+                                ></path>
+
+                                <circle
+                                    cx="12"
+                                    cy="15"
+                                    r="1"
+                                ></circle>
+
+                            </svg>
+
+                        </span>
+
+
+                        <span class="row-content">
+
+                            <strong>
+                                Change Password
+                            </strong>
+
+                            <small>
+                                Update your account password
+                            </small>
+
+                        </span>
+
+
+                        <span class="row-arrow">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <path d="M9 18l6-6-6-6"></path>
+
+                            </svg>
+
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- PAYMENT HISTORY -->
+
+                    <a
+                        href="payment.html"
+                        class="profile-option-row"
+                    >
+
+                        <span class="row-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.9"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <rect
+                                    x="3"
+                                    y="5"
+                                    width="18"
+                                    height="14"
+                                    rx="2"
+                                ></rect>
+
+                                <path d="M3 10h18"></path>
+
+                                <path d="M7 15h3"></path>
+
+                            </svg>
+
+                        </span>
+
+
+                        <span class="row-content">
+
+                            <strong>
+                                Payment History
+                            </strong>
+
+                            <small>
+                                View your payment records
+                            </small>
+
+                        </span>
+
+
+                        <span class="row-arrow">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <path d="M9 18l6-6-6-6"></path>
+
+                            </svg>
+
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 HELP & SUPPORT
+            ================================================== -->
+
+            <section class="profile-section">
+
+                <h2>
+                    Help &amp; Support
+                </h2>
+
+
+                <div class="profile-options-card">
+
+                    <a
+                        href="mailto:support@srisaadguruparcelservice.com"
+                        class="profile-option-row"
+                    >
+
+                        <span class="row-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.9"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <rect
+                                    x="3"
+                                    y="5"
+                                    width="18"
+                                    height="14"
+                                    rx="2"
+                                ></rect>
+
+                                <path
+                                    d="M3 7l9 6 9-6"
+                                ></path>
+
+                            </svg>
+
+                        </span>
+
+
+                        <span class="row-content">
+
+                            <strong>
+                                Contact Support
+                            </strong>
+
+                            <small>
+                                Get help with your SSP account
+                            </small>
+
+                        </span>
+
+
+                        <span class="row-arrow">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <path d="M9 18l6-6-6-6"></path>
+
+                            </svg>
+
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 LOGOUT
+            ================================================== -->
+
+            <button
+                type="button"
+                class="logout-button"
+                id="logoutButton"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.9"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <path
+                        d="M9 5H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h4"
+                    ></path>
+
+                    <path d="M15 16l4-4-4-4"></path>
+
+                    <path d="M19 12H9"></path>
+
+                </svg>
+
+                <span>
+                    Logout
+                </span>
+
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROFILE DETAILS VIEW
+        ================================================== -->
+
+        <section
+            id="profileDetailsView"
+            class="inner-page-view"
+            hidden
+        >
+
+            <div class="inner-view-header">
+
+                <button
+                    type="button"
+                    class="inner-back-button"
+                    id="profileDetailsBack"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+
+                        <path d="M19 12H5"></path>
+                        <path d="M12 19l-7-7 7-7"></path>
+
+                    </svg>
+
+                </button>
+
+                <div>
+
+                    <span class="page-eyebrow">
+                        Account
+                    </span>
+
+                    <h2>
+                        Customer Details
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="details-card">
+
+                <div class="detail-item">
+
+                    <span>
+                        Customer Name
+                    </span>
+
+                    <strong id="detailCustomerName">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span>
+                        Customer ID
+                    </span>
+
+                    <strong id="detailCustomerId">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span>
+                        Email
+                    </span>
+
+                    <strong id="detailCustomerEmail">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span>
+                        Phone
+                    </span>
+
+                    <strong id="detailCustomerPhone">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span>
+                        Account Status
+                    </span>
+
+                    <strong id="detailCustomerStatus">
+                        Active
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SAVED ADDRESS VIEW
+        ================================================== -->
+
+        <section
+            id="savedAddressView"
+            class="inner-page-view"
+            hidden
+        >
+
+            <div class="inner-view-header">
+
+                <button
+                    type="button"
+                    class="inner-back-button"
+                    id="savedAddressBack"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+
+                        <path d="M19 12H5"></path>
+                        <path d="M12 19l-7-7 7-7"></path>
+
+                    </svg>
+
+                </button>
+
+                <div>
+
+                    <span class="page-eyebrow">
+                        Account
+                    </span>
+
+                    <h2>
+                        Saved Address
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="saved-address-empty-card">
+
+                <div class="saved-address-empty-icon">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.9"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+
+                        <path
+                            d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"
+                        ></path>
+
+                        <circle
+                            cx="12"
+                            cy="10"
+                            r="2.2"
+                        ></circle>
+
+                    </svg>
+
+                </div>
+
+                <h3>
+                    Saved Address
+                </h3>
+
+                <p>
+                    No saved address is available yet.
+                </p>
+
+                <button
+                    type="button"
+                    class="secondary-action-button"
+                    id="addAddressButton"
+                >
+
+                    <span>+</span>
+
+                    Add Address
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CHANGE PASSWORD VIEW
+        ================================================== -->
+
+        <section
+            id="changePasswordView"
+            class="inner-page-view"
+            hidden
+        >
+
+            <div class="inner-view-header">
+
+                <button
+                    type="button"
+                    class="inner-back-button"
+                    id="changePasswordBack"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+
+                        <path d="M19 12H5"></path>
+                        <path d="M12 19l-7-7 7-7"></path>
+
+                    </svg>
+
+                </button>
+
+                <div>
+
+                    <span class="page-eyebrow">
+                        Security
+                    </span>
+
+                    <h2>
+                        Change Password
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <form
+                id="changePasswordForm"
+                class="password-card"
+                novalidate
+            >
+
+
+                <!-- NEW PASSWORD -->
+
+                <div class="password-field">
+
+                    <label for="newPassword">
+                        New Password
+                    </label>
+
+                    <div class="password-input-wrapper">
+
+                        <input
+                            type="password"
+                            id="newPassword"
+                            name="newPassword"
+                            autocomplete="new-password"
+                            minlength="12"
+                            required
+                            placeholder="Enter your new password"
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="toggleNewPassword"
+                            aria-label="Show password"
+                        >
+
+                            <svg
+                                class="eye-open"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <path
+                                    d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"
+                                ></path>
+
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="3"
+                                ></circle>
+
+                            </svg>
+
+
+                            <svg
+                                class="eye-closed"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <path d="M3 3l18 18"></path>
+
+                                <path
+                                    d="M10.58 10.58a2 2 0 0 0 2.83 2.83"
+                                ></path>
+
+                                <path
+                                    d="M9.88 5.09A10.94 10.94 0 0 1 12 5c6.5 0 10 7 10 7a18.16 18.16 0 0 1-3.16 3.94"
+                                ></path>
+
+                                <path
+                                    d="M6.61 6.61C3.72 8.6 2 12 2 12s3.5 7 10 7c1.61 0 3.06-.4 4.35-1.05"
+                                ></path>
+
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     12 + 4 PASSWORD RULE
+                ================================================== -->
+
+                <div class="password-rule-box">
+
+                    <div class="password-rule-title">
+
+                        <strong>
+                            Password Rule: 12 + 4
+                        </strong>
+
+                        <span id="passwordRuleStatus">
+                            Not complete
+                        </span>
+
+                    </div>
+
+
+                    <p class="password-rule-description">
+                        Your password must contain at least 12 characters
+                        and satisfy all 4 character requirements below.
+                    </p>
+
+
+                    <ul class="password-rules-list">
+
+                        <li
+                            id="ruleLength"
+                            class="password-rule"
+                        >
+
+                            <span class="rule-check">✓</span>
+
+                            <span>
+                                At least 12 characters
+                            </span>
+
+                        </li>
+
+
+                        <li
+                            id="ruleUppercase"
+                            class="password-rule"
+                        >
+
+                            <span class="rule-check">✓</span>
+
+                            <span>
+                                At least 1 uppercase letter
+                            </span>
+
+                        </li>
+
+
+                        <li
+                            id="ruleLowercase"
+                            class="password-rule"
+                        >
+
+                            <span class="rule-check">✓</span>
+
+                            <span>
+                                At least 1 lowercase letter
+                            </span>
+
+                        </li>
+
+
+                        <li
+                            id="ruleNumber"
+                            class="password-rule"
+                        >
+
+                            <span class="rule-check">✓</span>
+
+                            <span>
+                                At least 1 number
+                            </span>
+
+                        </li>
+
+
+                        <li
+                            id="ruleSpecial"
+                            class="password-rule"
+                        >
+
+                            <span class="rule-check">✓</span>
+
+                            <span>
+                                At least 1 special character
+                            </span>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="password-field">
+
+                    <label for="confirmPassword">
+                        Confirm New Password
+                    </label>
+
+                    <div class="password-input-wrapper">
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            autocomplete="new-password"
+                            minlength="12"
+                            required
+                            placeholder="Re-enter your new password"
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="toggleConfirmPassword"
+                            aria-label="Show password"
+                        >
+
+                            <svg
+                                class="eye-open"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <path
+                                    d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"
+                                ></path>
+
+                                <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="3"
+                                ></circle>
+
+                            </svg>
+
+
+                            <svg
+                                class="eye-closed"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+
+                                <path d="M3 3l18 18"></path>
+
+                                <path
+                                    d="M10.58 10.58a2 2 0 0 0 2.83 2.83"
+                                ></path>
+
+                                <path
+                                    d="M9.88 5.09A10.94 10.94 0 0 1 12 5c6.5 0 10 7 10 7a18.16 18.16 0 0 1-3.16 3.94"
+                                ></path>
+
+                                <path
+                                    d="M6.61 6.61C3.72 8.6 2 12 2 12s3.5 7 10 7c1.61 0 3.06-.4 4.35-1.05"
+                                ></path>
+
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                    <p
+                        id="confirmPasswordError"
+                        class="field-error"
+                        role="alert"
+                    ></p>
+
+                </div>
+
+
+
+                <!-- FORM MESSAGE -->
+
+                <p
+                    id="passwordFormMessage"
+                    class="form-message"
+                    role="status"
+                ></p>
+
+
+
+                <!-- UPDATE BUTTON -->
+
+                <button
+                    type="submit"
+                    class="primary-action-button"
+                    id="updatePasswordButton"
+                >
+                    Update Password
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         BOTTOM NAVIGATION
+
+         Home | Book | Track | Payment | Orders
+    ====================================================== -->
+
+    <nav
+        class="bottom-navigation"
+        aria-label="Customer portal navigation"
+    >
+
+
+        <!-- HOME -->
+
+        <a
+            href="dashboard.html"
+            class="bottom-nav-item"
+        >
+
+            <span class="bottom-nav-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <path d="M3 10.5L12 3l9 7.5"></path>
+
+                    <path d="M5 9.5V21h14V9.5"></path>
+
+                    <path d="M9 21v-6h6v6"></path>
+
+                </svg>
+
+            </span>
+
+            <span class="bottom-nav-label">
+                Home
+            </span>
+
+        </a>
+
+
+
+        <!-- BOOK -->
+
+        <a
+            href="book-parcel.html"
+            class="bottom-nav-item"
+        >
+
+            <span class="bottom-nav-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <path d="M4 7.5L12 3l8 4.5"></path>
+
+                    <path d="M4 7.5v9L12 21l8-4.5v-9"></path>
+
+                    <path d="M12 12v9"></path>
+
+                    <path d="M4.5 7.5L12 12l7.5-4.5"></path>
+
+                </svg>
+
+            </span>
+
+            <span class="bottom-nav-label">
+                Book
+            </span>
+
+        </a>
+
+
+
+        <!-- TRACK -->
+
+        <a
+            href="track-parcel.html"
+            class="bottom-nav-item"
+        >
+
+            <span class="bottom-nav-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="8"
+                    ></circle>
+
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="2.5"
+                    ></circle>
+
+                    <path d="M12 4v3"></path>
+
+                    <path d="M12 17v3"></path>
+
+                    <path d="M4 12h3"></path>
+
+                    <path d="M17 12h3"></path>
+
+                </svg>
+
+            </span>
+
+            <span class="bottom-nav-label">
+                Track
+            </span>
+
+        </a>
+
+
+
+        <!-- PAYMENT -->
+
+        <a
+            href="payment.html"
+            class="bottom-nav-item"
+        >
+
+            <span class="bottom-nav-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <rect
+                        x="3"
+                        y="5"
+                        width="18"
+                        height="14"
+                        rx="2"
+                    ></rect>
+
+                    <path d="M3 10h18"></path>
+
+                    <path d="M7 15h3"></path>
+
+                </svg>
+
+            </span>
+
+            <span class="bottom-nav-label">
+                Payment
+            </span>
+
+        </a>
+
+
+
+        <!-- ORDERS -->
+
+        <a
+            href="order-history.html"
+            class="bottom-nav-item"
+        >
+
+            <span class="bottom-nav-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <path d="M6 3h12"></path>
+
+                    <path d="M6 3v18h12V3"></path>
+
+                    <path d="M9 8h6"></path>
+
+                    <path d="M9 12h6"></path>
+
+                    <path d="M9 16h4"></path>
+
+                </svg>
+
+            </span>
+
+            <span class="bottom-nav-label">
+                Orders
+            </span>
+
+        </a>
+
+    </nav>
+
+</div>
+
+
+
+<!-- =====================================================
+     SUPABASE
+====================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+></script>
+
+<script src="../js/supabase-client.js"></script>
+
+<script src="../js/auth.js"></script>
+
+<script src="../js/profile.js"></script>
+
+
+</body>
+
+</html>

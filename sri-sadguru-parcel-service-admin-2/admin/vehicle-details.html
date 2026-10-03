@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Vehicle Details | Sri Sadguru Parcel Service</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Leaflet -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <!-- Page CSS -->
+    <link
+        rel="stylesheet"
+        href="../css/vehicle-details.css"
+    >
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+<body>
+
+<div class="app-shell" id="appShell">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="brand">
+
+            <img
+                src="../images/logo.png"
+                alt="Sri Sadguru Parcel Service"
+                onerror="this.style.display='none'"
+            >
+
+            <div class="brand-fallback">
+                SSP
+            </div>
+
+            <div class="brand-copy">
+                <strong>Sri Sadguru</strong>
+                <span>Parcel Service</span>
+            </div>
+
+        </div>
+
+        <button
+            class="sidebar-collapse"
+            id="sidebarCollapse"
+            type="button"
+            title="Collapse sidebar"
+        >
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+
+        <nav class="side-nav">
+
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="bookings.html">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Bookings</span>
+            </a>
+
+            <a href="payments.html">
+                <i class="fa-regular fa-credit-card"></i>
+                <span>Payments</span>
+            </a>
+
+            <a href="tracking.html">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Tracking</span>
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-box-open"></i>
+                <span>Pickup Management</span>
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-truck-fast"></i>
+                <span>Delivery Management</span>
+            </a>
+
+            <a href="drivers.html">
+                <i class="fa-solid fa-users"></i>
+                <span>Drivers</span>
+            </a>
+
+            <a
+                href="vehicles.html"
+                class="active"
+            >
+                <i class="fa-solid fa-truck"></i>
+                <span>Vehicles</span>
+            </a>
+
+            <a href="#">
+                <i class="fa-regular fa-user"></i>
+                <span>Customers</span>
+            </a>
+
+            <a href="#">
+                <i class="fa-regular fa-chart-bar"></i>
+                <span>Reports</span>
+            </a>
+
+            <a href="#">
+                <i class="fa-regular fa-user"></i>
+                <span>Admin Profile</span>
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="logout-btn"
+                id="logoutBtn"
+                type="button"
+            >
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Logout</span>
+            </button>
+
+            <div class="sidebar-admin-card">
+
+                <div class="avatar">
+                    AU
+                </div>
+
+                <div>
+                    <strong>Admin User</strong>
+                    <span>Super Admin</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-label="Open menu"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="topbar-title">
+                Vehicle Management
+            </div>
+
+            <div class="topbar-right">
+
+                <button
+                    class="notification-button"
+                    type="button"
+                    title="Notifications"
+                >
+                    <i class="fa-regular fa-bell"></i>
+                    <span>3</span>
+                </button>
+
+                <div class="admin-avatar">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="page-content">
+
+            <!-- =================================================
+                 PAGE HEADER
+            ================================================== -->
+
+            <div class="page-header">
+
+                <div class="page-heading-left">
+
+                    <button
+                        class="back-button"
+                        id="backToVehicles"
+                        type="button"
+                    >
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Back to Vehicles</span>
+                    </button>
+
+                    <div class="heading-row">
+
+                        <h1>
+                            Vehicle Details
+                        </h1>
+
+                        <span class="live-heading">
+                            <span class="live-dot"></span>
+                            Live Tracking
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="ssp-id-display">
+
+                    <span>SSP ID:</span>
+
+                    <strong id="sspId">
+                        —
+                    </strong>
+
+                    <button
+                        type="button"
+                        id="copySspId"
+                        title="Copy SSP ID"
+                    >
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+            <section class="page-actions" aria-label="Vehicle actions">
+
+                <button
+                    type="button"
+                    class="secondary-action"
+                    id="changeDriverBtn"
+                >
+                    <i class="fa-solid fa-users"></i>
+                    <span>Edit Assigned Driver</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="primary-action"
+                    id="editVehicleBtn"
+                >
+                    <i class="fa-solid fa-pen"></i>
+                    <span>Edit Vehicle</span>
+                </button>
+
+            </section>
+
+
+            <!-- =================================================
+                 VEHICLE PROFILE
+            ================================================== -->
+
+            <section class="vehicle-profile-card">
+
+                <div class="vehicle-profile-main">
+
+                    <div class="vehicle-image">
+
+                        <div class="truck-illustration">
+                            <i class="fa-solid fa-truck"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="vehicle-profile-info">
+
+                        <div class="online-badge">
+                            <span></span>
+                            <span id="vehicleOnlineText">
+                                Online
+                            </span>
+                        </div>
+
+                        <h2 id="vehicleNumber">
+                            —
+                        </h2>
+
+                        <p
+                            class="vehicle-subtitle"
+                            id="vehicleTypeModel"
+                        >
+                            —
+                        </p>
+
+                        <p>
+                            Driver:
+                            <strong id="driverName">
+                                —
+                            </strong>
+                        </p>
+
+                        <a
+                            href="#"
+                            id="driverPhone"
+                            class="driver-phone"
+                        >
+                            <i class="fa-solid fa-phone"></i>
+                            <span>—</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-stat-grid">
+
+                    <div class="profile-stat">
+
+                        <div class="profile-stat-icon green">
+                            <i class="fa-solid fa-car-side"></i>
+                        </div>
+
+                        <div>
+                            <strong id="movementStatus">
+                                Moving
+                            </strong>
+
+                            <span>Status</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-stat">
+
+                        <div class="profile-stat-icon blue">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+
+                        <div>
+                            <strong>
+                                <span id="currentSpeed">
+                                    0
+                                </span>
+                                km/h
+                            </strong>
+
+                            <span>Speed</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-stat">
+
+                        <div class="profile-stat-icon blue">
+                            <i class="fa-solid fa-location-arrow"></i>
+                        </div>
+
+                        <div>
+                            <strong id="direction">
+                                —
+                            </strong>
+
+                            <span>Direction</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-stat">
+
+                        <div class="profile-stat-icon green">
+                            <i class="fa-solid fa-signal"></i>
+                        </div>
+
+                        <div>
+                            <strong
+                                class="gps-strong"
+                                id="gpsStatus"
+                            >
+                                Strong
+                            </strong>
+
+                            <span>GPS</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 LIVE TRACKING
+            ================================================== -->
+
+            <section class="tracking-card">
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>
+                            <i class="fa-solid fa-route"></i>
+                            Live Tracking
+
+                            <span class="live-small">
+                                <span></span>
+                                Live
+                            </span>
+                        </h2>
+                    </div>
+
+                    <div class="last-updated">
+
+                        <span class="live-dot"></span>
+
+                        Last Updated:
+                        <strong id="lastUpdated">
+                            Just now
+                        </strong>
+
+                        <button
+                            type="button"
+                            id="refreshLocation"
+                            title="Refresh location"
+                        >
+                            <i class="fa-solid fa-rotate"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="map-container">
+
+                    <div
+                        id="vehicleMap"
+                        class="vehicle-map"
+                    ></div>
+
+
+                    <!-- Start Location -->
+                    <div class="map-info start-info">
+
+                        <span>
+                            Start Location
+                        </span>
+
+                        <strong id="startLocation">
+                            Hubballi Main Office
+                        </strong>
+
+                        <small id="startTime">
+                            10:15 AM
+                        </small>
+
+                    </div>
+
+
+                    <!-- Current Location -->
+                    <div class="map-info current-info">
+
+                        <span>
+                            Current Location
+                        </span>
+
+                        <strong id="currentLocation">
+                            Vidya Nagar
+                        </strong>
+
+                        <small>
+                            Speed:
+                            <b id="mapSpeed">
+                                48 km/h
+                            </b>
+                        </small>
+
+                    </div>
+
+
+                    <!-- Destination -->
+                    <div class="map-info destination-info">
+
+                        <span>
+                            Destination
+                        </span>
+
+                        <strong id="destinationLocation">
+                            Dharwad Road
+                        </strong>
+
+                        <small id="etaMap">
+                            ETA: 06:30 PM
+                        </small>
+
+                    </div>
+
+
+                    <div class="map-controls">
+
+                        <button
+                            type="button"
+                            id="fullscreenMap"
+                            title="Fullscreen map"
+                        >
+                            <i class="fa-solid fa-expand"></i>
+                        </button>
+
+                        <button
+                            type="button"
+                            id="zoomIn"
+                            title="Zoom in"
+                        >
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+
+                        <button
+                            type="button"
+                            id="zoomOut"
+                            title="Zoom out"
+                        >
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+
+                        <button
+                            type="button"
+                            id="centerVehicle"
+                            title="Center vehicle"
+                        >
+                            <i class="fa-solid fa-crosshairs"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="map-bottom-status">
+
+                        <span>
+                            <i class="fa-solid fa-signal"></i>
+                            GPS Strong
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-satellite"></i>
+                            12 Satellites
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 TRIP SUMMARY
+            ================================================== -->
+
+            <section class="trip-summary">
+
+                <article class="metric-card">
+
+                    <span>
+                        Distance Travelled
+                    </span>
+
+                    <strong id="distanceTravelled">
+                        45.2 km
+                    </strong>
+
+                </article>
+
+
+                <article class="metric-card">
+
+                    <span>
+                        Total Duration
+                    </span>
+
+                    <strong id="totalDuration">
+                        01:28:45
+                    </strong>
+
+                </article>
+
+
+                <article class="metric-card">
+
+                    <span>
+                        Avg Speed
+                    </span>
+
+                    <strong>
+                        <span id="averageSpeed">
+                            49
+                        </span>
+                        km/h
+                    </strong>
+
+                </article>
+
+
+                <article class="metric-card fuel-card">
+
+                    <span>
+                        Fuel Level
+                    </span>
+
+                    <strong>
+                        <i class="fa-solid fa-gas-pump"></i>
+                        <span id="fuelLevel">
+                            68%
+                        </span>
+                    </strong>
+
+                </article>
+
+
+                <article class="metric-card">
+
+                    <span>
+                        ETA
+                    </span>
+
+                    <strong id="eta">
+                        06:30 PM
+                    </strong>
+
+                </article>
+
+            </section>
+
+
+            <!-- =================================================
+                 DESKTOP INFORMATION GRID
+            ================================================== -->
+
+            <section class="information-grid">
+
+                <!-- CURRENT STATUS -->
+                <article class="information-card">
+
+                    <div class="information-card-header">
+
+                        <h2>
+                            Current Status
+                        </h2>
+
+                    </div>
+
+
+                    <div class="status-list">
+
+                        <div class="status-row">
+
+                            <span>
+                                <i class="fa-solid fa-power-off"></i>
+                                Ignition
+                            </span>
+
+                            <strong
+                                class="status-green"
+                                id="ignitionStatus"
+                            >
+                                ON
+                            </strong>
+
+                        </div>
+
+
+                        <div class="status-row">
+
+                            <span>
+                                <i class="fa-solid fa-engine"></i>
+                                Engine
+                            </span>
+
+                            <strong
+                                class="status-green"
+                                id="engineStatus"
+                            >
+                                Running
+                            </strong>
+
+                        </div>
+
+
+                        <div class="status-row">
+
+                            <span>
+                                <i class="fa-solid fa-snowflake"></i>
+                                AC Status
+                            </span>
+
+                            <strong
+                                class="status-green"
+                                id="acStatus"
+                            >
+                                ON
+                            </strong>
+
+                        </div>
+
+
+                        <div class="status-row">
+
+                            <span>
+                                <i class="fa-solid fa-gauge"></i>
+                                Odometer
+                            </span>
+
+                            <strong id="odometer">
+                                12,458 km
+                            </strong>
+
+                        </div>
+
+
+                        <div class="status-row">
+
+                            <span>
+                                <i class="fa-regular fa-calendar"></i>
+                                Today's Distance
+                            </span>
+
+                            <strong id="todayDistance">
+                                145.6 km
+                            </strong>
+
+                        </div>
+
+
+                        <div class="status-row last-stop-row">
+
+                            <span>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Last Stop
+                            </span>
+
+                            <strong id="lastStop">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- VEHICLE INFORMATION -->
+                <article class="information-card">
+
+                    <div class="information-card-header">
+
+                        <h2>
+                            Vehicle Information
+                        </h2>
+
+                    </div>
+
+
+                    <div class="vehicle-info-list">
+
+                        <div>
+                            <span>Vehicle ID</span>
+                            <strong id="infoVehicleId">—</strong>
+                        </div>
+
+                        <div>
+                            <span>Vehicle Number</span>
+                            <strong id="infoVehicleNumber">—</strong>
+                        </div>
+
+                        <div>
+                            <span>Vehicle Type</span>
+                            <strong id="infoVehicleType">—</strong>
+                        </div>
+
+                        <div>
+                            <span>Make & Model</span>
+                            <strong id="infoMakeModel">—</strong>
+                        </div>
+
+                        <div>
+                            <span>Model Year</span>
+                            <strong id="infoModelYear">—</strong>
+                        </div>
+
+                        <div>
+                            <span>Fuel Type</span>
+                            <strong id="infoFuelType">—</strong>
+                        </div>
+
+                        <div>
+                            <span>Load Capacity</span>
+                            <strong id="infoLoadCapacity">—</strong>
+                        </div>
+
+                        <div>
+                            <span>Seating Capacity</span>
+                            <strong id="infoSeatingCapacity">—</strong>
+                        </div>
+
+                        <div>
+                            <span>RC Number</span>
+                            <strong id="infoRcNumber">—</strong>
+                        </div>
+
+                        <div>
+                            <span>Insurance Validity</span>
+                            <strong
+                                class="status-green"
+                                id="infoInsurance"
+                            >
+                                —
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>Pollution Validity</span>
+                            <strong
+                                class="status-green"
+                                id="infoPollution"
+                            >
+                                —
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- =================================================
+                 BOTTOM DESKTOP AREA
+            ================================================== -->
+
+            <section class="bottom-information-grid">
+
+                <!-- ALERTS -->
+                <article class="alerts-card">
+
+                    <div class="bottom-card-header">
+
+                        <h2>
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            Recent Alerts
+                        </h2>
+
+                    </div>
+
+                    <div id="alertsList">
+
+                        <div class="alert-item">
+
+                            <div class="alert-icon">
+                                <i class="fa-solid fa-gauge-high"></i>
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    High Speed Alert
+                                </strong>
+
+                                <span>
+                                    Vehicle speed exceeded normal limit.
+                                </span>
+
+                            </div>
+
+                            <small>
+                                Just now
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TRIP PROGRESS -->
+                <article class="trip-progress-card">
+
+                    <div class="bottom-card-header">
+
+                        <h2>
+                            Trip Progress
+                        </h2>
+
+                        <strong id="tripProgressPercent">
+                            75% Completed
+                        </strong>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div
+                            id="tripProgressBar"
+                            style="width:75%"
+                        ></div>
+
+                    </div>
+
+
+                    <div class="trip-route-details">
+
+                        <div>
+
+                            <strong id="tripStart">
+                                Hubballi Main Office
+                            </strong>
+
+                            <span id="tripStartTime">
+                                10:15 AM
+                            </span>
+
+                        </div>
+
+
+                        <div class="trip-middle">
+
+                            <strong>
+                                In Progress
+                            </strong>
+
+                            <span id="tripDistance">
+                                45.2 km
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong id="tripDestination">
+                                Dharwad Road
+                            </strong>
+
+                            <span id="tripEta">
+                                06:30 PM (ETA)
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- =================================================
+                 MOBILE INFORMATION SECTIONS
+            ================================================== -->
+
+            <section class="mobile-information">
+
+                <!-- DRIVER -->
+                <article class="mobile-info-card">
+
+                    <div class="mobile-info-heading">
+
+                        <div class="mobile-section-icon blue">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+
+                        <div>
+                            <h2>Assigned Driver</h2>
+                            <span id="mobileDriverId">—</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="mobile-driver-content">
+
+                        <div class="driver-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+
+                        <div>
+
+                            <strong id="mobileDriverName">
+                                —
+                            </strong>
+
+                            <a
+                                href="#"
+                                id="mobileDriverPhone"
+                            >
+                                <i class="fa-solid fa-phone"></i>
+                                —
+                            </a>
+
+                            <span
+                                class="driver-status"
+                                id="mobileDriverStatus"
+                            >
+                                Available
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- VEHICLE STATUS -->
+                <article class="mobile-info-card">
+
+                    <div class="mobile-info-heading">
+
+                        <div class="mobile-section-icon green">
+                            <i class="fa-solid fa-truck"></i>
+                        </div>
+
+                        <div>
+                            <h2>Vehicle Status</h2>
+                            <span>Current vehicle condition</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="mobile-status-grid">
+
+                        <div>
+                            <span>Ignition</span>
+                            <strong id="mobileIgnition">
+                                ON
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>Engine</span>
+                            <strong id="mobileEngine">
+                                Running
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>AC Status</span>
+                            <strong id="mobileAc">
+                                ON
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>Odometer</span>
+                            <strong id="mobileOdometer">
+                                —
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ACCORDION INFORMATION -->
+                <article class="mobile-accordion-card">
+
+                    <button
+                        class="accordion-button"
+                        type="button"
+                        data-target="vehicleInfoAccordion"
+                    >
+
+                        <span>
+                            <i class="fa-solid fa-truck"></i>
+                            Vehicle Information
+                        </span>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </button>
+
+
+                    <div
+                        class="accordion-content"
+                        id="vehicleInfoAccordion"
+                    >
+
+                        <div class="accordion-grid">
+
+                            <div>
+                                <span>Vehicle ID</span>
+                                <strong id="mobileVehicleId">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Vehicle Number</span>
+                                <strong id="mobileVehicleNumber">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Vehicle Type</span>
+                                <strong id="mobileVehicleType">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Model</span>
+                                <strong id="mobileVehicleModel">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Manufacturing Year</span>
+                                <strong id="mobileVehicleYear">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Fuel Type</span>
+                                <strong id="mobileVehicleFuel">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Load Capacity</span>
+                                <strong id="mobileLoadCapacity">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Seating Capacity</span>
+                                <strong id="mobileSeatingCapacity">—</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- DOCUMENTS -->
+                <article class="mobile-accordion-card">
+
+                    <button
+                        class="accordion-button"
+                        type="button"
+                        data-target="documentsAccordion"
+                    >
+
+                        <span>
+                            <i class="fa-solid fa-shield-halved"></i>
+                            Documents & Registration
+                        </span>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </button>
+
+
+                    <div
+                        class="accordion-content"
+                        id="documentsAccordion"
+                    >
+
+                        <div class="accordion-grid">
+
+                            <div>
+                                <span>RC Number</span>
+                                <strong id="mobileRcNumber">—</strong>
+                            </div>
+
+                            <div>
+                                <span>RC Expiry</span>
+                                <strong id="mobileRcExpiry">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Insurance</span>
+                                <strong id="mobileInsurance">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Insurance Expiry</span>
+                                <strong id="mobileInsuranceExpiry">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Pollution Certificate</span>
+                                <strong id="mobilePollution">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Permit</span>
+                                <strong id="mobilePermit">—</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- MAINTENANCE -->
+                <article class="mobile-accordion-card">
+
+                    <button
+                        class="accordion-button"
+                        type="button"
+                        data-target="maintenanceAccordion"
+                    >
+
+                        <span>
+                            <i class="fa-solid fa-wrench"></i>
+                            Maintenance Information
+                        </span>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </button>
+
+
+                    <div
+                        class="accordion-content"
+                        id="maintenanceAccordion"
+                    >
+
+                        <div class="accordion-grid">
+
+                            <div>
+                                <span>Last Service</span>
+                                <strong id="mobileLastService">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Next Service</span>
+                                <strong id="mobileNextService">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Next Service At</span>
+                                <strong id="mobileNextServiceKm">—</strong>
+                            </div>
+
+                            <div>
+                                <span>Maintenance Status</span>
+                                <strong id="mobileMaintenanceStatus">
+                                    —
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TRACKING DEVICES -->
+                <article class="mobile-accordion-card">
+
+                    <button
+                        class="accordion-button"
+                        type="button"
+                        data-target="trackingAccordion"
+                    >
+
+                        <span>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Tracking & Devices
+                        </span>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </button>
+
+
+                    <div
+                        class="accordion-content"
+                        id="trackingAccordion"
+                    >
+
+                        <div class="accordion-grid">
+
+                            <div>
+                                <span>GPS Tracking</span>
+                                <strong id="mobileGpsTracking">
+                                    Ready
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>GPS Device</span>
+                                <strong id="mobileGpsDevice">
+                                    —
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>Current Location</span>
+                                <strong id="mobileTrackingLocation">
+                                    —
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>Last Updated</span>
+                                <strong id="mobileTrackingUpdated">
+                                    —
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     CHANGE DRIVER MODAL
+========================================================== -->
+
+<div
+    class="modal-overlay"
+    id="driverModal"
+    hidden
+>
+
+    <div class="modal-card">
+
+        <button
+            class="modal-close"
+            id="closeDriverModal"
+            type="button"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h2>Assign / Change Driver</h2>
+
+        <p>
+            Select an available driver or clear the current assignment.
+        </p>
+
+        <div
+            class="driver-options"
+            id="driverOptions"
+        ></div>
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="modal-cancel"
+                id="cancelDriverChange"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="modal-save"
+                id="saveDriverChange"
+            >
+                Save Driver
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     EDIT VEHICLE DETAILS MODAL
+========================================================== -->
+
+<div
+    class="modal-overlay"
+    id="vehicleEditModal"
+    hidden
+>
+
+    <form
+        class="modal-card vehicle-edit-card"
+        id="vehicleEditForm"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="vehicleEditTitle"
+    >
+
+        <button
+            class="modal-close"
+            id="closeVehicleEditModal"
+            type="button"
+            aria-label="Close vehicle editor"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h2 id="vehicleEditTitle">Edit Vehicle Details</h2>
+        <p>Changes are saved to the vehicle record in Supabase. Driver assignment is managed separately.</p>
+
+        <div class="vehicle-edit-grid">
+            <label>
+                Vehicle ID
+                <input name="vehicle_id" type="text" readonly>
+            </label>
+            <label>
+                Vehicle Name
+                <input name="vehicle_assigned" type="text" autocomplete="off">
+            </label>
+            <label>
+                Vehicle Number <span aria-hidden="true">*</span>
+                <input name="vehicle_number" type="text" required autocomplete="off">
+            </label>
+            <label>
+                Vehicle Type <span aria-hidden="true">*</span>
+                <select name="vehicle_type" required>
+                    <option value="Tempo Ace">Tempo Ace</option>
+                    <option value="Mini Truck">Mini Truck</option>
+                    <option value="Tata Ace">Tata Ace</option>
+                    <option value="Pickup Truck">Pickup Truck</option>
+                    <option value="Bolero Pickup">Bolero Pickup</option>
+                    <option value="Van">Van</option>
+                    <option value="Custom">Custom</option>
+                </select>
+            </label>
+            <label id="customVehicleTypeField">
+                Custom Vehicle Type
+                <input name="custom_vehicle_type" type="text" autocomplete="off">
+            </label>
+            <label>
+                Vehicle Model
+                <input name="vehicle_model" type="text">
+            </label>
+            <label>
+                Manufacturer
+                <input name="manufacturer" type="text">
+            </label>
+            <label>
+                Manufacturing Year
+                <input name="manufacturing_year" type="number" min="1950" max="2100" step="1">
+            </label>
+            <label>
+                Vehicle Status
+                <select name="vehicle_status">
+                    <option value="available">Available</option>
+                    <option value="assigned">Assigned</option>
+                    <option value="on_delivery">On Delivery</option>
+                    <option value="maintenance">Maintenance</option>
+                    <option value="inactive">Offline</option>
+                </select>
+            </label>
+            <label>
+                RC Number
+                <input name="rc_number" type="text">
+            </label>
+            <label>
+                RC Expiry Date
+                <input name="rc_expiry" type="date">
+            </label>
+            <label>
+                Insurance Number
+                <input name="insurance_number" type="text">
+            </label>
+            <label>
+                Insurance Expiry Date
+                <input name="insurance_expiry" type="date">
+            </label>
+            <label>
+                Permit Number
+                <input name="permit_number" type="text">
+            </label>
+            <label>
+                Permit Expiry Date
+                <input name="permit_expiry" type="date">
+            </label>
+            <label>
+                Pollution Certificate Number
+                <input name="pollution_number" type="text">
+            </label>
+            <label>
+                Pollution Certificate Expiry
+                <input name="pollution_expiry" type="date">
+            </label>
+            <label>
+                Current Location
+                <input name="current_location" type="text">
+            </label>
+            <label>
+                GPS Tracking
+                <input name="gps_tracking" type="text">
+            </label>
+            <label>
+                GPS Device ID
+                <input name="gps_device_id" type="text">
+            </label>
+            <label>
+                Load Capacity
+                <input name="load_capacity" type="text">
+            </label>
+            <label>
+                Seating Capacity
+                <input name="seating_capacity" type="number" min="1" step="1">
+            </label>
+            <label>
+                Fuel Type
+                <select name="fuel_type">
+                    <option value="">Select Fuel Type</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Petrol">Petrol</option>
+                    <option value="CNG">CNG</option>
+                    <option value="Electric">Electric</option>
+                </select>
+            </label>
+            <label>
+                Current Odometer (km)
+                <input name="current_odometer" type="number" min="0" step="any">
+            </label>
+            <label>
+                Last Service Date
+                <input name="last_service_date" type="date">
+            </label>
+            <label>
+                Next Service Date
+                <input name="next_service_date" type="date">
+            </label>
+            <label>
+                Next Service At (km)
+                <input name="next_service_at" type="number" min="0" step="any">
+            </label>
+            <label>
+                Maintenance Status
+                <input name="maintenance_status" type="text">
+            </label>
+            <label class="vehicle-edit-notes">
+                Notes
+                <textarea name="notes" rows="3"></textarea>
+            </label>
+        </div>
+
+        <div class="modal-actions">
+            <button
+                type="button"
+                class="modal-cancel"
+                id="cancelVehicleEdit"
+            >
+                Cancel
+            </button>
+            <button
+                type="submit"
+                class="modal-save"
+                id="saveVehicleEdit"
+            >
+                Save Details
+            </button>
+        </div>
+
+    </form>
+
+</div>
+
+
+    <script src="../js/admin-shell.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/supabase-client.js"></script>
+<script src="../js/admin-auth.js"></script>
+
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin="">
+</script>
+
+<script src="../js/vehicle-details.js"></script>
+
+
+</body>
+</html>

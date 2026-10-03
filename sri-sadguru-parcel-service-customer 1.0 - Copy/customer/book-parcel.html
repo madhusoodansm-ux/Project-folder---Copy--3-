@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Book a Parcel - Sri Sadguru Siddarooda Parcel Service">
+
+    <title>
+        Book Parcel | Sri Sadguru Siddarooda Parcel Service
+    </title>
+
+    <link rel="stylesheet"
+        href="../css/book-parcel.css">
+</head>
+
+<body>
+
+    <div class="booking-page">
+
+        <!-- HEADER -->
+        <header class="booking-header">
+
+            <a href="dashboard.html"
+                class="back-button"
+                aria-label="Back to dashboard">
+                ←
+            </a>
+
+            <div class="header-title">
+                <h1>Book a Parcel</h1>
+                <p>Enter your parcel details</p>
+            </div>
+
+            <div class="header-spacer"></div>
+
+        </header>
+
+
+        <!-- PROGRESS -->
+        <section class="booking-progress">
+
+            <div class="progress-step active" data-step="1">
+                <span class="step-number">1</span>
+                <span class="step-label">Pickup</span>
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div class="progress-step" data-step="2">
+                <span class="step-number">2</span>
+                <span class="step-label">Delivery</span>
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div class="progress-step" data-step="3">
+                <span class="step-number">3</span>
+                <span class="step-label">Parcel</span>
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div class="progress-step" data-step="4">
+                <span class="step-number">4</span>
+                <span class="step-label">Review</span>
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div class="progress-step" data-step="5">
+                <span class="step-number">5</span>
+                <span class="step-label">Confirm</span>
+            </div>
+
+        </section>
+
+
+        <main class="booking-content">
+
+            <!-- =====================================================
+                 STEP 1 - PICKUP DETAILS
+            ====================================================== -->
+
+            <section class="booking-step active" id="step1">
+
+                <div class="step-heading">
+                    <span class="step-icon">📍</span>
+
+                    <div>
+                        <h2>Pickup Details</h2>
+                        <p>Tell us where the parcel should be collected.</p>
+                    </div>
+                </div>
+
+
+                <form id="pickupForm" novalidate>
+
+                    <div class="form-group">
+                        <label for="pickupName">
+                            Full Name <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="pickupName"
+                            name="pickupName"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required>
+
+                        <small class="field-error"
+                            id="pickupNameError"></small>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="pickupPhone">
+                            Mobile Number <span>*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="pickupPhone"
+                            name="pickupPhone"
+                            placeholder="Enter 10-digit mobile number"
+                            inputmode="numeric"
+                            maxlength="10"
+                            autocomplete="tel"
+                            required>
+
+                        <small class="field-error"
+                            id="pickupPhoneError"></small>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="pickupEmail">
+                            Email Address
+                            <small>(Optional)</small>
+                        </label>
+
+                        <input
+                            type="email"
+                            id="pickupEmail"
+                            name="pickupEmail"
+                            placeholder="Enter your Gmail address"
+                            autocomplete="email">
+
+                        <small class="field-error"
+                            id="pickupEmailError"></small>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="pickupAddress">
+                            Pickup Address <span>*</span>
+                        </label>
+
+                        <textarea
+                            id="pickupAddress"
+                            name="pickupAddress"
+                            rows="3"
+                            placeholder="House / Door No., Street, Area"
+                            required></textarea>
+
+                        <small class="field-error"
+                            id="pickupAddressError"></small>
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="pickupCity">
+                                City <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="pickupCity"
+                                name="pickupCity"
+                                placeholder="Enter city"
+                                required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="pickupPincode">
+                                PIN Code <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="pickupPincode"
+                                name="pickupPincode"
+                                placeholder="6-digit PIN"
+                                inputmode="numeric"
+                                maxlength="6"
+                                required>
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="next-button"
+                        data-next="2">
+
+                        Continue to Delivery
+                        <span>→</span>
+
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <!-- =====================================================
+                 STEP 2 - DELIVERY DETAILS
+            ====================================================== -->
+
+            <section class="booking-step" id="step2">
+
+                <div class="step-heading">
+                    <span class="step-icon">🏠</span>
+
+                    <div>
+                        <h2>Delivery Details</h2>
+                        <p>Enter the receiver's delivery information.</p>
+                    </div>
+                </div>
+
+
+                <form id="deliveryForm" novalidate>
+
+                    <div class="form-group">
+                        <label for="receiverName">
+                            Receiver Full Name <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="receiverName"
+                            name="receiverName"
+                            placeholder="Enter receiver's name"
+                            required>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="receiverPhone">
+                            Receiver Mobile Number <span>*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="receiverPhone"
+                            name="receiverPhone"
+                            placeholder="Enter 10-digit mobile number"
+                            inputmode="numeric"
+                            maxlength="10"
+                            required>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="receiverEmail">
+                            Receiver Email Address
+                            <small>(Optional)</small>
+                        </label>
+
+                        <input
+                            type="email"
+                            id="receiverEmail"
+                            name="receiverEmail"
+                            placeholder="Enter receiver's Gmail address">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="deliveryAddress">
+                            Delivery Address <span>*</span>
+                        </label>
+
+                        <textarea
+                            id="deliveryAddress"
+                            name="deliveryAddress"
+                            rows="3"
+                            placeholder="House / Door No., Street, Area"
+                            required></textarea>
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="deliveryCity">
+                                City <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="deliveryCity"
+                                name="deliveryCity"
+                                placeholder="Enter delivery city"
+                                required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="deliveryDistrict">
+                                District
+                            </label>
+
+                            <input
+                                type="text"
+                                id="deliveryDistrict"
+                                name="deliveryDistrict"
+                                placeholder="Enter district">
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="deliveryState">
+                                State
+                            </label>
+
+                            <input
+                                type="text"
+                                id="deliveryState"
+                                name="deliveryState"
+                                placeholder="Enter state">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="deliveryPincode">
+                                PIN Code <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="deliveryPincode"
+                                name="deliveryPincode"
+                                placeholder="6-digit PIN"
+                                inputmode="numeric"
+                                maxlength="6"
+                                required>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="deliveryLandmark">
+                            Landmark
+                            <small>(Optional)</small>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="deliveryLandmark"
+                            name="deliveryLandmark"
+                            placeholder="Nearby landmark">
+                    </div>
+
+
+                    <div class="navigation-buttons">
+
+                        <button
+                            type="button"
+                            class="back-step-button"
+                            data-back="1">
+                            ← Back
+                        </button>
+
+                        <button
+                            type="button"
+                            class="next-button"
+                            data-next="3">
+                            Continue to Parcel
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+
+            <!-- =====================================================
+                 STEP 3 - PARCEL DETAILS
+            ====================================================== -->
+
+            <section class="booking-step" id="step3">
+
+                <div class="step-heading">
+                    <span class="step-icon">📦</span>
+
+                    <div>
+                        <h2>Parcel Details</h2>
+                        <p>Tell us about the parcel you want to send.</p>
+                    </div>
+                </div>
+
+
+                <form id="parcelForm" novalidate>
+
+                    <div class="form-group">
+                        <label for="parcelName">
+                            Parcel Name
+                            <small>(Optional)</small>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="parcelName"
+                            name="parcelName"
+                            placeholder="Example: Books parcel"
+                            maxlength="100">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="parcelType">
+                            Parcel Type <span>*</span>
+                        </label>
+
+                        <select
+                            id="parcelType"
+                            name="parcelType"
+                            required>
+
+                            <option value="">
+                                Select parcel type
+                            </option>
+
+                            <option value="document">Document</option>
+                            <option value="clothes">Clothes</option>
+                            <option value="medicine">Medicine</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="books">Books</option>
+                            <option value="gifts">Gifts</option>
+                            <option value="household-items">
+                                Household Items
+                            </option>
+                            <option value="fragile-items">
+                                Fragile Items
+                            </option>
+                            <option value="personal-items">
+                                Personal Items
+                            </option>
+                            <option value="other">Other</option>
+
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="parcelDescription">
+                            Parcel Description <span>*</span>
+                        </label>
+
+                        <textarea
+                            id="parcelDescription"
+                            name="parcelDescription"
+                            rows="3"
+                            placeholder="Briefly describe the parcel contents"
+                            required></textarea>
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="parcelPieces">
+                                Number of Pieces <span>*</span>
+                            </label>
+
+                            <input
+                                type="number"
+                                id="parcelPieces"
+                                name="parcelPieces"
+                                placeholder="Example: 1"
+                                min="1"
+                                step="1"
+                                required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="parcelWeight">
+                                Approximate Weight <span>*</span>
+                            </label>
+
+                            <div class="input-with-unit">
+
+                                <input
+                                    type="number"
+                                    id="parcelWeight"
+                                    name="parcelWeight"
+                                    placeholder="Enter weight"
+                                    min="0.1"
+                                    step="0.1"
+                                    required>
+
+                                <span>kg</span>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Approximate Dimensions
+                            <small>(Optional)</small>
+                        </label>
+
+                        <div class="dimension-row">
+
+                            <input
+                                type="number"
+                                id="parcelLength"
+                                name="parcelLength"
+                                placeholder="Length"
+                                min="1">
+
+                            <span>×</span>
+
+                            <input
+                                type="number"
+                                id="parcelWidth"
+                                name="parcelWidth"
+                                placeholder="Width"
+                                min="1">
+
+                            <span>×</span>
+
+                            <input
+                                type="number"
+                                id="parcelHeight"
+                                name="parcelHeight"
+                                placeholder="Height"
+                                min="1">
+
+                            <span>cm</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="specialInstructions">
+                            Special Instructions
+                            <small>(Optional)</small>
+                        </label>
+
+                        <textarea
+                            id="specialInstructions"
+                            name="specialInstructions"
+                            rows="3"
+                            placeholder="Any special handling instructions"></textarea>
+                    </div>
+
+
+                    <div class="navigation-buttons">
+
+                        <button
+                            type="button"
+                            class="back-step-button"
+                            data-back="2">
+                            ← Back
+                        </button>
+
+                        <button
+                            type="button"
+                            class="next-button"
+                            data-next="4">
+                            Review Booking
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+
+            <!-- =====================================================
+                 STEP 4 - REVIEW
+            ====================================================== -->
+
+            <section class="booking-step" id="step4">
+
+                <div class="step-heading">
+                    <span class="step-icon">✓</span>
+
+                    <div>
+                        <h2>Review Booking</h2>
+                        <p>Check your details before confirming.</p>
+                    </div>
+                </div>
+
+
+                <div class="review-card">
+
+                    <div class="review-card-header">
+                        <h3>Pickup Details</h3>
+
+                        <button
+                            type="button"
+                            class="edit-step-button"
+                            data-edit="1">
+                            Edit
+                        </button>
+                    </div>
+
+                    <div class="review-details">
+
+                        <p>
+                            <strong>Name:</strong>
+                            <span id="reviewPickupName">—</span>
+                        </p>
+
+                        <p>
+                            <strong>Phone:</strong>
+                            <span id="reviewPickupPhone">—</span>
+                        </p>
+
+                        <p>
+                            <strong>Email:</strong>
+                            <span id="reviewPickupEmail">—</span>
+                        </p>
+
+                        <p>
+                            <strong>Address:</strong>
+                            <span id="reviewPickupAddress">—</span>
+                        </p>
+
+                        <p>
+                            <strong>City:</strong>
+                            <span id="reviewPickupCity">—</span>
+                        </p>
+
+                        <p>
+                            <strong>PIN Code:</strong>
+                            <span id="reviewPickupPincode">—</span>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="review-card">
+
+                    <div class="review-card-header">
+                        <h3>Delivery Details</h3>
+
+                        <button
+                            type="button"
+                            class="edit-step-button"
+                            data-edit="2">
+                            Edit
+                        </button>
+                    </div>
+
+                    <div class="review-details">
+
+                        <p>
+                            <strong>Receiver:</strong>
+                            <span id="reviewReceiverName">—</span>
+                        </p>
+
+                        <p>
+                            <strong>Phone:</strong>
+                            <span id="reviewReceiverPhone">—</span>
+                        </p>
+
+                        <p>
+                            <strong>Email:</strong>
+                            <span id="reviewReceiverEmail">—</span>
+                        </p>
+
+                        <p>
+                            <strong>Address:</strong>
+                            <span id="reviewDeliveryAddress">—</span>
+                        </p>
+
+                        <p>
+                            <strong>City:</strong>
+                            <span id="reviewDeliveryCity">—</span>
+                        </p>
+
+                        <p>
+                            <strong>District:</strong>
+                            <span id="reviewDeliveryDistrict">—</span>
+                        </p>
+
+                        <p>
+                            <strong>State:</strong>
+                            <span id="reviewDeliveryState">—</span>
+                        </p>
+
+                        <p>
+                            <strong>PIN Code:</strong>
+                            <span id="reviewDeliveryPincode">—</span>
+                        </p>
+
+                        <p>
+                            <strong>Landmark:</strong>
+                            <span id="reviewDeliveryLandmark">—</span>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="review-card">
+
+                    <div class="review-card-header">
+                        <h3>Parcel Details</h3>
+
+                        <button
+                            type="button"
+                            class="edit-step-button"
+                            data-edit="3">
+                            Edit
+                        </button>
+                    </div>
+
+                    <div class="review-details">
+
+                        <p>
+                            <strong>Parcel Name:</strong>
+                            <span id="reviewParcelName">—</span>
+                        </p>
+
+                        <p>
+                            <strong>Type:</strong>
+                            <span id="reviewParcelType">—</span>
+                        </p>
+
+                        <p>
+                            <strong>Description:</strong>
+                            <span id="reviewParcelDescription">—</span>
+                        </p>
+
+                        <p>
+                            <strong>Pieces:</strong>
+                            <span id="reviewParcelPieces">—</span>
+                        </p>
+
+                        <p>
+                            <strong>Weight:</strong>
+                            <span id="reviewParcelWeight">—</span>
+                        </p>
+
+                        <p>
+                            <strong>Dimensions:</strong>
+                            <span id="reviewParcelDimensions">—</span>
+                        </p>
+
+                        <p>
+                            <strong>Instructions:</strong>
+                            <span id="reviewSpecialInstructions">—</span>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="review-actions">
+
+                    <button
+                        type="button"
+                        class="back-step-button"
+                        data-back="3">
+                        ← Back
+                    </button>
+
+                    <button
+                        type="button"
+                        class="next-button"
+                        data-next="5">
+                        Confirm Booking
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                 STEP 5 - CONFIRMATION
+            ====================================================== -->
+
+            <section class="booking-step" id="step5">
+
+                <div class="confirmation-card">
+
+                    <div class="success-icon">✓</div>
+
+                    <h2>Booking Created Successfully</h2>
+
+                    <p>
+                        Your parcel booking has been prepared successfully.
+                    </p>
+
+                    <div class="booking-reference-box">
+
+                        <span>Booking Reference</span>
+
+                        <strong id="bookingReference">
+                            SSP-PENDING
+                        </strong>
+
+                    </div>
+
+                    <p class="confirmation-note">
+                        Please save this booking reference for future tracking.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="dashboard-button"
+                        id="goDashboardButton">
+                        Back to Dashboard
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- Supabase JavaScript Library -->
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="../js/book-parcel.js"></script>
+  </body>
+
+</html>

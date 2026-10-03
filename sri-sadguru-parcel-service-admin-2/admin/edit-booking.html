@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Edit Sri Sadguru Parcel Service booking">
+
+    <title>Edit Booking | Sri Sadguru Parcel Service</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/edit-booking.css">
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="page-header">
+
+        <div>
+            <h1>Edit Booking</h1>
+
+            <p>
+                Modify the existing booking information
+            </p>
+        </div>
+
+        <div class="booking-id-display">
+
+            <span>Booking ID</span>
+
+            <strong id="bookingIdDisplay">
+                Loading...
+            </strong>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="page-container">
+
+        <!-- Loading -->
+
+        <div
+            id="loadingMessage"
+            class="message-box loading-message">
+
+            Loading booking information...
+
+        </div>
+
+
+        <!-- Error -->
+
+        <div
+            id="errorMessage"
+            class="message-box error-message hidden">
+
+            <h2>Unable to Load Booking</h2>
+
+            <p id="errorText"></p>
+
+            <button
+                type="button"
+                id="errorBackBtn"
+                class="button secondary">
+
+                ← Back
+
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             EDIT FORM
+             ================================================= -->
+
+        <form
+            id="editBookingForm"
+            class="booking-form hidden">
+
+            <!-- =============================================
+                 BOOKING INFORMATION
+                 ============================================= -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <h2>Booking Information</h2>
+
+                    <p>
+                        Booking ID cannot be changed.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="bookingId">
+                            Booking ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="bookingId"
+                            name="bookingId"
+                            readonly>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="bookingDate">
+                            Booking Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="bookingDate"
+                            name="bookingDate">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="bookingTime">
+                            Booking Time
+                        </label>
+
+                        <input
+                            type="time"
+                            id="bookingTime"
+                            name="bookingTime">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="bookingStatus">
+                            Booking Status
+                        </label>
+
+                        <select
+                            id="bookingStatus"
+                            name="bookingStatus">
+
+                            <option value="Pending">
+                                Pending
+                            </option>
+
+                            <option value="Booked">
+                                Booked
+                            </option>
+
+                            <option value="Confirmed">
+                                Confirmed
+                            </option>
+
+                            <option value="Picked Up">
+                                Picked Up
+                            </option>
+
+                            <option value="In Transit">
+                                In Transit
+                            </option>
+
+                            <option value="Delivered">
+                                Delivered
+                            </option>
+
+                            <option value="Cancelled">
+                                Cancelled
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                 SENDER
+                 ============================================= -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <h2>Sender / Customer Details</h2>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="senderName">
+                            Customer / Sender Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="senderName"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="senderPhone">
+                            Sender Phone *
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="senderPhone"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group full-width">
+
+                        <label for="senderAddress">
+                            Sender Address
+                        </label>
+
+                        <textarea
+                            id="senderAddress"
+                            rows="3"></textarea>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                 RECEIVER
+                 ============================================= -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <h2>Receiver Details</h2>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="receiverName">
+                            Receiver Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="receiverName"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="receiverPhone">
+                            Receiver Phone *
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="receiverPhone"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group full-width">
+
+                        <label for="receiverAddress">
+                            Receiver Address
+                        </label>
+
+                        <textarea
+                            id="receiverAddress"
+                            rows="3"></textarea>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                 ROUTE
+                 ============================================= -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <h2>Parcel Route</h2>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="routeFrom">
+                            From *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="routeFrom"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="routeTo">
+                            To *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="routeTo"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="pickupAddress">
+                            Pickup Address
+                        </label>
+
+                        <textarea
+                            id="pickupAddress"
+                            rows="3"></textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="deliveryAddress">
+                            Delivery Address
+                        </label>
+
+                        <textarea
+                            id="deliveryAddress"
+                            rows="3"></textarea>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                 PARCEL DETAILS
+                 ============================================= -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <h2>Parcel Details</h2>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="parcelType">
+                            Parcel Type
+                        </label>
+
+                        <input
+                            type="text"
+                            id="parcelType">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="parcelPieces">
+                            Pieces
+                        </label>
+
+                        <input
+                            type="number"
+                            id="parcelPieces"
+                            min="1">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="parcelWeight">
+                            Weight
+                        </label>
+
+                        <input
+                            type="text"
+                            id="parcelWeight"
+                            placeholder="Example: 5 kg">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="parcelDimensions">
+                            Dimensions
+                        </label>
+
+                        <input
+                            type="text"
+                            id="parcelDimensions"
+                            placeholder="Example: 20 × 20 × 20 cm">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="declaredValue">
+                            Declared Value
+                        </label>
+
+                        <input
+                            type="number"
+                            id="declaredValue"
+                            min="0"
+                            step="0.01">
+
+                    </div>
+
+
+                    <div class="form-group full-width">
+
+                        <label for="parcelInstructions">
+                            Special Instructions
+                        </label>
+
+                        <textarea
+                            id="parcelInstructions"
+                            rows="3"></textarea>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                 PAYMENT
+                 ============================================= -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <h2>Payment Information</h2>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="paymentStatus">
+                            Payment Status
+                        </label>
+
+                        <select
+                            id="paymentStatus">
+
+                            <option value="Pending">
+                                Pending
+                            </option>
+
+                            <option value="Cash on Delivery">
+                                Cash on Delivery
+                            </option>
+
+                            <option value="Paid">
+                                Paid
+                            </option>
+
+                            <option value="Partially Paid">
+                                Partially Paid
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="paymentMethod">
+                            Payment Method
+                        </label>
+
+                        <select
+                            id="paymentMethod">
+
+                            <option value="">
+                                Select Method
+                            </option>
+
+                            <option value="Cash">
+                                Cash
+                            </option>
+
+                            <option value="Cash on Delivery">
+                                Cash on Delivery
+                            </option>
+
+                            <option value="UPI">
+                                UPI
+                            </option>
+
+                            <option value="Card">
+                                Card
+                            </option>
+
+                            <option value="Bank Transfer">
+                                Bank Transfer
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="receivedAmount">
+                            Received Amount
+                        </label>
+
+                        <input
+                            type="number"
+                            id="receivedAmount"
+                            min="0"
+                            step="0.01">
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                 PRICE
+                 ============================================= -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <h2>Price Details</h2>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="basePrice">
+                            Base Price
+                        </label>
+
+                        <input
+                            type="number"
+                            id="basePrice"
+                            min="0"
+                            step="0.01">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="distanceCharge">
+                            Distance Charge
+                        </label>
+
+                        <input
+                            type="number"
+                            id="distanceCharge"
+                            min="0"
+                            step="0.01">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="handlingCharge">
+                            Handling Charge
+                        </label>
+
+                        <input
+                            type="number"
+                            id="handlingCharge"
+                            min="0"
+                            step="0.01">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="gst">
+                            GST
+                        </label>
+
+                        <input
+                            type="number"
+                            id="gst"
+                            min="0"
+                            step="0.01">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="total">
+                            Total
+                        </label>
+
+                        <input
+                            type="number"
+                            id="total"
+                            min="0"
+                            step="0.01">
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                 DRIVER / VEHICLE
+                 ============================================= -->
+
+            <section class="form-section">
+
+                <div class="section-heading">
+
+                    <h2>Driver / Vehicle</h2>
+
+                    <p>
+                        Fill these fields if a driver has been assigned.
+                    </p>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="driverName">
+                            Driver Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="driverName">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="driverPhone">
+                            Driver Phone
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="driverPhone">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="vehicleNumber">
+                            Vehicle Number
+                        </label>
+
+                        <input
+                            type="text"
+                            id="vehicleNumber">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="vehicleType">
+                            Vehicle Type
+                        </label>
+
+                        <input
+                            type="text"
+                            id="vehicleType">
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================================
+                 ACTIONS
+                 ============================================= -->
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    id="cancelBtn"
+                    class="button secondary">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="previewBtn"
+                    class="button primary">
+
+                    Preview Changes
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </main>
+
+
+    <!-- =====================================================
+         PREVIEW MODAL
+         ===================================================== -->
+
+    <div
+        id="previewModal"
+        class="modal hidden">
+
+        <div
+            class="modal-overlay"
+            id="modalOverlay">
+        </div>
+
+
+        <div
+            class="modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="previewTitle">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2 id="previewTitle">
+                        Preview Changes
+                    </h2>
+
+                    <p>
+                        Check the updated information before saving.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="closePreviewBtn"
+                    class="close-button"
+                    aria-label="Close">
+
+                    ×
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="previewContent"
+                class="preview-content">
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    id="backToEditBtn"
+                    class="button secondary">
+
+                    Back to Edit
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="confirmSaveBtn"
+                    class="button success">
+
+                    Confirm & Save
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         SUCCESS MODAL
+         ===================================================== -->
+
+    <div
+        id="successModal"
+        class="modal hidden">
+
+        <div class="modal-overlay"></div>
+
+        <div class="modal-card small-modal">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h2>
+                Changes Saved
+            </h2>
+
+            <p>
+                The booking has been updated successfully.
+            </p>
+
+            <button
+                type="button"
+                id="successContinueBtn"
+                class="button primary">
+
+                Continue to Booking Details
+
+            </button>
+
+        </div>
+
+    </div>
+
+          <script src="../js/admin-shell.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+      <script src="../js/supabase-client.js"></script>
+
+      <script src="../js/edit-booking.js"></script>
+
+</body>
+
+</html>  

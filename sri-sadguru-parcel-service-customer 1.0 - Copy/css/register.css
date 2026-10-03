@@ -1,0 +1,1604 @@
+/* =========================================================
+   SRI SADGURU SIDDAROODA PARCEL SERVICE
+   CUSTOMER REGISTRATION
+   RESPONSIVE REGISTRATION PAGE
+
+   LAYOUT:
+   - Desktop / Laptop : Split screen
+   - Mobile / Tablet  : Same single-column layout
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    color: #172033;
+
+    background: #f3f6f9;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.registration-page {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 20px;
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.registration-card {
+    width: 100%;
+    max-width: 1080px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(300px, 0.68fr)
+        minmax(500px, 1fr);
+
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 18px 55px rgba(7, 53, 79, 0.15);
+}
+
+
+/* =========================================================
+   DESKTOP / LAPTOP
+   BRAND SECTION
+========================================================= */
+
+.brand-section {
+    min-height: 760px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 45px 30px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            145deg,
+            #07354f,
+            #075477
+        );
+}
+
+
+.brand-content {
+    width: 100%;
+    max-width: 330px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo-container {
+    width: 130px;
+    height: 130px;
+
+    margin: 0 auto 25px;
+
+    padding: 7px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+
+    border: 4px solid #f4a62a;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+
+.company-logo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    
+    object-position: center top;
+
+    border-radius: 60%;
+}
+
+
+/* =========================================================
+   COMPANY NAME
+========================================================= */
+
+.company-name {
+    color: #ffffff;
+
+    font-size: 30px;
+
+    line-height: 1.2;
+
+    font-weight: 750;
+
+    text-align: center;
+}
+
+
+.company-name span {
+    color: #f4a62a;
+}
+
+/* =========================================================
+   DESKTOP / LAPTOP CAPTION
+========================================================= */
+
+.desktop-caption {
+    margin-top: 18px;
+
+    color: rgba(255, 255, 255, 0.92);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   DECORATIVE LINE
+========================================================= */
+
+.brand-line {
+    width: 60px;
+    height: 3px;
+
+    margin: 23px auto 0;
+
+    background: #f4a62a;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   REGISTRATION SECTION
+========================================================= */
+
+.registration-section {
+    width: 100%;
+
+    padding:
+        45px
+        55px
+        30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   MOBILE LOGO
+
+   Hidden by default on desktop because the desktop
+   brand panel already contains the logo.
+
+   On mobile/tablet, the brand panel itself becomes
+   the top company header, so this remains hidden.
+========================================================= */
+
+.mobile-logo {
+    display: none;
+}
+
+
+/* =========================================================
+   REGISTRATION HEADER
+========================================================= */
+
+.registration-header {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+
+.registration-header h2 {
+    color: #07354f;
+
+    font-size: 30px;
+
+    line-height: 1.25;
+
+    font-weight: 750;
+
+    margin-bottom: 7px;
+}
+
+
+.registration-header p {
+    color: #687386;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
+.form-group {
+    width: 100%;
+
+    margin-bottom: 16px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #263448;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   NORMAL INPUT
+========================================================= */
+
+.input-wrapper {
+    position: relative;
+
+    width: 100%;
+}
+
+
+.input-wrapper input {
+    width: 100%;
+    height: 50px;
+
+    padding:
+        0
+        15px
+        0
+        47px;
+
+    border:
+        1px solid #d5dce5;
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #172033;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.input-wrapper input::placeholder {
+    color: #9aa5b4;
+}
+
+
+.input-wrapper input:focus {
+    border-color: #075477;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(7, 84, 119, 0.10);
+}
+
+
+/* =========================================================
+   INPUT ICON
+========================================================= */
+
+.input-icon {
+    position: absolute;
+
+    left: 15px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 16px;
+
+    line-height: 1;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   MOBILE NUMBER
+========================================================= */
+
+.mobile-input-wrapper {
+    width: 100%;
+    height: 50px;
+
+    display: grid;
+
+    grid-template-columns: 70px minmax(0, 1fr);
+
+    border:
+        1px solid #d5dce5;
+
+    border-radius: 9px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.country-code {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #263448;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    border-right:
+        1px solid #d5dce5;
+
+    background: #f8fafc;
+}
+
+
+.mobile-input-wrapper input {
+    width: 100%;
+    min-width: 0;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    padding:
+        0
+        14px;
+
+    color: #172033;
+
+    background: #ffffff;
+
+    font-size: 14px;
+}
+
+
+.mobile-input-wrapper input::placeholder {
+    color: #9aa5b4;
+}
+
+
+.mobile-input-wrapper:focus-within {
+    border-color: #075477;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(7, 84, 119, 0.10);
+}
+
+
+/* =========================================================
+   MOBILE HELP TEXT
+========================================================= */
+
+.input-help {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #8a94a3;
+
+    font-size: 10px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   PASSWORD INPUT
+========================================================= */
+
+.password-wrapper input {
+    padding-right: 70px;
+}
+
+
+.password-toggle {
+    position: absolute;
+
+    right: 8px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    padding: 6px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #075477;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.password-toggle:hover {
+    color: #e18b13;
+}
+
+
+.password-toggle:focus-visible {
+    outline:
+        2px solid #075477;
+
+    outline-offset: 2px;
+
+    border-radius: 4px;
+}
+
+
+/* =========================================================
+   PASSWORD RULES
+========================================================= */
+
+.password-rules {
+    width: 100%;
+
+    margin-top: 8px;
+
+    padding:
+        12px
+        14px;
+
+    border:
+        1px solid #dfe6ed;
+
+    border-radius: 8px;
+
+    background: #f6f8fb;
+}
+
+
+.rules-title {
+    margin-bottom: 7px;
+
+    color: #263448;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.password-rule {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 7px;
+
+    margin-top: 5px;
+
+    color: #566274;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+}
+
+
+.rule-circle {
+    width: 14px;
+
+    flex: 0 0 14px;
+
+    color: #7d8794;
+
+    font-size: 15px;
+
+    line-height: 14px;
+}
+
+
+.password-rule.valid {
+    color: #247a45;
+
+    font-weight: 600;
+}
+
+
+.password-rule.valid .rule-circle {
+    color: #247a45;
+}
+
+
+/* =========================================================
+   ERROR MESSAGE
+========================================================= */
+
+.error-message {
+    display: block;
+
+    min-height: 0;
+
+    margin-top: 4px;
+
+    color: #c0392b;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    line-height: 1.4;
+}
+
+
+.input-error {
+    border-color: #d9534f !important;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(217, 83, 79, 0.08) !important;
+}
+
+
+/* =========================================================
+   TERMS
+========================================================= */
+
+.terms-group {
+    width: 100%;
+
+    margin-top: 4px;
+
+    margin-bottom: 15px;
+}
+
+
+.terms-label {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    color: #596577;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    cursor: pointer;
+}
+
+
+.terms-label input {
+    width: 16px;
+    height: 16px;
+
+    flex: 0 0 16px;
+
+    margin-top: 2px;
+
+    accent-color: #075477;
+
+    cursor: pointer;
+}
+
+
+.terms-link {
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #e18b13;
+
+    font: inherit;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.terms-link:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   FORM MESSAGE
+========================================================= */
+
+.form-message {
+    display: none;
+
+    width: 100%;
+
+    margin-bottom: 12px;
+
+    padding:
+        9px
+        11px;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+.form-message.show {
+    display: block;
+}
+
+
+.form-message.error {
+    background: #fff1f0;
+
+    border:
+        1px solid #f2cfcb;
+
+    color: #a93226;
+}
+
+
+.form-message.success {
+    background: #eef9f2;
+
+    border:
+        1px solid #ccebd7;
+
+    color: #247a45;
+}
+
+
+.form-message.info {
+    background: #eef6fa;
+
+    border:
+        1px solid #cfe5ef;
+
+    color: #075477;
+}
+
+
+/* =========================================================
+   CREATE ACCOUNT BUTTON
+========================================================= */
+
+.create-account-button {
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f08a00,
+            #f4a62a
+        );
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 750;
+
+    letter-spacing: 0.2px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+.create-account-button:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(240, 138, 0, 0.22);
+}
+
+
+.create-account-button:active {
+    transform: translateY(0);
+}
+
+
+.create-account-button:disabled {
+    opacity: 0.7;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+.button-icon {
+    font-size: 16px;
+}
+
+
+.button-text {
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.button-loader {
+    display: none;
+
+    width: 16px;
+    height: 16px;
+
+    border:
+        2px solid
+        rgba(255, 255, 255, 0.4);
+
+    border-top-color: #ffffff;
+
+    border-radius: 50%;
+
+    animation:
+        spin 0.8s linear infinite;
+}
+
+
+.create-account-button.loading
+.button-loader {
+    display: block;
+}
+
+
+@keyframes spin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================================================
+   LOGIN LINK
+========================================================= */
+
+.login-link-section {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(20px, 1fr)
+        auto
+        minmax(20px, 1fr);
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 17px;
+}
+
+
+.login-link-section > span {
+    height: 1px;
+
+    background: #e5e9ee;
+}
+
+
+.login-link-section p {
+    color: #687386;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+
+    text-align: center;
+}
+
+
+.login-link-section button {
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #e18b13;
+
+    font-size: 12px;
+
+    font-weight: 750;
+
+    cursor: pointer;
+}
+
+
+.login-link-section button:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   SECURITY MESSAGE
+========================================================= */
+
+.security-message {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    margin-top: 18px;
+
+    color: #7c8795;
+
+    text-align: left;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+
+.security-icon {
+    width: 23px;
+    height: 23px;
+
+    flex: 0 0 23px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #07354f;
+
+    color: #ffffff;
+
+    font-size: 11px;
+}
+
+
+.security-message strong {
+    color: #526073;
+
+    font-size: 10px;
+}
+
+
+.security-message p {
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.registration-footer {
+    margin-top: 10px;
+
+    text-align: center;
+}
+
+
+.registration-footer p {
+    color: #a3abb6;
+
+    font-size: 9px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   TABLET + ALL MOBILE
+
+   IMPORTANT:
+
+   The registration design remains ONE CONSISTENT DESIGN
+   for small tablets, large phones and small phones.
+
+   The desktop split-screen is removed.
+
+   The brand section becomes the TOP HEADER.
+
+   Therefore logo + company name are ALWAYS visible.
+========================================================= */
+
+@media (max-width: 900px) {
+    .desktop-caption {
+        display: none;
+    }
+
+    body {
+        background: #f3f6f9;
+    }
+
+
+    .registration-page {
+        min-height: 100vh;
+
+        padding: 0;
+    }
+
+
+    .registration-card {
+        width: 100%;
+        max-width: 100%;
+
+        min-height: 100vh;
+
+        display: flex;
+
+        flex-direction: column;
+
+        border-radius: 0;
+
+        box-shadow: none;
+
+        background: #ffffff;
+    }
+
+
+    /* ---------------------------------------------------------
+       BRAND HEADER
+
+       This replaces the desktop left panel.
+
+       It remains visible on ALL mobile/tablet sizes.
+    --------------------------------------------------------- */
+
+    .brand-section {
+        width: 100%;
+
+        min-height: auto;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        padding:
+            30px
+            20px;
+
+        background:
+            linear-gradient(
+                145deg,
+                #07354f,
+                #075477
+            );
+    }
+
+
+    .brand-content {
+        width: 100%;
+        max-width: 700px;
+
+        text-align: center;
+    }
+
+
+    .logo-container {
+        width: 105px;
+        height: 105px;
+
+        margin:
+            0 auto 17px;
+
+        padding: 6px;
+
+        border-width: 3px;
+    }
+
+
+    .company-name {
+        max-width: 600px;
+
+        margin: 0 auto;
+
+        font-size: 27px;
+
+        line-height: 1.2;
+    }
+
+
+    .brand-line {
+        width: 55px;
+
+        height: 3px;
+
+        margin-top: 18px;
+    }
+
+
+    /* ---------------------------------------------------------
+       MOBILE LOGO
+
+       Hidden because the brand section above already contains
+       the logo and company name.
+
+       This prevents TWO logos from appearing.
+    --------------------------------------------------------- */
+
+    .mobile-logo {
+        display: none;
+    }
+
+
+    /* ---------------------------------------------------------
+       REGISTRATION AREA
+    --------------------------------------------------------- */
+
+    .registration-section {
+        width: 100%;
+
+        padding:
+            40px
+            45px
+            28px;
+
+        justify-content: flex-start;
+
+        background: #ffffff;
+    }
+
+
+    .registration-header {
+        margin-bottom: 25px;
+    }
+
+
+    .registration-header h2 {
+        font-size: 28px;
+    }
+
+
+    .registration-header p {
+        font-size: 14px;
+    }
+
+
+    .form-group {
+        margin-bottom: 16px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+
+   IMPORTANT:
+
+   We DO NOT create a different design for large/small phones.
+
+   The same mobile layout is used from 600px down to the
+   smallest practical phone width.
+========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        background: #f3f6f9;
+    }
+
+
+    .registration-page {
+        width: 100%;
+
+        min-height: 100vh;
+
+        padding: 0;
+    }
+
+
+    .registration-card {
+        width: 100%;
+
+        min-height: 100vh;
+
+        border-radius: 0;
+    }
+
+
+    /* ---------------------------------------------------------
+       SAME BRAND HEADER
+    --------------------------------------------------------- */
+
+    .brand-section {
+        width: 100%;
+
+        padding:
+            25px
+            18px;
+
+        background:
+            linear-gradient(
+                145deg,
+                #07354f,
+                #075477
+            );
+    }
+
+
+    .brand-content {
+        max-width: 100%;
+    }
+
+
+    .logo-container {
+        width: 90px;
+        height: 90px;
+
+        margin-bottom: 14px;
+
+        padding: 5px;
+
+        border-width: 3px;
+    }
+
+
+    .company-name {
+        width: 100%;
+
+        font-size: 24px;
+
+        line-height: 1.2;
+    }
+
+
+    .brand-line {
+        width: 50px;
+
+        height: 3px;
+
+        margin-top: 15px;
+    }
+
+
+    /* ---------------------------------------------------------
+       FORM AREA
+
+       Same design for all phones.
+    --------------------------------------------------------- */
+
+    .registration-section {
+        width: 100%;
+
+        padding:
+            28px
+            20px
+            22px;
+
+        background: #ffffff;
+    }
+
+
+    .registration-header {
+        margin-bottom: 22px;
+    }
+
+
+    .registration-header h2 {
+        font-size: 25px;
+
+        line-height: 1.25;
+    }
+
+
+    .registration-header p {
+        max-width: 340px;
+
+        margin:
+            0 auto;
+
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+
+    .form-group label {
+        margin-bottom: 7px;
+
+        font-size: 13px;
+    }
+
+
+    .input-wrapper input {
+        height: 50px;
+
+        font-size: 14px;
+
+        padding-left: 46px;
+    }
+
+
+    .mobile-input-wrapper {
+        height: 50px;
+
+        grid-template-columns:
+            70px
+            minmax(0, 1fr);
+    }
+
+
+    .mobile-input-wrapper input {
+        font-size: 14px;
+    }
+
+
+    .country-code {
+        font-size: 14px;
+    }
+
+
+    .input-help {
+        font-size: 10px;
+    }
+
+
+    .password-rules {
+        padding:
+            11px
+            12px;
+    }
+
+
+    .rules-title {
+        font-size: 12px;
+    }
+
+
+    .password-rule {
+        font-size: 10.5px;
+
+        gap: 7px;
+    }
+
+
+    .create-account-button {
+        height: 50px;
+
+        font-size: 14px;
+    }
+
+
+    .login-link-section {
+        margin-top: 17px;
+
+        gap: 8px;
+    }
+
+
+    .login-link-section p {
+        font-size: 12px;
+    }
+
+
+    .security-message {
+        margin-top: 18px;
+    }
+
+
+    .registration-footer {
+        margin-top: 10px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+
+   The design remains the SAME.
+
+   Only spacing/text sizing is protected so that the form
+   does not overflow narrow screens.
+
+   No separate visual layout is introduced.
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .brand-section {
+        padding:
+            23px
+            15px;
+    }
+
+
+    .logo-container {
+        width: 82px;
+        height: 82px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .company-name {
+        font-size: 22px;
+
+        line-height: 1.18;
+    }
+
+
+    .brand-line {
+        width: 45px;
+
+        margin-top: 13px;
+    }
+
+
+    .registration-section {
+        padding:
+            25px
+            16px
+            20px;
+    }
+
+
+    .registration-header h2 {
+        font-size: 23px;
+    }
+
+
+    .registration-header p {
+        font-size: 12.5px;
+    }
+
+
+    .form-group label {
+        font-size: 13px;
+    }
+
+
+    .password-rule {
+        font-size: 10px;
+    }
+
+
+    .terms-label {
+        font-size: 10.5px;
+    }
+
+
+    .create-account-button {
+        font-size: 13px;
+
+        gap: 7px;
+    }
+
+}
+
+
+/* =========================================================
+   LANDSCAPE PHONES / SMALL TABLETS
+
+   Still uses the SAME design.
+
+   We only allow the page to use its natural height so
+   the user can scroll vertically if necessary.
+
+   No split-screen is introduced here.
+========================================================= */
+
+@media (max-width: 900px) and (orientation: landscape) {
+
+    .registration-page {
+        align-items: flex-start;
+    }
+
+
+    .registration-card {
+        min-height: 100vh;
+    }
+
+
+    .brand-section {
+        padding:
+            22px
+            20px;
+    }
+
+
+    .logo-container {
+        width: 75px;
+        height: 75px;
+
+        margin-bottom: 10px;
+    }
+
+
+    .company-name {
+        font-size: 22px;
+    }
+
+
+    .brand-line {
+        margin-top: 10px;
+    }
+
+
+    .registration-section {
+        padding:
+            25px
+            30px
+            25px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+button,
+input {
+    font-family: inherit;
+}
+
+
+button:focus-visible,
+input:focus-visible {
+    outline:
+        2px solid #075477;
+
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        scroll-behavior: auto !important;
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+
+}

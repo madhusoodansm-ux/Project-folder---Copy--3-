@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Drivers | Sri Sadguru Parcel Service</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/drivers.css"
+    >
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+
+<body>
+
+<div class="app-layout">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="sidebar-header">
+
+            <div class="brand">
+
+                <img
+                    src="../images/logo.png"
+                    alt="Sri Sadguru Parcel Service"
+                >
+
+                <div class="brand-text">
+                    <h2>SSP Admin</h2>
+                    <span>Parcel Service</span>
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="sidebar-close"
+                id="sidebarClose"
+                aria-label="Close menu"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a href="bookings.html">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Bookings</span>
+            </a>
+
+
+            <a href="payments.html">
+                <i class="fa-regular fa-credit-card"></i>
+                <span>Payments</span>
+            </a>
+
+
+            <a href="tracking.html">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Tracking</span>
+            </a>
+
+
+            <a href="bookings.html">
+                <i class="fa-regular fa-clock"></i>
+                <span>Recent Orders</span>
+            </a>
+
+
+            <a href="pickup-management.html">
+                <i class="fa-solid fa-box-open"></i>
+                <span>Pickup Management</span>
+            </a>
+
+
+            <a href="delivery-management.html">
+                <i class="fa-solid fa-truck-fast"></i>
+                <span>Delivery Management</span>
+            </a>
+
+
+            <a
+                href="drivers.html"
+                class="active"
+            >
+                <i class="fa-solid fa-users"></i>
+                <span>Drivers</span>
+            </a>
+
+
+            <a href="vehicles.html">
+                <i class="fa-solid fa-truck"></i>
+                <span>Vehicles</span>
+            </a>
+
+
+            <a href="customers.html">
+                <i class="fa-regular fa-user"></i>
+                <span>Customers</span>
+            </a>
+
+
+            <a href="reports.html">
+                <i class="fa-regular fa-chart-bar"></i>
+                <span>Reports</span>
+            </a>
+
+
+            <div class="nav-divider"></div>
+
+
+            <a href="admin-profile.html">
+                <i class="fa-regular fa-user"></i>
+                <span>Admin Profile</span>
+            </a>
+
+
+            <a href="settings.html">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+
+            <a
+                href="#"
+                id="logoutButton"
+            >
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <button
+                type="button"
+                class="menu-button"
+                id="sidebarToggle"
+                aria-label="Toggle menu"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+
+            <div class="topbar-title">
+                Drivers
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div class="admin-avatar">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             PAGE CONTENT
+        ================================================== -->
+
+        <section class="page-content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <div>
+
+                    <h1>Drivers</h1>
+
+                    <p>
+                        View and manage all drivers connected to SSP V2.
+                    </p>
+
+                </div>
+
+
+                <!-- IMPORTANT:
+                     No modal.
+                     Direct navigation to registration page.
+                -->
+
+                <button
+                    type="button"
+                    class="add-driver-button"
+                    id="addDriverButton"
+                >
+                    <i class="fa-solid fa-plus"></i>
+                    Add Driver
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SUMMARY CARDS
+            ================================================== -->
+
+            <section class="summary-grid">
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon total">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div>
+                        <span>Total Drivers</span>
+                        <strong id="totalDrivers">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon available">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div>
+                        <span>Available</span>
+                        <strong id="availableDrivers">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon assigned">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+
+                    <div>
+                        <span>Assigned</span>
+                        <strong id="assignedDrivers">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon delivery">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+
+                    <div>
+                        <span>On Delivery</span>
+                        <strong id="deliveryDrivers">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon offline">
+                        <i class="fa-solid fa-user-slash"></i>
+                    </div>
+
+                    <div>
+                        <span>Offline</span>
+                        <strong id="offlineDrivers">0</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SEARCH / FILTER
+            ================================================== -->
+
+            <section class="filters-card">
+
+                <div class="search-wrapper">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search drivers by name, ID, phone or vehicle..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <select id="statusFilter">
+
+                    <option value="">
+                        Status: All
+                    </option>
+
+                    <option value="Available">
+                        Available
+                    </option>
+
+                    <option value="Assigned">
+                        Assigned
+                    </option>
+
+                    <option value="On Delivery">
+                        On Delivery
+                    </option>
+
+                    <option value="Offline">
+                        Offline
+                    </option>
+
+                </select>
+
+
+                <select id="vehicleFilter">
+
+                    <option value="">
+                        Vehicle: All
+                    </option>
+
+                </select>
+
+
+                <button
+                    type="button"
+                    class="refresh-button"
+                    id="refreshButton"
+                    title="Refresh drivers"
+                    aria-label="Refresh drivers"
+                >
+                    <i class="fa-solid fa-rotate"></i>
+                </button>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 DRIVERS LIST
+            ================================================== -->
+
+            <section class="drivers-card">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>Drivers List</h2>
+
+                        <p id="listCount">
+                            Loading drivers...
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- DESKTOP -->
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Driver Name
+                                </th>
+
+                                <th>
+                                    Vehicle Assigned
+                                </th>
+
+                                <th>
+                                    Vehicle Number
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Current Location
+                                </th>
+
+                                <th class="action-column">
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="driversBody">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+
+                <!-- MOBILE -->
+
+                <div
+                    class="mobile-driver-list"
+                    id="mobileDriverList"
+                ></div>
+
+
+
+                <!-- EMPTY -->
+
+                <div
+                    class="empty-state"
+                    id="emptyState"
+                    hidden
+                >
+
+                    <div class="empty-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <h3>No drivers found</h3>
+
+                    <p>
+                        No driver records match your current search or filter.
+                    </p>
+
+                </div>
+
+
+
+                <!-- PAGINATION -->
+
+                <div class="pagination-row">
+
+                    <div
+                        class="pagination-info"
+                        id="paginationInfo"
+                    ></div>
+
+
+                    <div class="pagination">
+
+                        <button
+                            type="button"
+                            id="previousPage"
+                            aria-label="Previous page"
+                        >
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+
+
+                        <div id="pageButtons"></div>
+
+
+                        <button
+                            type="button"
+                            id="nextPage"
+                            aria-label="Next page"
+                        >
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="rows-per-page">
+                        <span>Rows</span>
+                        <strong>10</strong>
+                        <span>/ page</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- =========================================================
+     SUPABASE
+========================================================= -->
+
+    <script src="../js/admin-shell.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/supabase-client.js"></script>
+
+<script src="../js/admin-auth.js"></script>
+<script src="../js/admin-settings.js"></script>
+<script src="../js/drivers.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vehicles | Sri Sadguru Siddarooda Parcel Service</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Vehicles CSS -->
+    <link rel="stylesheet" href="../css/vehicles.css">
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+ 
+<body>
+
+    <!-- ==============================
+         SIDEBAR
+    =============================== -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+
+            <div class="brand-logo">
+                <img
+                    src="../images/logo.png"
+                    alt="Sri Sadguru Siddarooda Parcel Service"
+                >
+            </div>
+
+            <div class="brand-text">
+                <h2>Sri Sadguru</h2>
+                <span>Parcel Service</span>
+            </div>
+
+        </div>
+
+
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="bookings.html" class="nav-item">
+                <i class="fa-solid fa-box"></i>
+                <span>Bookings</span>
+            </a>
+
+            <a href="payments.html" class="nav-item">
+                <i class="fa-solid fa-credit-card"></i>
+                <span>Payments</span>
+            </a>
+
+            <a href="tracking.html" class="nav-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Tracking</span>
+            </a>
+
+            <a href="pickup-management.html" class="nav-item">
+                <i class="fa-solid fa-truck-ramp-box"></i>
+                <span>Pickup Management</span>
+            </a>
+
+            <a href="delivery-management.html" class="nav-item">
+                <i class="fa-solid fa-truck-fast"></i>
+                <span>Delivery Management</span>
+            </a>
+
+            <a href="drivers.html" class="nav-item">
+                <i class="fa-solid fa-id-card"></i>
+                <span>Drivers</span>
+            </a>
+
+            <a href="vehicles.html" class="nav-item active">
+                <i class="fa-solid fa-truck"></i>
+                <span>Vehicles</span>
+            </a>
+
+            <a href="customers.html" class="nav-item">
+                <i class="fa-solid fa-users"></i>
+                <span>Customers</span>
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <i class="fa-solid fa-file-lines"></i>
+                <span>Reports</span>
+            </a>
+
+            <a href="admin-profile.html" class="nav-item">
+                <i class="fa-solid fa-user"></i>
+                <span>Admin Profile</span>
+            </a>
+
+            <a href="settings.html" class="nav-item">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- ==============================
+         MAIN CONTENT
+    =============================== -->
+    <main class="main-content">
+
+        <!-- ==============================
+             TOP BAR
+        =============================== -->
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Toggle sidebar"
+                    title="Toggle sidebar"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="page-heading">
+                    <h1>Vehicles</h1>
+                    <p>Manage and monitor parcel service vehicles</p>
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button
+                    type="button"
+                    class="notification-btn"
+                    aria-label="Notifications"
+                    title="Notifications"
+                >
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="admin-profile-mini">
+
+                    <div class="admin-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <div class="admin-info">
+                        <strong>Admin</strong>
+                        <span>Administrator</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ==============================
+             PAGE CONTENT
+        =============================== -->
+        <section class="page-content">
+
+            <!-- Page Header -->
+            <div class="content-header">
+
+                <div>
+                    <h2>Vehicle Management</h2>
+                    <p>
+                        View vehicle availability, assignments and current
+                        operating status.
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    class="add-vehicle-btn"
+                    id="addVehicleBtn"
+                >
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Add Vehicle</span>
+                </button>
+
+            </div>
+
+
+            <!-- ==============================
+                 SUMMARY CARDS
+            =============================== -->
+            <div class="summary-grid">
+
+                <!-- Total Vehicles -->
+                <div class="summary-card">
+
+                    <div class="summary-icon total">
+                        <i class="fa-solid fa-truck"></i>
+                    </div>
+
+                    <div class="summary-details">
+                        <span class="summary-label">Total Vehicles</span>
+                        <strong id="totalVehicles">0</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- Available -->
+                <div class="summary-card">
+
+                    <div class="summary-icon available">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div class="summary-details">
+                        <span class="summary-label">Available</span>
+                        <strong id="availableVehicles">0</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- Assigned -->
+                <div class="summary-card">
+
+                    <div class="summary-icon assigned">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+
+                    <div class="summary-details">
+                        <span class="summary-label">Assigned</span>
+                        <strong id="assignedVehicles">0</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- On Delivery -->
+                <div class="summary-card">
+
+                    <div class="summary-icon delivery">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+
+                    <div class="summary-details">
+                        <span class="summary-label">On Delivery</span>
+                        <strong id="deliveryVehicles">0</strong>
+                    </div>
+
+                </div>
+
+
+                <!-- Offline -->
+                <div class="summary-card">
+
+                    <div class="summary-icon offline">
+                        <i class="fa-solid fa-power-off"></i>
+                    </div>
+
+                    <div class="summary-details">
+                        <span class="summary-label">Offline</span>
+                        <strong id="offlineVehicles">0</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==============================
+                 VEHICLE TABLE SECTION
+            =============================== -->
+            <div class="vehicles-card">
+
+                <!-- Toolbar -->
+                <div class="table-toolbar">
+
+                    <div class="toolbar-left">
+
+                        <!-- Search -->
+                        <div class="search-box">
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                            <input
+                                type="search"
+                                id="vehicleSearch"
+                                placeholder="Search vehicle, driver or number..."
+                                autocomplete="off"
+                                aria-label="Search vehicles"
+                            >
+
+                        </div>
+
+
+                        <!-- Status Filter -->
+                        <div class="filter-box">
+
+                            <select
+                                id="statusFilter"
+                                aria-label="Filter by vehicle status"
+                            >
+                                <option value="all">All Status</option>
+                                <option value="Available">Available</option>
+                                <option value="Assigned">Assigned</option>
+                                <option value="On Delivery">On Delivery</option>
+                                <option value="Maintenance">Maintenance</option>
+                                <option value="Offline">Offline</option>
+                            </select>
+
+                        </div>
+
+
+                        <!-- Vehicle Type Filter -->
+                        <div class="filter-box">
+
+                            <select
+                                id="typeFilter"
+                                aria-label="Filter by vehicle type"
+                            >
+                                <option value="all">All Types</option>
+                                <option value="Vehicle 1">Vehicle 1</option>
+                                <option value="Vehicle 2">Vehicle 2</option>
+                                <option value="Vehicle 3">Vehicle 3</option>
+                                <option value="Vehicle 4">Vehicle 4</option>
+                                <option value="Vehicle 5">Vehicle 5</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="toolbar-right">
+
+                        <button
+                            type="button"
+                            class="refresh-btn"
+                            id="refreshVehiclesBtn"
+                            title="Refresh vehicles"
+                            aria-label="Refresh vehicles"
+                        >
+                            <i class="fa-solid fa-rotate"></i>
+                            <span>Refresh</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==============================
+                     TABLE
+                =============================== -->
+                <div class="table-wrapper">
+
+                    <table class="vehicles-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Vehicle</th>
+
+                                <th>Vehicle Number</th>
+
+                                <th>Vehicle Type</th>
+
+                                <th>Assigned Driver</th>
+
+                                <th>Status</th>
+
+                                <th>Current Location</th>
+
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="vehiclesTableBody">
+
+                            <!-- Vehicle rows are generated by vehicles.js -->
+
+                        </tbody>
+
+                    </table>
+
+
+                    <!-- Empty State -->
+                    <div
+                        class="empty-state"
+                        id="emptyVehiclesState"
+                        hidden
+                    >
+
+                        <div class="empty-icon">
+                            <i class="fa-solid fa-truck"></i>
+                        </div>
+
+                        <h3 id="emptyVehiclesTitle">No Vehicles Found</h3>
+
+                        <p id="emptyVehiclesMessage">
+                            No vehicles are registered yet.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==============================
+                     TABLE FOOTER
+                =============================== -->
+                <div class="table-footer">
+
+                    <div class="table-result-info">
+                        <span id="vehicleResultInfo">
+                            Showing 0 vehicles
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==============================
+         VEHICLES JAVASCRIPT
+    =============================== -->
+        <script src="../js/admin-shell.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/supabase-client.js"></script>
+
+<script src="../js/vehicles.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,962 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #0d4f9e;
+    --primary-dark: #073b7c;
+    --blue-light: #eaf3ff;
+
+    --accent: #f5a400;
+    --accent-dark: #df8f00;
+
+    --success: #239b55;
+    --success-light: #eaf8f0;
+
+    --purple: #7e3fc7;
+    --purple-light: #f3eaff;
+
+    --orange-light: #fff3df;
+
+    --text: #17212f;
+    --muted: #77808d;
+    --border: #e5e9ef;
+    --background: #f6f8fb;
+    --white: #ffffff;
+
+    --radius: 14px;
+    --shadow: 0 3px 14px rgba(0, 0, 0, 0.07);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app {
+    min-height: 100vh;
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 245px;
+    background: linear-gradient(
+        180deg,
+        #073b7c 0%,
+        #0d4f9e 55%,
+        #083f82 100%
+    );
+    color: white;
+    z-index: 2000;
+
+    display: flex;
+    flex-direction: column;
+
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.42);
+    z-index: 1900;
+    display: none;
+}
+
+.sidebar-overlay.show {
+    display: block;
+}
+
+.sidebar-header {
+    padding: 24px 18px 20px;
+    text-align: center;
+}
+
+.sidebar-logo {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 0 3px rgba(245, 164, 0, 0.16);
+}
+
+.sidebar-title {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.35;
+    font-weight: 700;
+}
+
+.sidebar-title span {
+    color: var(--accent);
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px 12px;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+
+    padding: 13px 15px;
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: 0.2s;
+}
+
+.sidebar-nav a i {
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.sidebar-nav a.active {
+    border-left: 3px solid var(--accent);
+}
+
+.sidebar-logout {
+    margin-top: auto;
+    padding: 18px 12px 25px;
+}
+
+.sidebar-logout button {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: #ff6b6b;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    padding: 13px 15px;
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* =========================================================
+   TOP HEADER
+========================================================= */
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    height: 70px;
+
+    background: var(--primary);
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 15px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.menu-btn {
+    width: 38px;
+    height: 38px;
+
+    border: 0;
+    background: transparent;
+    color: white;
+
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.header-logo {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    border: 2px solid var(--accent);
+}
+
+.page-heading {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-title {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.page-subtitle {
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification-btn {
+    position: relative;
+
+    width: 36px;
+    height: 36px;
+
+    display: grid;
+    place-items: center;
+
+    border: 0;
+    background: transparent;
+    color: white;
+
+    font-size: 17px;
+}
+
+.notification-count {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+
+    min-width: 16px;
+    height: 16px;
+
+    display: grid;
+    place-items: center;
+
+    background: #ef4444;
+    color: white;
+
+    border-radius: 50%;
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.driver-avatar {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+    object-fit: cover;
+
+    border: 2px solid white;
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main {
+    min-height: calc(100vh - 70px);
+    padding-bottom: 82px;
+}
+
+.content {
+    width: 100%;
+    max-width: 1250px;
+    margin: auto;
+    padding: 14px;
+}
+
+/* =========================================================
+   FILTER PANEL
+========================================================= */
+
+.filter-panel {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 13px;
+    box-shadow: var(--shadow);
+}
+
+.filter-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 11px;
+}
+
+.filter-heading h2 {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.filter-icon {
+    width: 31px;
+    height: 31px;
+
+    border: 1px solid var(--border);
+    background: white;
+
+    border-radius: 9px;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--primary);
+}
+
+/* =========================================================
+   FILTER BUTTONS
+========================================================= */
+
+.filter-buttons {
+    display: flex;
+    gap: 7px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+}
+
+.filter-buttons::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-btn {
+    flex: 0 0 auto;
+
+    border: 1px solid var(--border);
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 8px 12px;
+
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 600;
+
+    color: var(--muted);
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    transition: 0.2s;
+}
+
+.filter-btn i {
+    font-size: 9px;
+}
+
+.filter-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.filter-btn.pending.active {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.filter-btn.started.active {
+    background: var(--purple);
+    border-color: var(--purple);
+}
+
+.filter-btn.picked.active {
+    background: var(--success);
+    border-color: var(--success);
+}
+
+/* =========================================================
+   SEARCH / SORT
+========================================================= */
+
+.tools-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.search-box {
+    flex: 1;
+    position: relative;
+}
+
+.search-box i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    color: #9aa3ad;
+    font-size: 12px;
+}
+
+.search-box input {
+    width: 100%;
+    height: 39px;
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    padding: 0 12px 0 34px;
+
+    font-family: inherit;
+    font-size: 10px;
+
+    outline: none;
+    color: var(--text);
+}
+
+.search-box input:focus {
+    border-color: var(--primary);
+}
+
+.sort-select {
+    height: 39px;
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    background: white;
+
+    padding: 0 9px;
+
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 600;
+
+    color: var(--text);
+    outline: none;
+}
+
+/* =========================================================
+   BOOKING LIST
+========================================================= */
+
+.booking-list {
+    margin-top: 13px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* =========================================================
+   BOOKING CARD
+========================================================= */
+
+.booking-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    padding: 13px;
+
+    box-shadow: var(--shadow);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.booking-card:active {
+    transform: scale(0.99);
+}
+
+.booking-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.package-icon {
+    flex: 0 0 auto;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--orange-light);
+    color: var(--accent);
+
+    font-size: 17px;
+}
+
+.package-icon.started {
+    background: var(--purple-light);
+    color: var(--purple);
+}
+
+.package-icon.picked {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+.booking-main {
+    min-width: 0;
+    flex: 1;
+}
+
+.booking-id-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.booking-id {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.booking-customer {
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.booking-phone {
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 1px;
+}
+
+.booking-arrow {
+    color: #8b949e;
+    font-size: 11px;
+}
+
+/* =========================================================
+   STATUS BADGE
+========================================================= */
+
+.status-badge {
+    flex: 0 0 auto;
+
+    padding: 4px 7px;
+    border-radius: 6px;
+
+    font-size: 8px;
+    line-height: 1.1;
+    font-weight: 700;
+
+    background: var(--orange-light);
+    color: #c47700;
+}
+
+.status-badge.started {
+    background: var(--purple-light);
+    color: var(--purple);
+}
+
+.status-badge.picked {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+/* =========================================================
+   BOOKING DETAILS INSIDE CARD
+========================================================= */
+
+.pickup-location {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+
+    margin-top: 12px;
+    padding-top: 10px;
+
+    border-top: 1px solid #edf0f3;
+
+    font-size: 9px;
+    line-height: 1.45;
+}
+
+.pickup-location i {
+    color: var(--accent);
+    margin-top: 2px;
+}
+
+.booking-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    margin-top: 10px;
+}
+
+.meta-chip {
+    background: #f5f7fa;
+    border: 1px solid #e9edf1;
+
+    border-radius: 6px;
+
+    padding: 5px 7px;
+
+    font-size: 8px;
+    color: #59636e;
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.meta-chip i {
+    color: var(--primary);
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.card-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+
+    margin-top: 12px;
+}
+
+.call-btn,
+.pickup-btn {
+    min-height: 38px;
+
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    text-decoration: none;
+
+    font-family: inherit;
+    font-size: 9px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.call-btn {
+    border: 1px solid #b9e5cc;
+    background: white;
+    color: var(--success);
+}
+
+.call-btn:hover {
+    background: var(--success-light);
+}
+
+.pickup-btn {
+    border: 1px solid var(--primary);
+    background: var(--primary);
+    color: white;
+}
+
+.pickup-btn:hover {
+    background: var(--primary-dark);
+}
+
+.pickup-btn.completed {
+    background: white;
+    color: var(--primary);
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.empty-state {
+    text-align: center;
+
+    background: white;
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 45px 20px;
+
+    color: var(--muted);
+}
+
+.empty-state i {
+    font-size: 35px;
+    color: #b5bdc7;
+    margin-bottom: 12px;
+}
+
+.empty-state h3 {
+    font-size: 14px;
+    color: var(--text);
+}
+
+.empty-state p {
+    margin-top: 5px;
+    font-size: 10px;
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.loading i {
+    margin-right: 6px;
+}
+
+/* =========================================================
+   BOTTOM NAVIGATION
+========================================================= */
+
+.bottom-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 68px;
+
+    background: white;
+    border-top: 1px solid var(--border);
+
+    z-index: 1500;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.06);
+}
+
+.bottom-nav a {
+    text-decoration: none;
+    color: #7a838d;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 4px;
+
+    font-size: 8px;
+    font-weight: 600;
+}
+
+.bottom-nav a i {
+    font-size: 16px;
+}
+
+.bottom-nav a.active {
+    color: var(--primary);
+}
+
+.bottom-nav a.active i {
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 600px) {
+
+    .topbar {
+        height: 76px;
+        padding: 0 22px;
+    }
+
+    .header-logo {
+        width: 46px;
+        height: 46px;
+    }
+
+    .page-title {
+        font-size: 19px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .filter-panel {
+        padding: 17px;
+    }
+
+    .filter-buttons {
+        gap: 9px;
+    }
+
+    .filter-btn {
+        font-size: 11px;
+        padding: 9px 15px;
+    }
+
+    .booking-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .booking-card {
+        padding: 15px;
+    }
+
+    .bottom-nav {
+        height: 72px;
+    }
+
+    .bottom-nav a {
+        font-size: 9px;
+    }
+
+    .bottom-nav a i {
+        font-size: 17px;
+    }
+}
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1024px) {
+
+    .sidebar {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay {
+        display: none !important;
+    }
+
+    .main-wrapper {
+        margin-left: 245px;
+    }
+
+    .menu-btn {
+        display: none;
+    }
+
+    .topbar {
+        background: white;
+        color: var(--text);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .page-subtitle {
+        color: var(--muted);
+    }
+
+    .notification-btn {
+        color: var(--text);
+    }
+
+    .bottom-nav {
+        display: none;
+    }
+
+    .main {
+        padding-bottom: 30px;
+    }
+
+    .content {
+        padding: 24px;
+    }
+
+    .booking-list {
+        display: block;
+    }
+
+    .booking-card {
+        display: grid;
+        grid-template-columns: 2fr 1.5fr 1fr 1.1fr;
+        align-items: center;
+        gap: 15px;
+
+        margin-bottom: 10px;
+    }
+
+    .booking-card:hover {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.09);
+    }
+
+    .pickup-location {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: 0;
+    }
+
+    .booking-meta {
+        margin-top: 0;
+    }
+
+    .card-actions {
+        margin-top: 0;
+    }
+}

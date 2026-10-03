@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="description"
+        content="Sri Sadguru Siddarooda Parcel Service Driver Portal"
+    >
+
+    <title>
+        Driver Login | Sri Sadguru Siddarooda Parcel Service
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/login.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="login-page">
+
+
+        <!-- =================================================
+             BRANDING SECTION
+        ================================================== -->
+
+        <section class="login-brand">
+
+            <div class="brand-content">
+
+
+                <!-- LOGO -->
+
+                <div class="brand-logo">
+
+                    <img
+                        src="images/logo.png"
+                        alt="Sri Sadguru Siddarooda Parcel Service"
+                    >
+
+                </div>
+
+
+                <!-- COMPANY NAME -->
+
+                <h1>
+
+                    Sri Sadguru Siddarooda
+
+                    <span>
+                        Parcel Service
+                    </span>
+
+                </h1>
+
+
+                <!-- DRIVER CAPTION -->
+
+                <p class="brand-caption">
+
+                    Reliable parcel delivery,
+                    powered by our drivers.
+
+                </p>
+
+
+                <div class="brand-divider"></div>
+
+
+                <p class="brand-description">
+
+                    Manage your assigned shipments,
+                    pickups, deliveries and driver
+                    activities from one secure portal.
+
+                </p>
+
+            </div>
+
+
+            <div class="brand-footer">
+
+                <p>
+                    © 2026 Sri Sadguru Siddarooda Parcel Service
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LOGIN SECTION
+        ================================================== -->
+
+        <section class="login-section">
+
+            <div class="login-container">
+
+
+                <!-- LOGIN HEADER -->
+
+                <header class="login-header">
+
+                    <span class="portal-label">
+                        DRIVER PORTAL
+                    </span>
+
+
+                    <h2>
+                        Welcome Driver Login
+                    </h2>
+
+
+                    <p>
+                        Sign in to access your driver portal.
+                    </p>
+
+                </header>
+
+
+
+                <!-- =================================================
+                     LOGIN FORM
+                ================================================== -->
+
+                <form
+                    id="loginForm"
+                    class="login-form"
+                    novalidate
+                >
+
+
+                    <!-- LOGIN IDENTIFIER -->
+
+                    <div class="form-group">
+
+                        <label for="loginId">
+                            Phone Number or Gmail
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                👤
+                            </span>
+
+
+                            <input
+                                type="text"
+                                id="loginId"
+                                class="form-input"
+                                placeholder="Enter phone number or Gmail"
+                                autocomplete="username"
+                                inputmode="email"
+                                maxlength="100"
+                            >
+
+                        </div>
+
+
+                        <small
+                            id="loginIdError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                🔒
+                            </span>
+
+
+                            <input
+                                type="password"
+                                id="password"
+                                class="form-input password-input"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                            >
+
+
+                            <button
+                                type="button"
+                                id="showPassword"
+                                class="password-toggle"
+                                aria-label="Show password"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+
+                        <small
+                            id="passwordError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+
+                    <!-- OPTIONS -->
+
+                    <div class="login-options">
+
+
+                        <label class="remember-label">
+
+                            <input
+                                type="checkbox"
+                                id="rememberMe"
+                            >
+
+                            <span>
+                                Remember me
+                            </span>
+
+                        </label>
+
+
+                        <a
+                            href="driver/forgot-password.html"
+                            class="forgot-button"
+                        >
+                            Forgot Password?
+                        </a>
+
+                    </div>
+
+
+
+                    <!-- LOGIN BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="login-button"
+                        id="loginButton"
+                    >
+                        Login
+                    </button>
+
+
+                    <!-- MESSAGE -->
+
+                    <div
+                        id="loginMessage"
+                        class="login-message"
+                        aria-live="polite"
+                    ></div>
+
+
+
+                    <!-- CREATE ACCOUNT -->
+
+                    <p class="create-account-text">
+
+                        Don't have an account?
+
+                        <a href="driver/new-account.html">
+                            Create New Account
+                        </a>
+
+                    </p>
+
+
+
+                    <!-- SECURITY MESSAGE -->
+
+                    <div class="security-message">
+
+                        <span class="security-icon">
+                            ✓
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Secure Driver Login
+                            </strong>
+
+                            <span>
+                                Your account is protected by Supabase authentication.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="copyright">
+
+                        © 2026 Sri Sadguru Siddarooda Parcel Service
+
+                    </p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =================================================
+         SCRIPTS
+    ================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase-client.js"></script>
+
+    <script src="js/auth.js"></script>
+
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>

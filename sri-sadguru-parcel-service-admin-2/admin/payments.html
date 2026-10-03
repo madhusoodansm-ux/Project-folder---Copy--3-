@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Payments | Sri Sadguru Parcel Service</title>
+
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+    <link
+        rel="stylesheet"
+        href="../css/payments.css"
+    >
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+
+            <img
+                src="../images/logo.png"
+                alt="Sri Sadguru"
+            >
+
+            <div>
+                <h2>SRI SADGURU</h2>
+                <p>SIDDAROODA<br>PARCEL SERVICE</p>
+            </div>
+
+        </div>
+
+        
+        
+         
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="bookings.html" class="nav-item">
+                <span>▣</span>
+                <span>Bookings</span>
+            </a>
+
+            <a
+                href="payments.html"
+                class="nav-item active"
+            >
+                <span>₹</span>
+                <span>Payments</span>
+            </a>
+
+            <a href="tracking.html" class="nav-item">
+                <span>⌖</span>
+                <span>Tracking</span>
+            </a>
+
+            <a href="bookings.html" class="nav-item">
+                <span>◷</span>
+                <span>Recent Orders</span>
+            </a>
+
+            <a href="pickup-management.html" class="nav-item">
+                <span>▣</span>
+                <span>Pickup Management</span>
+            </a>
+
+            <a href="delivery-management.html" class="nav-item">
+                <span>🚚</span>
+                <span>Delivery Management</span>
+            </a>
+
+            <a href="drivers.html" class="nav-item">
+                <span>♙</span>
+                <span>Drivers</span>
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span>▤</span>
+                <span>Reports</span>
+            </a>
+
+            <a href="settings.html" class="nav-item">
+                <span>⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+
+        <div class="admin-card">
+
+            <div class="admin-avatar">
+                AU
+            </div>
+
+            <div>
+                <strong>Admin User</strong>
+                <small>Super Admin</small>
+
+                <small class="online">
+                    ● Online
+                </small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <button
+                class="menu-button"
+                id="sidebarToggle"
+            >
+                ☰
+            </button>
+
+            <div>
+                <h1>Payments</h1>
+                <p>Manage booking payments</p>
+            </div>
+
+
+            <div class="topbar-right">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    class="top-search"
+                    placeholder="Search booking ID / customer..."
+                >
+
+                <button
+                    class="notification-button"
+                    id="notificationButton"
+                >
+                    🔔
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <section class="content">
+
+
+            <!-- SUMMARY -->
+
+            <div class="summary-grid">
+
+                <div class="summary-card">
+
+                    <div class="summary-icon blue">
+                        ₹
+                    </div>
+
+                    <div>
+                        <span>Total Payments</span>
+                        <strong id="totalPayments">
+                            0
+                        </strong>
+                        <small>Total bookings</small>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon green">
+                        ✓
+                    </div>
+
+                    <div>
+                        <span>Paid</span>
+                        <strong id="paidCount">
+                            0
+                        </strong>
+                        <small id="paidAmount">
+                            ₹0
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon orange">
+                        ◷
+                    </div>
+
+                    <div>
+                        <span>Pending</span>
+                        <strong id="pendingCount">
+                            0
+                        </strong>
+                        <small id="pendingAmount">
+                            ₹0
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon purple">
+                        ◔
+                    </div>
+
+                    <div>
+                        <span>Partial</span>
+                        <strong id="partialCount">
+                            0
+                        </strong>
+                        <small id="partialAmount">
+                            ₹0
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon red">
+                        ₹
+                    </div>
+
+                    <div>
+                        <span>Outstanding</span>
+                        <strong id="outstandingAmount">
+                            ₹0
+                        </strong>
+                        <small>Balance amount</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FILTER AREA -->
+
+            <div class="filter-card">
+
+                <div class="filter-row">
+
+                    <div class="search-box">
+
+                        <span>⌕</span>
+
+                        <input
+                            type="text"
+                            id="paymentSearch"
+                            placeholder="Search by Booking ID, customer or phone..."
+                        >
+
+                    </div>
+
+
+                    <select id="statusFilter">
+
+                        <option value="">
+                            All Status
+                        </option>
+
+                        <option value="paid">
+                            Paid
+                        </option>
+
+                        <option value="pending">
+                            Pending
+                        </option>
+
+                        <option value="partial">
+                            Partial
+                        </option>
+
+                        <option value="refunded">
+                            Refunded
+                        </option>
+
+                    </select>
+
+
+                    <select id="methodFilter">
+
+                        <option value="">
+                            All Methods
+                        </option>
+
+                    </select>
+
+
+                    <button
+                        type="button"
+                        id="resetButton"
+                        class="reset-button"
+                    >
+                        ↻ Reset
+                    </button>
+
+                </div>
+
+
+                <div class="payment-tabs">
+
+                    <button
+                        class="payment-tab active"
+                        data-filter=""
+                    >
+                        All
+                    </button>
+
+                    <button
+                        class="payment-tab"
+                        data-filter="paid"
+                    >
+                        Paid
+                    </button>
+
+                    <button
+                        class="payment-tab"
+                        data-filter="pending"
+                    >
+                        Pending
+                    </button>
+
+                    <button
+                        class="payment-tab"
+                        data-filter="partial"
+                    >
+                        Partial
+                    </button>
+
+                    <button
+                        class="payment-tab"
+                        data-filter="refunded"
+                    >
+                        Refunded
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= TABLE ================= -->
+
+            <div class="table-card">
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Booking ID</th>
+
+                                <th>Customer</th>
+
+                                <th>Route</th>
+
+                                <th>Booking Amount</th>
+
+                                <th>Received</th>
+
+                                <th>Balance</th>
+
+                                <th>Method</th>
+
+                                <th>Status</th>
+
+                                <th>Date</th>
+
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="paymentBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- MOBILE LIST -->
+
+                <div
+                    class="mobile-payments"
+                    id="mobilePayments"
+                >
+                </div>
+
+
+                <!-- PAGINATION -->
+
+                <div class="pagination">
+
+                    <span id="showingText">
+                        Showing 0 to 0 of 0 payments
+                    </span>
+
+
+                    <div
+                        class="page-buttons"
+                        id="pageButtons"
+                    >
+                    </div>
+
+
+                    <label>
+
+                        Rows per page
+
+                        <select id="rowsPerPage">
+
+                            <option value="10">
+                                10
+                            </option>
+
+                            <option value="20">
+                                20
+                            </option>
+
+                            <option value="50">
+                                50
+                            </option>
+
+                        </select>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ================= PAYMENT DETAILS DRAWER ================= -->
+
+<div
+    class="drawer-overlay"
+    id="drawerOverlay"
+>
+
+    <aside
+        class="payment-drawer"
+        id="paymentDrawer"
+    >
+
+        <div class="drawer-header">
+
+            <div>
+
+                <h2>Payment Details</h2>
+
+                <span id="drawerBookingId">
+                    —
+                </span>
+
+            </div>
+
+            <button
+                id="closeDrawer"
+                type="button"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            class="drawer-content"
+            id="drawerContent"
+        >
+        </div>
+
+    </aside>
+
+</div>
+
+
+<!-- ================= RECORD PAYMENT MODAL ================= -->
+
+<div
+    class="modal-overlay"
+    id="paymentModal"
+>
+
+    <div class="payment-modal">
+
+        <div class="modal-header">
+
+            <h2>Record / Update Payment</h2>
+
+            <button
+                id="closePaymentModal"
+                type="button"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+            <div class="modal-booking">
+
+                <span>Booking ID</span>
+
+                <strong id="modalBookingId">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="form-field">
+
+                <label>
+                    Total Amount
+                </label>
+
+                <input
+                    type="text"
+                    id="modalTotal"
+                    readonly
+                >
+
+            </div>
+
+
+            <div class="form-field">
+
+                <label>
+                    Payment Method
+                </label>
+
+                <select id="modalMethod">
+
+                    <option value="">
+                        Select method
+                    </option>
+
+                    <option value="Cash">
+                        Cash
+                    </option>
+
+                    <option value="UPI">
+                        UPI
+                    </option>
+
+                    <option value="Card">
+                        Card
+                    </option>
+
+                    <option value="Bank Transfer">
+                        Bank Transfer
+                    </option>
+
+                    <option value="Cash on Delivery">
+                        Cash on Delivery
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-field">
+
+                <label>
+                    Amount Received
+                </label>
+
+                <input
+                    type="number"
+                    id="modalReceived"
+                    min="0"
+                    step="0.01"
+                    placeholder="Enter amount received"
+                >
+
+            </div>
+
+
+            <div class="form-field">
+
+                <label>
+                    Payment Status
+                </label>
+
+                <select id="modalStatus">
+
+                    <option value="Payment Pending">
+                        Payment Pending
+                    </option>
+
+                    <option value="Partial">
+                        Partial
+                    </option>
+
+                    <option value="Payment Received">
+                        Payment Received
+                    </option>
+
+                    <option value="Payment Refunded">
+                        Payment Refunded
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <button
+                type="button"
+                class="cancel-button"
+                id="cancelPayment"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="save-button"
+                id="savePayment"
+            >
+                Save Payment
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div
+    class="toast"
+    id="toast"
+>
+</div>
+
+
+<!-- MOBILE NAV -->
+
+<nav class="mobile-bottom-nav">
+
+    <a href="dashboard.html">
+        <span>⌂</span>
+        Home
+    </a>
+
+    <a href="bookings.html">
+        <span>▣</span>
+        Bookings
+    </a>
+
+    <a
+        href="payments.html"
+        class="active"
+    >
+        <span>₹</span>
+        Payment
+    </a>
+
+    <a href="tracking.html">
+        <span>⌖</span>
+        Tracking
+    </a>
+
+    <a href="dashboard.html">
+        <span>•••</span>
+        More
+    </a>
+
+</nav>
+
+
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/supabase-client.js"></script>
+<script src="../js/admin-shell.js"></script>
+<script src="../js/admin-settings.js"></script>
+<script src="../js/payments.js"></script>
+
+</body>
+</html>

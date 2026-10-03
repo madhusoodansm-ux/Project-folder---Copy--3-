@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="description"
+        content="Sri Sadguru Siddarooda Parcel Service - Driver Shipments"
+    >
+
+    <title>Shipments | Sri Sadguru Siddarooda Parcel Service</title>
+
+    <!-- SAME FONT USED THROUGHOUT THE PORTAL -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- SAME ICON SYSTEM -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    >
+
+    <!-- SHIPMENTS CSS -->
+    <link
+        rel="stylesheet"
+        href="../css/shipments.css"
+    >
+</head>
+
+<body>
+
+<!-- =========================================================
+     MOBILE SIDEBAR OVERLAY
+     ========================================================= -->
+
+<div
+    id="sidebarOverlay"
+    class="sidebar-overlay"
+    aria-hidden="true"
+></div>
+
+
+<!-- =========================================================
+     SIDEBAR
+     ========================================================= -->
+
+<aside
+    id="sidebar"
+    class="sidebar"
+    aria-label="Driver navigation"
+>
+
+    <!-- CLOSE BUTTON -->
+    <button
+        id="sidebarClose"
+        class="sidebar-close"
+        type="button"
+        aria-label="Close menu"
+    >
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+
+
+    <!-- BRAND -->
+    <div class="sidebar-brand">
+
+        <a
+            href="dashboard.html"
+            class="brand-link"
+        >
+
+            <img
+                src="../images/logo.png"
+                alt="Sri Sadguru Siddarooda Parcel Service"
+                class="brand-logo"
+            >
+
+            <div class="brand-text">
+
+                <strong>SRI SADGURU</strong>
+
+                <span>
+                    SIDDAROODA
+                    <br>
+                    PARCEL SERVICE
+                </span>
+
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <!-- SIDEBAR NAVIGATION -->
+
+    <nav class="sidebar-nav">
+
+        <a
+            href="dashboard.html"
+            class="nav-item"
+        >
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+        </a>
+
+
+        <a
+            href="shipments.html"
+            class="nav-item active"
+        >
+            <i class="fa-solid fa-box"></i>
+            <span>Shipments</span>
+        </a>
+
+
+        <a
+            href="pickup.html"
+            class="nav-item"
+        >
+            <i class="fa-solid fa-box-open"></i>
+            <span>Pickups</span>
+        </a>
+
+
+        <a
+            href="deliveries.html"
+            class="nav-item"
+        >
+            <i class="fa-solid fa-truck"></i>
+            <span>Deliveries</span>
+        </a>
+
+
+        <a
+            href="profile.html"
+            class="nav-item"
+        >
+            <i class="fa-solid fa-user"></i>
+            <span>Profile</span>
+        </a>
+
+    </nav>
+
+
+    <!-- SIDEBAR DRIVER -->
+
+    <div class="sidebar-driver">
+
+        <div
+            id="sidebarAvatar"
+            class="sidebar-avatar"
+        >
+            D
+        </div>
+
+        <div class="sidebar-driver-info">
+
+            <strong id="sidebarDriverName">
+                Driver
+            </strong>
+
+            <span id="sidebarDriverId">
+                Driver ID
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- LOGOUT -->
+
+    <button
+        id="logoutButton"
+        class="sidebar-logout"
+        type="button"
+    >
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        <span>
+            Logout
+        </span>
+
+    </button>
+
+</aside>
+
+
+<!-- =========================================================
+     APPLICATION
+     ========================================================= -->
+
+<div class="app-shell">
+
+
+    <!-- =====================================================
+         TOP HEADER
+         ===================================================== -->
+
+    <header class="topbar">
+
+        <div class="topbar-left">
+
+            <button
+                id="sidebarToggle"
+                class="menu-button"
+                type="button"
+                aria-label="Open menu"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+
+            <div class="mobile-brand">
+
+                <img
+                    src="../images/logo.png"
+                    alt="Sri Sadguru"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="topbar-title">
+
+            <h1>
+                Shipments
+            </h1>
+
+            <p>
+                Manage your assigned shipments
+            </p>
+
+        </div>
+
+
+        <div class="topbar-actions">
+
+            <button
+                id="refreshButton"
+                class="icon-button"
+                type="button"
+                aria-label="Refresh shipments"
+                title="Refresh"
+            >
+                <i class="fa-solid fa-rotate"></i>
+            </button>
+
+
+            <button
+                id="notificationButton"
+                class="notification-button"
+                type="button"
+                aria-label="Notifications"
+            >
+
+                <i class="fa-regular fa-bell"></i>
+
+                <span
+                    id="notificationBadge"
+                    class="notification-badge"
+                >
+                    0
+                </span>
+
+            </button>
+
+
+            <button
+                id="profileButton"
+                class="profile-button"
+                type="button"
+                aria-label="Driver profile"
+            >
+
+                <span
+                    id="topAvatar"
+                    class="top-avatar"
+                >
+                    D
+                </span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- PAGE INTRO -->
+
+        <section class="page-intro">
+
+            <div>
+
+                <span class="eyebrow">
+                    DRIVER PORTAL
+                </span>
+
+                <h2>
+                    Your Shipments
+                </h2>
+
+                <p>
+                    View and manage shipments assigned to you.
+                </p>
+
+            </div>
+
+            <div class="driver-mini">
+
+                <span
+                    id="driverMiniAvatar"
+                    class="driver-mini-avatar"
+                >
+                    D
+                </span>
+
+                <div>
+
+                    <strong id="driverMiniName">
+                        Driver
+                    </strong>
+
+                    <span id="driverMiniId">
+                        Driver ID
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FILTERS
+             ================================================= -->
+
+        <section class="filter-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h3>
+                        Filter Shipments
+                    </h3>
+
+                    <p>
+                        Select a shipment status
+                    </p>
+
+                </div>
+
+                <button
+                    id="clearFilters"
+                    class="clear-filter"
+                    type="button"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+
+            <div
+                id="filterChips"
+                class="filter-chips"
+            >
+
+                <button
+                    class="filter-chip active"
+                    data-filter="all"
+                    type="button"
+                >
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>All</span>
+                    <b id="countAll">0</b>
+                </button>
+
+
+                <button
+                    class="filter-chip"
+                    data-filter="pending"
+                    type="button"
+                >
+                    <i class="fa-regular fa-clock"></i>
+                    <span>Pending</span>
+                    <b id="countPending">0</b>
+                </button>
+
+
+                <button
+                    class="filter-chip"
+                    data-filter="need-assign"
+                    type="button"
+                >
+                    <i class="fa-solid fa-user-plus"></i>
+                    <span>Need to Assign</span>
+                    <b id="countNeedAssign">0</b>
+                </button>
+
+
+                <button
+                    class="filter-chip"
+                    data-filter="new"
+                    type="button"
+                >
+                    <i class="fa-solid fa-star"></i>
+                    <span>New</span>
+                    <b id="countNew">0</b>
+                </button>
+
+
+                <button
+                    class="filter-chip"
+                    data-filter="pickup"
+                    type="button"
+                >
+                    <i class="fa-solid fa-box-open"></i>
+                    <span>Pickup</span>
+                    <b id="countPickup">0</b>
+                </button>
+
+
+                <button
+                    class="filter-chip"
+                    data-filter="in-transit"
+                    type="button"
+                >
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <span>In Transit</span>
+                    <b id="countTransit">0</b>
+                </button>
+
+
+                <button
+                    class="filter-chip"
+                    data-filter="out-for-delivery"
+                    type="button"
+                >
+                    <i class="fa-solid fa-location-arrow"></i>
+                    <span>Out for Delivery</span>
+                    <b id="countOutDelivery">0</b>
+                </button>
+
+
+                <button
+                    class="filter-chip"
+                    data-filter="delivered"
+                    type="button"
+                >
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Delivered</span>
+                    <b id="countDelivered">0</b>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SEARCH / SORT
+             ================================================= -->
+
+        <section class="tools-section">
+
+            <label
+                class="search-box"
+                for="searchInput"
+            >
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    id="searchInput"
+                    type="search"
+                    placeholder="Search shipment ID, customer, location..."
+                    autocomplete="off"
+                >
+
+                <button
+                    id="clearSearch"
+                    class="clear-search"
+                    type="button"
+                    aria-label="Clear search"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </label>
+
+
+            <div class="sort-box">
+
+                <i class="fa-solid fa-arrow-down-wide-short"></i>
+
+                <select id="sortSelect">
+
+                    <option value="latest">
+                        Latest
+                    </option>
+
+                    <option value="oldest">
+                        Oldest
+                    </option>
+
+                    <option value="status">
+                        Status
+                    </option>
+
+                    <option value="customer">
+                        Customer
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             RESULT HEADER
+             ================================================= -->
+
+        <section class="results-header">
+
+            <div>
+
+                <strong id="resultCount">
+                    0 shipments
+                </strong>
+
+                <span>
+                    assigned to you
+                </span>
+
+            </div>
+
+            <button
+                id="refreshInline"
+                class="refresh-inline"
+                type="button"
+            >
+
+                <i class="fa-solid fa-rotate"></i>
+
+                Refresh
+
+            </button>
+
+        </section>
+
+
+        <!-- =================================================
+             SHIPMENT LIST
+             ================================================= -->
+
+        <section
+            id="shipmentList"
+            class="shipment-list"
+        >
+            <!-- JS inserts shipment cards -->
+        </section>
+
+
+        <!-- EMPTY STATE -->
+
+        <section
+            id="emptyState"
+            class="empty-state hidden"
+        >
+
+            <div class="empty-icon">
+
+                <i class="fa-solid fa-box-open"></i>
+
+            </div>
+
+            <h3>
+                No shipments found
+            </h3>
+
+            <p id="emptyMessage">
+                There are no shipments matching your current filter.
+            </p>
+
+            <button
+                id="emptyReset"
+                class="primary-button"
+                type="button"
+            >
+                Show All Shipments
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         MOBILE BOTTOM NAVIGATION
+         SAME 5 ICONS THROUGHOUT PORTAL
+         ===================================================== -->
+
+    <nav
+        class="bottom-nav"
+        aria-label="Driver navigation"
+    >
+
+        <a
+            href="dashboard.html"
+            class="bottom-nav-item"
+        >
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>
+                Dashboard
+            </span>
+
+        </a>
+
+
+        <a
+            href="shipments.html"
+            class="bottom-nav-item active"
+        >
+
+            <i class="fa-solid fa-box"></i>
+
+            <span>
+                Shipments
+            </span>
+
+        </a>
+
+
+        <a
+            href="pickup.html"
+            class="bottom-nav-item"
+        >
+
+            <i class="fa-solid fa-box-open"></i>
+
+            <span>
+                Pickups
+            </span>
+
+        </a>
+
+
+        <a
+            href="deliveries.html"
+            class="bottom-nav-item"
+        >
+
+            <i class="fa-solid fa-truck"></i>
+
+            <span>
+                Deliveries
+            </span>
+
+        </a>
+
+
+        <a
+            href="profile.html"
+            class="bottom-nav-item"
+        >
+
+            <i class="fa-solid fa-user"></i>
+
+            <span>
+                Profile
+            </span>
+
+        </a>
+
+    </nav>
+
+</div>
+
+
+<!-- =========================================================
+     SHIPMENT DETAILS MODAL
+     ========================================================= -->
+
+<div
+    id="shipmentModal"
+    class="modal hidden"
+    aria-hidden="true"
+>
+
+    <div
+        id="modalBackdrop"
+        class="modal-backdrop"
+    ></div>
+
+
+    <div
+        class="modal-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalShipmentId"
+    >
+
+        <div class="modal-header">
+
+            <div>
+
+                <span>
+                    Shipment Details
+                </span>
+
+                <h3 id="modalShipmentId">
+                    —
+                </h3>
+
+            </div>
+
+            <button
+                id="closeModal"
+                class="modal-close"
+                type="button"
+                aria-label="Close"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+
+        <div
+            id="modalContent"
+            class="modal-content"
+        >
+            <!-- JS -->
+        </div>
+
+
+        <div class="modal-footer">
+
+            <button
+                id="modalCloseButton"
+                class="secondary-button"
+                type="button"
+            >
+                Close
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     TOAST
+     ========================================================= -->
+
+<div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite"
+>
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMessage">
+        Updated
+    </span>
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+></script>
+
+<script
+    src="../js/supabase-client.js"
+></script>
+
+<script
+    src="../js/auth.js"
+></script>
+
+<script
+    src="../js/shipments.js"
+    defer
+></script>
+
+</body>
+</html>

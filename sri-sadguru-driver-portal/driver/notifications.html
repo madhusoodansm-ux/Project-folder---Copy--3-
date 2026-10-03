@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Notifications - SSP Driver Portal</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Notifications CSS -->
+    <link
+        rel="stylesheet"
+        href="../css/notifications.css"
+    >
+</head>
+
+<body>
+
+    <!-- =================================================
+         SIDEBAR OVERLAY
+    ================================================== -->
+
+    <div
+        id="sidebarOverlay"
+        class="sidebar-overlay hidden"
+    ></div>
+
+
+    <!-- =================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside
+        id="sidebar"
+        class="sidebar"
+    >
+
+        <div class="sidebar-header">
+
+            <div class="sidebar-brand">
+
+                <img
+                    src="../images/logo.png"
+                    alt="SSP"
+                >
+
+                <div>
+                    <strong>Sri Sadguru</strong>
+                    <span>Siddarooda Parcel Service</span>
+                </div>
+
+            </div>
+
+            <button
+                id="sidebarClose"
+                class="sidebar-close"
+                type="button"
+                aria-label="Close menu"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="shipments.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-box"></i>
+                <span>Shipments</span>
+            </a>
+
+
+            <a
+                href="pickup.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-motorcycle"></i>
+                <span>Pickup</span>
+            </a>
+
+
+            <a
+                href="deliveries.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-truck"></i>
+                <span>Deliveries</span>
+            </a>
+
+
+            <a
+                href="notifications.html"
+                class="nav-item active"
+            >
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifications</span>
+
+                <span
+                    id="sidebarNotificationCount"
+                    class="nav-badge hidden"
+                >
+                    0
+                </span>
+
+            </a>
+
+
+            <a
+                href="profile.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-user"></i>
+                <span>Profile</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =================================================
+         MAIN
+    ================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOP HEADER
+        ================================================== -->
+
+        <header class="top-header">
+
+            <button
+                id="menuButton"
+                class="menu-button"
+                type="button"
+                aria-label="Open menu"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+
+            <div class="header-title">
+
+                <div class="header-avatar">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+                <div>
+
+                    <h1>Notifications</h1>
+
+                    <p>
+                        Stay updated with your delivery tasks
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="header-actions">
+
+
+                <!-- Notification -->
+
+                <a
+                    href="notifications.html"
+                    class="header-icon notification-icon active"
+                    aria-label="Notifications"
+                >
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span
+                        id="notificationBadge"
+                        class="notification-badge hidden"
+                    >
+                        0
+                    </span>
+
+                </a>
+
+
+                <!-- Profile -->
+
+                <a
+                    href="profile.html"
+                    class="profile-button"
+                    aria-label="Profile"
+                >
+
+                    <i class="fa-solid fa-user"></i>
+
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             PAGE CONTENT
+        ================================================== -->
+
+        <section class="page-container">
+
+
+            <!-- PAGE TITLE -->
+
+            <div class="page-heading">
+
+                <div>
+
+                    <h2>Notifications</h2>
+
+                    <p>
+                        Important updates about your bookings,
+                        pickups and deliveries.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="markAllReadButton"
+                    class="mark-all-button"
+                    type="button"
+                >
+
+                    <i class="fa-solid fa-check-double"></i>
+
+                    Mark all as read
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 FILTER CARD
+            ================================================== -->
+
+            <section class="filter-card">
+
+                <div class="filter-scroll">
+
+                    <button
+                        class="filter-chip active"
+                        data-filter="all"
+                        type="button"
+                    >
+                        <i class="fa-solid fa-layer-group"></i>
+                        All
+                        <span id="allCount">0</span>
+                    </button>
+
+
+                    <button
+                        class="filter-chip"
+                        data-filter="unread"
+                        type="button"
+                    >
+                        <i class="fa-solid fa-envelope"></i>
+                        Unread
+                        <span id="unreadCount">0</span>
+                    </button>
+
+
+                    <button
+                        class="filter-chip"
+                        data-filter="booking"
+                        type="button"
+                    >
+                        <i class="fa-solid fa-box"></i>
+                        Bookings
+                        <span id="bookingCount">0</span>
+                    </button>
+
+
+                    <button
+                        class="filter-chip"
+                        data-filter="pickup"
+                        type="button"
+                    >
+                        <i class="fa-solid fa-motorcycle"></i>
+                        Pickup
+                        <span id="pickupCount">0</span>
+                    </button>
+
+
+                    <button
+                        class="filter-chip"
+                        data-filter="delivery"
+                        type="button"
+                    >
+                        <i class="fa-solid fa-truck"></i>
+                        Delivery
+                        <span id="deliveryCount">0</span>
+                    </button>
+
+
+                    <button
+                        class="filter-chip"
+                        data-filter="system"
+                        type="button"
+                    >
+                        <i class="fa-solid fa-circle-info"></i>
+                        System
+                        <span id="systemCount">0</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 NOTIFICATION LIST
+            ================================================== -->
+
+            <section class="notifications-card">
+
+                <div class="notifications-header">
+
+                    <div>
+
+                        <h3>Recent Notifications</h3>
+
+                        <p id="resultText">
+                            0 notifications
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        id="clearReadButton"
+                        class="clear-read-button"
+                        type="button"
+                    >
+
+                        <i class="fa-solid fa-trash-can"></i>
+
+                        Clear read
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="notificationList"
+                    class="notification-list"
+                >
+                </div>
+
+
+                <!-- EMPTY STATE -->
+
+                <div
+                    id="emptyState"
+                    class="empty-state hidden"
+                >
+
+                    <div class="empty-icon">
+
+                        <i class="fa-regular fa-bell-slash"></i>
+
+                    </div>
+
+                    <h3>No notifications</h3>
+
+                    <p>
+                        You don't have any notifications
+                        in this section.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- =================================================
+         BOTTOM MOBILE NAVIGATION
+    ================================================== -->
+
+    <nav class="bottom-nav">
+
+
+        <a
+            href="dashboard.html"
+            class="bottom-nav-item"
+        >
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+        </a>
+
+
+        <a
+            href="shipments.html"
+            class="bottom-nav-item"
+        >
+            <i class="fa-solid fa-box"></i>
+            <span>Shipments</span>
+        </a>
+
+
+        <a
+            href="pickup.html"
+            class="bottom-nav-item"
+        >
+            <i class="fa-solid fa-motorcycle"></i>
+            <span>Pickup</span>
+        </a>
+
+
+        <a
+            href="deliveries.html"
+            class="bottom-nav-item"
+        >
+            <i class="fa-solid fa-truck"></i>
+            <span>Deliveries</span>
+        </a>
+
+
+        <a
+            href="profile.html"
+            class="bottom-nav-item"
+        >
+            <i class="fa-solid fa-user"></i>
+            <span>Profile</span>
+        </a>
+
+    </nav>
+
+
+    <!-- =================================================
+         TOAST
+    ================================================== -->
+
+    <div
+        id="toast"
+        class="toast hidden"
+    >
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <span id="toastMessage"></span>
+
+    </div>
+
+
+    <!-- =================================================
+     JAVASCRIPT
+================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/supabase-client.js"></script>
+
+<script src="../js/auth.js"></script>
+
+<script src="../js/notifications.js"></script>
+
+</body>
+</html>
+
+</body>
+</html>

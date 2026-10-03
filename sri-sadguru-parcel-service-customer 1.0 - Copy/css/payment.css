@@ -1,0 +1,1625 @@
+/* =========================================================
+   SSP CUSTOMER PORTAL
+   PAYMENT PAGE
+
+   Matches Customer Dashboard visual system
+   Mobile First → Tablet → Desktop
+========================================================= */
+
+
+/* =========================================================
+   DESIGN TOKENS
+========================================================= */
+
+:root {
+
+    --page-bg: #f4f6f8;
+
+    --surface: #ffffff;
+
+    --surface-soft: #f8fafc;
+
+    --primary: #0f766e;
+
+    --primary-dark: #115e59;
+
+    --primary-soft: #e6fffb;
+
+    --success: #15803d;
+
+    --success-soft: #ecfdf3;
+
+    --warning: #b45309;
+
+    --warning-soft: #fff7ed;
+
+    --danger: #b91c1c;
+
+    --danger-soft: #fef2f2;
+
+    --info: #2563eb;
+
+    --info-soft: #eff6ff;
+
+    --text: #172033;
+
+    --text-soft: #526074;
+
+    --text-muted: #7b8798;
+
+    --border: #e5e9ef;
+
+    --border-strong: #d7dde6;
+
+    --shadow-sm:
+        0 4px 14px rgba(15, 23, 42, 0.05);
+
+    --shadow-md:
+        0 10px 28px rgba(15, 23, 42, 0.08);
+
+    --radius-md: 14px;
+
+    --radius-lg: 18px;
+
+    --radius-xl: 22px;
+
+    --nav-height: 70px;
+}
+
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    box-sizing:
+        border-box;
+
+}
+
+
+html {
+
+    scroll-behavior:
+        smooth;
+
+}
+
+
+body {
+
+    margin:
+        0;
+
+    min-width:
+        320px;
+
+    background:
+        var(--page-bg);
+
+    color:
+        var(--text);
+
+    font-family:
+        "Inter",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    -webkit-font-smoothing:
+        antialiased;
+
+}
+
+
+a {
+
+    color:
+        inherit;
+
+    text-decoration:
+        none;
+
+}
+
+
+button,
+input {
+
+    font:
+        inherit;
+
+}
+
+
+button,
+a {
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+}
+
+
+
+/* =========================================================
+   CUSTOMER PORTAL
+========================================================= */
+
+.customer-portal {
+
+    min-height:
+        100vh;
+
+    background:
+        var(--page-bg);
+
+    padding-bottom:
+        calc(
+            var(--nav-height) + 16px
+        );
+
+}
+
+
+
+/* =========================================================
+   HEADER
+   SAME DASHBOARD HEADER
+========================================================= */
+
+.dashboard-header {
+
+    position:
+        sticky;
+
+    top:
+        0;
+
+    z-index:
+        50;
+
+    min-height:
+        68px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        12px;
+
+    padding:
+        10px 16px;
+
+    background:
+        rgba(255,255,255,0.96);
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+    backdrop-filter:
+        blur(12px);
+
+}
+
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.header-brand {
+
+    min-width:
+        0;
+
+}
+
+
+.brand-link {
+
+    min-width:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+}
+
+
+.dashboard-logo {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    flex:
+        0 0 42px;
+
+    object-fit:
+        contain;
+
+    border-radius:
+        50%;
+
+    background:
+        #ffffff;
+
+    border:
+        2px solid
+        #d8eee9;
+
+    box-shadow:
+        0 3px 10px
+        rgba(15,118,110,0.12);
+
+}
+
+
+.brand-name {
+
+    min-width:
+        0;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    line-height:
+        1.05;
+
+}
+
+
+.brand-main {
+
+    color:
+        var(--primary-dark);
+
+    font-size:
+        14px;
+
+    font-weight:
+        800;
+
+}
+
+
+.brand-service {
+
+    max-width:
+        190px;
+
+    overflow:
+        hidden;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        9px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.02em;
+
+    text-overflow:
+        ellipsis;
+
+    white-space:
+        nowrap;
+
+}
+
+
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.header-actions {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        7px;
+
+    flex-shrink:
+        0;
+
+}
+
+
+/*
+   Corrected Back Button
+
+   Same 42 × 42 size family as Dashboard
+   Properly centered inside header
+*/
+
+.header-back-button {
+
+    position:
+        relative;
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    flex:
+        0 0 42px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        50%;
+
+    background:
+        var(--surface);
+
+    color:
+        var(--text);
+
+    box-shadow:
+        var(--shadow-sm);
+
+    transition:
+        background 0.18s ease,
+        color 0.18s ease;
+
+}
+
+
+.header-back-button svg {
+
+    width:
+        19px;
+
+    height:
+        19px;
+
+    display:
+        block;
+
+}
+
+
+.header-back-button:hover {
+
+    background:
+        var(--primary-soft);
+
+    color:
+        var(--primary);
+
+}
+
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.payment-content {
+
+    width:
+        min(100%, 1180px);
+
+    margin:
+        0 auto;
+
+    padding:
+        18px 14px 30px;
+
+}
+
+
+
+/* =========================================================
+   PAGE HEADING
+========================================================= */
+
+.payment-page-heading {
+
+    margin-bottom:
+        16px;
+
+}
+
+
+.payment-page-label {
+
+    margin:
+        0 0 4px;
+
+    color:
+        var(--primary);
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+}
+
+
+.payment-page-heading h1 {
+
+    margin:
+        0;
+
+    color:
+        var(--text);
+
+    font-size:
+        25px;
+
+    font-weight:
+        800;
+
+    line-height:
+        1.2;
+
+}
+
+
+.payment-page-description {
+
+    margin:
+        6px 0 0;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        12px;
+
+    line-height:
+        1.5;
+
+}
+
+
+
+/* =========================================================
+   PAYMENT SECTION
+========================================================= */
+
+.payment-section {
+
+    margin-top:
+        16px;
+
+}
+
+
+.section-heading {
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        space-between;
+
+    gap:
+        15px;
+
+    margin-bottom:
+        10px;
+
+}
+
+
+.section-heading h2 {
+
+    margin:
+        0;
+
+    color:
+        var(--text);
+
+    font-size:
+        16px;
+
+    font-weight:
+        800;
+
+}
+
+
+.section-heading p {
+
+    margin:
+        4px 0 0;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.45;
+
+}
+
+
+
+/* =========================================================
+   PAYMENT LIST
+========================================================= */
+
+.payment-list {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        10px;
+
+}
+
+
+
+/* =========================================================
+   PAYMENT CARD
+   Dashboard card language
+========================================================= */
+
+.payment-card {
+
+    padding:
+        16px;
+
+    background:
+        var(--surface);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        var(--radius-md);
+
+    box-shadow:
+        var(--shadow-sm);
+
+}
+
+
+.payment-card-top {
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    justify-content:
+        space-between;
+
+    gap:
+        12px;
+
+}
+
+
+.payment-card-main {
+
+    min-width:
+        0;
+
+}
+
+
+.payment-booking-id {
+
+    color:
+        var(--text);
+
+    font-size:
+        14px;
+
+    font-weight:
+        800;
+
+    word-break:
+        break-word;
+
+}
+
+
+.payment-parcel-name {
+
+    margin-top:
+        5px;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+
+}
+
+
+.payment-route {
+
+    margin-top:
+        5px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.5;
+
+}
+
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.payment-status {
+
+    flex-shrink:
+        0;
+
+    min-height:
+        27px;
+
+    padding:
+        0 9px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        999px;
+
+    font-size:
+        10px;
+
+    font-weight:
+        700;
+
+    white-space:
+        nowrap;
+
+}
+
+
+.payment-status.pending {
+
+    background:
+        var(--warning-soft);
+
+    color:
+        var(--warning);
+
+}
+
+
+.payment-status.paid {
+
+    background:
+        var(--success-soft);
+
+    color:
+        var(--success);
+
+}
+
+
+.payment-status.failed {
+
+    background:
+        var(--danger-soft);
+
+    color:
+        var(--danger);
+
+}
+
+
+.payment-status.cancelled {
+
+    background:
+        #f3f4f6;
+
+    color:
+        #6b7280;
+
+}
+
+
+.payment-status.refunded {
+
+    background:
+        var(--info-soft);
+
+    color:
+        var(--info);
+
+}
+
+
+
+/* =========================================================
+   CARD DETAILS
+========================================================= */
+
+.payment-card-details {
+
+    margin-top:
+        15px;
+
+    padding-top:
+        13px;
+
+    border-top:
+        1px solid
+        #eef0f3;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:
+        12px;
+
+}
+
+
+.payment-detail {
+
+    min-width:
+        0;
+
+}
+
+
+.payment-detail-label {
+
+    display:
+        block;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        10px;
+
+    font-weight:
+        600;
+
+}
+
+
+.payment-detail-value {
+
+    display:
+        block;
+
+    margin-top:
+        4px;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    word-break:
+        break-word;
+
+}
+
+
+.payment-amount {
+
+    color:
+        var(--text);
+
+    font-size:
+        15px;
+
+    font-weight:
+        800;
+
+}
+
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.payment-message {
+
+    margin-top:
+        13px;
+
+    padding:
+        11px 12px;
+
+    border-radius:
+        9px;
+
+    background:
+        var(--surface-soft);
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.55;
+
+}
+
+
+.payment-message.pending {
+
+    background:
+        var(--warning-soft);
+
+    color:
+        #92400e;
+
+}
+
+
+
+/* =========================================================
+   PAYMENT ACTION
+========================================================= */
+
+.payment-action {
+
+    width:
+        100%;
+
+    min-height:
+        42px;
+
+    margin-top:
+        13px;
+
+    padding:
+        0 16px;
+
+    border:
+        0;
+
+    border-radius:
+        9px;
+
+    background:
+        var(--primary);
+
+    color:
+        #ffffff;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+}
+
+
+.payment-action:hover {
+
+    background:
+        var(--primary-dark);
+
+}
+
+
+.payment-action:disabled {
+
+    background:
+        #e5e7eb;
+
+    color:
+        #9ca3af;
+
+    cursor:
+        not-allowed;
+
+}
+
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.payment-loading {
+
+    padding:
+        24px 15px;
+
+    background:
+        var(--surface);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        var(--radius-md);
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        12px;
+
+    text-align:
+        center;
+
+}
+
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.payment-empty {
+
+    min-height:
+        180px;
+
+    padding:
+        30px 20px;
+
+    background:
+        var(--surface);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        var(--radius-md);
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    text-align:
+        center;
+
+}
+
+
+.payment-empty-icon {
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    margin-bottom:
+        10px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--primary-soft);
+
+    color:
+        var(--primary);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+}
+
+
+.payment-empty-icon svg {
+
+    width:
+        23px;
+
+    height:
+        23px;
+
+}
+
+
+.payment-empty h3 {
+
+    margin:
+        0;
+
+    color:
+        var(--text);
+
+    font-size:
+        14px;
+
+    font-weight:
+        800;
+
+}
+
+
+.payment-empty p {
+
+    max-width:
+        320px;
+
+    margin:
+        6px 0 0;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.5;
+
+}
+
+
+
+/* =========================================================
+   BOTTOM NAVIGATION
+   SAME DASHBOARD NAVIGATION
+========================================================= */
+
+.bottom-navigation {
+
+    position:
+        fixed;
+
+    left:
+        0;
+
+    right:
+        0;
+
+    bottom:
+        0;
+
+    z-index:
+        100;
+
+    height:
+        var(--nav-height);
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    padding:
+        6px 6px
+        env(safe-area-inset-bottom);
+
+    background:
+        rgba(255,255,255,.97);
+
+    border-top:
+        1px solid
+        var(--border);
+
+    box-shadow:
+        0 -8px 24px
+        rgba(15,23,42,.06);
+
+    backdrop-filter:
+        blur(12px);
+
+}
+
+
+.bottom-nav-item {
+
+    min-width:
+        0;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        4px;
+
+    color:
+        #718096;
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+
+}
+
+
+.bottom-nav-icon {
+
+    width:
+        23px;
+
+    height:
+        23px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+}
+
+
+.bottom-nav-icon svg {
+
+    width:
+        19px;
+
+    height:
+        19px;
+
+}
+
+
+.bottom-nav-label {
+
+    line-height:
+        1;
+
+}
+
+
+.bottom-nav-item.active {
+
+    color:
+        var(--primary);
+
+}
+
+
+.bottom-nav-item.active
+.bottom-nav-icon {
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 601px) {
+
+    .payment-content {
+
+        padding:
+            24px 22px 40px;
+
+    }
+
+
+    .payment-page-heading {
+
+        margin-bottom:
+            20px;
+
+    }
+
+
+    .payment-page-heading h1 {
+
+        font-size:
+            28px;
+
+    }
+
+
+    .payment-card {
+
+        padding:
+            20px;
+
+    }
+
+
+    .payment-card-details {
+
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+
+    }
+
+
+    .payment-action {
+
+        width:
+            auto;
+
+        min-width:
+            120px;
+
+        display:
+            block;
+
+        margin-left:
+            auto;
+
+    }
+
+
+    .header-back-button {
+
+        width:
+            42px;
+
+        height:
+            42px;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 901px) {
+
+    .dashboard-header {
+
+        padding:
+            12px 28px;
+
+    }
+
+
+    .payment-content {
+
+        padding:
+            30px 28px 45px;
+
+    }
+
+
+    .payment-page-heading {
+
+        margin-bottom:
+            24px;
+
+    }
+
+
+    .payment-page-heading h1 {
+
+        font-size:
+            30px;
+
+    }
+
+
+    .bottom-navigation {
+
+        left:
+            50%;
+
+        right:
+            auto;
+
+        width:
+            min(
+                700px,
+                calc(100% - 40px)
+            );
+
+        transform:
+            translateX(-50%);
+
+        bottom:
+            12px;
+
+        border:
+            1px solid
+            var(--border);
+
+        border-radius:
+            18px;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .dashboard-header {
+
+        min-height:
+            68px;
+
+        padding:
+            10px 12px;
+
+    }
+
+
+    .dashboard-logo {
+
+        width:
+            42px;
+
+        height:
+            42px;
+
+        flex-basis:
+            42px;
+
+    }
+
+
+    .brand-main {
+
+        font-size:
+            14px;
+
+    }
+
+
+    .brand-service {
+
+        max-width:
+            175px;
+
+        font-size:
+            9px;
+
+    }
+
+
+    /*
+       Back button stays vertically centered
+       with the logo/brand.
+    */
+
+    .header-actions {
+
+        align-self:
+            center;
+
+    }
+
+
+    .header-back-button {
+
+        width:
+            40px;
+
+        height:
+            40px;
+
+        flex-basis:
+            40px;
+
+    }
+
+
+    .header-back-button svg {
+
+        width:
+            18px;
+
+        height:
+            18px;
+
+    }
+
+
+    .payment-content {
+
+        padding:
+            18px 14px 30px;
+
+    }
+
+
+    .payment-page-heading h1 {
+
+        font-size:
+            24px;
+
+    }
+
+
+    .payment-card {
+
+        padding:
+            14px;
+
+        border-radius:
+            var(--radius-md);
+
+    }
+
+
+    .payment-card-top {
+
+        gap:
+            8px;
+
+    }
+
+
+    .payment-booking-id {
+
+        font-size:
+            13px;
+
+    }
+
+
+    .payment-status {
+
+        min-height:
+            25px;
+
+        padding:
+            0 7px;
+
+        font-size:
+            9px;
+
+    }
+
+
+    .payment-card-details {
+
+        gap:
+            10px;
+
+    }
+
+
+    .payment-detail-value {
+
+        font-size:
+            11px;
+
+    }
+
+
+    .payment-message {
+
+        font-size:
+            10px;
+
+    }
+
+
+    .section-heading h2 {
+
+        font-size:
+            15px;
+
+    }
+
+}

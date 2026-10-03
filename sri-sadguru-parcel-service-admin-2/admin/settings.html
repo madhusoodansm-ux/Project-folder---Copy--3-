@@ -1,0 +1,737 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Settings | Sri Sadguru Siddarooda Parcel Service</title>
+
+    <link rel="stylesheet" href="../css/settings.css">
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+
+            <div class="sidebar-brand">
+                <img src="../images/logo.png"
+                     alt="Sri Sadguru Siddarooda Parcel Service">
+
+                <div class="brand-text">
+                    <span class="brand-title">Sri Sadguru</span>
+                    <span class="brand-subtitle">Parcel Service</span>
+                </div>
+            </div>
+
+            <button
+                type="button"
+                class="sidebar-close"
+                id="sidebarToggle"
+                aria-label="Close menu">
+                ×
+            </button>
+
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="bookings.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Bookings</span>
+            </a>
+
+            <a href="payments.html" class="nav-item">
+                <span class="nav-icon">₹</span>
+                <span>Payments</span>
+            </a>
+
+            <a href="tracking.html" class="nav-item">
+                <span class="nav-icon">⌖</span>
+                <span>Tracking</span>
+            </a>
+
+            <a href="pickup-management.html" class="nav-item">
+                <span class="nav-icon">⇥</span>
+                <span>Pickup Management</span>
+            </a>
+
+            <a href="delivery-management.html" class="nav-item">
+                <span class="nav-icon">⇥</span>
+                <span>Delivery Management</span>
+            </a>
+
+            <a href="drivers.html" class="nav-item">
+                <span class="nav-icon">♙</span>
+                <span>Drivers</span>
+            </a>
+
+            <a href="vehicles.html" class="nav-item">
+                <span class="nav-icon">▣</span>
+                <span>Vehicles</span>
+            </a>
+
+            <a href="customers.html" class="nav-item">
+                <span class="nav-icon">♧</span>
+                <span>Customers</span>
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span class="nav-icon">▥</span>
+                <span>Reports</span>
+            </a>
+
+            <a href="admin-profile.html" class="nav-item">
+                <span class="nav-icon">●</span>
+                <span>Admin Profile</span>
+            </a>
+
+            <a href="settings.html" class="nav-item active">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- ================= OVERLAY ================= -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ================= MAIN ================= -->
+    <main class="main-content">
+
+        <!-- ================= TOPBAR ================= -->
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    aria-label="Open menu">
+                    ☰
+                </button>
+
+                <div class="topbar-page-title">
+                    Settings
+                </div>
+
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="topbar-logo">
+                    <img src="../images/logo.png"
+                         alt="Sri Sadguru Siddarooda Parcel Service">
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- ================= PAGE CONTENT ================= -->
+        <section class="page-content">
+
+            <div class="breadcrumb">
+                <a href="dashboard.html">Dashboard</a>
+                <span>/</span>
+                <span>Settings</span>
+            </div>
+
+            <div class="page-header">
+                <h1>Settings</h1>
+                <p>
+                    Manage your parcel service administration preferences.
+                </p>
+            </div>
+
+            <form id="settingsForm" novalidate>
+
+                <!-- ================= GENERAL SETTINGS ================= -->
+                <section class="settings-card">
+
+                    <div class="settings-card-header">
+                        <div>
+                            <h2>General Settings</h2>
+                            <p>
+                                Configure basic service and application information.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="settings-card-body">
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label
+                                    class="form-label required"
+                                    for="serviceName">
+                                    Service Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="serviceName"
+                                    class="form-control"
+                                    placeholder="Enter service name">
+
+                                <span
+                                    class="validation-message"
+                                    id="serviceNameError">
+                                </span>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label
+                                    class="form-label"
+                                    for="serviceShortName">
+                                    Short Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="serviceShortName"
+                                    class="form-control"
+                                    placeholder="Enter short name">
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label
+                                    class="form-label"
+                                    for="supportPhone">
+                                    Support Phone
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="supportPhone"
+                                    class="form-control"
+                                    maxlength="10"
+                                    placeholder="Enter support phone">
+
+                                <span
+                                    class="validation-message"
+                                    id="supportPhoneError">
+                                </span>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label
+                                    class="form-label"
+                                    for="supportEmail">
+                                    Support Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="supportEmail"
+                                    class="form-control"
+                                    placeholder="support@example.com">
+
+                                <span
+                                    class="validation-message"
+                                    id="supportEmailError">
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= BOOKING SETTINGS ================= -->
+                <section class="settings-card">
+
+                    <div class="settings-card-header">
+                        <div>
+                            <h2>Booking Settings</h2>
+                            <p>
+                                Control default booking behavior.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="settings-card-body">
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+                                <h3>Allow New Bookings</h3>
+                                <p>
+                                    Allow administrators to create new parcel bookings.
+                                </p>
+                            </div>
+
+                            <label class="switch">
+                                <input
+                                    type="checkbox"
+                                    id="allowNewBookings"
+                                    aria-label="Allow New Bookings">
+                                <span class="slider"></span>
+                            </label>
+
+                        </div>
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+                                <h3>Require Customer Details</h3>
+                                <p>
+                                    Require customer information when creating a booking.
+                                </p>
+                            </div>
+
+                            <label class="switch">
+                                <input
+                                    type="checkbox"
+                                    id="requireCustomerDetails"
+                                    aria-label="Require Customer Details">
+                                <span class="slider"></span>
+                            </label>
+
+                        </div>
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+                                <h3>Require Driver Assignment</h3>
+                                <p>
+                                    Require a driver to be assigned before dispatch.
+                                </p>
+                            </div>
+
+                            <label class="switch">
+                                <input
+                                    type="checkbox"
+                                    id="requireDriverAssignment"
+                                    aria-label="Require Driver Assignment">
+                                <span class="slider"></span>
+                            </label>
+
+                        </div>
+
+                        <div class="form-grid single-setting">
+
+                            <div class="form-group">
+
+                                <label
+                                    class="form-label"
+                                    for="defaultBookingStatus">
+                                    Default Booking Status
+                                </label>
+
+                                <select
+                                    id="defaultBookingStatus"
+                                    class="form-control">
+
+                                    <option value="pending">
+                                        Pending
+                                    </option>
+
+                                    <option value="confirmed">
+                                        Confirmed
+                                    </option>
+
+                                    <option value="assigned">
+                                        Assigned
+                                    </option>
+
+                                    <option value="pickup_started">
+                                        Pickup Started
+                                    </option>
+
+                                    <option value="picked_up">
+                                        Picked Up
+                                    </option>
+
+                                    <option value="in_transit">
+                                        In Transit
+                                    </option>
+
+                                    <option value="out_for_delivery">
+                                        Out for Delivery
+                                    </option>
+
+                                    <option value="delivered">
+                                        Delivered
+                                    </option>
+
+                                    <option value="cancelled">
+                                        Cancelled
+                                    </option>
+
+                                </select>
+
+                                <span
+                                    class="validation-message"
+                                    id="defaultBookingStatusError">
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= DELIVERY SETTINGS ================= -->
+                <section class="settings-card">
+
+                    <div class="settings-card-header">
+                        <div>
+                            <h2>Delivery Settings</h2>
+                            <p>
+                                Configure delivery workflow preferences.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="settings-card-body">
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+                                <h3>Require Proof of Delivery</h3>
+                                <p>
+                                    Require delivery proof before marking a parcel delivered.
+                                </p>
+                            </div>
+
+                            <label class="switch">
+                                <input
+                                    type="checkbox"
+                                    id="requireProofOfDelivery"
+                                    aria-label="Require Proof of Delivery">
+                                <span class="slider"></span>
+                            </label>
+
+                        </div>
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+                                <h3>Allow Delivery Status Updates</h3>
+                                <p>
+                                    Allow delivery staff to update parcel status.
+                                </p>
+                            </div>
+
+                            <label class="switch">
+                                <input
+                                    type="checkbox"
+                                    id="allowDeliveryUpdates"
+                                    aria-label="Allow Delivery Status Updates">
+                                <span class="slider"></span>
+                            </label>
+
+                        </div>
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+                                <h3>Enable Delivery Notifications</h3>
+                                <p>
+                                    Enable delivery-related notifications in the admin portal.
+                                </p>
+                            </div>
+
+                            <label class="switch">
+                                <input
+                                    type="checkbox"
+                                    id="enableDeliveryNotifications"
+                                    aria-label="Enable Delivery Notifications">
+                                <span class="slider"></span>
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= NOTIFICATION SETTINGS ================= -->
+                <section class="settings-card">
+
+                    <div class="settings-card-header">
+                        <div>
+                            <h2>Notification Preferences</h2>
+                            <p>
+                                Choose which administrative notifications are enabled.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="settings-card-body">
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+                                <h3>Booking Notifications</h3>
+                                <p>
+                                    Show notifications when new bookings are created.
+                                </p>
+                            </div>
+
+                            <label class="switch">
+                                <input
+                                    type="checkbox"
+                                    id="bookingNotifications"
+                                    aria-label="Booking Notifications">
+                                <span class="slider"></span>
+                            </label>
+
+                        </div>
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+                                <h3>Payment Notifications</h3>
+                                <p>
+                                    Show notifications for payment-related activity.
+                                </p>
+                            </div>
+
+                            <label class="switch">
+                                <input
+                                    type="checkbox"
+                                    id="paymentNotifications"
+                                    aria-label="Payment Notifications">
+                                <span class="slider"></span>
+                            </label>
+
+                        </div>
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+                                <h3>Driver Notifications</h3>
+                                <p>
+                                    Show notifications for driver-related changes.
+                                </p>
+                            </div>
+
+                            <label class="switch">
+                                <input
+                                    type="checkbox"
+                                    id="driverNotifications"
+                                    aria-label="Driver Notifications">
+                                <span class="slider"></span>
+                            </label>
+
+                        </div>
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+                                <h3>Delivery Notifications</h3>
+                                <p>
+                                    Show notifications for delivery status changes.
+                                </p>
+                            </div>
+
+                            <label class="switch">
+                                <input
+                                    type="checkbox"
+                                    id="deliveryNotifications"
+                                    aria-label="Delivery Notifications">
+                                <span class="slider"></span>
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= APPEARANCE ================= -->
+                <section class="settings-card">
+
+                    <div class="settings-card-header">
+                        <div>
+                            <h2>Appearance</h2>
+                            <p>
+                                Configure the visual preferences of the admin portal.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="settings-card-body">
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label
+                                    class="form-label"
+                                    for="themeMode">
+                                    Theme
+                                </label>
+
+                                <select
+                                    id="themeMode"
+                                    class="form-control">
+
+                                    <option value="light">
+                                        Light
+                                    </option>
+
+                                    <option value="system">
+                                        System Default
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label
+                                    class="form-label"
+                                    for="dateFormat">
+                                    Date Format
+                                </label>
+
+                                <select
+                                    id="dateFormat"
+                                    class="form-control">
+
+                                    <option value="DD/MM/YYYY">
+                                        DD/MM/YYYY
+                                    </option>
+
+                                    <option value="MM/DD/YYYY">
+                                        MM/DD/YYYY
+                                    </option>
+
+                                    <option value="YYYY-MM-DD">
+                                        YYYY-MM-DD
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= DATA & DEMO ================= -->
+                <section class="settings-card">
+
+                    
+
+                    <div class="settings-card-body">
+
+                        
+
+                        <div class="data-actions">
+
+                            <button
+                                type="button"
+                                class="secondary-action"
+                                id="restoreDefaultsButton">
+                                Restore Default Settings
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- ================= ACTIONS ================= -->
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-button"
+                        id="resetSettingsButton">
+                        Reset Changes
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="save-button"
+                        id="saveSettingsButton">
+                        Save Settings
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- ================= TOAST ================= -->
+<div class="toast" id="toast">
+
+    <div class="toast-icon" id="toastIcon">
+        ✓
+    </div>
+
+    <div class="toast-content">
+
+        <strong id="toastTitle">
+            Success
+        </strong>
+
+        <span id="toastMessage">
+            Settings saved successfully.
+        </span>
+
+    </div>
+
+    <button
+        type="button"
+        class="close-toast"
+        id="closeToast">
+        ×
+    </button>
+
+</div>
+
+<!-- ================= SUPABASE ================= -->
+    <script src="../js/admin-shell.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- Existing SSP Supabase connection -->
+<script src="../js/supabase-client.js"></script>
+
+<!-- Existing SSP Admin authentication -->
+<script src="../js/admin-settings.js"></script>
+<script src="../js/admin-auth.js"></script>
+
+<!-- Settings -->
+<script src="../js/settings.js"></script>
+</body>
+</html>

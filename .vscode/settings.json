@@ -1,0 +1,12 @@
+{
+  "liveServer.settings.root": "/",
+  "liveServer.settings.port": 5500,
+  "chat.mcp.serverSampling": {
+    "Project-folder - Copy (3)/.vscode/mcp.json: supabase": {
+      "allowedModels": [
+        "copilotcli/auto",
+        "copilot/auto"
+      ]
+    }
+  }
+}

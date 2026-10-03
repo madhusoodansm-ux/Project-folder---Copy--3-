@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="description"
+        content="Sri Sadguru Siddarooda Parcel Service Admin Dashboard"
+    >
+
+    <title>Sri Sadguru Parcel Service - Dashboard</title>
+
+    <!-- Dashboard CSS --> 
+    <link
+        rel="stylesheet"
+        href="../css/dashboard.css"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    >
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         MOBILE SIDEBAR OVERLAY
+         ===================================================== -->
+
+    <div
+        id="sidebarOverlay"
+        class="sidebar-overlay"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- =====================================================
+         MAIN APP
+         ===================================================== -->
+
+    <div class="app-shell">
+
+
+        <!-- =================================================
+             SIDEBAR
+             ================================================= -->
+
+        <aside
+            id="sidebar"
+            class="sidebar"
+            aria-label="Main navigation"
+        >
+
+            <!-- Logo -->
+            <div class="sidebar-brand">
+
+                <a
+                    href="dashboard.html"
+                    class="brand-link"
+                    aria-label="Sri Sadguru Dashboard"
+                >
+
+                    <img
+                        src="../images/logo.png"
+                        alt="Sri Sadguru Siddarooda Parcel Service"
+                        class="brand-logo"
+                    >
+
+                    <div class="brand-text">
+
+                        <strong>SRI SADGURU</strong>
+
+                        <span>
+                            SIDDARooda
+                            <br>
+                            PARCEL SERVICE
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar-nav">
+
+                <a
+                    href="dashboard.html"
+                    class="nav-item active"
+                    data-page="dashboard"
+                >
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+
+
+                <a
+                    href="bookings.html"
+                    class="nav-item"
+                    data-page="bookings"
+                >
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <span>Bookings</span>
+                </a>
+
+
+                <a
+                    href="payments.html"
+                    class="nav-item"
+                    data-page="payments"
+                >
+                    <i class="fa-regular fa-credit-card"></i>
+                    <span>Payments</span>
+                </a>
+
+
+                <a
+                    href="tracking.html"
+                    class="nav-item"
+                    data-page="tracking"
+                >
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Tracking</span>
+                </a>
+
+
+                <a
+                    href="bookings.html"
+                    class="nav-item"
+                    data-page="recent-orders"
+                >
+                    <i class="fa-regular fa-clock"></i>
+                    <span>Recent Orders</span>
+                </a>
+
+
+                <a
+                    href="pickup-management.html"
+                    class="nav-item"
+                    data-page="pickup"
+                >
+                    <i class="fa-solid fa-box-open"></i>
+                    <span>Pickup Management</span>
+                </a>
+
+
+                <a
+                    href="delivery-management.html"
+                    class="nav-item"
+                    data-page="delivery"
+                >
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <span>Delivery Management</span>
+                </a>
+
+
+                <a
+                    href="drivers.html"
+                    class="nav-item"
+                    data-page="drivers"
+                >
+                    <i class="fa-solid fa-users"></i>
+                    <span>Drivers</span>
+                </a>
+
+
+                <a
+                    href="vehicles.html"
+                    class="nav-item"
+                    data-page="vehicles"
+                >
+                    <i class="fa-solid fa-truck"></i>
+                    <span>Vehicles</span>
+                </a>
+
+
+                <a
+                    href="customers.html"
+                    class="nav-item"
+                    data-page="customers"
+                >
+                  <i class="fa-regular fa-user"></i>
+                    <span>Customers</span>
+                </a>
+
+
+                <a
+                    href="reports.html"
+                    class="nav-item"
+                    data-page="reports"
+                >
+                    <i class="fa-regular fa-chart-bar"></i>
+                    <span>Reports</span>
+                </a>
+
+
+                <a
+                    href="admin-profile.html"
+                    class="nav-item admin-profile-nav"
+                    data-page="profile"
+                >
+                    <i class="fa-regular fa-user"></i>
+                    <span>Admin Profile</span>
+                </a>
+
+
+                <a
+                    href="settings.html"
+                    class="nav-item"
+                    data-page="settings"
+                >
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+
+            </nav>
+
+
+            <!-- Logout -->
+            <div class="sidebar-bottom">
+
+                <button
+                    id="logoutBtn"
+                    class="logout-btn"
+                    type="button"
+                >
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Logout</span>
+                </button>
+
+
+                <!-- Sidebar Admin Card -->
+                <div class="sidebar-admin-card">
+
+                    <div class="avatar avatar-purple" id="sidebarAdminAvatar">AD</div>
+
+                    <div class="sidebar-admin-info">
+
+                        <strong id="sidebarAdminName">Admin</strong>
+
+                        <span id="sidebarAdminRole">Admin</span>
+
+                        <span class="online-status">
+                            <i></i>
+                            Online
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             CONTENT AREA
+             ================================================= -->
+
+        <div class="content-area">
+
+
+            <!-- =================================================
+                 TOP HEADER
+                 ================================================= -->
+
+            <header class="top-header">
+
+
+                <!-- Desktop Menu -->
+                <button
+                    id="desktopMenuBtn"
+                    class="icon-button desktop-menu-button"
+                    type="button"
+                    aria-label="Collapse sidebar"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+
+                <!-- Mobile Menu -->
+                <button
+                    id="mobileMenuBtn"
+                    class="icon-button mobile-menu-button"
+                    type="button"
+                    aria-label="Open menu"
+                    aria-expanded="false"
+                    aria-controls="sidebar"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+
+                <!-- Search -->
+                <div class="global-search-wrap">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        id="globalSearch"
+                        type="search"
+                        placeholder="Search booking ID, customer, driver..."
+                        autocomplete="off"
+                        aria-label="Search bookings"
+                    >
+
+                </div>
+
+
+                <!-- Header Actions -->
+                <div class="header-actions">
+
+
+                    <!-- Notification -->
+                    <button
+                        id="notificationBtn"
+                        class="notification-button"
+                        type="button"
+                        aria-label="Notifications"
+                    >
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span
+                            id="notificationCount"
+                            class="notification-count"
+                        >
+                            0
+                        </span>
+
+                    </button>
+
+
+                    <!-- Admin -->
+                    <button
+                        id="adminProfileBtn"
+                        class="admin-header-profile"
+                        type="button"
+                        aria-label="Open admin profile"
+                    >
+
+                        <span class="avatar avatar-purple" id="headerAdminAvatar">AD</span>
+
+                        <span class="header-admin-details">
+
+                            <strong id="headerAdminName">Admin</strong>
+
+                            <small id="headerAdminRole">Admin</small>
+
+                        </span>
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+                 MAIN
+                 ================================================= -->
+
+            <main class="dashboard-main">
+
+
+                <!-- =================================================
+                     PAGE TITLE
+                     ================================================= -->
+
+                <section class="dashboard-heading">
+
+                    <div>
+
+                        <h1>
+                            Dashboard
+                        </h1>
+
+                        <p>
+                            Welcome back, Admin! Here's what's happening today.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        id="newBookingBtn"
+                        class="primary-button"
+                        type="button"
+                    >
+                        <i class="fa-solid fa-plus"></i>
+                        <span>New Booking</span>
+                    </button>
+
+                </section>
+
+
+                <!-- =================================================
+                     SUMMARY CARDS
+                     ================================================= -->
+
+                <section
+                    class="summary-grid"
+                    aria-label="Dashboard summary"
+                >
+
+
+                    <!-- New Bookings -->
+                    <article class="summary-card">
+
+                        <div class="summary-icon icon-purple">
+                            <i class="fa-solid fa-box"></i>
+                        </div>
+
+                        <div class="summary-content">
+
+                            <span class="summary-label">
+                                New Bookings
+                            </span>
+
+                            <strong class="summary-value" id="summaryNewBookings">0</strong>
+
+                            <span class="summary-description" id="summaryNewBookingsDescription">
+                                0 today
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Active Drivers -->
+                    <article class="summary-card">
+
+                        <div class="summary-icon icon-green">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+
+                        <div class="summary-content">
+
+                            <span class="summary-label">
+                                Active Drivers
+                            </span>
+
+                            <strong class="summary-value" id="summaryActiveDrivers">0</strong>
+
+                            <span class="summary-description">
+                                Active driver accounts
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Pending Pickup -->
+                    <article class="summary-card">
+
+                        <div class="summary-icon icon-orange">
+                            <i class="fa-regular fa-user"></i>
+                        </div>
+
+                        <div class="summary-content">
+
+                            <span class="summary-label">
+                                Pending Pickup
+                            </span>
+
+                            <strong class="summary-value" id="summaryPendingPickup">0</strong>
+
+                            <span class="summary-description">
+                                Needs attention
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Pending Payments -->
+                    <article class="summary-card">
+
+                        <div class="summary-icon icon-blue">
+                            <i class="fa-solid fa-money-bill-transfer"></i>
+                        </div>
+
+                        <div class="summary-content">
+
+                            <span class="summary-label">
+                                Pending Payments
+                            </span>
+
+                            <strong class="summary-value" id="summaryPendingPayments">0</strong>
+
+                            <span class="summary-description">
+                                Total pending
+                            </span>
+
+                        </div>
+
+                    </article>
+
+                </section>
+
+
+                <!-- =================================================
+                     LOWER CONTENT
+                     ================================================= -->
+
+                <section class="dashboard-panels">
+
+
+                    <!-- =================================================
+                         RECENT ORDERS
+                         ================================================= -->
+
+                    <article class="panel recent-orders-panel">
+
+                        <div class="panel-header">
+
+                            <h2>
+                                Recent Orders
+                            </h2>
+
+                            <button
+                                id="viewAllOrdersBtn"
+                                class="view-all"
+                                type="button"
+                            >
+                                View All
+                            </button>
+
+                        </div>
+
+
+                        <!-- Filters -->
+                        <div
+                            class="order-filters"
+                            role="tablist"
+                            aria-label="Order filters"
+                        >
+
+                            <button
+                                class="filter-btn active"
+                                type="button"
+                                data-filter="all"
+                                role="tab"
+                                aria-selected="true"
+                            >
+                                All
+                            </button>
+
+                            <button
+                                class="filter-btn"
+                                type="button"
+                                data-filter="new"
+                                role="tab"
+                                aria-selected="false"
+                            >
+                                New
+                            </button>
+
+                            <button
+                                class="filter-btn"
+                                type="button"
+                                data-filter="assigned"
+                                role="tab"
+                                aria-selected="false"
+                            >
+                                Assigned
+                            </button>
+
+                            <button
+                                class="filter-btn"
+                                type="button"
+                                data-filter="in-transit"
+                                role="tab"
+                                aria-selected="false"
+                            >
+                                In Transit
+                            </button>
+
+                            <button
+                                class="filter-btn"
+                                type="button"
+                                data-filter="delivered"
+                                role="tab"
+                                aria-selected="false"
+                            >
+                                Delivered
+                            </button>
+
+                            <button
+                                class="filter-btn"
+                                type="button"
+                                data-filter="cancelled"
+                                role="tab"
+                                aria-selected="false"
+                            >
+                                Cancelled
+                            </button>
+
+                        </div>
+
+
+                        <!-- Orders -->
+                        <div
+                            id="ordersList"
+                            class="orders-list"
+                        >
+
+                            <!-- JavaScript renders orders here -->
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- =================================================
+                         TODAY'S ACTIVITY
+                         ================================================= -->
+
+                    <article class="panel activity-panel">
+
+
+                        <div class="panel-header activity-panel-header">
+
+                            <h2>
+                                Today's Activity
+                            </h2>
+
+                            <div class="date-selector">
+
+                                <label for="activityDate">
+                                    Date Selector
+                                </label>
+
+                                <div class="date-input-wrap">
+
+                                    <input
+                                        id="activityDate"
+                                        type="date"
+                                        aria-label="Activity date"
+                                    >
+
+                                    <i class="fa-regular fa-calendar"></i>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="activityGrid"
+                            class="activity-grid"
+                        >
+
+                            <!-- Total Bookings -->
+                            <button
+                                class="activity-card"
+                                type="button"
+                                data-activity="total-bookings"
+                            >
+
+                                <span class="activity-icon activity-purple">
+                                    <i class="fa-regular fa-file-lines"></i>
+                                </span>
+
+                                <span class="activity-title">
+                                    Total Bookings
+                                </span>
+
+                                <strong class="activity-value" id="activityTotalBookings">0</strong>
+
+                               
+
+                            </button>
+
+
+                            <!-- New Booking -->
+                            <button
+                                class="activity-card"
+                                type="button"
+                                data-activity="new-booking"
+                            >
+
+                                <span class="activity-icon activity-green">
+                                    <i class="fa-regular fa-file-lines"></i>
+                                </span>
+
+                                <span class="activity-title">
+                                    New Booking
+                                </span>
+
+                                <strong class="activity-value activity-value-text" id="activityNewBooking">0</strong>
+
+                                
+
+                            </button>
+
+
+                            <!-- Delivered -->
+                            <button
+                                class="activity-card"
+                                type="button"
+                                data-activity="delivered"
+                            >
+
+                                <span class="activity-icon activity-green">
+                                    <i class="fa-regular fa-circle-check"></i>
+                                </span>
+
+                                <span class="activity-title">
+                                    Delivered
+                                </span>
+
+                                <strong class="activity-value" id="activityDelivered">0</strong>
+
+                               
+
+                            </button>
+
+
+                            <!-- Payment -->
+                            <button
+                                class="activity-card"
+                                type="button"
+                                data-activity="payment"
+                            >
+
+                                <span class="activity-icon activity-blue">
+                                    <i class="fa-solid fa-money-bill-transfer"></i>
+                                </span>
+
+                                <span class="activity-title">
+                                    Payment
+                                </span>
+
+                                <strong class="activity-value" id="activityPayment">0</strong>
+
+                                
+
+                            </button>
+
+
+                            <!-- Cancelled -->
+                            <button
+                                class="activity-card"
+                                type="button"
+                                data-activity="cancelled"
+                            >
+
+                                <span class="activity-icon activity-red">
+                                    <i class="fa-regular fa-circle-xmark"></i>
+                                </span>
+
+                                <span class="activity-title">
+                                    Cancelled
+                                </span>
+
+                                <strong class="activity-value" id="activityCancelled">0</strong>
+
+                                
+                            </button>
+
+
+                            <!-- In Transit -->
+                            <button
+                                class="activity-card"
+                                type="button"
+                                data-activity="in-transit"
+                            >
+
+                                <span class="activity-icon activity-blue">
+                                    <i class="fa-solid fa-truck"></i>
+                                </span>
+
+                                <span class="activity-title">
+                                    In Transit
+                                </span>
+
+                                <strong class="activity-value" id="activityInTransit">0</strong>
+
+                                
+
+                            </button>
+
+
+                            <!-- Price Assigned -->
+                            <button
+                                class="activity-card"
+                                type="button"
+                                data-activity="price-assigned"
+                            >
+
+                                <span class="activity-icon activity-orange">
+                                    <i class="fa-regular fa-file-lines"></i>
+                                </span>
+
+                                <span class="activity-title">
+                                    Price Assigned
+                                </span>
+
+                                <strong class="activity-value" id="activityPriceAssigned">0</strong>
+
+                            </button>
+
+
+                            <!-- Price Not Assigned -->
+                            <button
+                                class="activity-card"
+                                type="button"
+                                data-activity="price-not-assigned"
+                            >
+
+                                <span class="activity-icon activity-orange">
+                                    <i class="fa-regular fa-circle-xmark"></i>
+                                </span>
+
+                                <span class="activity-title">
+                                    Price Not Assigned
+                                </span>
+
+                                <strong class="activity-value" id="activityPriceNotAssigned">0</strong>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MOBILE BOTTOM NAVIGATION
+         ===================================================== -->
+
+    <nav
+        class="mobile-bottom-nav"
+        aria-label="Mobile navigation"
+    >
+
+        <button
+            class="bottom-nav-item active"
+            type="button"
+            data-bottom-page="home"
+        >
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </button>
+
+
+        <button
+            class="bottom-nav-item"
+            type="button"
+            data-bottom-page="bookings"
+        >
+            <i class="fa-regular fa-calendar-days"></i>
+            <span>Bookings</span>
+        </button>
+
+
+        <button
+            class="bottom-nav-item"
+            type="button"
+            data-bottom-page="payment"
+        >
+            <i class="fa-regular fa-credit-card"></i>
+            <span>Payment</span>
+        </button>
+
+
+        <button
+            class="bottom-nav-item"
+            type="button"
+            data-bottom-page="tracking"
+        >
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Tracking</span>
+        </button>
+
+
+        <button
+            id="mobileMoreBtn"
+            class="bottom-nav-item"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobileMoreMenu"
+        >
+            <i class="fa-solid fa-ellipsis"></i>
+            <span>More</span>
+        </button>
+
+    </nav>
+
+
+   <!-- =====================================================
+     MOBILE MORE MENU
+     ===================================================== -->
+
+<div
+    id="mobileMoreMenu"
+    class="mobile-more-menu"
+    aria-hidden="true"
+>
+
+    <button
+        type="button"
+        class="more-menu-item"
+        data-more-page="recent-orders"
+    >
+        <i class="fa-regular fa-clock"></i>
+        <span>Recent Orders</span>
+    </button>
+
+
+    <button
+        type="button"
+        class="more-menu-item"
+        data-more-page="pickup"
+    >
+        <i class="fa-solid fa-box-open"></i>
+        <span>Pickup Management</span>
+    </button>
+
+
+    <button
+        type="button"
+        class="more-menu-item"
+        data-more-page="delivery"
+    >
+        <i class="fa-solid fa-truck-fast"></i>
+        <span>Delivery Management</span>
+    </button>
+
+
+    <button
+        type="button"
+        class="more-menu-item"
+        data-more-page="drivers"
+    >
+        <i class="fa-solid fa-users"></i>
+        <span>Drivers</span>
+    </button>
+
+
+    <button
+        type="button"
+        class="more-menu-item"
+        data-more-page="vehicles"
+    >
+        <i class="fa-solid fa-truck"></i>
+        <span>Vehicles</span>
+    </button>
+
+
+    <button
+        type="button"
+        class="more-menu-item"
+        data-more-page="customers"
+    >
+        <i class="fa-regular fa-user"></i>
+        <span>Customers</span>
+    </button>
+
+
+    <button
+        type="button"
+        class="more-menu-item"
+        data-more-page="reports"
+    >
+        <i class="fa-regular fa-chart-bar"></i>
+        <span>Reports</span>
+    </button>
+
+
+    <button
+        type="button"
+        class="more-menu-item"
+        data-more-page="settings"
+    >
+        <i class="fa-solid fa-gear"></i>
+        <span>Settings</span>
+    </button>
+
+</div>
+
+
+    <!-- =====================================================
+         ACTIVITY MESSAGE / TOAST
+         ===================================================== -->
+
+    <div
+        id="activityMessage"
+        class="activity-message"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+
+    <!-- =====================================================
+         DASHBOARD JAVASCRIPT
+         ===================================================== -->
+
+        <script src="../js/admin-shell.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/supabase-client.js"></script>
+<script src="../js/admin-auth.js"></script>
+<script src="../js/admin-settings.js"></script>
+<script src="../js/dashboard.js"></script>
+
+</body>
+</html>

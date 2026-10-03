@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Create Customer Account | Sri Sadguru Siddarooda Parcel Service
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/register.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         REGISTRATION PAGE
+    ========================================================== -->
+
+    <main class="registration-page">
+
+
+        <!-- =====================================================
+             MAIN REGISTRATION CARD
+        ====================================================== -->
+
+        <section class="registration-card">
+
+
+            <!-- =================================================
+                 DESKTOP / LAPTOP BRAND PANEL
+
+                 This panel will be displayed ONLY on
+                 desktop and laptop screens through CSS.
+
+                 It will be hidden on mobile and tablet.
+            ================================================== -->
+
+            <aside class="brand-section">
+
+
+                <div class="brand-content">
+
+
+                    <!-- LOGO -->
+
+                    <div class="logo-container">
+
+                        <img
+                            src="../images/logo.png"
+                            alt="Sri Sadguru Siddarooda Parcel Service Logo"
+                            class="company-logo"
+                        >
+
+                    </div>
+
+
+                    <!-- COMPANY NAME -->
+
+                    <h1 class="company-name">
+                       Sri Sadguru
+                         <span>Siddarooda</span>
+                         Parcel Service
+                           </h1>
+
+                    <p class="desktop-caption">
+                             Safe. Reliable. On Time.
+                            <br>
+                           Every Time.
+                            </p>
+
+                    <div class="brand-line"></div>
+
+
+                </div>
+
+            </aside>
+
+
+
+            <!-- =================================================
+                 REGISTRATION FORM SECTION
+            ================================================== -->
+
+            <section class="registration-section">
+
+
+                <!-- =================================================
+                     MOBILE / TABLET LOGO
+
+                     This logo will be displayed on mobile/tablet.
+
+                     Desktop/laptop CSS will hide it because the
+                     logo is already present in the left panel.
+                ================================================== -->
+
+                <div class="mobile-logo">
+
+                    <img
+                        src="images/logo.png"
+                        alt="Sri Sadguru Siddarooda Parcel Service Logo"
+                    >
+
+                </div>
+
+
+
+                <!-- =================================================
+                     REGISTRATION HEADER
+                ================================================== -->
+
+                <header class="registration-header">
+
+                    <h2>
+                        Create Customer Account
+                    </h2>
+
+                    <p>
+                        Register to manage your parcels
+                        and shipments easily.
+                    </p>
+
+                </header>
+
+
+
+                <!-- =================================================
+                     REGISTRATION FORM
+                ================================================== -->
+
+                <form
+                    id="registrationForm"
+                    novalidate
+                >
+
+
+                    <!-- =============================================
+                         FULL NAME
+                    ============================================== -->
+
+                    <div class="form-group">
+
+                        <label for="fullName">
+                            Full Name
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <span
+                                class="input-icon"
+                                aria-hidden="true"
+                            >
+                                👤
+                            </span>
+
+
+                            <input
+                                type="text"
+                                id="fullName"
+                                name="fullName"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                            >
+
+                        </div>
+
+
+                        <small
+                            class="error-message"
+                            id="fullNameError"
+                        ></small>
+
+                    </div>
+
+
+
+                    <!-- =============================================
+                         MOBILE NUMBER
+                    ============================================== -->
+
+                    <div class="form-group">
+
+                        <label for="mobile">
+                            Mobile Number
+                        </label>
+
+
+                        <div class="mobile-input-wrapper">
+
+
+                            <div class="country-code">
+                                +91
+                            </div>
+
+
+                            <input
+                                type="tel"
+                                id="mobile"
+                                name="mobile"
+                                placeholder="Enter 10-digit mobile number"
+                                inputmode="numeric"
+                                maxlength="10"
+                                autocomplete="tel"
+                            >
+
+
+                        </div>
+
+
+                        <small class="input-help">
+                            Enter your 10-digit mobile number.
+                        </small>
+
+
+                        <small
+                            class="error-message"
+                            id="mobileError"
+                        ></small>
+
+                    </div>
+
+
+
+                    <!-- =============================================
+                         GMAIL ADDRESS
+                    ============================================== -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Gmail Address
+                        </label>
+
+
+                        <div class="input-wrapper">
+
+                            <span
+                                class="input-icon"
+                                aria-hidden="true"
+                            >
+                                ✉
+                            </span>
+
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your Gmail address"
+                                autocomplete="email"
+                            >
+
+                        </div>
+
+
+                        <small
+                            class="error-message"
+                            id="emailError"
+                        ></small>
+
+                    </div>
+
+
+
+                    <!-- =============================================
+                         CREATE PASSWORD
+                    ============================================== -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Create Password
+                        </label>
+
+
+                        <div class="input-wrapper password-wrapper">
+
+
+                            <span
+                                class="input-icon"
+                                aria-hidden="true"
+                            >
+                                🔒
+                            </span>
+
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter password"
+                                autocomplete="new-password"
+                            >
+
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="passwordToggle"
+                                aria-label="Show password"
+                            >
+                                Show
+                            </button>
+
+
+                        </div>
+
+
+
+                        <!-- PASSWORD REQUIREMENTS -->
+
+                        <div class="password-rules">
+
+
+                            <p class="rules-title">
+                                Password must contain:
+                            </p>
+
+
+                            <!-- 12 CHARACTERS -->
+
+                            <div
+                                class="password-rule"
+                                id="ruleLength"
+                            >
+
+                                <span class="rule-circle">
+                                    ○
+                                </span>
+
+                                <span>
+                                    Minimum 12 characters
+                                </span>
+
+                            </div>
+
+
+                            <!-- UPPERCASE -->
+
+                            <div
+                                class="password-rule"
+                                id="ruleUppercase"
+                            >
+
+                                <span class="rule-circle">
+                                    ○
+                                </span>
+
+                                <span>
+                                    At least 1 uppercase letter (A-Z)
+                                </span>
+
+                            </div>
+
+
+                            <!-- LOWERCASE -->
+
+                            <div
+                                class="password-rule"
+                                id="ruleLowercase"
+                            >
+
+                                <span class="rule-circle">
+                                    ○
+                                </span>
+
+                                <span>
+                                    At least 1 lowercase letter (a-z)
+                                </span>
+
+                            </div>
+
+
+                            <!-- NUMBER -->
+
+                            <div
+                                class="password-rule"
+                                id="ruleNumber"
+                            >
+
+                                <span class="rule-circle">
+                                    ○
+                                </span>
+
+                                <span>
+                                    At least 1 number (0-9)
+                                </span>
+
+                            </div>
+
+
+                            <!-- SPECIAL CHARACTER -->
+
+                            <div
+                                class="password-rule"
+                                id="ruleSpecial"
+                            >
+
+                                <span class="rule-circle">
+                                    ○
+                                </span>
+
+                                <span>
+                                    At least 1 special character
+                                    (!@#$%^&*)
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <small
+                            class="error-message"
+                            id="passwordError"
+                        ></small>
+
+
+                    </div>
+
+
+
+                    <!-- =============================================
+                         CONFIRM PASSWORD
+                    ============================================== -->
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+
+                        <div class="input-wrapper password-wrapper">
+
+
+                            <span
+                                class="input-icon"
+                                aria-hidden="true"
+                            >
+                                🔒
+                            </span>
+
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="Confirm your password"
+                                autocomplete="new-password"
+                            >
+
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="confirmPasswordToggle"
+                                aria-label="Show password"
+                            >
+                                Show
+                            </button>
+
+
+                        </div>
+
+
+                        <small
+                            class="error-message"
+                            id="confirmPasswordError"
+                        ></small>
+
+
+                    </div>
+
+
+
+                    <!-- =============================================
+                         TERMS AND PRIVACY
+                    ============================================== -->
+
+                    <div class="terms-group">
+
+
+                        <label class="terms-label">
+
+
+                            <input
+                                type="checkbox"
+                                id="terms"
+                                name="terms"
+                            >
+
+
+                            <span>
+
+                                I agree to the
+
+                                <button
+                                    type="button"
+                                    class="terms-link"
+                                    id="termsButton"
+                                >
+                                    Terms &amp; Conditions
+                                </button>
+
+                                and
+
+                                <button
+                                    type="button"
+                                    class="terms-link"
+                                    id="privacyButton"
+                                >
+                                    Privacy Policy
+                                </button>
+
+                            </span>
+
+
+                        </label>
+
+
+                        <small
+                            class="error-message"
+                            id="termsError"
+                        ></small>
+
+
+                    </div>
+
+
+
+                    <!-- =============================================
+                         FORM MESSAGE
+                    ============================================== -->
+
+                    <div
+                        class="form-message"
+                        id="formMessage"
+                        role="alert"
+                    ></div>
+
+
+
+                    <!-- =============================================
+                         CREATE ACCOUNT BUTTON
+                    ============================================== -->
+
+                    <button
+                        type="submit"
+                        class="create-account-button"
+                        id="createAccountButton"
+                    >
+
+
+                        <span
+                            class="button-icon"
+                            aria-hidden="true"
+                        >
+                            👤+
+                        </span>
+
+
+                        <span class="button-text">
+                            CREATE ACCOUNT
+                        </span>
+
+
+                        <span
+                            class="button-loader"
+                            id="buttonLoader"
+                            aria-hidden="true"
+                        ></span>
+
+
+                    </button>
+
+
+                </form>
+
+
+
+                <!-- =================================================
+                     LOGIN LINK
+                ================================================== -->
+
+                <div class="login-link-section">
+
+                    <span></span>
+
+                    <p>
+
+                        Already registered?
+
+                        <button
+                            type="button"
+                            id="loginButton"
+                        >
+                            Login
+                        </button>
+
+                    </p>
+                    <span></span>
+                </div>
+
+
+
+                <!-- =================================================
+                     SECURITY MESSAGE
+                ================================================== -->
+
+                <div class="security-message">
+
+
+                    <div class="security-icon">
+                        ✓
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            Your information is secure with us
+                        </strong>
+
+
+                        <p>
+                            We never share your details with anyone.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FOOTER
+                ================================================== -->
+
+                <footer class="registration-footer">
+
+                    <p>
+                        © 2026 Sri Sadguru Siddarooda Parcel Service
+                    </p>
+
+                </footer>
+
+
+            </section>
+
+
+        </section>
+
+
+    </main>
+
+
+
+   <!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- SSP Supabase Client -->
+<script src="../js/supabase-client.js"></script>
+
+<!-- SSP Authentication System -->
+<script src="../js/auth.js"></script>
+
+<!-- Customer Registration -->
+<script src="../js/register.js"></script>
+
+</body>
+
+</html>

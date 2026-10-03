@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="description"
+        content="Track your parcels - Sri Sadguru Siddarooda Parcel Service"
+    >
+
+    <title>
+        Track Parcel | Sri Sadguru Siddarooda Parcel Service
+    </title>
+
+
+    <!-- =====================================================
+         INTER FONT
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         TRACK PARCEL CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/track-parcel.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="customer-portal">
+
+
+    <!-- =====================================================
+         DASHBOARD-STYLE HEADER
+    ====================================================== -->
+
+    <header class="track-header">
+
+
+        <!-- BRAND -->
+
+        <div class="header-brand">
+
+            <a
+                href="dashboard.html"
+                class="brand-link"
+            >
+
+                <img
+                    src="../images/logo.png"
+                    alt="Sri Sadguru Siddarooda Parcel Service Logo"
+                    class="dashboard-logo"
+                >
+
+                <div class="brand-name">
+
+                    <span class="brand-main">
+                        Sri Sadguru
+                    </span>
+
+                    <span class="brand-service">
+                        Siddarooda Parcel Service
+                    </span>
+
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <!-- PROFILE -->
+
+        <a
+            href="profile.html"
+            class="header-profile-button"
+            aria-label="Open profile"
+        >
+
+            <span class="header-profile-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+
+                    <circle
+                        cx="12"
+                        cy="8"
+                        r="3.2"
+                    ></circle>
+
+                    <path
+                        d="M5.5 20c.7-3.2 3-5 6.5-5s5.8 1.8 6.5 5"
+                    ></path>
+
+                </svg>
+
+            </span>
+
+        </a>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         PAGE TITLE
+    ====================================================== -->
+
+    <section class="page-heading">
+
+        <button
+            type="button"
+            id="backButton"
+            class="back-button"
+            aria-label="Back to Dashboard"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+            >
+
+                <path d="M19 12H5"></path>
+
+                <path d="M12 19l-7-7 7-7"></path>
+
+            </svg>
+
+        </button>
+
+
+        <h1>
+            Track Parcel
+        </h1>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="track-content">
+
+
+        <!-- =================================================
+             TRACK SEARCH CARD
+        ================================================== -->
+
+        <section class="tracking-card">
+
+
+            <div class="tracking-icon">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+
+                    <path d="M4 7.5L12 3l8 4.5"></path>
+
+                    <path
+                        d="M4 7.5v9L12 21l8-4.5v-9"
+                    ></path>
+
+                    <path d="M12 12v9"></path>
+
+                    <path
+                        d="M4.5 7.5L12 12l7.5-4.5"
+                    ></path>
+
+                </svg>
+
+            </div>
+
+
+            <h2>
+                Track your parcel
+            </h2>
+
+
+            <p class="tracking-description">
+                Enter your booking ID to view parcel details
+                and current status.
+            </p>
+
+
+            <!-- SEARCH -->
+
+            <form
+                id="trackingForm"
+                class="tracking-form"
+                novalidate
+            >
+
+                <div class="search-wrapper">
+
+                    <span
+                        class="search-icon"
+                        aria-hidden="true"
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+
+                            <circle
+                                cx="11"
+                                cy="11"
+                                r="7"
+                            ></circle>
+
+                            <path
+                                d="m20 20-4-4"
+                            ></path>
+
+                        </svg>
+
+                    </span>
+
+
+                    <input
+                        type="text"
+                        id="trackingInput"
+                        name="bookingId"
+                        placeholder="Search by Booking ID"
+                        autocomplete="off"
+                        aria-label="Search by Booking ID"
+                    >
+
+
+                    <button
+                        type="button"
+                        id="clearSearchButton"
+                        class="clear-search"
+                        aria-label="Clear search"
+                        hidden
+                    >
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+
+                            <path d="M6 6l12 12"></path>
+
+                            <path d="M18 6L6 18"></path>
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="search-button"
+                >
+                    Search
+                </button>
+
+            </form>
+
+
+            <p
+                id="searchMessage"
+                class="search-message"
+                aria-live="polite"
+            ></p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PARCEL LIST
+        ================================================== -->
+
+        <section class="parcels-section">
+
+
+            <div class="section-heading-row">
+
+                <h2>
+                    Your Parcels
+                </h2>
+
+                <span
+                    id="ordersCount"
+                    class="orders-count"
+                >
+                    0 bookings
+                </span>
+
+            </div>
+
+
+
+            <!-- LOADING -->
+
+            <div
+                id="ordersLoading"
+                class="state-card loading-state"
+            >
+
+                <span class="loading-spinner"></span>
+
+                <p>
+                    Loading your parcels...
+                </p>
+
+            </div>
+
+
+
+            <!-- ERROR -->
+
+            <div
+                id="ordersError"
+                class="state-card error-state"
+                hidden
+            >
+
+                <div class="state-icon error-icon">
+                    !
+                </div>
+
+                <h3>
+                    Unable to load parcels
+                </h3>
+
+                <p id="ordersErrorMessage">
+                    Something went wrong.
+                </p>
+
+                <button
+                    type="button"
+                    id="retryButton"
+                    class="retry-button"
+                >
+                    Try Again
+                </button>
+
+            </div>
+
+
+
+            <!-- EMPTY -->
+
+            <div
+                id="ordersEmpty"
+                class="state-card empty-state"
+                hidden
+            >
+
+                <div class="state-icon empty-icon">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+
+                        <path d="M4 7.5L12 3l8 4.5"></path>
+
+                        <path
+                            d="M4 7.5v9L12 21l8-4.5v-9"
+                        ></path>
+
+                        <path d="M12 12v9"></path>
+
+                    </svg>
+
+                </div>
+
+                <h3>
+                    No parcels found
+                </h3>
+
+                <p>
+                    Your bookings will appear here after
+                    you book a parcel.
+                </p>
+
+            </div>
+
+
+
+            <!-- BOOKINGS -->
+
+            <div
+                id="ordersList"
+                class="parcels-list"
+            ></div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         BOTTOM NAVIGATION
+         SAME AS CUSTOMER DASHBOARD
+    ====================================================== -->
+
+    <nav
+        class="bottom-navigation"
+        aria-label="Customer portal navigation"
+    >
+
+
+        <!-- HOME -->
+
+        <a
+            href="dashboard.html"
+            class="bottom-nav-item"
+        >
+
+            <span
+                class="bottom-nav-icon"
+                aria-hidden="true"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <path d="M3 10.5L12 3l9 7.5"></path>
+
+                    <path d="M5 9.5V21h14V9.5"></path>
+
+                    <path d="M9 21v-6h6v6"></path>
+
+                </svg>
+
+            </span>
+
+            <span class="bottom-nav-label">
+                Home
+            </span>
+
+        </a>
+
+
+
+        <!-- BOOK -->
+
+        <a
+            href="book-parcel.html"
+            class="bottom-nav-item"
+        >
+
+            <span
+                class="bottom-nav-icon"
+                aria-hidden="true"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <path d="M4 7.5L12 3l8 4.5"></path>
+
+                    <path
+                        d="M4 7.5v9L12 21l8-4.5v-9"
+                    ></path>
+
+                    <path d="M12 12v9"></path>
+
+                    <path
+                        d="M4.5 7.5L12 12l7.5-4.5"
+                    ></path>
+
+                </svg>
+
+            </span>
+
+            <span class="bottom-nav-label">
+                Book
+            </span>
+
+        </a>
+
+
+
+        <!-- TRACK - ACTIVE -->
+
+        <a
+            href="track-parcel.html"
+            class="bottom-nav-item active"
+            aria-current="page"
+        >
+
+            <span
+                class="bottom-nav-icon"
+                aria-hidden="true"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <path
+                        d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"
+                    ></path>
+
+                    <circle
+                        cx="12"
+                        cy="10"
+                        r="2.5"
+                    ></circle>
+
+                </svg>
+
+            </span>
+
+            <span class="bottom-nav-label">
+                Track
+            </span>
+
+        </a>
+
+
+
+        <!-- PAYMENT -->
+
+        <a
+            href="payment.html"
+            class="bottom-nav-item"
+        >
+
+            <span
+                class="bottom-nav-icon"
+                aria-hidden="true"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <rect
+                        x="3"
+                        y="5"
+                        width="18"
+                        height="14"
+                        rx="2"
+                    ></rect>
+
+                    <path d="M3 10h18"></path>
+
+                    <path d="M7 15h4"></path>
+
+                </svg>
+
+            </span>
+
+            <span class="bottom-nav-label">
+                Payment
+            </span>
+
+        </a>
+
+
+
+        <!-- ORDERS -->
+
+        <a
+            href="order-history.html"
+            class="bottom-nav-item"
+        >
+
+            <span
+                class="bottom-nav-icon"
+                aria-hidden="true"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <rect
+                        x="5"
+                        y="3"
+                        width="14"
+                        height="18"
+                        rx="2"
+                    ></rect>
+
+                    <path d="M9 3.5h6"></path>
+
+                    <path d="M9 9h6"></path>
+
+                    <path d="M9 13h6"></path>
+
+                    <path d="M9 17h4"></path>
+
+                </svg>
+
+            </span>
+
+            <span class="bottom-nav-label">
+                Orders
+            </span>
+
+        </a>
+
+
+    </nav>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     SUPABASE
+====================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/supabase-client.js"></script>
+
+<script src="../js/auth.js"></script>
+
+<script src="../js/track-parcel.js"></script>
+
+
+</body>
+
+</html>

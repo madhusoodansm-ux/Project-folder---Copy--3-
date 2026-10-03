@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Sri Sadguru Siddarooda Parcel Service Admin Tracking"
+    >
+
+    <title>
+        Tracking | Sri Sadguru Parcel Service
+    </title>
+
+
+    <!-- =====================================================
+         TRACKING CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/tracking.css"
+    >
+
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            <img
+                src="../images/logo.png"
+                alt="Sri Sadguru Siddarooda Parcel Service"
+            >
+
+            <div class="brand-text">
+
+                <h2>
+                    SRI SADGURU
+                </h2>
+
+                <p>
+                    SIDDAROODA<br>
+                    PARCEL SERVICE
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="bookings.html"
+                class="nav-item"
+            >
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Bookings</span>
+            </a>
+
+
+            <a
+                href="payments.html"
+                class="nav-item"
+            >
+                <i class="fa-regular fa-credit-card"></i>
+                <span>Payments</span>
+            </a>
+
+
+            <a
+                href="tracking.html"
+                class="nav-item active"
+            >
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Tracking</span>
+            </a>
+
+
+            <a
+                href="bookings.html"
+                class="nav-item"
+            >
+                <i class="fa-regular fa-clock"></i>
+                <span>Recent Orders</span>
+            </a>
+
+
+            <a
+                href="pickup-management.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-box-open"></i>
+                <span>Pickup Management</span>
+            </a>
+
+
+            <a
+                href="delivery-management.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-truck-fast"></i>
+                <span>Delivery Management</span>
+            </a>
+
+
+            <a
+                href="drivers.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-users"></i>
+                <span>Drivers</span>
+            </a>
+
+
+            <a
+                href="reports.html"
+                class="nav-item"
+            >
+                <i class="fa-regular fa-chart-bar"></i>
+                <span>Reports</span>
+            </a>
+
+
+            <a
+                href="settings.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+
+        </nav>
+
+
+        <!-- ADMIN USER -->
+
+        <div class="admin-user">
+
+            <div class="admin-avatar">
+                AU
+            </div>
+
+            <div class="admin-user-info">
+
+                <strong>
+                    Admin User
+                </strong>
+
+                <span>
+                    Admin
+                </span>
+
+                <small>
+                    <i class="fa-solid fa-circle"></i>
+                    Online
+                </small>
+
+            </div>
+
+        </div>
+
+
+    </aside>
+
+
+    <!-- =====================================================
+         MOBILE SIDEBAR OVERLAY
+    ====================================================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main">
+
+
+        <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+        <header class="topbar">
+
+
+            <button
+                type="button"
+                id="sidebarToggle"
+                class="menu-button"
+                aria-label="Open navigation"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+
+            <div class="page-heading">
+
+                <h1>
+                    Parcel Tracking
+                </h1>
+
+                <p>
+                    Track and monitor all parcel shipments
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="refreshButton"
+                class="refresh-button"
+            >
+
+                <i class="fa-solid fa-rotate-right"></i>
+
+                <span>
+                    Refresh
+                </span>
+
+            </button>
+
+
+        </header>
+
+
+        <!-- =================================================
+             SEARCH
+        ================================================== -->
+
+        <section class="tracking-search card">
+
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search booking ID, customer, phone, route or driver..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             TRACKING LIST
+        ================================================== -->
+
+        <section class="card tracking-list-card">
+
+
+            <!-- SECTION HEADER -->
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Tracking List
+                    </h2>
+
+                    <p id="listCount">
+                        Loading shipments...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 STATUS FILTERS
+            ================================================== -->
+
+            <div
+                class="status-tabs"
+                id="statusTabs"
+            >
+
+
+                <button
+                    type="button"
+                    class="status-tab active"
+                    data-status=""
+                >
+                    All
+                </button>
+
+
+                <button
+                    type="button"
+                    class="status-tab"
+                    data-status="pending"
+                >
+                    New
+                </button>
+
+
+                <button
+                    type="button"
+                    class="status-tab"
+                    data-status="confirmed"
+                >
+                    Confirmed
+                </button>
+
+
+                <button
+                    type="button"
+                    class="status-tab"
+                    data-status="assigned"
+                >
+                    Driver Assigned
+                </button>
+
+
+                <button
+                    type="button"
+                    class="status-tab"
+                    data-status="pickup_started"
+                >
+                    Pickup Started
+                </button>
+
+
+                <button
+                    type="button"
+                    class="status-tab"
+                    data-status="picked_up"
+                >
+                    Picked Up
+                </button>
+
+
+                <button
+                    type="button"
+                    class="status-tab"
+                    data-status="in_transit"
+                >
+                    In Transit
+                </button>
+
+
+                <button
+                    type="button"
+                    class="status-tab"
+                    data-status="out_for_delivery"
+                >
+                    Out for Delivery
+                </button>
+
+
+                <button
+                    type="button"
+                    class="status-tab"
+                    data-status="delivered"
+                >
+                    Delivered
+                </button>
+
+
+                <button
+                    type="button"
+                    class="status-tab"
+                    data-status="cancelled"
+                >
+                    Cancelled
+                </button>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 DESKTOP TABLE
+            ================================================== -->
+
+            <div class="table-wrapper">
+
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Booking
+                            </th>
+
+                            <th>
+                                Customer
+                            </th>
+
+                            <th>
+                                Route
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Current Location
+                            </th>
+
+                            <th>
+                                Expected Delivery
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="trackingBody">
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 MOBILE LIST
+            ================================================== -->
+
+            <div
+                class="mobile-list"
+                id="mobileList"
+            ></div>
+
+
+            <!-- =================================================
+                 PAGINATION
+            ================================================== -->
+
+            <div class="pagination">
+
+
+                <button
+                    type="button"
+                    id="previousPage"
+                    aria-label="Previous page"
+                >
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+
+                <div
+                    id="pageButtons"
+                    class="page-buttons"
+                ></div>
+
+
+                <button
+                    type="button"
+                    id="nextPage"
+                    aria-label="Next page"
+                >
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+<!-- =========================================================
+     TRACKING DETAILS MODAL
+========================================================= -->
+
+<div
+    class="modal"
+    id="detailsModal"
+    aria-hidden="true"
+>
+
+
+    <div
+        class="modal-backdrop"
+        id="modalBackdrop"
+    ></div>
+
+
+    <div
+        class="modal-box"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalBookingId"
+    >
+
+
+        <!-- MODAL HEADER -->
+
+        <div class="modal-header">
+
+
+            <div>
+
+                <span class="modal-label">
+                    Shipment Tracking
+                </span>
+
+                <h2>
+                    Tracking Details
+                </h2>
+
+                <strong id="modalBookingId">
+                    —
+                </strong>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="closeModal"
+                class="close-button"
+                aria-label="Close tracking details"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+
+        </div>
+
+
+        <!-- MODAL CONTENT -->
+
+        <div
+            class="modal-content"
+            id="modalContent"
+        ></div>
+
+
+        <!-- MODAL ACTIONS -->
+
+        <div class="modal-actions">
+
+
+            <button
+                type="button"
+                id="modalViewBooking"
+                class="primary-button"
+            >
+                <i class="fa-solid fa-file-lines"></i>
+
+                <span>
+                    View Booking Details
+                </span>
+            </button>
+
+
+            <button
+                type="button"
+                id="modalDownloadBill"
+                class="secondary-button"
+            >
+                <i class="fa-solid fa-download"></i>
+
+                <span>
+                    Download Bill
+                </span>
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================================================
+     MOBILE BOTTOM NAVIGATION
+========================================================= -->
+
+<nav
+    class="mobile-bottom-nav"
+    id="mobileBottomNav"
+>
+
+
+    <button
+        type="button"
+        class="bottom-nav-item"
+        data-bottom-page="home"
+    >
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>
+            Home
+        </span>
+
+    </button>
+
+
+    <button
+        type="button"
+        class="bottom-nav-item"
+        data-bottom-page="bookings"
+    >
+
+        <i class="fa-regular fa-calendar-days"></i>
+
+        <span>
+            Bookings
+        </span>
+
+    </button>
+
+
+    <button
+        type="button"
+        class="bottom-nav-item"
+        data-bottom-page="payment"
+    >
+
+        <i class="fa-regular fa-credit-card"></i>
+
+        <span>
+            Payment
+        </span>
+
+    </button>
+
+
+    <button
+        type="button"
+        class="bottom-nav-item active"
+        data-bottom-page="tracking"
+    >
+
+        <i class="fa-solid fa-location-dot"></i>
+
+        <span>
+            Tracking
+        </span>
+
+    </button>
+
+
+    <button
+        type="button"
+        class="bottom-nav-item"
+        id="mobileMoreBtn"
+    >
+
+        <i class="fa-solid fa-ellipsis"></i>
+
+        <span>
+            More
+        </span>
+
+    </button>
+
+
+</nav>
+
+
+<!-- =========================================================
+     MOBILE MORE MENU
+========================================================= -->
+
+<div
+    class="mobile-more-menu"
+    id="mobileMoreMenu"
+>
+
+
+    <button
+        type="button"
+        data-more-page="recent-orders"
+    >
+        <i class="fa-regular fa-clock"></i>
+        Recent Orders
+    </button>
+
+
+    <button
+        type="button"
+        data-more-page="pickup"
+    >
+        <i class="fa-solid fa-box-open"></i>
+        Pickup Management
+    </button>
+
+
+    <button
+        type="button"
+        data-more-page="delivery"
+    >
+        <i class="fa-solid fa-truck-fast"></i>
+        Delivery Management
+    </button>
+
+
+    <button
+        type="button"
+        data-more-page="drivers"
+    >
+        <i class="fa-solid fa-users"></i>
+        Drivers
+    </button>
+
+
+    <button
+        type="button"
+        data-more-page="reports"
+    >
+        <i class="fa-regular fa-chart-bar"></i>
+        Reports
+    </button>
+
+
+    <button
+        type="button"
+        data-more-page="settings"
+    >
+        <i class="fa-solid fa-gear"></i>
+        Settings
+    </button>
+
+
+</div>
+
+
+<!-- =========================================================
+     SUPABASE
+========================================================= -->
+
+    <script src="../js/admin-shell.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/supabase-client.js"></script>
+<script src="../js/admin-settings.js"></script>
+<script src="../js/tracking.js"></script>
+
+
+</body>
+
+</html>

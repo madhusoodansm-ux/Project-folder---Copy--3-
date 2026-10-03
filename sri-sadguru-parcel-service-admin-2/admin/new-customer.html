@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Add Customer - Sri Sadguru Siddarooda Parcel Service
+    </title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../images/logo.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/new-customer.css"
+    >
+
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="sidebar-header">
+
+            <img
+                src="../images/logo.png"
+                alt="Sri Sadguru Siddarooda Parcel Service"
+            >
+
+            <div class="sidebar-brand">
+
+                <strong>
+                    SSP Admin
+                </strong>
+
+                <span>
+                    Parcel Service
+                </span>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="sidebar-toggle"
+                id="sidebarToggle"
+                aria-label="Close menu"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="bookings.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-box"></i>
+                <span>Bookings</span>
+            </a>
+
+
+            <a
+                href="payments.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-credit-card"></i>
+                <span>Payments</span>
+            </a>
+
+
+            <a
+                href="tracking.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Tracking</span>
+            </a>
+
+
+            <a
+                href="pickup-management.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-hand-holding"></i>
+                <span>Pickup Management</span>
+            </a>
+
+
+            <a
+                href="delivery-management.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-truck"></i>
+                <span>Delivery Management</span>
+            </a>
+
+
+            <a
+                href="drivers.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-user-tie"></i>
+                <span>Drivers</span>
+            </a>
+
+
+            <a
+                href="vehicles.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-car"></i>
+                <span>Vehicles</span>
+            </a>
+
+
+            <a
+                href="customers.html"
+                class="nav-item active"
+            >
+                <i class="fa-solid fa-users"></i>
+                <span>Customers</span>
+            </a>
+
+
+            <a
+                href="reports.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Reports</span>
+            </a>
+
+
+            <a
+                href="admin-profile.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-user"></i>
+                <span>Admin Profile</span>
+            </a>
+
+
+            <a
+                href="settings.html"
+                class="nav-item"
+            >
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MOBILE OVERLAY
+         ===================================================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    aria-label="Open menu"
+                >
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+
+                <div class="topbar-page-title">
+                    Add Customer
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <img
+                    src="../images/logo.png"
+                    alt="SSP"
+                    class="topbar-logo"
+                >
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             PAGE
+             ================================================= -->
+
+        <section class="page-content">
+
+
+            <!-- BREADCRUMB -->
+
+            <div class="breadcrumb">
+
+                <a href="customers.html">
+                    Customers
+                </a>
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+                <span>
+                    Add Customer
+                </span>
+
+            </div>
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <div>
+
+                    <h1>
+                        Add Customer
+                    </h1>
+
+                    <p>
+                        Create a new customer profile.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="customers.html"
+                    class="back-button"
+                >
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    Back to Customers
+
+                </a>
+
+            </div>
+
+
+            <!-- =================================================
+                 CUSTOMER FORM
+                 ================================================= -->
+
+            <form
+                id="customerForm"
+                class="customer-form"
+                novalidate
+            >
+
+
+                <!-- =================================================
+                     CUSTOMER PROFILE
+                     ================================================= -->
+
+                <section class="form-section">
+
+                    <div class="form-section-header">
+
+                        <h2>
+                            Customer Profile
+                        </h2>
+
+                        <p>
+                            Enter the basic customer information.
+                        </p>
+
+                    </div>
+
+
+                    <div class="form-section-body">
+
+
+                        <!-- PHOTO -->
+
+                        <div class="photo-area">
+
+                            <label class="form-label">
+                                Customer Photo
+                            </label>
+
+
+                            <div class="photo-upload-wrapper">
+
+
+                                <div
+                                    class="photo-preview"
+                                    id="photoPreview"
+                                >
+
+                                    <div class="photo-placeholder">
+
+                                        <i class="fa-solid fa-user"></i>
+
+                                        <span>
+                                            No Photo
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="photo-actions">
+
+                                    <label
+                                        for="customerPhoto"
+                                        class="photo-upload-button"
+                                    >
+
+                                        <i class="fa-solid fa-camera"></i>
+
+                                        Choose Photo
+
+                                    </label>
+
+
+                                    <input
+                                        type="file"
+                                        id="customerPhoto"
+                                        class="hidden-file-input"
+                                        accept="image/*"
+                                    >
+
+
+                                    <button
+                                        type="button"
+                                        id="removePhoto"
+                                        class="remove-photo-button"
+                                    >
+                                        Remove Photo
+                                    </button>
+
+
+                                    <small>
+                                        JPG, PNG or WEBP. Maximum 2 MB.
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- BASIC FIELDS -->
+
+                        <div class="form-grid">
+
+
+                            <div class="form-group">
+
+                                <label for="customerId">
+                                    Customer ID
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="customerId"
+                                    class="form-control"
+                                    readonly
+                                    placeholder="Generated automatically"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="customerStatus">
+                                    Customer Status
+                                </label>
+
+                                <select
+                                    id="customerStatus"
+                                    class="form-control"
+                                >
+
+                                    <option value="active">
+                                        Active
+                                    </option>
+
+                                    <option value="inactive">
+                                        Inactive
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="customerName">
+
+                                    Customer Name
+
+                                    <span class="required">
+                                        *
+                                    </span>
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="customerName"
+                                    class="form-control"
+                                    placeholder="Enter customer name"
+                                    autocomplete="name"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="mobileNumber">
+
+                                    Mobile Number
+
+                                    <span class="required">
+                                        *
+                                    </span>
+
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="mobileNumber"
+                                    class="form-control"
+                                    placeholder="Enter mobile number"
+                                    autocomplete="tel"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="alternateMobile">
+                                    Alternate Mobile Number
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="alternateMobile"
+                                    class="form-control"
+                                    placeholder="Enter alternate number"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="emailAddress">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="emailAddress"
+                                    class="form-control"
+                                    placeholder="Enter email address"
+                                    autocomplete="email"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     ADDRESS
+                     ================================================= -->
+
+                <section class="form-section">
+
+                    <div class="form-section-header">
+
+                        <h2>
+                            Address Information
+                        </h2>
+
+                        <p>
+                            Enter the customer's primary address.
+                        </p>
+
+                    </div>
+
+
+                    <div class="form-section-body">
+
+                        <div class="form-grid">
+
+
+                            <div class="form-group full-width">
+
+                                <label for="customerAddress">
+
+                                    Address
+
+                                    <span class="required">
+                                        *
+                                    </span>
+
+                                </label>
+
+                                <textarea
+                                    id="customerAddress"
+                                    class="form-control"
+                                    placeholder="Enter complete address"
+                                    rows="3"
+                                ></textarea>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="customerCity">
+
+                                    City
+
+                                    <span class="required">
+                                        *
+                                    </span>
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="customerCity"
+                                    class="form-control"
+                                    placeholder="Enter city"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="customerState">
+
+                                    State
+
+                                    <span class="required">
+                                        *
+                                    </span>
+
+                                </label>
+
+                                <select
+                                    id="customerState"
+                                    class="form-control"
+                                >
+
+                                    <option value="">
+                                        Select state
+                                    </option>
+
+                                    <option value="Karnataka">
+                                        Karnataka
+                                    </option>
+
+                                    <option value="Maharashtra">
+                                        Maharashtra
+                                    </option>
+
+                                    <option value="Goa">
+                                        Goa
+                                    </option>
+
+                                    <option value="Telangana">
+                                        Telangana
+                                    </option>
+
+                                    <option value="Andhra Pradesh">
+                                        Andhra Pradesh
+                                    </option>
+
+                                    <option value="Tamil Nadu">
+                                        Tamil Nadu
+                                    </option>
+
+                                    <option value="Kerala">
+                                        Kerala
+                                    </option>
+
+                                    <option value="Other">
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="customerPin">
+
+                                    PIN Code
+
+                                    <span class="required">
+                                        *
+                                    </span>
+
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="customerPin"
+                                    class="form-control"
+                                    placeholder="Enter 6 digit PIN"
+                                    inputmode="numeric"
+                                    maxlength="6"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     CUSTOMER TYPE
+                     ================================================= -->
+
+                <section class="form-section">
+
+                    <div class="form-section-header">
+
+                        <h2>
+                            Customer Type
+                        </h2>
+
+                        <p>
+                            Select whether this is an individual or business customer.
+                        </p>
+
+                    </div>
+
+
+                    <div class="form-section-body">
+
+                        <div class="form-grid">
+
+
+                            <div class="form-group">
+
+                                <label for="customerType">
+                                    Customer Type
+                                </label>
+
+                                <select
+                                    id="customerType"
+                                    class="form-control"
+                                >
+
+                                    <option value="Individual">
+                                        Individual
+                                    </option>
+
+                                    <option value="Business">
+                                        Business
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div
+                                class="form-group"
+                                id="companyNameGroup"
+                            >
+
+                                <label for="companyName">
+                                    Company Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="companyName"
+                                    class="form-control"
+                                    placeholder="Enter company name"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     ADDITIONAL INFORMATION
+                     ================================================= -->
+
+                <section class="form-section">
+
+                    <div class="form-section-header">
+
+                        <h2>
+                            Additional Information
+                        </h2>
+
+                        <p>
+                            Add optional notes about this customer.
+                        </p>
+
+                    </div>
+
+
+                    <div class="form-section-body">
+
+                        <div class="form-group">
+
+                            <label for="customerNotes">
+                                Notes
+                            </label>
+
+                            <textarea
+                                id="customerNotes"
+                                class="form-control"
+                                placeholder="Enter any additional notes"
+                                rows="4"
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     ORDER INFORMATION
+                     ================================================= -->
+
+                <section class="form-section">
+
+                    <div class="form-section-header">
+
+                        <h2>
+                            Order Information
+                        </h2>
+
+                    </div>
+
+
+                    <div class="form-section-body">
+
+                        <div class="order-info-note">
+
+                            <i class="fa-solid fa-circle-info"></i>
+
+                            <div>
+
+                                <strong>
+                                    Order history is automatic
+                                </strong>
+
+                                <p>
+                                    Customer order and booking history
+                                    will be connected automatically from
+                                    SSP bookings when bookings are
+                                    associated with this customer.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     ACTIONS
+                     ================================================= -->
+
+                <div class="form-actions">
+
+
+                    <button
+                        type="button"
+                        class="cancel-button"
+                        id="cancelCustomerButton"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="save-button"
+                        id="saveCustomerButton"
+                    >
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        Save Customer
+
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     TOAST
+     ========================================================= -->
+
+<div
+    class="toast"
+    id="toast"
+    role="alert"
+    aria-live="polite"
+>
+
+    <div class="toast-icon">
+
+        <i class="fa-solid fa-check"></i>
+
+    </div>
+
+
+    <div class="toast-content">
+
+        <h4 id="toastTitle">
+            Success
+        </h4>
+
+        <p id="toastMessage">
+            Customer saved successfully.
+        </p>
+
+    </div>
+
+
+    <button
+        type="button"
+        class="close-toast"
+        id="closeToast"
+        aria-label="Close notification"
+    >
+
+        <i class="fa-solid fa-xmark"></i>
+
+    </button>
+
+</div>
+
+
+<!-- =========================================================
+     SUPABASE
+     ========================================================= -->
+
+    <script src="../js/admin-shell.js"></script>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+></script>
+
+
+<script src="../js/supabase-client.js"></script>
+
+
+<script src="../js/new-customer.js"></script>
+
+
+</body>
+
+</html>

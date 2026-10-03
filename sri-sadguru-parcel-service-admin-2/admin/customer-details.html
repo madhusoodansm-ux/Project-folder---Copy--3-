@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Customer Details | SSP Admin</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Customer Details CSS -->
+    <link
+        rel="stylesheet"
+        href="../css/customer-details.css"
+    >
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         APP SHELL
+    ========================================================== -->
+
+    <div class="app-shell">
+
+        <!-- =====================================================
+             SIDEBAR
+        ====================================================== -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-header">
+
+                <a href="dashboard.html" class="sidebar-logo">
+                    <img
+                        src="../images/logo.png"
+                        alt="SSP Logo"
+                    >
+                </a>
+
+                <button
+                    type="button"
+                    class="sidebar-close"
+                    id="sidebarClose"
+                    aria-label="Close sidebar"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item">
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-house"></i>
+                    </span>
+                    <span class="nav-label">Dashboard</span>
+                </a>
+
+                <a href="bookings.html" class="nav-item">
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </span>
+                    <span class="nav-label">Bookings</span>
+                </a>
+
+                <a href="payments.html" class="nav-item">
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-credit-card"></i>
+                    </span>
+                    <span class="nav-label">Payments</span>
+                </a>
+
+                <a href="tracking.html" class="nav-item">
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </span>
+                    <span class="nav-label">Tracking</span>
+                </a>
+
+                <a href="pickup-management.html" class="nav-item">
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-box"></i>
+                    </span>
+                    <span class="nav-label">Pickup Management</span>
+                </a>
+
+                <a href="delivery-management.html" class="nav-item">
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </span>
+                    <span class="nav-label">Delivery Management</span>
+                </a>
+
+                <a href="drivers.html" class="nav-item">
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </span>
+                    <span class="nav-label">Drivers</span>
+                </a>
+
+                <a href="vehicles.html" class="nav-item">
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-car-side"></i>
+                    </span>
+                    <span class="nav-label">Vehicles</span>
+                </a>
+
+                <a
+                    href="customers.html"
+                    class="nav-item active"
+                >
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </span>
+                    <span class="nav-label">Customers</span>
+                </a>
+
+                <a href="reports.html" class="nav-item">
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-chart-column"></i>
+                    </span>
+                    <span class="nav-label">Reports</span>
+                </a>
+
+                <a href="admin-profile.html" class="nav-item">
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+                    <span class="nav-label">Admin Profile</span>
+                </a>
+
+                <a href="settings.html" class="nav-item">
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-gear"></i>
+                    </span>
+                    <span class="nav-label">Settings</span>
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-footer">
+
+                <a href="#" class="nav-item logout-item" id="logoutBtn">
+                    <span class="nav-icon">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </span>
+                    <span class="nav-label">Logout</span>
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================================
+             SIDEBAR OVERLAY
+        ====================================================== -->
+
+        <div
+            class="sidebar-overlay"
+            id="sidebarOverlay"
+        ></div>
+
+
+        <!-- =====================================================
+             MAIN CONTENT
+        ====================================================== -->
+
+        <main class="main-content">
+
+            <!-- =================================================
+                 TOP HEADER
+            ================================================== -->
+
+            <header class="topbar">
+
+                <div class="topbar-left">
+
+                    <button
+                        type="button"
+                        class="menu-toggle"
+                        id="menuToggle"
+                        aria-label="Open menu"
+                    >
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <div class="topbar-title">
+                        Customer Details
+                    </div>
+
+                </div>
+
+
+                <div class="topbar-right">
+
+                    <button
+                        type="button"
+                        class="topbar-icon-btn"
+                        aria-label="Search"
+                    >
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="topbar-icon-btn notification-btn"
+                        aria-label="Notifications"
+                    >
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="notification-badge">5</span>
+                    </button>
+
+
+                    <div class="admin-profile-mini">
+
+                        <img
+                            src="../images/logo.png"
+                            alt="Admin"
+                            class="admin-avatar"
+                        >
+
+                        <span class="admin-name">
+                            Admin
+                        </span>
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+                 PAGE CONTENT
+            ================================================== -->
+
+            <section class="page-content">
+
+                <!-- =============================================
+                     BACK / BREADCRUMB
+                ============================================== -->
+
+                <div class="page-navigation">
+
+                    <a
+                        href="customers.html"
+                        class="back-link"
+                    >
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Back to Customers</span>
+                    </a>
+
+                    <div class="breadcrumb">
+
+                        <a href="customers.html">
+                            Customers
+                        </a>
+
+                        <span class="breadcrumb-separator">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </span>
+
+                        <span id="breadcrumbCustomerName">
+                            Customer Details
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =============================================
+                     PAGE HEADER
+                ============================================== -->
+
+                <div class="page-header">
+
+                    <div>
+
+                        <h1>
+                            Customer Details
+                        </h1>
+
+                        <p>
+                            View customer profile and order history
+                        </p>
+
+                    </div>
+
+
+                    <div class="page-header-actions">
+
+                        <button
+                            type="button"
+                            class="secondary-btn"
+                            id="editCustomerBtn"
+                        >
+                            <i class="fa-solid fa-pen"></i>
+                            <span>Edit Customer</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =============================================
+                     LOADING STATE
+                ============================================== -->
+
+                <div
+                    class="loading-state"
+                    id="loadingState"
+                >
+
+                    <div class="loading-spinner"></div>
+
+                    <p>
+                        Loading customer details...
+                    </p>
+
+                </div>
+
+
+                <!-- =============================================
+                     ERROR STATE
+                ============================================== -->
+
+                <div
+                    class="error-state"
+                    id="errorState"
+                    hidden
+                >
+
+                    <div class="error-icon">
+                        <i class="fa-solid fa-user-slash"></i>
+                    </div>
+
+                    <h2>
+                        Customer Not Found
+                    </h2>
+
+                    <p id="errorMessage">
+                        The requested customer could not be found.
+                    </p>
+
+                    <a
+                        href="customers.html"
+                        class="primary-btn"
+                    >
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Back to Customers
+                    </a>
+
+                </div>
+
+
+                <!-- =============================================
+                     CUSTOMER DETAILS CONTENT
+                ============================================== -->
+
+                <div
+                    class="customer-details-content"
+                    id="customerDetailsContent"
+                    hidden
+                >
+
+                    <!-- =========================================
+                         CUSTOMER PROFILE CARD
+                    ========================================== -->
+
+                    <section class="profile-card">
+
+                        <div class="profile-main">
+
+                            <div class="customer-photo-wrapper">
+
+                                <img
+                                    src="../images/logo.png"
+                                    alt="Customer"
+                                    id="customerPhoto"
+                                    class="customer-photo"
+                                >
+
+                                <span
+                                    class="profile-status-dot"
+                                    id="profileStatusDot"
+                                ></span>
+
+                            </div>
+
+
+                            <div class="customer-primary-info">
+
+                                <div class="customer-name-row">
+
+                                    <h2 id="customerName">
+                                        Customer Name
+                                    </h2>
+
+                                    <span
+                                        class="status-badge"
+                                        id="customerStatus"
+                                    >
+                                        Active
+                                    </span>
+
+                                </div>
+
+
+                                <p
+                                    class="customer-id"
+                                    id="customerId"
+                                >
+                                    CUS-0001
+                                </p>
+
+
+                                <div class="customer-contact-row">
+
+                                    <a
+                                        href="#"
+                                        id="customerPhoneLink"
+                                        class="contact-item"
+                                    >
+                                        <i class="fa-solid fa-phone"></i>
+                                        <span id="customerPhone">
+                                            +91 98765 43210
+                                        </span>
+                                    </a>
+
+
+                                    <a
+                                        href="#"
+                                        id="customerEmailLink"
+                                        class="contact-item"
+                                    >
+                                        <i class="fa-solid fa-envelope"></i>
+                                        <span id="customerEmail">
+                                            customer@example.com
+                                        </span>
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="profile-actions">
+
+                            <button
+                                type="button"
+                                class="icon-action-btn"
+                                id="callCustomerBtn"
+                                title="Call customer"
+                                aria-label="Call customer"
+                            >
+                                <i class="fa-solid fa-phone"></i>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="icon-action-btn"
+                                id="emailCustomerBtn"
+                                title="Email customer"
+                                aria-label="Email customer"
+                            >
+                                <i class="fa-solid fa-envelope"></i>
+                            </button>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =========================================
+                         CUSTOMER INFORMATION
+                    ========================================== -->
+
+                    <section class="details-grid">
+
+                        <!-- Personal Information -->
+
+                        <article class="details-card">
+
+                            <div class="card-header">
+
+                                <div class="card-title-wrapper">
+
+                                    <div class="card-icon blue">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+
+                                    <div>
+                                        <h3>
+                                            Personal Information
+                                        </h3>
+
+                                        <p>
+                                            Customer profile
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="details-list">
+
+                                <div class="detail-row">
+
+                                    <span class="detail-label">
+                                        Full Name
+                                    </span>
+
+                                    <span
+                                        class="detail-value"
+                                        id="detailFullName"
+                                    >
+                                        —
+                                    </span>
+
+                                </div>
+
+
+                                <div class="detail-row">
+
+                                    <span class="detail-label">
+                                        Customer ID
+                                    </span>
+
+                                    <span
+                                        class="detail-value"
+                                        id="detailCustomerId"
+                                    >
+                                        —
+                                    </span>
+
+                                </div>
+
+
+                                <div class="detail-row">
+
+                                    <span class="detail-label">
+                                        Phone Number
+                                    </span>
+
+                                    <span
+                                        class="detail-value"
+                                        id="detailPhone"
+                                    >
+                                        —
+                                    </span>
+
+                                </div>
+
+
+                                <div class="detail-row">
+
+                                    <span class="detail-label">
+                                        Alternate Phone
+                                    </span>
+
+                                    <span
+                                        class="detail-value"
+                                        id="detailAlternatePhone"
+                                    >
+                                        —
+                                    </span>
+
+                                </div>
+
+
+                                <div class="detail-row">
+
+                                    <span class="detail-label">
+                                        Email Address
+                                    </span>
+
+                                    <span
+                                        class="detail-value"
+                                        id="detailEmail"
+                                    >
+                                        —
+                                    </span>
+
+                                </div>
+
+
+                                <div class="detail-row">
+
+                                    <span class="detail-label">
+                                        Joined On
+                                    </span>
+
+                                    <span
+                                        class="detail-value"
+                                        id="detailJoinedDate"
+                                    >
+                                        —
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <!-- Address Information -->
+
+                        <article class="details-card">
+
+                            <div class="card-header">
+
+                                <div class="card-title-wrapper">
+
+                                    <div class="card-icon green">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </div>
+
+                                    <div>
+                                        <h3>
+                                            Address Information
+                                        </h3>
+
+                                        <p>
+                                            Customer address
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="details-list">
+
+                                <div class="detail-row address-row">
+
+                                    <span class="detail-label">
+                                        Address
+                                    </span>
+
+                                    <span
+                                        class="detail-value"
+                                        id="detailAddress"
+                                    >
+                                        —
+                                    </span>
+
+                                </div>
+
+
+                                <div class="detail-row">
+
+                                    <span class="detail-label">
+                                        City
+                                    </span>
+
+                                    <span
+                                        class="detail-value"
+                                        id="detailCity"
+                                    >
+                                        —
+                                    </span>
+
+                                </div>
+
+
+                                <div class="detail-row">
+
+                                    <span class="detail-label">
+                                        State
+                                    </span>
+
+                                    <span
+                                        class="detail-value"
+                                        id="detailState"
+                                    >
+                                        —
+                                    </span>
+
+                                </div>
+
+
+                                <div class="detail-row">
+
+                                    <span class="detail-label">
+                                        PIN Code
+                                    </span>
+
+                                    <span
+                                        class="detail-value"
+                                        id="detailPinCode"
+                                    >
+                                        —
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    </section>
+
+
+                    <!-- =========================================
+                         CUSTOMER SUMMARY
+                    ========================================== -->
+
+                    <section class="summary-section">
+
+                        <div class="section-heading">
+
+                            <div>
+
+                                <h2>
+                                    Customer Summary
+                                </h2>
+
+                                <p>
+                                    Overall booking and spending activity
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="summary-grid">
+
+                            <article class="summary-card">
+
+                                <div class="summary-icon blue">
+                                    <i class="fa-solid fa-box"></i>
+                                </div>
+
+                                <div class="summary-content">
+
+                                    <span class="summary-label">
+                                        Total Orders
+                                    </span>
+
+                                    <strong
+                                        id="totalOrders"
+                                        class="summary-value"
+                                    >
+                                        0
+                                    </strong>
+
+                                </div>
+
+                            </article>
+
+
+                            <article class="summary-card">
+
+                                <div class="summary-icon green">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                </div>
+
+                                <div class="summary-content">
+
+                                    <span class="summary-label">
+                                        Completed Orders
+                                    </span>
+
+                                    <strong
+                                        id="completedOrders"
+                                        class="summary-value"
+                                    >
+                                        0
+                                    </strong>
+
+                                </div>
+
+                            </article>
+
+
+                            <article class="summary-card">
+
+                                <div class="summary-icon orange">
+                                    <i class="fa-solid fa-truck-fast"></i>
+                                </div>
+
+                                <div class="summary-content">
+
+                                    <span class="summary-label">
+                                        Active Orders
+                                    </span>
+
+                                    <strong
+                                        id="activeOrders"
+                                        class="summary-value"
+                                    >
+                                        0
+                                    </strong>
+
+                                </div>
+
+                            </article>
+
+
+                            <article class="summary-card">
+
+                                <div class="summary-icon red">
+                                    <i class="fa-solid fa-ban"></i>
+                                </div>
+
+                                <div class="summary-content">
+
+                                    <span class="summary-label">
+                                        Cancelled Orders
+                                    </span>
+
+                                    <strong
+                                        id="cancelledOrders"
+                                        class="summary-value"
+                                    >
+                                        0
+                                    </strong>
+
+                                </div>
+
+                            </article>
+
+
+                            <article class="summary-card">
+
+                                <div class="summary-icon purple">
+                                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                                </div>
+
+                                <div class="summary-content">
+
+                                    <span class="summary-label">
+                                        Total Spent
+                                    </span>
+
+                                    <strong
+                                        id="totalSpent"
+                                        class="summary-value"
+                                    >
+                                        ₹0
+                                    </strong>
+
+                                </div>
+
+                            </article>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =========================================
+                         ORDER HISTORY
+                    ========================================== -->
+
+                    <section class="order-history-section">
+
+                        <div class="section-heading order-history-heading">
+
+                            <div>
+
+                                <h2>
+                                    Order History
+                                </h2>
+
+                                <p>
+                                    All bookings associated with this customer
+                                </p>
+
+                            </div>
+
+
+                            <div class="order-history-actions">
+
+                                <select
+                                    id="orderStatusFilter"
+                                    class="status-filter"
+                                    aria-label="Filter orders by status"
+                                >
+                                    <option value="all">
+                                        All Orders
+                                    </option>
+
+                                    <option value="new">
+                                        New
+                                    </option>
+
+                                    <option value="confirmed">
+                                        Confirmed
+                                    </option>
+
+                                    <option value="driver assigned">
+                                        Driver Assigned
+                                    </option>
+
+                                    <option value="picked up">
+                                        Picked Up
+                                    </option>
+
+                                    <option value="in transit">
+                                        In Transit
+                                    </option>
+
+                                    <option value="out for delivery">
+                                        Out for Delivery
+                                    </option>
+
+                                    <option value="delivered">
+                                        Delivered
+                                    </option>
+
+                                    <option value="cancelled">
+                                        Cancelled
+                                    </option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Desktop Order Table -->
+
+                        <div class="order-table-wrapper">
+
+                            <table class="order-table">
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>
+                                            Booking ID
+                                        </th>
+
+                                        <th>
+                                            Date
+                                        </th>
+
+                                        <th>
+                                            Route
+                                        </th>
+
+                                        <th>
+                                            Parcel
+                                        </th>
+
+                                        <th>
+                                            Amount
+                                        </th>
+
+                                        <th>
+                                            Payment
+                                        </th>
+
+                                        <th>
+                                            Status
+                                        </th>
+
+                                        <th>
+                                            Action
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody id="orderHistoryTableBody">
+
+                                    <!-- Orders rendered by JS -->
+
+                                </tbody>
+
+                            </table>
+
+
+                            <!-- Empty Orders -->
+
+                            <div
+                                class="empty-orders"
+                                id="emptyOrders"
+                                hidden
+                            >
+
+                                <div class="empty-icon">
+                                    <i class="fa-solid fa-box-open"></i>
+                                </div>
+
+                                <h3>
+                                    No Order History
+                                </h3>
+
+                                <p>
+                                    No bookings were found for this customer.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Mobile Order Cards -->
+
+                        <div
+                            class="mobile-order-list"
+                            id="mobileOrderList"
+                        >
+
+                            <!-- Orders rendered by JS -->
+
+                        </div>
+
+
+                        <!-- Order Pagination -->
+
+                        <div
+                            class="order-pagination"
+                            id="orderPagination"
+                            hidden
+                        >
+
+                            <span
+                                class="pagination-info"
+                                id="paginationInfo"
+                            >
+                                Showing 0 orders
+                            </span>
+
+
+                            <div class="pagination-controls">
+
+                                <button
+                                    type="button"
+                                    class="pagination-btn"
+                                    id="previousOrderPage"
+                                    aria-label="Previous page"
+                                >
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </button>
+
+
+                                <span
+                                    class="pagination-current"
+                                    id="currentOrderPage"
+                                >
+                                    1
+                                </span>
+
+
+                                <button
+                                    type="button"
+                                    class="pagination-btn"
+                                    id="nextOrderPage"
+                                    aria-label="Next page"
+                                >
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =========================================
+                         RECENT ACTIVITY
+                    ========================================== -->
+
+                    <section class="activity-section">
+
+                        <div class="section-heading">
+
+                            <div>
+
+                                <h2>
+                                    Recent Activity
+                                </h2>
+
+                                <p>
+                                    Latest customer activity
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="activity-list"
+                            id="activityList"
+                        >
+
+                            <!-- Activity rendered by JS -->
+
+                        </div>
+
+
+                        <div
+                            class="empty-activity"
+                            id="emptyActivity"
+                            hidden
+                        >
+
+                            <i class="fa-regular fa-clock"></i>
+
+                            <span>
+                                No recent activity available.
+                            </span>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =========================================
+                         CUSTOMER NOTES
+                    ========================================== -->
+
+                    <section class="notes-section">
+
+                        <div class="section-heading">
+
+                            <div>
+
+                                <h2>
+                                    Customer Notes
+                                </h2>
+
+                                <p>
+                                    Internal notes related to this customer
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="notes-card">
+
+                            <div class="notes-icon">
+                                <i class="fa-solid fa-note-sticky"></i>
+                            </div>
+
+                            <p id="customerNotes">
+                                No notes available for this customer.
+                            </p>
+
+                        </div>
+
+                    </section>
+
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================================
+         EDIT CUSTOMER MODAL
+    ========================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="editCustomerModal"
+        hidden
+    >
+
+        <div
+            class="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="editCustomerTitle"
+        >
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2 id="editCustomerTitle">
+                        Edit Customer
+                    </h2>
+
+                    <p>
+                        Update customer information
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="closeEditCustomerModal"
+                    aria-label="Close"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <form
+                id="editCustomerForm"
+                class="edit-customer-form"
+            >
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="editName">
+                            Customer Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editName"
+                            name="name"
+                            placeholder="Customer name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="editPhone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="editPhone"
+                            name="phone"
+                            placeholder="+91 XXXXX XXXXX"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="editAlternatePhone">
+                            Alternate Phone
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="editAlternatePhone"
+                            name="alternatePhone"
+                            placeholder="Alternate phone number"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="editEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="editEmail"
+                            name="email"
+                            placeholder="Email address"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group form-group-full">
+
+                        <label for="editAddress">
+                            Address
+                        </label>
+
+                        <textarea
+                            id="editAddress"
+                            name="address"
+                            rows="3"
+                            placeholder="Customer address"
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="editCity">
+                            City
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editCity"
+                            name="city"
+                            placeholder="City"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="editState">
+                            State
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editState"
+                            name="state"
+                            placeholder="State"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="editPinCode">
+                            PIN Code
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editPinCode"
+                            name="pinCode"
+                            placeholder="PIN code"
+                            maxlength="6"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="editStatus">
+                            Status
+                        </label>
+
+                        <select
+                            id="editStatus"
+                            name="status"
+                        >
+                            <option value="Active">
+                                Active
+                            </option>
+
+                            <option value="Inactive">
+                                Inactive
+                            </option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group form-group-full">
+
+                        <label for="editNotes">
+                            Notes
+                        </label>
+
+                        <textarea
+                            id="editNotes"
+                            name="notes"
+                            rows="3"
+                            placeholder="Internal customer notes"
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                        id="cancelEditCustomer"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                    >
+                        <i class="fa-solid fa-check"></i>
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         TOAST
+    ========================================================== -->
+
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+        aria-live="polite"
+    >
+
+        <div class="toast-icon">
+            <i class="fa-solid fa-check"></i>
+        </div>
+
+        <div class="toast-content">
+
+            <strong id="toastTitle">
+                Success
+            </strong>
+
+            <span id="toastMessage">
+                Customer updated successfully.
+            </span>
+
+        </div>
+
+        <button
+            type="button"
+            class="toast-close"
+            id="toastClose"
+            aria-label="Close notification"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+
+   <!-- Supabase -->
+    <script src="../js/admin-shell.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- SSP Supabase Client -->
+<script src="../js/supabase-client.js"></script>
+
+<!-- Shared Admin Authentication -->
+<script src="../js/admin-auth.js"></script>
+
+<!-- Customer Details -->
+<script src="../js/customer-details.js"></script>
+
+</body>
+</html>

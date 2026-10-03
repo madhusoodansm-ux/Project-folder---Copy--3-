@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta name="theme-color" content="#0b63ed">
+
+    <title>
+        Booking Details | Sri Sadguru Parcel Service
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../css/bookings-details.css"
+    >
+    <link rel="stylesheet" href="../css/admin-design-system.css">
+</head>
+
+<body>
+
+<div class="app-shell" id="appShell">
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+        aria-label="Admin navigation"
+    >
+
+        <div class="brand">
+
+            <img
+                src="../images/logo.png"
+                alt="Sri Sadguru Parcel Service"
+                onerror="this.style.display='none'"
+            >
+
+            <div class="brand-fallback">
+                SS
+            </div>
+
+            <div class="brand-copy">
+                <strong>Sri Sadguru</strong>
+                <span>Parcel Service</span>
+            </div>
+
+        </div>
+
+        <button
+            class="sidebar-collapse"
+            id="sidebarCollapse"
+            type="button"
+            aria-label="Collapse sidebar"
+        >
+            ‹
+        </button>
+
+        <nav class="side-nav">
+
+            <a href="dashboard.html">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a 
+                href="bookings.html"
+                class="active"
+            >
+                <span class="nav-icon">▣</span>
+                <span>Bookings</span>
+            </a>
+
+            <a href="payments.html">
+                <span class="nav-icon">₹</span>
+                <span>Payments</span>
+            </a>
+
+            <a href="#">
+                <span class="nav-icon">⌁</span>
+                <span>Tracking</span>
+            </a>
+
+            <a href="#">
+                <span class="nav-icon">♙</span>
+                <span>Customers</span>
+            </a>
+
+            <a href="#">
+                <span class="nav-icon">♧</span>
+                <span>Drivers</span>
+            </a>
+
+            <a href="#">
+                <span class="nav-icon">▤</span>
+                <span>Vehicles</span>
+            </a>
+
+            <a href="#">
+                <span class="nav-icon">△</span>
+                <span>Notifications</span>
+                <b class="nav-badge">5</b>
+            </a>
+
+            <a href="#">
+                <span class="nav-icon">▥</span>
+                <span>Reports</span>
+            </a>
+
+            <a href="#">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <div class="admin-user">
+
+            <div class="avatar">
+                SA
+            </div>
+
+            <div class="admin-copy">
+                <strong>Super Admin</strong>
+                <span>admin@sadguru.com</span>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MOBILE SIDEBAR OVERLAY -->
+
+    <div
+        class="mobile-overlay"
+        id="mobileOverlay"
+    ></div>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="main-content">
+
+        <!-- MOBILE TOP BAR -->
+
+        <header class="mobile-topbar">
+
+            <button
+                class="icon-btn"
+                id="mobileMenuBtn"
+                type="button"
+                aria-label="Open menu"
+            >
+                ☰
+            </button>
+
+            <strong id="mobileTopId">
+                Booking Details
+            </strong>
+
+            <button
+                class="icon-btn"
+                id="mobileMoreBtn"
+                type="button"
+                aria-label="More actions"
+                aria-expanded="false"
+            >
+                ⋮
+            </button>
+
+        </header>
+
+
+        <div class="page-content">
+
+            <!-- Breadcrumb -->
+
+            <div class="breadcrumb">
+                <span>Home</span>
+                <b>/</b>
+                <span>Bookings</span>
+                <b>/</b>
+                <strong>Booking Details</strong>
+            </div>
+
+
+            <!-- =================================================
+                 PAGE HEADER
+                 ================================================= -->
+
+            <section class="page-head">
+
+                <div class="title-wrap">
+
+                    <div class="eyebrow">
+                        Booking Details
+                    </div>
+
+                    <h1>
+
+                        Booking
+
+                        <span id="bookingId">
+                            —
+                        </span>
+
+                        <span
+                            class="status-badge"
+                            id="statusBadge"
+                        >
+                            NEW BOOKING
+                        </span>
+
+                    </h1>
+
+                    <p>
+                        Booked on
+                        <span id="bookingDate">—</span>,
+                        <span id="bookingTime">—</span>
+                    </p>
+
+                </div>
+
+
+                <!-- DESKTOP ACTIONS -->
+
+                <div class="head-actions">
+
+                    <button
+                        class="btn btn-secondary"
+                        id="backBtn"
+                        type="button"
+                    >
+                        ← Back to Bookings
+                    </button>
+
+                    <button
+                        class="btn btn-primary"
+                        id="downloadBillBtn"
+                        type="button"
+                    >
+                        ⇩ Download Bill
+                    </button>
+
+                    <div class="more-wrap">
+
+                        <button
+                            class="btn btn-secondary"
+                            id="moreBtn"
+                            type="button"
+                            aria-expanded="false"
+                        >
+                            More ⌄
+                        </button>
+
+                    </div>
+                    
+                    <div class="booking-actions">
+
+                    <button
+                     type="button"
+                     id="editBookingBtn"
+                     class="edit-booking-btn">
+                     Edit Booking
+                     </button>
+
+                     </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 MOBILE MORE MENU
+                 ================================================= -->
+
+            <div
+                class="more-menu"
+                id="moreMenu"
+            >
+
+                <button
+                    type="button"
+                    data-more="bill"
+                >
+                    ⇩ Download Bill
+                </button>
+
+                <button
+                    type="button"
+                    data-more="metadata"
+                >
+                    Booking Metadata
+                </button>
+
+                <button
+                    type="button"
+                    data-more="notes"
+                >
+                    Special Instructions
+                </button>
+
+                <button
+                    type="button"
+                    data-more="payment"
+                >
+                    Payment Details
+                </button>
+
+                <button
+                    type="button"
+                    data-more="delivery"
+                >
+                    Delivery Details
+                </button>
+
+            </div>
+
+
+            <!-- MOBILE ROUTE -->
+
+            <div class="mobile-route-head">
+
+                <span class="route-pin">
+                    ⌖
+                </span>
+
+                <strong id="mobileFrom">
+                    —
+                </strong>
+
+                <span>→</span>
+
+                <strong id="mobileTo">
+                    —
+                </strong>
+
+            </div>
+
+
+            <!-- STATUS NOTE -->
+
+            <div
+                id="stateNote"
+                class="state-note"
+            ></div>
+
+
+            <!-- =================================================
+                 CUSTOMER / RECEIVER / ROUTE
+                 ================================================= -->
+
+            <section class="top-grid">
+
+                <article class="card sender-card">
+
+                    <div class="card-title">
+                        <span class="ico">♙</span>
+                        <span>Customer / Sender</span>
+                    </div>
+
+                    <h3 id="senderName">
+                        —
+                    </h3>
+
+                    <a
+                        id="senderPhone"
+                        class="contact-link"
+                        href="#"
+                    >
+                        —
+                    </a>
+
+                    <p id="senderAddress">
+                        —
+                    </p>
+
+                </article>
+
+
+                <article class="card receiver-card">
+
+                    <div class="card-title">
+                        <span class="ico">♙</span>
+                        <span>Receiver</span>
+                    </div>
+
+                    <h3 id="receiverName">
+                        —
+                    </h3>
+
+                    <a
+                        id="receiverPhone"
+                        class="contact-link"
+                        href="#"
+                    >
+                        —
+                    </a>
+
+                    <p id="receiverAddress">
+                        —
+                    </p>
+
+                </article>
+
+
+                <article class="card route-card">
+
+                    <div class="card-title">
+                        <span class="ico green">⌖</span>
+                        <span>Pickup &amp; Delivery</span>
+                    </div>
+
+                    <div class="route">
+
+                        <strong id="fromCity">
+                            —
+                        </strong>
+
+                        <span>→</span>
+
+                        <strong id="toCity">
+                            —
+                        </strong>
+
+                    </div>
+
+                    <div class="address-cols">
+
+                        <div>
+
+                            <label>
+                                Pickup Address
+                            </label>
+
+                            <p id="pickupAddress">
+                                —
+                            </p>
+
+                        </div>
+
+                        <div>
+
+                            <label>
+                                Delivery Address
+                            </label>
+
+                            <p id="deliveryAddress">
+                                —
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- =================================================
+                 DETAILS
+                 ================================================= -->
+
+            <section class="details-grid">
+
+
+                <!-- ================= PARCEL ================= -->
+
+                <article
+                    class="card parcel-card"
+                    id="parcelCard"
+                >
+
+                    <button
+                        type="button"
+                        class="card-title parcel-toggle"
+                        id="parcelToggle"
+                        aria-expanded="true"
+                    >
+
+                        <span class="parcel-title-left">
+
+                            <span class="ico">
+                                ◇
+                            </span>
+
+                            <span>
+                                Parcel Details
+                            </span>
+
+                        </span>
+
+                        <span
+                            class="parcel-arrow"
+                            id="parcelArrow"
+                        >
+                            ›
+                        </span>
+
+                    </button>
+
+
+                    <div
+                        class="parcel-content"
+                        id="parcelContent"
+                    >
+
+                        <dl class="kv">
+
+                            <div>
+                                <dt>Parcel Type</dt>
+                                <dd id="parcelType">—</dd>
+                            </div>
+
+                            <div>
+                                <dt>Pieces</dt>
+                                <dd id="pieces">—</dd>
+                            </div>
+
+                            <div>
+                                <dt>Weight</dt>
+                                <dd id="weight">—</dd>
+                            </div>
+
+                            <div>
+                                <dt>Dimensions</dt>
+                                <dd id="dimensions">—</dd>
+                            </div>
+
+                            <div>
+                                <dt>Declared Value</dt>
+                                <dd id="declaredValue">—</dd>
+                            </div>
+
+                            <div class="instruction-row">
+                                <dt>Special Instructions</dt>
+                                <dd id="instructions">—</dd>
+                            </div>
+
+                        </dl>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ================= PRICING ================= -->
+
+                <article class="card pricing-card">
+
+                    <div class="card-title price-title">
+
+                        <span>
+                            <span class="ico">
+                                ₹
+                            </span>
+                            Pricing
+                        </span>
+ 
+                        <button
+                            class="mini-btn hidden"
+                            id="editPriceBtn"
+                            type="button"
+                        >
+                            ✎ Edit Price
+                        </button>
+
+                    </div>
+
+
+                    <!-- BEFORE PRICE ASSIGNED -->
+
+                    <div
+                        class="assignment-empty"
+                        id="priceEmpty"
+                    >
+                        <strong>
+                            No price assigned yet
+                        </strong>
+
+                        <span>
+                            Assign the booking price to continue.
+                        </span>
+                    </div>
+
+
+                    <!-- AFTER PRICE ASSIGNED -->
+
+                    <div
+                        id="priceAssigned"
+                        class="hidden"
+                    >
+
+                        <dl class="kv price-kv">
+
+                            <div>
+                                <dt>Base Price</dt>
+                                <dd id="basePrice">—</dd>
+                            </div>
+
+                            <div>
+                                <dt>Distance Charge</dt>
+                                <dd id="distanceCharge">—</dd>
+                            </div>
+
+                            <div>
+                                <dt>Handling Charge</dt>
+                                <dd id="handlingCharge">—</dd>
+                            </div>
+
+                            <div>
+                                <dt>GST (18%)</dt>
+                                <dd id="gst">—</dd>
+                            </div>
+
+                        </dl>
+
+
+                        <div class="total-row">
+
+                            <strong>
+                                Total Price
+                            </strong>
+
+                            <strong id="totalPrice">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="btn btn-primary full"
+                        id="assignPriceBtn"
+                        type="button"
+                    >
+                        Assign Price
+                    </button>
+
+                </article>
+
+
+                <!-- ================= DRIVER ================= -->
+
+                <article class="card driver-card">
+
+                    <div class="card-title driver-title">
+
+                        <span>
+                            <span class="ico">
+                                ♙
+                            </span>
+                            Driver Assignment
+                        </span>
+
+                        <button
+                            class="mini-btn hidden"
+                            id="editDriverBtn"
+                            type="button"
+                        >
+                            ✎ Edit Driver
+                        </button>
+
+                    </div>
+
+
+                    <!-- BEFORE DRIVER -->
+
+                    <div
+                        id="driverEmpty"
+                        class="empty-driver"
+                    >
+
+                        <div class="driver-placeholder">
+                            ♙
+                        </div>
+
+                        <strong>
+                            No driver assigned yet
+                        </strong>
+
+                        <span>
+                            Assign a driver to proceed.
+                        </span>
+
+                    </div>
+
+
+                    <!-- AFTER DRIVER -->
+
+                    <div
+                        id="driverAssigned"
+                        class="driver-assigned hidden"
+                    ></div>
+
+
+                    <button
+                        class="btn btn-secondary full"
+                        id="assignDriverBtn"
+                        type="button"
+                    >
+                        ♙ Assign Driver
+                    </button>
+
+                </article>
+
+
+                <!-- ================= PAYMENT ================= -->
+
+                <article class="card payment-card">
+
+                    <div class="card-title">
+
+                        <span>
+                            <span class="ico">
+                                ▣
+                            </span>
+                            Payment Info
+                        </span>
+
+                        <span
+                            class="pill warning"
+                            id="paymentStatus"
+                        >
+                            PENDING
+                        </span>
+
+                    </div>
+
+
+                    <dl class="kv">
+
+                        <div>
+                            <dt>Payment Method</dt>
+                            <dd id="paymentMethod">—</dd>
+                        </div>
+
+                        <div>
+                            <dt>Status</dt>
+                            <dd id="paymentState">Pending</dd>
+                        </div>
+
+                        <div>
+                            <dt>Payment Received</dt>
+                            <dd id="receivedAmount">—</dd>
+                        </div>
+
+                    </dl>
+
+                </article>
+
+
+                <!-- ================= DELIVERY ================= -->
+
+                <article class="card delivery-card">
+
+                    <div class="card-title">
+
+                        <span>
+                            <span class="ico green">
+                                ▱
+                            </span>
+                            Delivery Info
+                        </span>
+
+                    </div>
+
+
+                    <dl class="kv">
+
+                        <div>
+                            <dt>Service Type</dt>
+                            <dd id="serviceType">—</dd>
+                        </div>
+
+                        <div>
+                            <dt>Expected Delivery</dt>
+                            <dd id="expectedDelivery">—</dd>
+                        </div>
+
+                        <div>
+                            <dt>Current Location</dt>
+                            <dd id="currentLocation">—</dd>
+                        </div>
+
+                    </dl>
+
+
+                    <div
+                        id="vehicleInfo"
+                        class="vehicle-info"
+                    ></div>
+
+
+                    <button
+                        class="btn btn-secondary full"
+                        id="podBtn"
+                        type="button"
+                    >
+                        ▧ Proof of Delivery
+                    </button>
+
+
+                    <div
+                        id="podView"
+                        class="pod-view hidden"
+                    ></div>
+
+                </article>
+
+            </section>
+
+
+            <!-- =================================================
+                 TRACKING TIMELINE
+                 ================================================= -->
+
+            <section class="card timeline-card">
+
+                <div class="card-title">
+                    <span>
+                        Tracking Timeline
+                    </span>
+                </div>
+
+                <div
+                    class="timeline"
+                    id="timeline"
+                ></div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     PRICE MODAL
+     ========================================================= -->
+
+<div
+    class="modal-backdrop"
+    id="priceModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+    >
+
+        <div class="modal-head">
+
+            <div>
+                <span class="ico">₹</span>
+                <strong id="priceModalTitle">
+                    Assign Price
+                </strong>
+            </div>
+
+            <button
+                class="close-btn"
+                type="button"
+                data-close="priceModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <p class="modal-sub">
+            Enter charges to calculate the total price.
+        </p>
+
+
+        <div class="form-grid">
+
+            <label>
+                Base Price
+
+                <input
+                    id="priceBase"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    inputmode="decimal"
+                    placeholder="0"
+                >
+            </label>
+
+
+            <label>
+                Distance Charge
+
+                <input
+                    id="priceDistance"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    inputmode="decimal"
+                    placeholder="0"
+                >
+            </label>
+
+
+            <label>
+                Handling Charge
+
+                <input
+                    id="priceHandling"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    inputmode="decimal"
+                    placeholder="0"
+                >
+            </label>
+
+        </div>
+
+
+        <div class="auto-line">
+
+            <span>
+                GST (18%)
+
+                <small>
+                    Auto calculated
+                </small>
+            </span>
+
+            <strong id="priceGST">
+                ₹0
+            </strong>
+
+        </div>
+
+
+        <div class="modal-total">
+
+            <span>
+                Total Price
+            </span>
+
+            <strong id="priceTotal">
+                ₹0
+            </strong>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                class="btn btn-secondary"
+                type="button"
+                data-close="priceModal"
+            >
+                Cancel
+            </button>
+
+            <button
+                class="btn btn-primary"
+                id="savePriceBtn"
+                type="button"
+            >
+                Save Price
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     DRIVER MODAL
+     ========================================================= -->
+
+<div
+    class="modal-backdrop"
+    id="driverModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="modal driver-modal"
+        role="dialog"
+        aria-modal="true"
+    >
+
+        <div class="modal-head">
+
+            <div>
+                <span class="ico">
+                    ♙
+                </span>
+
+                <strong id="driverModalTitle">
+                    Assign Driver
+                </strong>
+            </div>
+
+            <button
+                class="close-btn"
+                type="button"
+                data-close="driverModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <p class="modal-sub">
+            Select an available driver for this booking.
+        </p>
+
+
+        <div class="search-wrap">
+
+            <span>
+                ⌕
+            </span>
+
+            <input
+                id="driverSearch"
+                type="search"
+                placeholder="Search by name or phone..."
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <div
+            id="driverList"
+            class="driver-list"
+        ></div>
+
+
+        <div class="modal-actions">
+
+            <button
+                class="btn btn-secondary"
+                type="button"
+                data-close="driverModal"
+            >
+                Cancel
+            </button>
+
+            <button
+                class="btn btn-primary"
+                id="saveDriverBtn"
+                type="button"
+            >
+                Assign Driver
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     PROOF OF DELIVERY MODAL
+     ========================================================= -->
+
+<div
+    class="modal-backdrop"
+    id="podModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="modal pod-modal"
+        role="dialog"
+        aria-modal="true"
+    >
+
+        <div class="modal-head">
+
+            <div>
+                <span class="ico">
+                    ⇧
+                </span>
+
+                <strong>
+                    Proof of Delivery
+                </strong>
+            </div>
+
+            <button
+                class="close-btn"
+                type="button"
+                data-close="podModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <p class="modal-sub">
+            Upload an image as proof of delivery.
+        </p>
+
+
+        <input
+            id="podInput"
+            type="file"
+            accept="image/jpeg,image/png"
+            hidden
+        >
+
+
+        <div
+            class="drop-zone"
+            id="dropZone"
+            tabindex="0"
+            role="button"
+            aria-label="Upload proof of delivery"
+        >
+
+            <div class="upload-icon">
+                ⇧
+            </div>
+
+            <strong>
+                Click to upload
+            </strong>
+
+            <span>
+                JPG, PNG up to 5MB
+            </span>
+
+        </div>
+
+
+        <div class="preview-heading">
+            Preview
+        </div>
+
+
+        <div
+            id="podPreview"
+            class="pod-preview"
+        ></div>
+
+
+        <div class="modal-actions">
+
+            <button
+                class="btn btn-secondary"
+                type="button"
+                data-close="podModal"
+            >
+                Cancel
+            </button>
+
+            <button
+                class="btn btn-primary"
+                id="uploadPodBtn"
+                type="button"
+                disabled
+            >
+                Upload
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     INFO MODAL
+     ========================================================= -->
+
+<div
+    class="modal-backdrop"
+    id="infoModal"
+    aria-hidden="true"
+>
+
+    <div class="modal info-modal">
+
+        <button
+            class="close-btn info-close"
+            type="button"
+            data-close="infoModal"
+        >
+            ×
+        </button>
+
+        <div class="success-mark">
+            ✓
+        </div>
+
+        <h2 id="infoTitle">
+            Success
+        </h2>
+
+        <p id="infoMessage">
+            —
+        </p>
+
+        <button
+            class="btn btn-primary full"
+            id="infoOkBtn"
+            type="button"
+        >
+            OK
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- Supabase JS library -->
+    <script src="../js/admin-shell.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- SSP Supabase client -->
+<script src="../js/supabase-client.js"></script>
+
+<!-- Admin Booking Details -->
+<script src="../js/bookings-details.js"></script>
+
+</body>
+</html>

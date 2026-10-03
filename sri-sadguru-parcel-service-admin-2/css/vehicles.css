@@ -1,0 +1,1590 @@
+/* =========================================================
+   SRI SADGURU SIDDAROODA PARCEL SERVICE
+   VEHICLES PAGE
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+    overflow-x: hidden;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    width: 250px;
+    height: 100vh;
+
+    background: #111827;
+    color: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        width 0.25s ease,
+        transform 0.25s ease;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   SIDEBAR HEADER
+   ========================================================= */
+
+.sidebar-header {
+    min-height: 82px;
+    padding: 16px 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.brand-logo {
+    width: 46px;
+    height: 46px;
+
+    flex: 0 0 46px;
+
+    border-radius: 10px;
+    overflow: hidden;
+
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.brand-text {
+    min-width: 0;
+    white-space: nowrap;
+}
+
+.brand-text h2 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.brand-text span {
+    display: block;
+    margin-top: 3px;
+
+    color: #9ca3af;
+
+    font-size: 11px;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   SIDEBAR NAVIGATION
+   ========================================================= */
+
+.sidebar-nav {
+    flex: 1;
+
+    padding: 16px 12px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.sidebar-nav::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+}
+
+.nav-item {
+    width: 100%;
+    min-height: 44px;
+
+    margin-bottom: 5px;
+    padding: 0 13px;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    border-radius: 9px;
+
+    color: #cbd5e1;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.nav-item i {
+    width: 20px;
+
+    flex: 0 0 20px;
+
+    text-align: center;
+
+    font-size: 15px;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: #ffffff;
+}
+
+.nav-item.active {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.nav-item.active:hover {
+    background: #2563eb;
+}
+
+
+/* =========================================================
+   COLLAPSED SIDEBAR
+   ========================================================= */
+
+.sidebar.collapsed {
+    width: 76px;
+}
+
+.sidebar.collapsed .brand-text,
+.sidebar.collapsed .nav-item span {
+    display: none;
+}
+
+.sidebar.collapsed .sidebar-header {
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.sidebar.collapsed .nav-item {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sidebar.collapsed .nav-item i {
+    margin: 0;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.main-content {
+    min-height: 100vh;
+    margin-left: 250px;
+
+    transition: margin-left 0.25s ease;
+}
+
+.sidebar.collapsed ~ .main-content {
+    margin-left: 76px;
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+
+    min-height: 78px;
+
+    padding: 14px 28px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.topbar-left,
+.topbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.topbar-left {
+    min-width: 0;
+    gap: 16px;
+}
+
+.topbar-right {
+    flex-shrink: 0;
+    gap: 18px;
+}
+
+
+/* =========================================================
+   MENU TOGGLE
+   ========================================================= */
+
+.menu-toggle {
+    width: 40px;
+    height: 40px;
+
+    flex: 0 0 40px;
+
+    border-radius: 8px;
+
+    background: #f3f4f6;
+    color: #374151;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.menu-toggle:hover {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+
+/* =========================================================
+   PAGE HEADING
+   ========================================================= */
+
+.page-heading {
+    min-width: 0;
+}
+
+.page-heading h1 {
+    color: #111827;
+
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.page-heading p {
+    margin-top: 4px;
+
+    color: #6b7280;
+
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   NOTIFICATION
+   ========================================================= */
+
+.notification-btn {
+    position: relative;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 8px;
+
+    background: transparent;
+    color: #4b5563;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+}
+
+.notification-btn:hover {
+    background: #f3f4f6;
+}
+
+.notification-dot {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    width: 7px;
+    height: 7px;
+
+    border: 1.5px solid #ffffff;
+    border-radius: 50%;
+
+    background: #ef4444;
+}
+
+
+/* =========================================================
+   MINI ADMIN PROFILE
+   ========================================================= */
+
+.admin-profile-mini {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.admin-avatar {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 15px;
+}
+
+.admin-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.admin-info strong {
+    color: #111827;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.admin-info span {
+    color: #6b7280;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   PAGE CONTENT
+   ========================================================= */
+
+.page-content {
+    padding: 26px 28px 36px;
+}
+
+
+/* =========================================================
+   CONTENT HEADER
+   ========================================================= */
+
+.content-header {
+    margin-bottom: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.content-header h2 {
+    color: #111827;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.content-header p {
+    margin-top: 5px;
+
+    color: #6b7280;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   ADD VEHICLE BUTTON
+   ========================================================= */
+
+.add-vehicle-btn {
+    min-height: 40px;
+
+    padding: 0 16px;
+
+    border-radius: 8px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    box-shadow: 0 3px 8px rgba(37, 99, 235, 0.18);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.add-vehicle-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px rgba(37, 99, 235, 0.22);
+}
+
+.add-vehicle-btn:active {
+    transform: translateY(0);
+}
+
+.add-vehicle-btn i {
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SUMMARY GRID
+   ========================================================= */
+
+.summary-grid {
+    display: grid;
+
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================================================
+   SUMMARY CARD
+   ========================================================= */
+
+.summary-card {
+    min-width: 0;
+    min-height: 92px;
+
+    padding: 16px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 11px;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    box-shadow: 0 2px 7px rgba(15, 23, 42, 0.03);
+}
+
+.summary-icon {
+    width: 43px;
+    height: 43px;
+
+    flex: 0 0 43px;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+}
+
+.summary-icon.total {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.summary-icon.available {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+.summary-icon.assigned {
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+.summary-icon.delivery {
+    background: #f5f3ff;
+    color: #7c3aed;
+}
+
+.summary-icon.offline {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+.summary-details {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.summary-label {
+    color: #6b7280;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+.summary-details strong {
+    color: #111827;
+
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+
+/* =========================================================
+   VEHICLES CARD
+   ========================================================= */
+
+.vehicles-card {
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 11px;
+
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   TABLE TOOLBAR
+   ========================================================= */
+
+.table-toolbar {
+    min-height: 72px;
+
+    padding: 15px 18px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 14px;
+}
+
+.toolbar-left,
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toolbar-left {
+    min-width: 0;
+}
+
+
+/* =========================================================
+   SEARCH BOX
+   ========================================================= */
+
+.search-box {
+    position: relative;
+
+    width: 275px;
+}
+
+.search-box > i {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+
+    transform: translateY(-50%);
+
+    color: #9ca3af;
+
+    font-size: 13px;
+
+    pointer-events: none;
+}
+
+.search-box input {
+    width: 100%;
+    height: 38px;
+
+    padding: 0 12px 0 34px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #ffffff;
+    color: #111827;
+
+    font-size: 12px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.search-box input::placeholder {
+    color: #9ca3af;
+}
+
+.search-box input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.09);
+}
+
+
+/* =========================================================
+   FILTER BOX
+   ========================================================= */
+
+.filter-box select {
+    height: 38px;
+
+    min-width: 130px;
+
+    padding: 0 30px 0 11px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    outline: none;
+
+    background: #ffffff;
+    color: #374151;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.filter-box select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.09);
+}
+
+
+/* =========================================================
+   REFRESH BUTTON
+   ========================================================= */
+
+.refresh-btn {
+    height: 38px;
+
+    padding: 0 13px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    background: #ffffff;
+    color: #374151;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.refresh-btn:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+}
+
+.refresh-btn i {
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+   ========================================================= */
+
+.table-wrapper {
+    width: 100%;
+}
+
+
+/* =========================================================
+   VEHICLES TABLE
+   ========================================================= */
+
+.vehicles-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    table-layout: fixed;
+}
+
+.vehicles-table thead {
+    background: #f8fafc;
+}
+
+.vehicles-table th {
+    height: 48px;
+
+    padding: 0 13px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    color: #6b7280;
+
+    text-align: left;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.vehicles-table td {
+    height: 70px;
+
+    padding: 9px 13px;
+
+    border-bottom: 1px solid #eef0f3;
+
+    color: #374151;
+
+    font-size: 11px;
+
+    vertical-align: middle;
+
+    overflow: hidden;
+}
+
+.vehicles-table tbody tr {
+    transition: background 0.15s ease;
+}
+
+.vehicles-table tbody tr:hover {
+    background: #fafcff;
+}
+
+.vehicles-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+
+/* =========================================================
+   COLUMN WIDTHS
+   ========================================================= */
+
+.vehicles-table th:nth-child(1),
+.vehicles-table td:nth-child(1) {
+    width: 18%;
+}
+
+.vehicles-table th:nth-child(2),
+.vehicles-table td:nth-child(2) {
+    width: 15%;
+}
+
+.vehicles-table th:nth-child(3),
+.vehicles-table td:nth-child(3) {
+    width: 14%;
+}
+
+.vehicles-table th:nth-child(4),
+.vehicles-table td:nth-child(4) {
+    width: 17%;
+}
+
+.vehicles-table th:nth-child(5),
+.vehicles-table td:nth-child(5) {
+    width: 11%;
+}
+
+.vehicles-table th:nth-child(6),
+.vehicles-table td:nth-child(6) {
+    width: 16%;
+}
+
+.vehicles-table th:nth-child(7),
+.vehicles-table td:nth-child(7) {
+    width: 9%;
+}
+
+
+/* =========================================================
+   VEHICLE CELL
+   ========================================================= */
+
+.vehicle-cell {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.vehicle-icon {
+    width: 37px;
+    height: 37px;
+
+    flex: 0 0 37px;
+
+    border-radius: 9px;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 15px;
+}
+
+.vehicle-main {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.vehicle-id {
+    color: #111827;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.vehicle-label {
+    color: #9ca3af;
+
+    font-size: 9px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   VEHICLE NUMBER
+   ========================================================= */
+
+.vehicle-number {
+    color: #374151;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   VEHICLE TYPE
+   ========================================================= */
+
+.vehicle-type {
+    color: #4b5563;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   ASSIGNED DRIVER
+   ========================================================= */
+
+.driver-cell {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.driver-avatar {
+    width: 30px;
+    height: 30px;
+
+    flex: 0 0 30px;
+
+    border-radius: 50%;
+
+    background: #f3f4f6;
+    color: #4b5563;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    overflow: hidden;
+}
+
+.driver-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.driver-name {
+    min-width: 0;
+
+    color: #374151;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.no-driver {
+    color: #9ca3af;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   STATUS BADGE
+   ========================================================= */
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    min-height: 25px;
+
+    padding: 0 9px;
+
+    border-radius: 999px;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.status-badge::before {
+    content: "";
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: currentColor;
+}
+
+.status-available {
+    background: #ecfdf5;
+    color: #047857;
+}
+
+.status-assigned {
+    background: #fff7ed;
+    color: #c2410c;
+}
+
+.status-delivery {
+    background: #f5f3ff;
+    color: #6d28d9;
+}
+
+.status-offline {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+
+/* =========================================================
+   CURRENT LOCATION
+   ========================================================= */
+
+.location-cell {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.location-cell i {
+    color: #9ca3af;
+
+    font-size: 11px;
+}
+
+.location-text {
+    min-width: 0;
+
+    color: #4b5563;
+
+    font-size: 10px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   ACTION BUTTON
+   ========================================================= */
+
+.vehicle-action-btn {
+    width: 32px;
+    height: 32px;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 7px;
+
+    background: #ffffff;
+    color: #4b5563;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.vehicle-action-btn:hover {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+    color: #2563eb;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state {
+    min-height: 280px;
+
+    padding: 40px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.empty-icon {
+    width: 56px;
+    height: 56px;
+
+    margin-bottom: 14px;
+
+    border-radius: 14px;
+
+    background: #f3f4f6;
+    color: #9ca3af;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+.empty-state h3 {
+    color: #374151;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.empty-state p {
+    margin-top: 5px;
+
+    color: #9ca3af;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   TABLE FOOTER
+   ========================================================= */
+
+.table-footer {
+    min-height: 48px;
+
+    padding: 0 18px;
+
+    border-top: 1px solid #e5e7eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.table-result-info {
+    color: #6b7280;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   LAPTOP / SMALL DESKTOP
+   ========================================================= */
+
+@media (max-width: 1250px) {
+
+    .sidebar {
+        width: 230px;
+    }
+
+    .main-content {
+        margin-left: 230px;
+    }
+
+    .sidebar.collapsed ~ .main-content {
+        margin-left: 76px;
+    }
+
+    .page-content {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .topbar {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .summary-grid {
+        gap: 10px;
+    }
+
+    .summary-card {
+        padding: 13px;
+    }
+
+    .summary-icon {
+        width: 38px;
+        height: 38px;
+        flex-basis: 38px;
+        font-size: 15px;
+    }
+
+    .summary-details strong {
+        font-size: 19px;
+    }
+
+    .search-box {
+        width: 230px;
+    }
+
+    .vehicles-table th,
+    .vehicles-table td {
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .summary-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .table-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .toolbar-left {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .toolbar-right {
+        justify-content: flex-end;
+    }
+
+    .search-box {
+        flex: 1 1 220px;
+        width: auto;
+    }
+
+    .vehicles-table {
+        min-width: 900px;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+
+    .table-wrapper::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .table-wrapper::-webkit-scrollbar-thumb {
+        background: #d1d5db;
+        border-radius: 10px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE SIDEBAR
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: 250px;
+
+        transform: translateX(-100%);
+
+        box-shadow: 8px 0 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .sidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+    .sidebar.collapsed {
+        width: 250px;
+    }
+
+    .sidebar.collapsed .brand-text,
+    .sidebar.collapsed .nav-item span {
+        display: block;
+    }
+
+    .sidebar.collapsed .sidebar-header {
+        justify-content: flex-start;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .sidebar.collapsed .nav-item {
+        justify-content: flex-start;
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+
+    .main-content,
+    .sidebar.collapsed ~ .main-content {
+        margin-left: 0;
+    }
+
+    .topbar {
+        min-height: 68px;
+
+        padding: 12px 16px;
+    }
+
+    .topbar-right {
+        gap: 5px;
+    }
+
+    .admin-info {
+        display: none;
+    }
+
+    .page-heading h1 {
+        font-size: 19px;
+    }
+
+    .page-heading p {
+        display: none;
+    }
+
+    .page-content {
+        padding: 20px 16px 28px;
+    }
+
+    .content-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .add-vehicle-btn {
+        width: 100%;
+    }
+
+    .summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .summary-card {
+        min-height: 82px;
+    }
+
+    .table-toolbar {
+        padding: 14px;
+    }
+
+    .toolbar-left {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .search-box {
+        width: 100%;
+        grid-column: 1 / -1;
+    }
+
+    .filter-box,
+    .filter-box select {
+        width: 100%;
+    }
+
+    .refresh-btn {
+        width: 100%;
+    }
+
+    .toolbar-right {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .topbar {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .topbar-left {
+        gap: 10px;
+    }
+
+    .menu-toggle {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+    }
+
+    .page-heading h1 {
+        font-size: 18px;
+    }
+
+    .notification-btn {
+        width: 34px;
+        height: 34px;
+    }
+
+    .admin-avatar {
+        width: 34px;
+        height: 34px;
+    }
+
+    .page-content {
+        padding: 18px 12px 24px;
+    }
+
+    .content-header h2 {
+        font-size: 16px;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+    }
+
+    .summary-card {
+        padding: 11px;
+        gap: 9px;
+    }
+
+    .summary-icon {
+        width: 34px;
+        height: 34px;
+        flex-basis: 34px;
+        border-radius: 8px;
+        font-size: 13px;
+    }
+
+    .summary-label {
+        font-size: 9px;
+    }
+
+    .summary-details strong {
+        font-size: 17px;
+    }
+
+    .vehicles-card {
+        border-radius: 9px;
+    }
+
+    .toolbar-left {
+        grid-template-columns: 1fr;
+    }
+
+    .search-box {
+        grid-column: auto;
+    }
+
+    .table-toolbar {
+        gap: 10px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

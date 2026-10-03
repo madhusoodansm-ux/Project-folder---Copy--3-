@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="description"
+        content="Customer Login - Sri Sadguru Siddarooda Parcel Service"
+    >
+
+    <meta
+        name="theme-color"
+        content="#073f5d"
+    >
+
+    <title>
+        Customer Login | Sri Sadguru Siddarooda Parcel Service
+    </title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+    <main class="page">
+
+        <section class="login-card">
+
+            <!-- =================================================
+                 BRAND / INFORMATION SECTION
+            ================================================== -->
+
+            <section class="brand-section">
+
+                <div class="brand-content">
+
+                    <div class="logo-container">
+
+                        <img
+                            src="images/logo.png"
+                            alt="Sri Sadguru Siddarooda Parcel Service Logo"
+                            class="company-logo"
+                        >
+
+                    </div>
+
+
+                    <h1 class="company-name">
+
+                        Sri Sadguru
+
+                        <span>Siddarooda</span>
+
+                        Parcel Service
+
+                    </h1>
+
+
+                    <p class="tagline">
+
+                        Your Products, Our Responsibility
+                        &amp; Quick Transportation
+
+                    </p>
+
+
+                    <p class="tracking-text">
+
+                        Continuous goods tracking from
+                        your shipment to delivery.
+
+                    </p>
+
+
+                    <div class="service-features">
+
+                        <div class="feature">
+
+                            <span class="feature-icon">✓</span>
+
+                            <span>
+                                Safe &amp; Secure Transportation
+                            </span>
+
+                        </div>
+
+
+                        <div class="feature">
+
+                            <span class="feature-icon">✓</span>
+
+                            <span>
+                                Continuous Parcel Tracking
+                            </span>
+
+                        </div>
+
+
+                        <div class="feature">
+
+                            <span class="feature-icon">✓</span>
+
+                            <span>
+                                Reliable Delivery Service
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 LOGIN SECTION
+            ================================================== -->
+
+            <section class="login-section">
+
+                <div class="login-content">
+
+                    <!-- LOGIN HEADER -->
+
+                    <header class="login-header">
+
+                        <p class="welcome-text">
+                            Welcome back
+                        </p>
+
+                        <h2>
+                            Customer Login
+                        </h2>
+
+                        <p class="login-description">
+                            Login to manage your parcels,
+                            shipments and deliveries.
+                        </p>
+
+                    </header>
+
+
+                    <!-- =================================================
+                         IMPORTANT:
+                         OPENING LOGIN FORM
+                    ================================================== -->
+
+                    <form
+                        id="loginForm"
+                        novalidate
+                    >
+
+
+                        <!-- =================================================
+                             LOGIN IDENTIFIER
+                        ================================================== -->
+
+                        <div class="form-group">
+
+                            <label
+                                for="loginIdentifier"
+                                id="identifierLabel"
+                            >
+                                Phone Number or Gmail
+                            </label>
+
+
+                            <div class="input-wrapper">
+
+                                <span
+                                    class="input-icon"
+                                    id="identifierIcon"
+                                >
+                                    👤
+                                </span>
+
+
+                                <input
+                                    type="text"
+                                    id="loginIdentifier"
+                                    name="loginIdentifier"
+                                    placeholder="Enter your phone number or Gmail"
+                                    autocomplete="username"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <small
+                                class="input-help"
+                                id="identifierHelp"
+                            >
+                                Enter your registered phone number or Gmail.
+                            </small>
+
+
+                            <p
+                                class="error-message"
+                                id="identifierError"
+                            ></p>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             PASSWORD
+                        ================================================== -->
+
+                        <div class="form-group">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+
+                            <div class="input-wrapper password-wrapper">
+
+                                <span class="input-icon">
+                                    🔒
+                                </span>
+
+
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    placeholder="Enter your password"
+                                    autocomplete="current-password"
+                                    minlength="12"
+                                    required
+                                >
+
+
+                                <button
+                                    type="button"
+                                    class="password-toggle"
+                                    id="passwordToggle"
+                                    aria-label="Show password"
+                                    aria-pressed="false"
+                                >
+                                    Show
+                                </button>
+
+                            </div>
+
+
+                            <p
+                                class="error-message"
+                                id="passwordError"
+                            ></p>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             OPTIONS
+                        ================================================== -->
+
+                        <div class="form-options">
+
+                            <label class="remember-option">
+
+                                <input
+                                    type="checkbox"
+                                    id="rememberMe"
+                                    name="rememberMe"
+                                >
+
+                                <span>
+                                    Remember me
+                                </span>
+
+                            </label>
+
+
+                            <button
+                                type="button"
+                                class="forgot-button"
+                                id="forgotPassword"
+                            >
+                                Forgot Password?
+                            </button>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             LOGIN BUTTON
+                        ================================================== -->
+
+                        <button
+                            type="submit"
+                            class="login-button"
+                            id="loginButton"
+                        >
+
+                            <span id="loginButtonText">
+                                Login
+                            </span>
+
+
+                            <span
+                                class="button-loader"
+                                id="buttonLoader"
+                            ></span>
+
+                        </button>
+
+
+                        <!-- GENERAL MESSAGE -->
+
+                        <div
+                            class="form-message"
+                            id="formMessage"
+                            role="alert"
+                            aria-live="polite"
+                        ></div>
+
+
+                    </form>
+
+
+                    <!-- =================================================
+                         CREATE ACCOUNT
+                    ================================================== -->
+
+                    <div class="create-account-section">
+
+                        <p>
+
+                            New customer?
+
+                            <a
+                                href="customer/register.html"
+                                class="create-account-link"
+                            >
+                                create an account
+                            </a>
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         HELP
+                    ================================================== -->
+
+                    <div class="divider">
+
+                        <span></span>
+
+                        <p>
+                            Need assistance?
+                        </p>
+
+                        <span></span>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="help-button"
+                        id="helpButton"
+                    >
+
+                        <span class="question-icon">
+                            ?
+                        </span>
+
+                        <span>
+                            Need Help?
+                        </span>
+
+                    </button>
+
+
+                    <!-- =================================================
+                         SECURITY
+                    ================================================== -->
+
+                    <p class="security-message">
+
+                        🔒 Your information is protected.
+
+                        <br>
+
+                        Never share your password or OTP with anyone.
+
+                    </p>
+
+
+                    <!-- =================================================
+                         FOOTER
+                    ================================================== -->
+
+                    <footer class="login-footer">
+
+                        <p>
+
+                            ©
+
+                            <span id="currentYear"></span>
+
+                            Sri Sadguru Siddarooda Parcel Service
+
+                        </p>
+
+                    </footer>
+
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- =================================================
+         SUPABASE
+    ================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase-client.js"></script>
+
+    <script src="js/auth.js"></script>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

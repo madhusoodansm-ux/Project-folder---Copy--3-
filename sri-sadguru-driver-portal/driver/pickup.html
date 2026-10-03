@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pickup | Sri Sadguru Siddaroooda Parcel Service</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Pickup CSS -->
+    <link
+        rel="stylesheet"
+        href="../css/pickup.css"
+    >
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =====================================================
+         SIDEBAR OVERLAY
+    ====================================================== -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="sidebar-header">
+
+            <img
+                src="../images/logo.png"
+                alt="Sri Sadguru Siddaroooda"
+                class="sidebar-logo"
+            >
+
+            <div class="sidebar-title">
+                SRI SADGURU<br>
+                <span>SIDDAROOODA</span><br>
+                PARCEL SERVICE
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="shipments.html">
+                <i class="fa-solid fa-box"></i>
+                <span>Shipments</span>
+            </a>
+
+            <a
+                href="pickup.html"
+                class="active"
+            >
+                <i class="fa-solid fa-truck-pickup"></i>
+                <span>Pickup</span>
+            </a>
+
+            <a href="deliveries.html">
+                <i class="fa-solid fa-truck"></i>
+                <span>Deliveries</span>
+            </a>
+
+            <a href="profile.html">
+                <i class="fa-solid fa-user"></i>
+                <span>Profile</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-logout">
+
+            <button id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN WRAPPER
+    ====================================================== -->
+
+    <div class="main-wrapper">
+
+
+        <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    class="menu-btn"
+                    id="menuBtn"
+                    aria-label="Open menu"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <img
+                    src="../images/logo.png"
+                    alt="Logo"
+                    class="header-logo"
+                >
+
+                <div class="page-heading">
+
+                    <div class="page-title">
+                        Pickup
+                    </div>
+
+                    <div class="page-subtitle">
+                        Manage your pickup tasks
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button
+                    class="notification-btn"
+                    aria-label="Notifications"
+                >
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-count">0</span>
+                </button>
+
+                <img
+                    src="../images/logo.png"
+                    alt="Driver"
+                    class="driver-avatar"
+                >
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
+        <main class="main">
+
+            <div class="content">
+
+
+                <!-- =========================================
+                     FILTERS
+                ========================================== -->
+
+                <section class="filter-panel">
+
+                    <div class="filter-heading">
+
+                        <h2>Filters</h2>
+
+                        <button
+                            class="filter-icon"
+                            aria-label="Filters"
+                        >
+                            <i class="fa-solid fa-filter"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="filter-buttons">
+
+                        <button
+                            class="filter-btn active"
+                            data-filter="all"
+                        >
+                            <i class="fa-solid fa-layer-group"></i>
+                            All
+                            <span id="allCount">0</span>
+                        </button>
+
+
+                        <button
+                            class="filter-btn pending"
+                            data-filter="pending"
+                        >
+                            <i class="fa-regular fa-clock"></i>
+                            Pending
+                            <span id="pendingCount">0</span>
+                        </button>
+
+
+                        <button
+                            class="filter-btn started"
+                            data-filter="started"
+                        >
+                            <i class="fa-solid fa-location-arrow"></i>
+                            Started
+                            <span id="startedCount">0</span>
+                        </button>
+
+
+                        <button
+                            class="filter-btn picked"
+                            data-filter="picked"
+                        >
+                            <i class="fa-solid fa-circle-check"></i>
+                            Picked Up
+                            <span id="pickedCount">0</span>
+                        </button>
+
+                    </div>
+
+
+                    <!-- Search and sort -->
+
+                    <div class="tools-row">
+
+                        <div class="search-box">
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                            <input
+                                type="search"
+                                id="searchInput"
+                                placeholder="Search by ID, customer, location..."
+                                autocomplete="off"
+                            >
+
+                        </div>
+
+
+                        <select
+                            class="sort-select"
+                            id="sortSelect"
+                        >
+
+                            <option value="latest">
+                                Sort: Latest
+                            </option>
+
+                            <option value="oldest">
+                                Sort: Oldest
+                            </option>
+
+                            <option value="customer">
+                                Customer
+                            </option>
+
+                            <option value="pickup">
+                                Pickup Time
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =========================================
+                     BOOKINGS
+                ========================================== -->
+
+                <section
+                    class="booking-list"
+                    id="bookingList"
+                >
+
+                    <div class="loading">
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        Loading pickup bookings...
+                    </div>
+
+                </section>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         BOTTOM NAVIGATION
+    ====================================================== -->
+
+    <nav class="bottom-nav">
+
+        <a href="dashboard.html">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>Dashboard</span>
+
+        </a>
+
+
+        <a href="shipments.html">
+
+            <i class="fa-solid fa-box"></i>
+
+            <span>Shipments</span>
+
+        </a>
+
+
+        <a
+            href="pickup.html"
+            class="active"
+        >
+
+            <i class="fa-solid fa-truck-pickup"></i>
+
+            <span>Pickup</span>
+
+        </a>
+
+
+        <a href="deliveries.html">
+
+            <i class="fa-solid fa-truck"></i>
+
+            <span>Deliveries</span>
+
+        </a>
+
+
+        <a href="profile.html">
+
+            <i class="fa-solid fa-user"></i>
+
+            <span>Profile</span>
+
+        </a>
+
+    </nav>
+
+</div>
+
+
+<!-- =====================================================
+     SUPABASE
+====================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../js/supabase-client.js"></script>
+
+<script src="../js/auth.js"></script>
+
+<!-- Pickup JavaScript -->
+<script src="../js/pickup.js"></script>
+
+</body>
+</html>
