@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Booking details - SSP Driver Portal"
+    >
+
+    <title>
+        Booking Details - SSP Driver Portal
+    </title>
+
+
+    <!-- =====================================================
+         POPPINS
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- =====================================================
+         BOOKING DETAILS CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/booking-details.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SIDEBAR OVERLAY
+===================================================== -->
+
+<div
+    class="sidebar-overlay hidden"
+    id="sidebarOverlay"
+></div>
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside
+    class="sidebar"
+    id="sidebar"
+>
+
+    <div class="sidebar-header">
+
+        <button
+            type="button"
+            class="sidebar-close"
+            id="sidebarClose"
+            aria-label="Close menu"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+
+        <div class="sidebar-logo">
+
+            <i class="fa-solid fa-truck-fast"></i>
+
+        </div>
+
+
+        <h2>
+            SRI SADGURU
+        </h2>
+
+
+        <p>
+            SIDDHAROODA<br>
+            PARCEL SERVICE
+        </p>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <a href="dashboard.html">
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+        </a>
+
+
+        <a href="shipments.html">
+            <i class="fa-solid fa-box"></i>
+            <span>Shipments</span>
+        </a>
+
+
+        <a href="pickup.html">
+            <i class="fa-solid fa-truck-pickup"></i>
+            <span>Pickup</span>
+        </a>
+
+
+        <a href="deliveries.html">
+            <i class="fa-solid fa-truck"></i>
+            <span>Deliveries</span>
+        </a>
+
+
+        <a href="profile.html">
+            <i class="fa-solid fa-user"></i>
+            <span>Profile</span>
+        </a>
+
+    </nav>
+
+
+    <button
+        type="button"
+        class="sidebar-logout"
+        id="sidebarLogout"
+    >
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        <span>
+            Logout
+        </span>
+
+    </button>
+
+</aside>
+
+
+<!-- =====================================================
+     APPLICATION
+===================================================== -->
+
+<main class="app">
+
+
+    <!-- =================================================
+         TOPBAR
+    ================================================== -->
+
+    <header class="topbar">
+
+        <button
+            type="button"
+            class="menu-button"
+            id="menuButton"
+            aria-label="Open menu"
+        >
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+
+        <div class="header-title">
+
+            <div class="header-logo">
+
+                <i class="fa-solid fa-file-lines"></i>
+
+            </div>
+
+
+            <div>
+
+                <h1>
+                    Booking Details
+                </h1>
+
+                <p>
+                    Complete shipment information
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="refresh-button"
+            id="refreshButton"
+            title="Refresh booking"
+            aria-label="Refresh booking"
+        >
+
+            <i class="fa-solid fa-rotate"></i>
+
+        </button>
+
+    </header>
+
+
+    <!-- =================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <section class="page-content">
+
+
+        <!-- =================================================
+             LOADING
+        ================================================== -->
+
+        <div
+            class="page-state"
+            id="loadingState"
+        >
+
+            <div class="loading-spinner"></div>
+
+            <h3>
+                Loading booking...
+            </h3>
+
+            <p>
+                Please wait while the booking details are loaded.
+            </p>
+
+        </div>
+
+
+        <!-- =================================================
+             ERROR
+        ================================================== -->
+
+        <div
+            class="page-state error-state hidden"
+            id="errorState"
+        >
+
+            <div class="state-icon error-icon">
+
+                <i class="fa-solid fa-circle-exclamation"></i>
+
+            </div>
+
+            <h3 id="errorTitle">
+                Unable to load booking
+            </h3>
+
+            <p id="errorMessage">
+                Booking information could not be loaded.
+            </p>
+
+
+            <button
+                type="button"
+                class="primary-button"
+                id="retryButton"
+            >
+
+                <i class="fa-solid fa-rotate-right"></i>
+
+                Try Again
+
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             BOOKING CONTENT
+        ================================================== -->
+
+        <div
+            id="bookingContent"
+            class="booking-content hidden"
+        >
+
+
+            <!-- =================================================
+                 BACK BUTTON
+            ================================================== -->
+
+            <button
+                type="button"
+                class="back-button"
+                id="backButton"
+            >
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                <span>
+                    Back
+                </span>
+
+            </button>
+
+
+            <!-- =================================================
+                 BOOKING HEADER CARD
+            ================================================== -->
+
+            <section class="booking-header-card">
+
+                <div class="booking-header-left">
+
+                    <div class="booking-icon">
+
+                        <i class="fa-solid fa-box"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="section-eyebrow">
+                            BOOKING
+                        </span>
+
+                        <h2 id="bookingId">
+                            —
+                        </h2>
+
+                        <p id="bookingCreated">
+                            —
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="status-badge"
+                    id="bookingStatus"
+                >
+                    —
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 BOOKING INFORMATION
+            ================================================== -->
+
+            <section class="detail-card">
+
+                <div class="card-heading">
+
+                    <div class="card-heading-icon">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Booking Information
+                        </h3>
+
+                        <p>
+                            Basic shipment information
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail-grid">
+
+                    <div class="detail-item">
+
+                        <span>
+                            Booking ID
+                        </span>
+
+                        <strong id="infoBookingId">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Booking Date
+                        </span>
+
+                        <strong id="bookingDate">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Booking Time
+                        </span>
+
+                        <strong id="bookingTime">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Service Type
+                        </span>
+
+                        <strong id="serviceType">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Current Status
+                        </span>
+
+                        <strong id="infoStatus">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Driver ID
+                        </span>
+
+                        <strong id="driverId">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PICKUP / CUSTOMER
+            ================================================== -->
+
+            <section class="detail-card">
+
+                <div class="card-heading">
+
+                    <div class="card-heading-icon pickup-icon">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Pickup / Customer
+                        </h3>
+
+                        <p>
+                            Parcel collection information
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="person-card">
+
+                    <div class="person-avatar pickup-avatar">
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </div>
+
+
+                    <div class="person-main">
+
+                        <strong id="pickupName">
+                            —
+                        </strong>
+
+                        <span id="pickupPhone">
+                            —
+                        </span>
+
+                    </div>
+
+
+                    <a
+                        href="#"
+                        class="call-button"
+                        id="callPickupButton"
+                    >
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        <span>
+                            Call
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+                <div class="address-box">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <div>
+
+                        <strong>
+                            Pickup Address
+                        </strong>
+
+                        <p id="pickupAddress">
+                            —
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="schedule-row">
+
+                    <div class="schedule-item">
+
+                        <i class="fa-solid fa-calendar"></i>
+
+                        <div>
+
+                            <span>
+                                Pickup Schedule
+                            </span>
+
+                            <strong id="pickupSchedule">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="schedule-item">
+
+                        <i class="fa-solid fa-clock"></i>
+
+                        <div>
+
+                            <span>
+                                Pickup Status
+                            </span>
+
+                            <strong id="pickupStatus">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RECEIVER / DELIVERY
+            ================================================== -->
+
+            <section class="detail-card">
+
+                <div class="card-heading">
+
+                    <div class="card-heading-icon delivery-icon">
+
+                        <i class="fa-solid fa-location-crosshairs"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Receiver / Delivery
+                        </h3>
+
+                        <p>
+                            Delivery destination information
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="person-card">
+
+                    <div class="person-avatar delivery-avatar">
+
+                        <i class="fa-solid fa-user"></i>
+
+                    </div>
+
+
+                    <div class="person-main">
+
+                        <strong id="receiverName">
+                            —
+                        </strong>
+
+                        <span id="receiverPhone">
+                            —
+                        </span>
+
+                    </div>
+
+
+                    <a
+                        href="#"
+                        class="call-button"
+                        id="callReceiverButton"
+                    >
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        <span>
+                            Call
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+                <div class="address-box">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <div>
+
+                        <strong>
+                            Delivery Address
+                        </strong>
+
+                        <p id="deliveryAddress">
+                            —
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="address-extra">
+
+                    <div>
+
+                        <span>
+                            Landmark
+                        </span>
+
+                        <strong id="deliveryLandmark">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            City
+                        </span>
+
+                        <strong id="deliveryCity">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            District
+                        </span>
+
+                        <strong id="deliveryDistrict">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            State
+                        </span>
+
+                        <strong id="deliveryState">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Pincode
+                        </span>
+
+                        <strong id="deliveryPincode">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="schedule-row">
+
+                    <div class="schedule-item">
+
+                        <i class="fa-solid fa-calendar-check"></i>
+
+                        <div>
+
+                            <span>
+                                Delivery Schedule
+                            </span>
+
+                            <strong id="deliverySchedule">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="schedule-item">
+
+                        <i class="fa-solid fa-truck"></i>
+
+                        <div>
+
+                            <span>
+                                Delivery Status
+                            </span>
+
+                            <strong id="deliveryStatus">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PARCEL INFORMATION
+            ================================================== -->
+
+            <section class="detail-card">
+
+                <div class="card-heading">
+
+                    <div class="card-heading-icon">
+
+                        <i class="fa-solid fa-box-open"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Parcel Information
+                        </h3>
+
+                        <p>
+                            Package details
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail-grid">
+
+                    <div class="detail-item">
+
+                        <span>
+                            Parcel Name
+                        </span>
+
+                        <strong id="parcelName">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Parcel Type
+                        </span>
+
+                        <strong id="parcelType">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Pieces
+                        </span>
+
+                        <strong id="pieces">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item">
+
+                        <span>
+                            Weight
+                        </span>
+
+                        <strong id="parcelWeight">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item full-width">
+
+                        <span>
+                            Description
+                        </span>
+
+                        <strong id="parcelDescription">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="detail-item full-width">
+
+                        <span>
+                            Dimensions
+                        </span>
+
+                        <strong id="dimensions">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PAYMENT DETAILS
+            ================================================== -->
+
+            <section class="detail-card payment-card">
+
+                <div class="card-heading">
+
+                    <div class="card-heading-icon payment-icon">
+
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Complete Payment Details
+                        </h3>
+
+                        <p>
+                            Current payment and collection information
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="payment-status-badge"
+                        id="paymentStatus"
+                    >
+                        —
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENT BREAKDOWN -->
+
+                <div class="payment-breakdown">
+
+                    <div class="payment-row">
+
+                        <span>
+                            Base Price
+                        </span>
+
+                        <strong id="basePrice">
+                            ₹0.00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="payment-row">
+
+                        <span>
+                            Distance Charge
+                        </span>
+
+                        <strong id="distanceCharge">
+                            ₹0.00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="payment-row">
+
+                        <span>
+                            Handling Charge
+                        </span>
+
+                        <strong id="handlingCharge">
+                            ₹0.00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="payment-row">
+
+                        <span>
+                            GST
+                        </span>
+
+                        <strong id="gstAmount">
+                            ₹0.00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="payment-row">
+
+                        <span>
+                            Service Charge
+                        </span>
+
+                        <strong id="serviceCharge">
+                            ₹0.00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="payment-divider"></div>
+
+
+                    <div class="payment-row total-row">
+
+                        <span>
+                            Total Amount
+                        </span>
+
+                        <strong id="totalAmount">
+                            ₹0.00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="payment-row received-row">
+
+                        <span>
+                            Amount Received
+                        </span>
+
+                        <strong id="receivedAmount">
+                            ₹0.00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="payment-row balance-row">
+
+                        <span>
+                            Balance / Amount Due
+                        </span>
+
+                        <strong id="balanceAmount">
+                            ₹0.00
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENT META -->
+
+                <div class="payment-meta">
+
+                    <div class="payment-meta-item">
+
+                        <span>
+                            Payment Method
+                        </span>
+
+                        <strong id="paymentMethod">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="payment-meta-item">
+
+                        <span>
+                            Payment Status
+                        </span>
+
+                        <strong id="paymentStatusText">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="payment-meta-item">
+
+                        <span>
+                            Collection Status
+                        </span>
+
+                        <strong id="collectionStatus">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="payment-live-note"
+                    id="paymentLiveNote"
+                >
+
+                    <i class="fa-solid fa-rotate"></i>
+
+                    Payment information is synchronized with Supabase.
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 BOOKING TIMELINE
+            ================================================== -->
+
+            <section class="detail-card">
+
+                <div class="card-heading">
+
+                    <div class="card-heading-icon">
+
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Booking Timeline
+                        </h3>
+
+                        <p>
+                            Status history for this booking
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="timeline"
+                    id="timeline"
+                >
+
+                    <div class="timeline-loading">
+
+                        Loading timeline...
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PROOF OF DELIVERY
+            ================================================== -->
+
+            <section class="detail-card">
+
+                <div class="card-heading">
+
+                    <div class="card-heading-icon">
+
+                        <i class="fa-solid fa-file-shield"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Proof of Delivery
+                        </h3>
+
+                        <p>
+                            Delivery proof information
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="pod-section"
+                    id="podSection"
+                >
+
+                    <div class="pod-icon">
+
+                        <i class="fa-solid fa-camera"></i>
+
+                    </div>
+
+
+                    <div class="pod-content">
+
+                        <strong id="podTitle">
+                            No proof of delivery uploaded
+                        </strong>
+
+                        <span id="podDetails">
+                            Proof of delivery will appear here after upload.
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="secondary-button hidden"
+                        id="viewPodButton"
+                    >
+
+                        <i class="fa-solid fa-eye"></i>
+
+                        View
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 NOTES
+            ================================================== -->
+
+            <section class="detail-card">
+
+                <div class="card-heading">
+
+                    <div class="card-heading-icon">
+
+                        <i class="fa-solid fa-note-sticky"></i>
+
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Notes
+                        </h3>
+
+                        <p>
+                            Booking notes and instructions
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="notes-box">
+
+                    <p id="adminNotes">
+                        No notes available.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 ACTIONS
+            ================================================== -->
+
+            <section class="action-section">
+
+                <button
+                    type="button"
+                    class="secondary-button large-button"
+                    id="backActionButton"
+                >
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    Back
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="primary-button large-button"
+                    id="refreshActionButton"
+                >
+
+                    <i class="fa-solid fa-rotate"></i>
+
+                    Refresh
+
+                </button>
+
+            </section>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         BOTTOM NAVIGATION
+    ================================================== -->
+
+    <nav class="bottom-navigation">
+
+        <a href="dashboard.html">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>
+                Dashboard
+            </span>
+
+        </a>
+
+
+        <a href="shipments.html">
+
+            <i class="fa-solid fa-box"></i>
+
+            <span>
+                Shipments
+            </span>
+
+        </a>
+
+
+        <a href="pickup.html">
+
+            <i class="fa-solid fa-truck-pickup"></i>
+
+            <span>
+                Pickup
+            </span>
+
+        </a>
+
+
+        <a href="deliveries.html">
+
+            <i class="fa-solid fa-truck"></i>
+
+            <span>
+                Deliveries
+            </span>
+
+        </a>
+
+
+        <a href="profile.html">
+
+            <i class="fa-solid fa-user"></i>
+
+            <span>
+                Profile
+            </span>
+
+        </a>
+
+    </nav>
+
+</main>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    class="toast hidden"
+    id="toast"
+    role="alert"
+>
+
+    <i
+        class="fa-solid fa-circle-info"
+        id="toastIcon"
+    ></i>
+
+    <span id="toastMessage">
+        —
+    </span>
+
+</div>
+
+
+<!-- =====================================================
+     SUPABASE
+===================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+></script>
+
+
+<script src="../js/supabase-client.js"></script>
+
+
+<!-- EXISTING DRIVER AUTH — DO NOT CHANGE -->
+
+<script src="../js/auth.js"></script>
+
+
+<!-- BOOKING DETAILS -->
+
+<script src="../js/booking-details.js"></script>
+
+
+</body>
+
+</html>
